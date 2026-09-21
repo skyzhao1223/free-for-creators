@@ -139,7 +139,8 @@ kbd {
 .vbtns { display: flex; border: 1px solid var(--border-strong); border-radius: 9px; overflow: hidden; background: var(--card); }
 .vbtn { border: 0; background: transparent; color: var(--muted); cursor: pointer; font-size: 13px; padding: 7.5px 10px; font-family: inherit; line-height: 1; }
 .vbtn.active { background: var(--accent); color: var(--accent-fg); }
-.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; max-height: 130px; opacity: 1; overflow: hidden; transition: max-height .22s ease, opacity .16s ease, margin-top .22s ease; }
+.chips.chips-hidden { max-height: 0; opacity: 0; margin-top: 0; pointer-events: none; }
 .chip {
   display: inline-flex; align-items: center; gap: 6px;
   border: 1px solid var(--border); background: var(--card); color: var(--fg);
@@ -788,6 +789,7 @@ function render() {
     revealed = true;
     observeReveals();
   }
+  syncChipsVisibility();
   writeHash();
 }
 
@@ -874,6 +876,13 @@ function activatePalette(i) {
     window.open(it.e.url, "_blank", "noopener");
   }
 }
+
+/* ---------- chips/bento scroll handoff: never show category tags twice ---------- */
+const syncChipsVisibility = () => {
+  if (!CATS.length) return;
+  const gone = $("bento").getBoundingClientRect().bottom <= 120;
+  $("chips").classList.toggle("chips-hidden", !gone);
+};
 
 /* ---------- events ---------- */
 let searchTimer = null;
@@ -983,6 +992,8 @@ const toTop = $("to-top");
 window.addEventListener("scroll", () => {
   toTop.classList.toggle("show", window.scrollY > 500);
 }, { passive: true });
+window.addEventListener("scroll", syncChipsVisibility, { passive: true });
+window.addEventListener("resize", syncChipsVisibility);
 toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 window.addEventListener("hashchange", () => { readHash(); render(); });
 
