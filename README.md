@@ -12,14 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-156-blue" alt="156 resources">
+  <img src="https://img.shields.io/badge/resources-157-blue" alt="157 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **156 resources across 10 categories**.
+> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **157 resources across 10 categories**.
 
-**At a glance:** 107 entries are 💚 safe for monetized content · 93 need ➖ no attribution · 119 need 🔓 no account · 34 are CC0 / public domain.
+**At a glance:** 108 entries are 💚 safe for monetized content · 94 need ➖ no attribution · 119 need 🔓 no account · 34 are CC0 / public domain.
 
 Every entry answers the three questions that decide whether a “free” asset is actually free for *you*:
 
@@ -52,7 +52,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 - [Stock Photos](#stock-photos) — 23 resources · Free photography, from modern stock to museum-grade public domain archives.
 - [Fonts](#fonts) — 12 resources · Typefaces free for commercial use — for thumbnails, branding, subtitles and print.
 - [Graphics & Icons](#graphics--icons) — 29 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
-- [Video Production](#video-production) — 9 resources · LUTs, color grading assets, transitions and editor templates.
+- [Video Production](#video-production) — 10 resources · LUTs, color grading assets, transitions and editor templates.
 - [Mockups & Design Templates](#mockups--design-templates) — 12 resources · PSD/device mockups, thumbnail and social media templates.
 - [3D & Game Assets](#3d--game-assets) — 19 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
 - [Search Engines](#search-engines) — 6 resources · Meta-search across millions of openly licensed images, audio and media.
@@ -226,6 +226,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Velosofy](https://www.velosofy.com/) | Community library of free video templates (AE, Premiere, Sony Vegas). | Various (per template) | ❓ Varies | ❓ Varies | Optional |
 | [FootageCrate](https://footagecrate.com/) | Free VFX elements, overlays and action footage from ProductionCrew. _Free tier: 5 downloads/day; commercial use allowed within limits._ | FootageCrate Free License | — | ⚠️ Conditional | 🔑 Yes |
 | [MotionElements](https://www.motionelements.com/) | Marketplace with a rotating free section: templates, SFX, video. _Free items rotate weekly; check the license per item._ | MotionElements Free License | — | ❓ Varies | 🔑 Yes |
+| [Envato Free Files](https://elements.envato.com/free-files) | Rotating monthly free assets from Envato Elements: templates, video, audio, fonts. _Each month's free files carry the standard Envato license; check the download page._ | Envato free-file license | — | 💚 Allowed | 🔑 Yes |
 
 ## Mockups & Design Templates
 
