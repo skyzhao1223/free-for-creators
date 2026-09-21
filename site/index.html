@@ -3,116 +3,320 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
 <title>Free for Creators — license-verified free assets for creators</title>
 <meta name="description" content="Interactive directory of free resources for video creators, streamers, podcasters, game devs and designers — filter by license, attribution and monetization. 许可透明的创作者免费素材清单。">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="0.9em" font-size="90">🎁</text></svg>'>
+<script>
+  // set theme before first paint to avoid flashing
+  (function () {
+    try {
+      var saved = localStorage.getItem("ffc-theme");
+      var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.dataset.theme = dark ? "dark" : "light";
+    } catch (e) { document.documentElement.dataset.theme = "light"; }
+  })();
+</script>
 <style>
-:root{--bg:#ffffff;--fg:#1f2328;--muted:#656d76;--card:#f6f8fa;--border:#d0d7de;--accent:#0969da;--ok:#1a7f37;--warn:#9a6700;--bad:#cf222e;}
-@media (prefers-color-scheme:dark){:root{--bg:#0d1117;--fg:#e6edf3;--muted:#8b949e;--card:#161b22;--border:#30363d;--accent:#4493f8;--ok:#3fb950;--warn:#d29922;--bad:#f85149;}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";line-height:1.5}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-header{border-bottom:1px solid var(--border);padding:26px 0 18px;margin-bottom:22px}
-.hd{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start;justify-content:space-between}
-h1{font-size:26px;margin:0}
-h1 .sub{display:block;font-size:14px;font-weight:400;color:var(--muted);margin-top:3px;max-width:640px}
-.nav{display:flex;gap:14px;align-items:center;font-size:14px;padding-top:6px}
-.nav a{color:var(--accent);text-decoration:none}
-.nav a:hover{text-decoration:underline}
-#search{width:100%;padding:11px 14px;font-size:16px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--fg);outline:none}
-#search:focus{border-color:var(--accent)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chip{border:1px solid var(--border);background:var(--card);color:var(--fg);border-radius:999px;padding:5px 13px;font-size:13px;cursor:pointer;font-family:inherit}
-.chip:hover{border-color:var(--accent)}
-.chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
-.chip .n{opacity:.65;font-size:11px;margin-left:5px}
-#lang-btn.chip{padding:4px 12px}
-.toggles{display:flex;flex-wrap:wrap;gap:18px;font-size:13.5px;color:var(--muted);margin:4px 0 6px}
-.toggles label{cursor:pointer;user-select:none}
-.toggles input{vertical-align:-2px;margin-right:4px}
-#status{color:var(--muted);font-size:13px;margin:10px 0 18px}
-section{margin-bottom:8px}
-section h2{font-size:18px;margin:26px 0 2px}
-section .cd{font-size:13px;color:var(--muted);margin-bottom:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
-.card{border:1px solid var(--border);background:var(--card);border-radius:10px;padding:13px 14px;display:flex;flex-direction:column}
-.card a.name{color:var(--fg);font-weight:600;text-decoration:none;font-size:15px}
-.card a.name:hover{color:var(--accent)}
-.card .desc{font-size:13.5px;margin:4px 0 2px}
-.card .note{font-size:12.5px;color:var(--muted);font-style:italic;margin:4px 0 0}
-.badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
-.b{font-size:11.5px;border-radius:999px;padding:2px 8px;border:1px solid var(--border);white-space:nowrap}
-.b-ok{color:var(--ok);border-color:var(--ok)}
-.b-warn{color:var(--warn);border-color:var(--warn)}
-.b-bad{color:var(--bad);border-color:var(--bad)}
-.b-mut{color:var(--muted)}
-.lic{font-size:11.5px;color:var(--muted);margin-top:9px;word-break:break-word}
-footer{border-top:1px solid var(--border);margin-top:40px;padding:20px 0 30px;color:var(--muted);font-size:13px;text-align:center}
-footer a{color:var(--accent)}
-.empty{color:var(--muted);padding:40px 0;text-align:center}
+:root[data-theme="light"] {
+  --bg: #f6f6fb; --fg: #1c1e26; --muted: #676c7c; --card: #ffffff;
+  --border: #e4e6f0; --border-strong: #d3d6e4;
+  --accent: #6d28d9; --accent-fg: #ffffff; --accent-soft: rgba(109,40,217,.09);
+  --ok: #15803d; --warn: #b45309; --bad: #b91c1c;
+  --grad-a: #4c1d95; --grad-b: #1d4ed8; --grad-c: #0891b2;
+  --sticky-bg: rgba(246,246,251,.82);
+  --blob-op: .16; --grid-op: .5;
+  --shadow: 0 10px 30px rgba(30,20,60,.10);
+}
+:root[data-theme="dark"] {
+  --bg: #07070f; --fg: #e8eaf6; --muted: #8b93b5; --card: rgba(255,255,255,.045);
+  --border: rgba(255,255,255,.10); --border-strong: rgba(255,255,255,.18);
+  --accent: #a78bfa; --accent-fg: #14101f; --accent-soft: rgba(167,139,250,.12);
+  --ok: #4ade80; --warn: #fbbf24; --bad: #f87171;
+  --grad-a: #ffffff; --grad-b: #c4b5fd; --grad-c: #7dd3fc;
+  --sticky-bg: rgba(7,7,15,.78);
+  --blob-op: .5; --grid-op: 1;
+  --shadow: 0 14px 40px rgba(0,0,0,.5);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "Noto Sans", "PingFang SC", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.55; -webkit-font-smoothing: antialiased;
+  transition: background .25s, color .25s;
+}
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 22px; }
+a { color: var(--accent); }
+
+/* ---------- ambient background ---------- */
+.bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.blob { position: absolute; border-radius: 50%; filter: blur(100px); opacity: var(--blob-op); transition: opacity .25s; }
+.b1 { width: 560px; height: 560px; left: -160px; top: -220px; background: #7c3aed; }
+.b2 { width: 520px; height: 520px; right: -160px; top: -120px; background: #0ea5e9; }
+.b3 { width: 420px; height: 420px; left: 38%; top: 340px; background: #ec4899; opacity: calc(var(--blob-op) * .55); }
+.bg .grid {
+  position: absolute; inset: 0; opacity: var(--grid-op);
+  background-image: linear-gradient(rgba(127,127,180,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(127,127,180,.05) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(ellipse 100% 70% at 50% 0%, black 20%, transparent 80%);
+  mask-image: radial-gradient(ellipse 100% 70% at 50% 0%, black 20%, transparent 80%);
+}
+
+/* ---------- hero ---------- */
+.hero { padding: 44px 0 30px; text-align: center; }
+.hero-top { display: flex; justify-content: flex-end; align-items: center; gap: 10px; margin-bottom: 26px; }
+.hero-top a, .icon-btn {
+  color: var(--muted); text-decoration: none; font-size: 13.5px; font-weight: 500;
+  border: 1px solid var(--border); background: var(--card); border-radius: 999px;
+  padding: 6px 14px; transition: border-color .15s, color .15s;
+  font-family: inherit; cursor: pointer;
+}
+.hero-top a:hover, .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+.icon-btn { padding: 6px 11px; font-size: 14px; line-height: 1; }
+h1 { font-size: clamp(34px, 6.4vw, 58px); font-weight: 800; letter-spacing: -.025em; line-height: 1.08; }
+h1 .gift { display: inline-block; margin-right: 10px; }
+h1 .grad {
+  background: linear-gradient(92deg, var(--grad-a) 10%, var(--grad-b) 55%, var(--grad-c) 95%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.tagline { margin: 14px auto 0; max-width: 720px; color: var(--muted); font-size: clamp(14.5px, 2vw, 17px); }
+.stats { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+.stat {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 12.5px; font-weight: 600; color: var(--muted);
+  border: 1px solid var(--border); background: var(--card);
+  padding: 6px 14px; border-radius: 999px;
+}
+.stat b { color: var(--fg); font-weight: 700; }
+.stat .dot { width: 7px; height: 7px; border-radius: 50%; background: #34d399; box-shadow: 0 0 8px #34d399; }
+
+/* ---------- sticky controls ---------- */
+.controls-wrap {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--sticky-bg);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0 12px;
+}
+.search-box {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--card); border: 1px solid var(--border-strong);
+  border-radius: 13px; padding: 0 14px; transition: border-color .15s, box-shadow .15s;
+}
+.search-box:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.search-box svg { flex: none; width: 17px; height: 17px; fill: none; stroke: var(--muted); stroke-width: 2; }
+#search { flex: 1; border: 0; outline: 0; background: transparent; color: var(--fg); font-size: 15.5px; padding: 12px 0; font-family: inherit; }
+#search::placeholder { color: var(--muted); }
+kbd {
+  flex: none; font-family: inherit; font-size: 11.5px; color: var(--muted);
+  border: 1px solid var(--border-strong); border-bottom-width: 2px; border-radius: 6px;
+  padding: 1px 7px; background: var(--bg);
+}
+.search-box:focus-within kbd { opacity: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; justify-content: center; }
+.chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  border: 1px solid var(--border); background: var(--card); color: var(--fg);
+  border-radius: 999px; padding: 5px 13px; font-size: 13px; font-weight: 600;
+  cursor: pointer; font-family: inherit; transition: border-color .15s, background .15s, transform .1s;
+}
+.chip:hover { border-color: var(--accent); transform: translateY(-1px); }
+.chip i { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.chip .n { opacity: .6; font-size: 11px; font-weight: 500; }
+.chip.active { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+.chip.active .n { opacity: .85; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; justify-content: center; align-items: center; }
+.tgl { position: relative; }
+.tgl input { position: absolute; opacity: 0; pointer-events: none; }
+.tgl span {
+  display: inline-block; border: 1px solid var(--border); background: var(--card);
+  color: var(--muted); border-radius: 999px; padding: 5px 13px;
+  font-size: 12.5px; font-weight: 600; cursor: pointer; user-select: none;
+  transition: all .15s;
+}
+.tgl span:hover { border-color: var(--accent); color: var(--fg); }
+.tgl input:checked + span { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.tgl input:focus-visible + span { box-shadow: 0 0 0 3px var(--accent-soft); }
+#clear {
+  border: 0; background: transparent; color: var(--muted); font-size: 12.5px; font-weight: 600;
+  cursor: pointer; font-family: inherit; padding: 5px 10px; border-radius: 999px; text-decoration: underline; text-underline-offset: 3px;
+}
+#clear:hover { color: var(--bad); }
+
+/* ---------- results ---------- */
+main { padding-bottom: 20px; }
+#status { color: var(--muted); font-size: 13px; margin: 18px 2px 4px; }
+#status b { color: var(--fg); }
+section { margin-top: 26px; }
+section h2 { display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 700; letter-spacing: -.01em; }
+section h2 i { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+section h2 .cnt {
+  font-size: 11.5px; font-weight: 600; color: var(--muted);
+  border: 1px solid var(--border); border-radius: 999px; padding: 1px 9px; background: var(--card);
+}
+section .cd { font-size: 13px; color: var(--muted); margin: 3px 0 14px 20px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 12px; }
+.card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 15px 16px; display: flex; flex-direction: column;
+  transition: transform .16s ease, border-color .16s, box-shadow .16s;
+}
+.card:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: var(--shadow); }
+.card .name-row { display: flex; align-items: center; gap: 9px; }
+.card .name-row i { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.card a.name { color: var(--fg); font-weight: 650; text-decoration: none; font-size: 15px; letter-spacing: -.005em; }
+.card a.name:hover { color: var(--accent); }
+.card .desc { font-size: 13.5px; color: var(--fg); opacity: .88; margin-top: 6px; }
+.card .note { font-size: 12.5px; color: var(--muted); font-style: italic; margin-top: 5px; }
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 11px; }
+.b { font-size: 11.5px; font-weight: 600; border-radius: 999px; padding: 2.5px 9px; white-space: nowrap; border: 1px solid transparent; }
+.b-ok   { color: var(--ok);   background: color-mix(in srgb, var(--ok) 12%, transparent);   border-color: color-mix(in srgb, var(--ok) 30%, transparent); }
+.b-warn { color: var(--warn); background: color-mix(in srgb, var(--warn) 12%, transparent); border-color: color-mix(in srgb, var(--warn) 30%, transparent); }
+.b-bad  { color: var(--bad);  background: color-mix(in srgb, var(--bad) 12%, transparent);  border-color: color-mix(in srgb, var(--bad) 30%, transparent); }
+.b-mut  { color: var(--muted); background: transparent; border-color: var(--border-strong); }
+.lic { font-size: 11.5px; color: var(--muted); margin-top: 11px; padding-top: 10px; border-top: 1px solid var(--border); word-break: break-word; }
+.empty { text-align: center; color: var(--muted); padding: 70px 0 80px; }
+.empty .big { font-size: 44px; display: block; margin-bottom: 10px; }
+
+/* ---------- to-top & footer ---------- */
+#to-top {
+  position: fixed; right: 26px; bottom: 26px; z-index: 60;
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 1px solid var(--border-strong); background: var(--card); color: var(--fg);
+  font-size: 17px; cursor: pointer; box-shadow: var(--shadow);
+  opacity: 0; pointer-events: none; transform: translateY(8px);
+  transition: opacity .2s, transform .2s, border-color .15s;
+}
+#to-top.show { opacity: 1; pointer-events: auto; transform: none; }
+#to-top:hover { border-color: var(--accent); color: var(--accent); }
+footer { border-top: 1px solid var(--border); margin-top: 44px; padding: 26px 0 34px; color: var(--muted); font-size: 13px; text-align: center; }
+footer a { color: var(--accent); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+.loading { text-align: center; color: var(--muted); padding: 60px 0; font-size: 14px; }
+.loading .spin { display: inline-block; animation: sp 1s linear infinite; margin-right: 8px; }
+@keyframes sp { to { transform: rotate(360deg); } }
+
+@media (max-width: 640px) {
+  .hero { padding-top: 26px; }
+  .hero-top { margin-bottom: 18px; }
+  .grid { grid-template-columns: 1fr; }
+  .chips, .filters { justify-content: flex-start; }
+  #to-top { right: 16px; bottom: 16px; }
+}
 </style>
 </head>
 <body>
-<header><div class="wrap hd">
-  <h1>🎁 Free for Creators<span class="sub" id="tagline"></span></h1>
-  <div class="nav">
-    <a href="https://github.com/skyzhao1223/free-for-creators">GitHub</a>
-    <a href="https://github.com/skyzhao1223/free-for-creators#readme" id="readme-link">README</a>
-    <button class="chip" id="lang-btn" type="button">中文</button>
+<div class="bg" aria-hidden="true">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="grid"></div>
+</div>
+
+<header class="hero wrap">
+  <div class="hero-top">
+    <a href="https://github.com/skyzhao1223/free-for-creators" target="_blank" rel="noopener">GitHub ↗</a>
+    <a href="https://github.com/skyzhao1223/free-for-creators#readme" target="_blank" rel="noopener" id="readme-link">README</a>
+    <button class="icon-btn" id="lang-btn" type="button" aria-label="Switch language">中文</button>
+    <button class="icon-btn" id="theme-btn" type="button" aria-label="Toggle theme">🌙</button>
   </div>
-</div></header>
+  <h1><span class="gift">🎁</span><span class="grad">Free for Creators</span></h1>
+  <p class="tagline" id="tagline"></p>
+  <div class="stats" id="stats"></div>
+</header>
+
+<div class="controls-wrap">
+  <div class="controls wrap">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+      <input id="search" type="search" autocomplete="off" spellcheck="false" aria-label="Search resources">
+      <kbd>/</kbd>
+    </div>
+    <div class="chips" id="chips" role="tablist" aria-label="Categories"></div>
+    <div class="filters">
+      <label class="tgl"><input type="checkbox" id="f-monetization"><span data-i18n="f_mon"></span></label>
+      <label class="tgl"><input type="checkbox" id="f-attribution"><span data-i18n="f_attr"></span></label>
+      <label class="tgl"><input type="checkbox" id="f-signup"><span data-i18n="f_signup"></span></label>
+      <button id="clear" type="button" hidden></button>
+    </div>
+  </div>
+</div>
+
 <main class="wrap">
-  <input id="search" type="search" autocomplete="off" spellcheck="false">
-  <div class="chips" id="chips"></div>
-  <div class="toggles">
-    <label><input type="checkbox" id="f-monetization"> <span data-i18n="f_mon"></span></label>
-    <label><input type="checkbox" id="f-attribution"> <span data-i18n="f_attr"></span></label>
-    <label><input type="checkbox" id="f-signup"> <span data-i18n="f_signup"></span></label>
-  </div>
   <p id="status"></p>
-  <div id="results"></div>
+  <div id="results"><div class="loading"><span class="spin">🎁</span><span id="loading-text"></span></div></div>
 </main>
+
+<button id="to-top" type="button" aria-label="Back to top">↑</button>
+
 <footer><div class="wrap" id="footer-text"></div></footer>
+
 <script>
 "use strict";
 const REPO = "skyzhao1223/free-for-creators";
 
+const CAT_COLORS = {
+  "music": "#e74c8b", "sound-effects": "#f59e0b", "stock-footage": "#8b5cf6",
+  "stock-photos": "#3b82f6", "fonts": "#10b981", "graphics-icons": "#14b8a6",
+  "video-production": "#ef4444", "mockups-templates": "#eab308",
+  "3d-assets": "#6366f1", "search-engines": "#64748b"
+};
+const DOT_FALLBACK = "#8b93b5";
+
 const I18N = {
   en: {
-    tagline: "License-verified free assets for creators — music, footage, photos, fonts, icons, LUTs, mockups and 3D. Filter by license, attribution and monetization.",
+    tagline: "License-verified free assets for video creators, streamers, podcasters and game devs. Filter by license, attribution and monetization — know exactly what you can use before you publish.",
+    stat_total: (n) => "<b>" + n + "</b>&nbsp;resources",
+    stat_cats: (n) => "<b>" + n + "</b>&nbsp;categories",
+    stat_ci: '<span class="dot"></span> links verified weekly by CI',
     search_ph: "Search resources, licenses, notes…",
     all: "All",
     f_mon: "💚 Commercial use OK",
     f_attr: "➖ No attribution required",
     f_signup: "🔓 No signup required",
-    showing: (n, t) => "Showing " + n + " of " + t + " resources",
-    empty: "No resources match your filters.",
+    clear: "Clear filters",
+    showing: (n, t) => "Showing <b>" + n + "</b> of " + t + " resources",
+    empty: "Nothing matches those filters.",
+    empty_hint: "Try clearing a filter or two.",
+    empty_btn: "Clear all filters",
+    loading: "Loading directory…",
     loaderr: "Failed to load data: ",
-    footer: 'Data: <a href="https://github.com/' + REPO + '/tree/main/data">data/*.json</a> · Content released under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> · Licenses change — always verify on the source site. Not legal advice.',
+    footer: 'Built with plain HTML/CSS/JS · Data: <a href="https://github.com/' + REPO + '/tree/main/data">data/*.json</a> · Content <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> · Licenses change — always verify on the source site. Not legal advice.',
     lang_btn: "中文",
     mon: { allowed: "💚 Commercial OK", conditional: "⚠️ Conditional", varies: "❓ Varies", "not-allowed": "🚫 No commercial use" },
     attr: { required: "✅ Credit required", "not-required": "➖ No credit", varies: "❓ Credit varies" },
     signup: { required: "🔑 Signup" }
   },
   zh: {
-    tagline: "许可透明的创作者免费素材清单——音乐、视频、图片、字体、图标、LUT、样机与 3D。按许可、署名、商用条件筛选。",
+    tagline: "许可透明的创作者免费素材目录：音乐、音效、视频、图片、字体、图标、LUT、样机与 3D。按许可、署名、商用条件筛选——发布前就知道能不能用。",
+    stat_total: (n) => "<b>" + n + "</b>&nbsp;个资源",
+    stat_cats: (n) => "<b>" + n + "</b>&nbsp;大分类",
+    stat_ci: '<span class="dot"></span> CI 每周自动核验链接',
     search_ph: "搜索资源、许可证、备注…",
     all: "全部",
     f_mon: "💚 可商用",
     f_attr: "➖ 无需署名",
     f_signup: "🔓 无需注册",
-    showing: (n, t) => "显示 " + t + " 个资源中的 " + n + " 个",
+    clear: "清除筛选",
+    showing: (n, t) => "显示 " + t + " 个资源中的 <b>" + n + "</b> 个",
     empty: "没有符合筛选条件的资源。",
+    empty_hint: "试着减少一两个筛选条件。",
+    empty_btn: "清除全部筛选",
+    loading: "正在加载目录…",
     loaderr: "数据加载失败：",
-    footer: '数据源：<a href="https://github.com/' + REPO + '/tree/main/data">data/*.json</a> · 内容以 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> 发布 · 许可条款会变——发布前请到源站核对。本站不构成法律建议。',
-    lang_btn: "English",
+    footer: '纯 HTML/CSS/JS 构建 · 数据源：<a href="https://github.com/' + REPO + '/tree/main/data">data/*.json</a> · 内容以 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> 发布 · 许可条款会变——发布前请到源站核对。本站不构成法律建议。',
+    lang_btn: "EN",
     mon: { allowed: "💚 可商用", conditional: "⚠️ 有条件", varies: "❓ 逐项而定", "not-allowed": "🚫 禁止商用" },
     attr: { required: "✅ 需署名", "not-required": "➖ 免署名", varies: "❓ 署名不定" },
     signup: { required: "🔑 需注册" }
   }
 };
 
-let LANG = (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
+let LANG = "en";
+try {
+  const savedLang = localStorage.getItem("ffc-lang");
+  LANG = savedLang || ((navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en");
+} catch (e) {}
+
 let CATS = [];
 let activeSlug = null;
 let q = "";
@@ -120,6 +324,7 @@ const state = { monetization: false, attribution: false, signup: false };
 
 const $ = (id) => document.getElementById(id);
 const t = (key) => I18N[LANG][key];
+const catColor = (slug) => CAT_COLORS[slug] || DOT_FALLBACK;
 const catName = (c) => (LANG === "zh" ? (c.category_zh || c.category) : c.category);
 const catDesc = (c) => (LANG === "zh" ? (c.description_zh || c.description) : c.description);
 const entryDesc = (e) => (LANG === "zh" && e.description_zh ? e.description_zh : e.description);
@@ -129,6 +334,33 @@ const entryNotes = (e) => {
 };
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
+/* ---------- shareable hash state ---------- */
+function writeHash() {
+  const p = [];
+  if (q) p.push("q=" + encodeURIComponent(q));
+  if (activeSlug) p.push("cat=" + encodeURIComponent(activeSlug));
+  if (state.monetization) p.push("mon=1");
+  if (state.attribution) p.push("attr=1");
+  if (state.signup) p.push("signup=1");
+  const hash = p.length ? "#" + p.join("&") : "";
+  history.replaceState(null, "", location.pathname + location.search + hash);
+}
+function readHash() {
+  const h = location.hash.replace(/^#/, "");
+  if (!h) return;
+  h.split("&").forEach((kv) => {
+    const i = kv.indexOf("=");
+    if (i === -1) return;
+    const k = kv.slice(0, i), v = decodeURIComponent(kv.slice(i + 1));
+    if (k === "q") { q = v.toLowerCase(); $("search").value = v; }
+    else if (k === "cat") activeSlug = v;
+    else if (k === "mon") { state.monetization = v === "1"; $("f-monetization").checked = state.monetization; }
+    else if (k === "attr") { state.attribution = v === "1"; $("f-attribution").checked = state.attribution; }
+    else if (k === "signup") { state.signup = v === "1"; $("f-signup").checked = state.signup; }
+  });
+}
+
+/* ---------- filtering & rendering ---------- */
 function matches(e) {
   if (state.monetization && e.monetization !== "allowed") return false;
   if (state.attribution && e.attribution !== "not-required") return false;
@@ -139,7 +371,7 @@ function matches(e) {
   }
   return true;
 }
-
+const anyFilter = () => q !== "" || activeSlug !== null || state.monetization || state.attribution || state.signup;
 const monClass = (v) => (v === "allowed" ? "b-ok" : v === "conditional" ? "b-warn" : v === "not-allowed" ? "b-bad" : "b-mut");
 const attrClass = (v) => (v === "required" ? "b-warn" : v === "not-required" ? "b-ok" : "b-mut");
 
@@ -149,15 +381,33 @@ function render() {
   $("tagline").textContent = t("tagline");
   $("search").placeholder = t("search_ph");
   $("lang-btn").textContent = t("lang_btn");
+  $("clear").textContent = t("clear");
   document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
   $("footer-text").innerHTML = t("footer");
+  $("theme-btn").textContent = document.documentElement.dataset.theme === "dark" ? "🌙" : "☀️";
+
+  if (!CATS.length) {
+    $("stats").innerHTML = "";
+    $("chips").innerHTML = "";
+    $("status").innerHTML = "";
+    $("results").innerHTML = '<div class="loading"><span class="spin">🎁</span>' + t("loading") + "</div>";
+    writeHash();
+    return;
+  }
 
   const total = CATS.reduce((n, c) => n + c.entries.length, 0);
-  let chips = '<button class="chip ' + (activeSlug === null ? "active" : "") + '" data-slug="" type="button">' + t("all") + '<span class="n">' + total + "</span></button>";
+  $("stats").innerHTML =
+    '<span class="stat">' + t("stat_total")(total) + "</span>" +
+    '<span class="stat">' + t("stat_cats")(CATS.length) + "</span>" +
+    '<span class="stat">' + t("stat_ci") + "</span>";
+
+  let chips = '<button class="chip ' + (activeSlug === null ? "active" : "") + '" data-slug="" type="button" role="tab">' + t("all") + '<span class="n">' + total + "</span></button>";
   for (const c of CATS) {
-    chips += '<button class="chip ' + (activeSlug === c.slug ? "active" : "") + '" data-slug="' + c.slug + '" type="button">' + esc(catName(c)) + '<span class="n">' + c.entries.length + "</span></button>";
+    chips += '<button class="chip ' + (activeSlug === c.slug ? "active" : "") + '" data-slug="' + c.slug + '" type="button" role="tab">' +
+      '<i style="background:' + catColor(c.slug) + '"></i>' + esc(catName(c)) + '<span class="n">' + c.entries.length + "</span></button>";
   }
   $("chips").innerHTML = chips;
+  $("clear").hidden = !anyFilter();
 
   let shown = 0, html = "";
   for (const c of CATS) {
@@ -165,23 +415,39 @@ function render() {
     const list = c.entries.filter(matches);
     if (!list.length) continue;
     shown += list.length;
-    html += "<section><h2>" + esc(catName(c)) + '</h2><div class="cd">' + esc(catDesc(c)) + '</div><div class="grid">';
+    html += "<section><h2><i style=\"background:" + catColor(c.slug) + '"></i>' + esc(catName(c)) + '<span class="cnt">' + list.length + "</span></h2>" +
+      '<div class="cd">' + esc(catDesc(c)) + '</div><div class="grid">';
     for (const e of list) {
       const note = entryNotes(e);
-      html += '<div class="card"><a class="name" href="' + esc(e.url) + '" target="_blank" rel="noopener">' + esc(e.name) + "</a>"
-        + '<div class="desc">' + esc(entryDesc(e)) + "</div>"
-        + (note ? '<div class="note">' + esc(note) + "</div>" : "")
-        + '<div class="badges"><span class="b ' + monClass(e.monetization) + '">' + t("mon")[e.monetization] + "</span>"
-        + '<span class="b ' + attrClass(e.attribution) + '">' + t("attr")[e.attribution] + "</span>"
-        + (e.signup === "required" ? '<span class="b b-mut">' + t("signup").required + "</span>" : "")
-        + '</div><div class="lic">📄 ' + esc(e.license) + "</div></div>";
+      html += '<div class="card"><div class="name-row"><i style="background:' + catColor(c.slug) + '"></i>' +
+        '<a class="name" href="' + esc(e.url) + '" target="_blank" rel="noopener">' + esc(e.name) + "</a></div>" +
+        '<div class="desc">' + esc(entryDesc(e)) + "</div>" +
+        (note ? '<div class="note">' + esc(note) + "</div>" : "") +
+        '<div class="badges"><span class="b ' + monClass(e.monetization) + '">' + t("mon")[e.monetization] + "</span>" +
+        '<span class="b ' + attrClass(e.attribution) + '">' + t("attr")[e.attribution] + "</span>" +
+        (e.signup === "required" ? '<span class="b b-mut">' + t("signup").required + "</span>" : "") +
+        '</div><div class="lic">📄 ' + esc(e.license) + "</div></div>";
     }
     html += "</div></section>";
   }
-  $("results").innerHTML = html || '<div class="empty">' + t("empty") + "</div>";
-  $("status").textContent = t("showing")(shown, total);
+  $("results").innerHTML = html ||
+    '<div class="empty"><span class="big">🤷</span>' + t("empty") + "<br><small>" + t("empty_hint") + "</small><br><br>" +
+    '<button class="chip" id="empty-clear" type="button">' + t("empty_btn") + "</button></div>";
+  $("status").innerHTML = CATS.length ? t("showing")(shown, total) : "";
+  const ec = $("empty-clear");
+  if (ec) ec.addEventListener("click", clearAll);
+  writeHash();
 }
 
+function clearAll() {
+  q = ""; $("search").value = "";
+  activeSlug = null;
+  state.monetization = state.attribution = state.signup = false;
+  $("f-monetization").checked = $("f-attribution").checked = $("f-signup").checked = false;
+  render();
+}
+
+/* ---------- events ---------- */
 $("search").addEventListener("input", (e) => { q = e.target.value.trim().toLowerCase(); render(); });
 $("chips").addEventListener("click", (e) => {
   const b = e.target.closest(".chip");
@@ -192,13 +458,43 @@ $("chips").addEventListener("click", (e) => {
 [["f-monetization", "monetization"], ["f-attribution", "attribution"], ["f-signup", "signup"]].forEach(([id, key]) => {
   $(id).addEventListener("change", (e) => { state[key] = e.target.checked; render(); });
 });
-$("lang-btn").addEventListener("click", () => { LANG = LANG === "en" ? "zh" : "en"; render(); });
+$("lang-btn").addEventListener("click", () => {
+  LANG = LANG === "en" ? "zh" : "en";
+  try { localStorage.setItem("ffc-lang", LANG); } catch (e) {}
+  render();
+});
+$("theme-btn").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  try { localStorage.setItem("ffc-theme", next); } catch (e) {}
+  render();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "/" && document.activeElement !== $("search") && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) {
+    e.preventDefault();
+    $("search").focus();
+  } else if (e.key === "Escape" && document.activeElement === $("search")) {
+    $("search").blur();
+  }
+});
+const toTop = $("to-top");
+window.addEventListener("scroll", () => {
+  toTop.classList.toggle("show", window.scrollY > 500);
+}, { passive: true });
+toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+window.addEventListener("hashchange", () => { readHash(); render(); });
 
+/* ---------- boot ---------- */
+readHash();
+render(); // render chrome immediately (0 categories until data lands)
 fetch("data/manifest.json")
-  .then((r) => r.json())
-  .then((manifest) => Promise.all(manifest.map((m) => fetch("data/" + m.slug + ".json").then((r) => r.json()))))
+  .then((r) => { if (!r.ok) throw new Error("manifest " + r.status); return r.json(); })
+  .then((manifest) => Promise.all(manifest.map((m) => fetch("data/" + m.slug + ".json").then((r) => { if (!r.ok) throw new Error(m.slug + " " + r.status); return r.json(); }))))
   .then((cats) => { CATS = cats; render(); })
-  .catch((err) => { $("results").innerHTML = '<div class="empty">' + t("loaderr") + esc(err) + "</div>"; });
+  .catch((err) => {
+    $("results").innerHTML = '<div class="empty"><span class="big">⚠️</span>' + t("loaderr") + esc(err) + "</div>";
+    $("status").textContent = "";
+  });
 </script>
 </body>
 </html>
