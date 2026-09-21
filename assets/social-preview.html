@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1280px; height: 640px; overflow: hidden; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", "PingFang SC", sans-serif;
+    background: #07070f;
+    color: #fff;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- background ---------- */
+  .blob { position: absolute; border-radius: 50%; filter: blur(95px); }
+  .b1 { width: 560px; height: 560px; left: -140px; top: -200px; background: #7c3aed; opacity: .55; }
+  .b2 { width: 520px; height: 520px; right: -120px; bottom: -240px; background: #0ea5e9; opacity: .38; }
+  .b3 { width: 340px; height: 340px; left: 44%; top: 52%; background: #ec4899; opacity: .22; }
+  .grid-overlay {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(ellipse 90% 80% at 32% 38%, black 25%, transparent 78%);
+    mask-image: radial-gradient(ellipse 90% 80% at 32% 38%, black 25%, transparent 78%);
+  }
+  .vignette { position: absolute; inset: 0; background: radial-gradient(ellipse 120% 110% at 50% 45%, transparent 55%, rgba(3,3,8,.55) 100%); }
+
+  /* ---------- left content ---------- */
+  .content { position: absolute; z-index: 3; left: 72px; top: 54px; width: 660px; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid rgba(255,255,255,.18); border-radius: 999px;
+    background: rgba(255,255,255,.06);
+    padding: 7px 16px; font-size: 12.5px; font-weight: 600;
+    letter-spacing: .14em; color: #c9c3f5; text-transform: uppercase;
+  }
+  .pill .dot { width: 7px; height: 7px; border-radius: 50%; background: #34d399; box-shadow: 0 0 10px #34d399; }
+  h1 { margin-top: 24px; font-size: 60px; font-weight: 800; letter-spacing: -.02em; line-height: 1.05; white-space: nowrap; }
+  h1 .gift { font-size: 50px; margin-right: 8px; letter-spacing: 0; }
+  h1 .grad {
+    background: linear-gradient(92deg, #ffffff 15%, #c4b5fd 55%, #7dd3fc 95%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .sub { margin-top: 20px; font-size: 20px; line-height: 1.55; color: #a7aecb; font-weight: 400; max-width: 620px; }
+  .sub b { color: #e8e6ff; font-weight: 700; }
+
+  .chips { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 9px; max-width: 620px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(255,255,255,.065); border: 1px solid rgba(255,255,255,.13);
+    border-radius: 999px; padding: 6px 13px;
+    font-size: 12.5px; font-weight: 600; letter-spacing: .05em; color: #d6d9ec;
+  }
+  .chip i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+  /* ---------- floating table card ---------- */
+  .table-card {
+    position: absolute; z-index: 4; right: 66px; top: 108px; width: 472px;
+    transform: rotate(2.4deg);
+    background: rgba(20, 22, 38, .72);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 18px;
+    box-shadow: 0 30px 70px rgba(0,0,0,.55), 0 0 0 1px rgba(124,58,237,.12), inset 0 1px 0 rgba(255,255,255,.09);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    overflow: hidden;
+  }
+  .tc-head {
+    display: flex; align-items: center; gap: 8px;
+    padding: 14px 20px 12px; border-bottom: 1px solid rgba(255,255,255,.09);
+  }
+  .tc-head .tl { width: 11px; height: 11px; border-radius: 50%; }
+  .tc-title { margin-left: 6px; font-size: 11.5px; font-weight: 700; letter-spacing: .16em; color: #7f87a8; text-transform: uppercase; }
+  .tc-cols {
+    display: flex; padding: 11px 20px 7px;
+    font-size: 10.5px; font-weight: 700; letter-spacing: .12em; color: #6c7494; text-transform: uppercase;
+  }
+  .tc-row { display: flex; align-items: center; padding: 12.5px 20px; border-top: 1px solid rgba(255,255,255,.065); }
+  .tc-name { flex: 1; display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600; color: #f0f1fa; }
+  .tc-name i { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+  .tc-cell { width: 128px; font-size: 12.5px; font-weight: 500; color: #aab1cd; }
+  .tc-ok { color: #4ade80; }
+  .tc-warn { color: #fbbf24; }
+  .tc-bad { color: #f87171; }
+  .tc-mut { color: #6c7494; }
+  .tc-foot {
+    padding: 12px 20px; border-top: 1px solid rgba(255,255,255,.09);
+    font-size: 12px; color: #8b93b5; display: flex; justify-content: space-between; align-items: center;
+  }
+  .tc-foot b { color: #c4b5fd; font-weight: 700; }
+
+  /* ---------- footer ---------- */
+  .footer {
+    position: absolute; z-index: 3; left: 72px; right: 66px; bottom: 34px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .repo { display: flex; align-items: center; gap: 10px; font-size: 16px; color: #9aa2c4; font-weight: 500; }
+  .repo .gh { width: 22px; height: 22px; fill: #9aa2c4; }
+  .repo b { color: #e8e6ff; font-weight: 600; }
+  .foot-right { display: flex; gap: 10px; align-items: center; }
+  .tag {
+    border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.05);
+    border-radius: 8px; padding: 5px 12px; font-size: 12.5px; font-weight: 600; color: #b9c0dd;
+  }
+</style>
+</head>
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="grid-overlay"></div>
+  <div class="vignette"></div>
+
+  <div class="content">
+    <div class="pill"><span class="dot"></span> CI-verified weekly · CC0 · EN / 中文</div>
+    <h1><span class="gift">🎁</span><span class="grad">Free for Creators</span></h1>
+    <p class="sub"><b>148 license-verified free assets</b> for video creators, streamers, podcasters &amp; game devs — every entry tagged with <b>license</b>, <b>attribution</b> and <b>monetization</b> rules.</p>
+    <div class="chips">
+      <span class="chip"><i style="background:#e74c8b"></i>MUSIC</span>
+      <span class="chip"><i style="background:#f59e0b"></i>SOUND FX</span>
+      <span class="chip"><i style="background:#8b5cf6"></i>FOOTAGE</span>
+      <span class="chip"><i style="background:#3b82f6"></i>PHOTOS</span>
+      <span class="chip"><i style="background:#10b981"></i>FONTS</span>
+      <span class="chip"><i style="background:#14b8a6"></i>ICONS</span>
+      <span class="chip"><i style="background:#ef4444"></i>LUTs</span>
+      <span class="chip"><i style="background:#eab308"></i>MOCKUPS</span>
+      <span class="chip"><i style="background:#6366f1"></i>3D ASSETS</span>
+      <span class="chip"><i style="background:#64748b"></i>SEARCH</span>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="tc-head">
+      <span class="tl" style="background:#f87171"></span>
+      <span class="tl" style="background:#fbbf24"></span>
+      <span class="tl" style="background:#34d399"></span>
+      <span class="tc-title">data/music.json → README</span>
+    </div>
+    <div class="tc-cols">
+      <div style="flex:1">Resource</div>
+      <div style="width:128px">Attribution</div>
+      <div style="width:128px">Monetization</div>
+    </div>
+    <div class="tc-row">
+      <div class="tc-name"><i style="background:#e74c8b"></i>Pixabay Music</div>
+      <div class="tc-cell tc-mut">— not required</div>
+      <div class="tc-cell tc-ok">💚 allowed</div>
+    </div>
+    <div class="tc-row">
+      <div class="tc-name"><i style="background:#8b5cf6"></i>Incompetech</div>
+      <div class="tc-cell tc-warn">✅ required</div>
+      <div class="tc-cell tc-ok">💚 allowed</div>
+    </div>
+    <div class="tc-row">
+      <div class="tc-name"><i style="background:#f59e0b"></i>BBC Sound Effects</div>
+      <div class="tc-cell tc-mut">— not required</div>
+      <div class="tc-cell tc-bad">🚫 not allowed</div>
+    </div>
+    <div class="tc-row">
+      <div class="tc-name"><i style="background:#14b8a6"></i>Uppbeat</div>
+      <div class="tc-cell tc-warn">✅ required</div>
+      <div class="tc-cell tc-ok">💚 allowed</div>
+    </div>
+    <div class="tc-foot"><span>+ <b>144 more</b> resources, dead links auto-caught</span><span>⭐</span></div>
+  </div>
+
+  <div class="footer">
+    <div class="repo">
+      <svg class="gh" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      <span>github.com/<b>skyzhao1223/free-for-creators</b></span>
+    </div>
+    <div class="foot-right">
+      <span class="tag">📖 README · EN / 简体中文</span>
+      <span class="tag">🌐 Interactive directory</span>
+    </div>
+  </div>
+</body>
+</html>

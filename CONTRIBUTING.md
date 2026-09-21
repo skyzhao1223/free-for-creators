@@ -84,6 +84,21 @@ python3 -c "import json,sys; sys.path.insert(0,'scripts'); from build_readme imp
 python3 -m http.server -d site 8000   # open http://localhost:8000
 ```
 
+## Social preview & banner
+
+The hero image (`assets/banner.png`, used in both READMEs) and the GitHub social preview (`assets/social-preview.png`, 1280×640) are rendered from [`assets/social-preview.html`](../assets/social-preview.html). To re-render after design or count changes:
+
+```bash
+cd assets
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu \
+  --hide-scrollbars --force-device-scale-factor=2 --window-size=1280,640 \
+  --screenshot=social-preview@2x.png "file://$PWD/social-preview.html"
+sips -z 640 1280 social-preview@2x.png --out social-preview.png
+cp social-preview@2x.png banner.png
+```
+
+Then re-upload `social-preview.png` under repo **Settings → General → Social preview** (GitHub accepts PNG/JPG/GIF only, max 1 MB).
+
 ## Repository slug
 
 Badges and the Star History chart use the `REPO` constant in `scripts/build_readme.py` (currently `skyzhao1223/free-for-creators`). If the repo is renamed or moved, update `REPO` and `PAGES_URL` in `scripts/build_readme.py`, the `REPO` constant in `site/index.html`, **and** `.github/ISSUE_TEMPLATE/config.yml`, then regenerate the READMEs.
