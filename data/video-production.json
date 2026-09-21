@@ -100,6 +100,18 @@
       "signup": "required",
       "notes": "Free items rotate weekly; check the license per item.",
       "notes_zh": "免费条目每周轮换，逐项核对许可。"
+    },
+    {
+      "name": "Envato Free Files",
+      "url": "https://elements.envato.com/free-files",
+      "description": "Rotating monthly free assets from Envato Elements: templates, video, audio, fonts.",
+      "description_zh": "Envato Elements 每月轮换免费素材：模板、视频、音频、字体。",
+      "license": "Envato free-file license",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "required",
+      "notes": "Each month's free files carry the standard Envato license; check the download page.",
+      "notes_zh": "每月免费文件采用 Envato 标准许可；以下载页为准。"
     }
   ]
 }

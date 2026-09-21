@@ -12,14 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-156-blue" alt="156 resources">
+  <img src="https://img.shields.io/badge/resources-157-blue" alt="157 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、156 个资源**。
+> 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、157 个资源**。
 
-**一眼看数据**：107 条 💚 可直接用于货币化内容 · 93 条 ➖ 无需署名 · 119 条 🔓 无需注册 · 34 条属 CC0 / 公有领域。
+**一眼看数据**：108 条 💚 可直接用于货币化内容 · 94 条 ➖ 无需署名 · 119 条 🔓 无需注册 · 34 条属 CC0 / 公有领域。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -52,7 +52,7 @@
 - [图片素材](#图片素材) — 23 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
 - [字体](#字体) — 12 个资源 · 可免费商用的字体——用于封面图、品牌、字幕与印刷。
 - [图形与图标](#图形与图标) — 29 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
-- [视频制作](#视频制作) — 9 个资源 · LUT、调色资产、转场与剪辑软件模板。
+- [视频制作](#视频制作) — 10 个资源 · LUT、调色资产、转场与剪辑软件模板。
 - [样机与设计模板](#样机与设计模板) — 12 个资源 · PSD/设备样机、封面图与社交媒体模板。
 - [3D 与游戏素材](#3d-与游戏素材) — 19 个资源 · 模型、HDRI、PBR 材质、角色与游戏即用素材包。
 - [聚合搜索](#聚合搜索) — 6 个资源 · 跨数百万开放许可图片、音频与媒体的聚合搜索。
@@ -226,6 +226,7 @@
 | [Velosofy](https://www.velosofy.com/) | 社区免费视频模板库（AE、Premiere、Vegas）。 | Various (per template) | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
 | [FootageCrate](https://footagecrate.com/) | ProductionCrew 出品的免费 VFX 元素、叠加特效与动作素材。 _免费档每日 5 次下载；限额内可商用。_ | FootageCrate Free License | — | ⚠️ 有条件 | 🔑 需注册 |
 | [MotionElements](https://www.motionelements.com/) | 素材市场，每周轮换免费专区：模板、音效、视频。 _免费条目每周轮换，逐项核对许可。_ | MotionElements Free License | — | ❓ 逐项而定 | 🔑 需注册 |
+| [Envato Free Files](https://elements.envato.com/free-files) | Envato Elements 每月轮换免费素材：模板、视频、音频、字体。 _每月免费文件采用 Envato 标准许可；以下载页为准。_ | Envato free-file license | — | 💚 可商用 | 🔑 需注册 |
 
 ## 样机与设计模板
 
