@@ -77,6 +77,7 @@ T = {
         "lang_switch": "<strong>English</strong> | <a href=\"README.zh-CN.md\">\u7b80\u4f53\u4e2d\u6587</a>",
         "title": "# \U0001f381 Free for Creators",
         "tagline": "> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **{total} resources across {ncat} categories**.",
+        "glance": "**At a glance:** {monetizable} entries are 💚 safe for monetized content · {no_attribution} need ➖ no attribution · {no_signup} need 🔓 no account · {open} are CC0 / public domain.",
         "questions_intro": "Every entry answers the three questions that decide whether a \u201cfree\u201d asset is actually free for *you*:",
         "q1": "1. **What is the license?**",
         "q2": "2. **Do I have to credit anyone?** \u2192 the *Attribution* column",
@@ -119,6 +120,7 @@ T = {
         "lang_switch": "<a href=\"README.md\">English</a> | <strong>\u7b80\u4f53\u4e2d\u6587</strong>",
         "title": "# \U0001f381 Free for Creators \u00b7 \u521b\u4f5c\u8005\u514d\u8d39\u7d20\u6750\u6e05\u5355",
         "tagline": "> \u4e00\u4efd**\u8bb8\u53ef\u900f\u660e**\u7684\u514d\u8d39\u7d20\u6750\u76ee\u5f55\uff0c\u4e13\u4e3a\u89c6\u9891\u521b\u4f5c\u8005\u3001\u4e3b\u64ad\u3001\u64ad\u5ba2\u3001\u6e38\u620f\u5f00\u53d1\u8005\u3001\u97f3\u4e50\u4eba\u4e0e\u8bbe\u8ba1\u5e08\u6253\u9020\uff1a**{ncat} \u5927\u5206\u7c7b\u3001{total} \u4e2a\u8d44\u6e90**\u3002",
+        "glance": "**一眼看数据**：{monetizable} 条 💚 可直接用于货币化内容 · {no_attribution} 条 ➖ 无需署名 · {no_signup} 条 🔓 无需注册 · {open} 条属 CC0 / 公有领域。",
         "questions_intro": "\u6bcf\u6761\u8d44\u6e90\u90fd\u56de\u7b54\u4e86\u51b3\u5b9a\u300c\u514d\u8d39\u300d\u7d20\u6750\u80fd\u5426\u653e\u5fc3\u7528\u7684\u4e09\u4e2a\u95ee\u9898\uff1a",
         "q1": "1. **\u8bb8\u53ef\u534f\u8bae\u662f\u4ec0\u4e48\uff1f**",
         "q2": "2. **\u662f\u5426\u9700\u8981\u7f72\u540d\uff1f** \u2192 \u770b\u300c\u7f72\u540d\u300d\u5217",
@@ -249,6 +251,17 @@ def load_categories():
     return categories
 
 
+def compute_stats(categories):
+    """Aggregate counts for the 'At a glance' README line."""
+    entries = [e for c in categories for e in c["entries"]]
+    return {
+        "monetizable": sum(1 for e in entries if e["monetization"] == "allowed"),
+        "no_attribution": sum(1 for e in entries if e["attribution"] == "not-required"),
+        "no_signup": sum(1 for e in entries if e.get("signup") == "not-required"),
+        "open": sum(1 for e in entries if re.search(r"cc0|public domain", e.get("license", ""), re.IGNORECASE)),
+    }
+
+
 def slugify(heading):
     """GitHub-style anchor slug for a heading.
 
@@ -324,6 +337,8 @@ def render(categories, lang):
     a("</p>")
     a("")
     a(t["tagline"].format(total=total, ncat=len(categories)))
+    a("")
+    a(t["glance"].format(**compute_stats(categories)))
     a("")
     a(t["questions_intro"])
     a("")

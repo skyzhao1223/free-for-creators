@@ -104,6 +104,38 @@
       "signup": "not-required",
       "notes": "Free for commercial use; no redistribution.",
       "notes_zh": "可免费商用；不得二次分发。"
+    },
+    {
+      "name": "HTML5 UP",
+      "url": "https://html5up.net/",
+      "description": "Sleek, fully responsive HTML5 site templates by AJ.",
+      "description_zh": "AJ 制作的精美全响应式 HTML5 网站模板。",
+      "license": "CC BY 3.0",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Start Bootstrap",
+      "url": "https://startbootstrap.com/",
+      "description": "Free MIT-licensed Bootstrap themes, templates and snippets.",
+      "description_zh": "MIT 许可的免费 Bootstrap 主题、模板与代码片段。",
+      "license": "MIT",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "SlidesCarnival",
+      "url": "https://www.slidescarnival.com/",
+      "description": "Free presentation templates for PowerPoint and Google Slides.",
+      "description_zh": "免费的 PowerPoint / Google Slides 演示模板。",
+      "license": "Various (per template)",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "not-required",
+      "notes": "Most templates are free for commercial use; check each template's license note.",
+      "notes_zh": "多数模板可免费商用；以每个模板的许可说明为准。"
     }
   ]
 }

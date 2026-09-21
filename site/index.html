@@ -6,6 +6,12 @@
 <meta name="color-scheme" content="light dark">
 <title>Free for Creators — license-verified free assets for creators</title>
 <meta name="description" content="Interactive directory of free resources for video creators, streamers, podcasters, game devs and designers — filter by license, attribution and monetization. 许可透明的创作者免费素材清单。">
+<meta property="og:title" content="Free for Creators — license-verified free assets">
+<meta property="og:description" content="Interactive directory of 150+ free resources for creators — filter by license, attribution and monetization. 许可透明的创作者免费素材清单。">
+<meta property="og:image" content="https://raw.githubusercontent.com/skyzhao1223/free-for-creators/main/assets/social-preview.png">
+<meta property="og:url" content="https://skyzhao1223.github.io/free-for-creators/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="0.9em" font-size="90">🎁</text></svg>'>
 <script>
   // set theme before first paint to avoid flashing
@@ -165,6 +171,9 @@ section .cd { font-size: 13px; color: var(--muted); margin: 3px 0 14px 20px; }
 .card:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: var(--shadow); }
 .card .name-row { display: flex; align-items: center; gap: 9px; }
 .card .name-row i { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.fav { margin-left: auto; border: 0; background: transparent; cursor: pointer; font-size: 17px; line-height: 1; color: var(--muted); padding: 2px 4px; border-radius: 6px; transition: transform .12s, color .12s; }
+.fav:hover { transform: scale(1.25); color: #f59e0b; }
+.fav.on { color: #f59e0b; }
 .card a.name { color: var(--fg); font-weight: 650; text-decoration: none; font-size: 15px; letter-spacing: -.005em; }
 .card a.name:hover { color: var(--accent); }
 .card .desc { font-size: 13.5px; color: var(--fg); opacity: .88; margin-top: 6px; }
@@ -280,8 +289,11 @@ const I18N = {
     empty_btn: "Clear all filters",
     loading: "Loading directory…",
     loaderr: "Failed to load data: ",
-    footer: 'Built with plain HTML/CSS/JS · Data: <a href="https://github.com/' + REPO + '/tree/main/data">data/*.json</a> · Content <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> · Licenses change — always verify on the source site. Not legal advice.',
+    footer: 'Built with plain HTML/CSS/JS · Data: <a href="https://github.com/' + REPO + '/tree/main/data">data/*.json</a> (<a href="data/all.json">all.json</a>) · Content <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> · Licenses change — always verify on the source site. Not legal advice.',
     lang_btn: "中文",
+    fav_chip: "Favorites",
+    fav_on: "Remove from favorites",
+    fav_off: "Add to favorites",
     mon: { allowed: "💚 Commercial OK", conditional: "⚠️ Conditional", varies: "❓ Varies", "not-allowed": "🚫 No commercial use" },
     attr: { required: "✅ Credit required", "not-required": "➖ No credit", varies: "❓ Credit varies" },
     signup: { required: "🔑 Signup" }
@@ -303,8 +315,11 @@ const I18N = {
     empty_btn: "清除全部筛选",
     loading: "正在加载目录…",
     loaderr: "数据加载失败：",
-    footer: '纯 HTML/CSS/JS 构建 · 数据源：<a href="https://github.com/' + REPO + '/tree/main/data">data/*.json</a> · 内容以 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> 发布 · 许可条款会变——发布前请到源站核对。本站不构成法律建议。',
+    footer: '纯 HTML/CSS/JS 构建 · 数据源：<a href="https://github.com/' + REPO + '/tree/main/data">data/*.json</a>（<a href="data/all.json">all.json</a>）· 内容以 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> 发布 · 许可条款会变——发布前请到源站核对。本站不构成法律建议。',
     lang_btn: "EN",
+    fav_chip: "收藏",
+    fav_on: "取消收藏",
+    fav_off: "收藏",
     mon: { allowed: "💚 可商用", conditional: "⚠️ 有条件", varies: "❓ 逐项而定", "not-allowed": "🚫 禁止商用" },
     attr: { required: "✅ 需署名", "not-required": "➖ 免署名", varies: "❓ 署名不定" },
     signup: { required: "🔑 需注册" }
@@ -320,7 +335,11 @@ try {
 let CATS = [];
 let activeSlug = null;
 let q = "";
+let favOnly = false;
 const state = { monetization: false, attribution: false, signup: false };
+let FAVS = new Set();
+try { FAVS = new Set(JSON.parse(localStorage.getItem("ffc-favs") || "[]")); } catch (e) {}
+const saveFavs = () => { try { localStorage.setItem("ffc-favs", JSON.stringify([...FAVS])); } catch (e) {} };
 
 const $ = (id) => document.getElementById(id);
 const t = (key) => I18N[LANG][key];
@@ -342,6 +361,7 @@ function writeHash() {
   if (state.monetization) p.push("mon=1");
   if (state.attribution) p.push("attr=1");
   if (state.signup) p.push("signup=1");
+  if (favOnly) p.push("fav=1");
   const hash = p.length ? "#" + p.join("&") : "";
   history.replaceState(null, "", location.pathname + location.search + hash);
 }
@@ -357,11 +377,13 @@ function readHash() {
     else if (k === "mon") { state.monetization = v === "1"; $("f-monetization").checked = state.monetization; }
     else if (k === "attr") { state.attribution = v === "1"; $("f-attribution").checked = state.attribution; }
     else if (k === "signup") { state.signup = v === "1"; $("f-signup").checked = state.signup; }
+    else if (k === "fav") favOnly = v === "1";
   });
 }
 
 /* ---------- filtering & rendering ---------- */
 function matches(e) {
+  if (favOnly && !FAVS.has(e.url)) return false;
   if (state.monetization && e.monetization !== "allowed") return false;
   if (state.attribution && e.attribution !== "not-required") return false;
   if (state.signup && e.signup !== "not-required") return false;
@@ -371,7 +393,7 @@ function matches(e) {
   }
   return true;
 }
-const anyFilter = () => q !== "" || activeSlug !== null || state.monetization || state.attribution || state.signup;
+const anyFilter = () => q !== "" || activeSlug !== null || favOnly || state.monetization || state.attribution || state.signup;
 const monClass = (v) => (v === "allowed" ? "b-ok" : v === "conditional" ? "b-warn" : v === "not-allowed" ? "b-bad" : "b-mut");
 const attrClass = (v) => (v === "required" ? "b-warn" : v === "not-required" ? "b-ok" : "b-mut");
 
@@ -401,7 +423,8 @@ function render() {
     '<span class="stat">' + t("stat_cats")(CATS.length) + "</span>" +
     '<span class="stat">' + t("stat_ci") + "</span>";
 
-  let chips = '<button class="chip ' + (activeSlug === null ? "active" : "") + '" data-slug="" type="button" role="tab">' + t("all") + '<span class="n">' + total + "</span></button>";
+  let chips = '<button class="chip ' + (favOnly ? "active" : "") + '" data-fav="1" type="button" role="tab">⭐ ' + t("fav_chip") + '<span class="n">' + FAVS.size + "</span></button>";
+  chips += '<button class="chip ' + (activeSlug === null && !favOnly ? "active" : "") + '" data-slug="" type="button" role="tab">' + t("all") + '<span class="n">' + total + "</span></button>";
   for (const c of CATS) {
     chips += '<button class="chip ' + (activeSlug === c.slug ? "active" : "") + '" data-slug="' + c.slug + '" type="button" role="tab">' +
       '<i style="background:' + catColor(c.slug) + '"></i>' + esc(catName(c)) + '<span class="n">' + c.entries.length + "</span></button>";
@@ -419,8 +442,10 @@ function render() {
       '<div class="cd">' + esc(catDesc(c)) + '</div><div class="grid">';
     for (const e of list) {
       const note = entryNotes(e);
+      const isFav = FAVS.has(e.url);
       html += '<div class="card"><div class="name-row"><i style="background:' + catColor(c.slug) + '"></i>' +
-        '<a class="name" href="' + esc(e.url) + '" target="_blank" rel="noopener">' + esc(e.name) + "</a></div>" +
+        '<a class="name" href="' + esc(e.url) + '" target="_blank" rel="noopener">' + esc(e.name) + "</a>" +
+        '<button class="fav' + (isFav ? " on" : "") + '" data-url="' + esc(e.url) + '" type="button" aria-pressed="' + isFav + '" title="' + t(isFav ? "fav_on" : "fav_off") + '">' + (isFav ? "★" : "☆") + "</button></div>" +
         '<div class="desc">' + esc(entryDesc(e)) + "</div>" +
         (note ? '<div class="note">' + esc(note) + "</div>" : "") +
         '<div class="badges"><span class="b ' + monClass(e.monetization) + '">' + t("mon")[e.monetization] + "</span>" +
@@ -442,6 +467,7 @@ function render() {
 function clearAll() {
   q = ""; $("search").value = "";
   activeSlug = null;
+  favOnly = false;
   state.monetization = state.attribution = state.signup = false;
   $("f-monetization").checked = $("f-attribution").checked = $("f-signup").checked = false;
   render();
@@ -452,11 +478,20 @@ $("search").addEventListener("input", (e) => { q = e.target.value.trim().toLower
 $("chips").addEventListener("click", (e) => {
   const b = e.target.closest(".chip");
   if (!b) return;
+  if (b.dataset.fav) { favOnly = !favOnly; render(); return; }
   activeSlug = b.dataset.slug || null;
   render();
 });
 [["f-monetization", "monetization"], ["f-attribution", "attribution"], ["f-signup", "signup"]].forEach(([id, key]) => {
   $(id).addEventListener("change", (e) => { state[key] = e.target.checked; render(); });
+});
+$("results").addEventListener("click", (e) => {
+  const b = e.target.closest(".fav");
+  if (!b) return;
+  const url = b.dataset.url;
+  if (FAVS.has(url)) FAVS.delete(url); else FAVS.add(url);
+  saveFavs();
+  render();
 });
 $("lang-btn").addEventListener("click", () => {
   LANG = LANG === "en" ? "zh" : "en";

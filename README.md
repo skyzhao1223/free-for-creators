@@ -12,12 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-148-blue" alt="148 resources">
+  <img src="https://img.shields.io/badge/resources-156-blue" alt="156 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **148 resources across 10 categories**.
+> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **156 resources across 10 categories**.
+
+**At a glance:** 107 entries are 💚 safe for monetized content · 93 need ➖ no attribution · 119 need 🔓 no account · 34 are CC0 / public domain.
 
 Every entry answers the three questions that decide whether a “free” asset is actually free for *you*:
 
@@ -44,15 +46,15 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 
 ## Table of Contents
 
-- [Music](#music) — 17 resources · Royalty-free and copyright-safe music for videos, streams, podcasts and games.
+- [Music](#music) — 18 resources · Royalty-free and copyright-safe music for videos, streams, podcasts and games.
 - [Sound Effects](#sound-effects) — 11 resources · Free SFX libraries, packs and ambience for video, games, podcasts and streams.
 - [Stock Footage](#stock-footage) — 17 resources · Free video clips and B-roll, including 4K, archival and public domain footage.
-- [Stock Photos](#stock-photos) — 21 resources · Free photography, from modern stock to museum-grade public domain archives.
+- [Stock Photos](#stock-photos) — 23 resources · Free photography, from modern stock to museum-grade public domain archives.
 - [Fonts](#fonts) — 12 resources · Typefaces free for commercial use — for thumbnails, branding, subtitles and print.
-- [Graphics & Icons](#graphics--icons) — 28 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
+- [Graphics & Icons](#graphics--icons) — 29 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
 - [Video Production](#video-production) — 9 resources · LUTs, color grading assets, transitions and editor templates.
-- [Mockups & Design Templates](#mockups--design-templates) — 9 resources · PSD/device mockups, thumbnail and social media templates.
-- [3D & Game Assets](#3d--game-assets) — 18 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
+- [Mockups & Design Templates](#mockups--design-templates) — 12 resources · PSD/device mockups, thumbnail and social media templates.
+- [3D & Game Assets](#3d--game-assets) — 19 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
 - [Search Engines](#search-engines) — 6 resources · Meta-search across millions of openly licensed images, audio and media.
 - [Related Lists](#related-lists)
 - [Contributing](#contributing)
@@ -80,6 +82,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Pretzel Rocks](https://www.pretzel.rocks/) | DMCA-safe music player for streamers with a free tier. _Free tier requires on-stream attribution; paid tier removes it._ | Pretzel Free License | ✅ Required | 💚 Allowed | 🔑 Yes |
 | [Purple Planet](https://www.purple-planet.com/) | Mood-based free tracks for small creators and non-broadcast use. _Free for YouTube and online video with credit; other uses need a paid license._ | Purple Planet Free License | ✅ Required | ⚠️ Conditional | — |
 | [Chosic](https://www.chosic.com/free-music/all/) | Aggregator of free and CC music with handy license filters. | Various (per track) | ❓ Varies | ❓ Varies | — |
+| [Thematic](https://hellothematic.com/) | Free songs for creators in exchange for a simple credit link. _Each track used needs its credit link in your description._ | Thematic License | ✅ Required | 💚 Allowed | 🔑 Yes |
 
 ## Sound Effects
 
@@ -150,6 +153,8 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Picjumbo](https://picjumbo.com/) | Free photos for personal and commercial use by Viktor Hanacek. | Picjumbo License | — | 💚 Allowed | — |
 | [Negative Space](https://negativespace.co/) | Beautiful CC0 photos with search, new drops every week. | CC0 | — | 💚 Allowed | — |
 | [Skitterphoto](https://skitterphoto.com/) | Daily public-domain photos from photographers, all CC0. | CC0 | — | 💚 Allowed | — |
+| [Life of Pix](https://www.lifeofpix.com/) | Free high-resolution artistic photos from the Leeroy ad agency. _No mass redistribution as stock._ | Life of Pix License (free) | — | 💚 Allowed | — |
+| [Public Domain Pictures](https://www.publicdomainpictures.net/) | Free public-domain-style photo library with a premium high-res tier. _Some downloads need a free account; no redistributing as stock._ | Free license (per image) | — | 💚 Allowed | Optional |
 
 ## Fonts
 
@@ -204,6 +209,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Freepik](https://www.freepik.com/) | Enormous catalog of free vectors, PSDs and photos; free plan needs attribution. _Daily download cap on the free plan._ | Freepik Free License | ✅ Required | ⚠️ Conditional | 🔑 Yes |
 | [Vecteezy](https://www.vecteezy.com/) | Free vectors and photos with attribution on the free plan. | Vecteezy Free License | ✅ Required | ⚠️ Conditional | 🔑 Yes |
 | [3dicons](https://3dicons.co/) | Open-source 3D icon library with 5,000+ rendered icons. | CC0 | — | 💚 Allowed | — |
+| [Openclipart](https://openclipart.org/) | Long-running community clipart library, everything CC0. | CC0 | — | 💚 Allowed | — |
 
 ## Video Production
 
@@ -236,6 +242,9 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Smartmockups](https://smartmockups.com/) | Browser-based mockup generator with free templates, now under Canva. _Free tier limits resolution and template count._ | Smartmockups Free License | — | ⚠️ Conditional | 🔑 Yes |
 | [Pixeden](https://www.pixeden.com/) | Free PSD mockups, graphics and web design resources. _Check the license note on each free item page._ | Pixeden License (per item) | ❓ Varies | ❓ Varies | Optional |
 | [Anthony Boyd Graphics](https://www.anthonyboyd.graphics/) | Photorealistic PSD mockups, textures and renders by Anthony Boyd. _Free for commercial use; no redistribution._ | ABB Free License | — | 💚 Allowed | — |
+| [HTML5 UP](https://html5up.net/) | Sleek, fully responsive HTML5 site templates by AJ. | CC BY 3.0 | ✅ Required | 💚 Allowed | — |
+| [Start Bootstrap](https://startbootstrap.com/) | Free MIT-licensed Bootstrap themes, templates and snippets. | MIT | — | 💚 Allowed | — |
+| [SlidesCarnival](https://www.slidescarnival.com/) | Free presentation templates for PowerPoint and Google Slides. _Most templates are free for commercial use; check each template's license note._ | Various (per template) | ❓ Varies | ❓ Varies | — |
 
 ## 3D & Game Assets
 
@@ -261,6 +270,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [SketchUp 3D Warehouse](https://3dwarehouse.sketchup.com/) | Millions of free 3D models from the SketchUp community. | Per-model licenses | ❓ Varies | ❓ Varies | Optional |
 | [Free3D](https://free3d.com/) | Free-model section of a large 3D marketplace. | Per-model licenses | ❓ Varies | ❓ Varies | Optional |
 | [Quaternius](https://quaternius.com/) | Stylish CC0 low-poly packs: animals, dungeons, sci-fi and more. | CC0 | — | 💚 Allowed | — |
+| [CraftPix Freebies](https://craftpix.net/freebies/) | Free 2D game assets: sprites, tilesets, GUI kits and more. _Free for commercial game projects; no reselling raw assets._ | CraftPix Free License | — | 💚 Allowed | Optional |
 
 ## Search Engines
 

@@ -190,6 +190,18 @@
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
+    },
+    {
+      "name": "CraftPix Freebies",
+      "url": "https://craftpix.net/freebies/",
+      "description": "Free 2D game assets: sprites, tilesets, GUI kits and more.",
+      "description_zh": "免费 2D 游戏素材：精灵图、tileset、GUI 套件等。",
+      "license": "CraftPix Free License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "optional",
+      "notes": "Free for commercial game projects; no reselling raw assets.",
+      "notes_zh": "可免费用于商业游戏项目；不得转售原始素材。"
     }
   ]
 }

@@ -290,6 +290,16 @@
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
+    },
+    {
+      "name": "Openclipart",
+      "url": "https://openclipart.org/",
+      "description": "Long-running community clipart library, everything CC0.",
+      "description_zh": "老牌社区剪贴画库，全部 CC0。",
+      "license": "CC0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
     }
   ]
 }

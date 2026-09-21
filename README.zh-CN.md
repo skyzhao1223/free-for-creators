@@ -12,12 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-148-blue" alt="148 resources">
+  <img src="https://img.shields.io/badge/resources-156-blue" alt="156 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、148 个资源**。
+> 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、156 个资源**。
+
+**一眼看数据**：107 条 💚 可直接用于货币化内容 · 93 条 ➖ 无需署名 · 119 条 🔓 无需注册 · 34 条属 CC0 / 公有领域。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -44,15 +46,15 @@
 
 ## 目录
 
-- [音乐](#音乐) — 17 个资源 · 适合视频、直播、播客与游戏的免版税、无版权风险音乐。
+- [音乐](#音乐) — 18 个资源 · 适合视频、直播、播客与游戏的免版税、无版权风险音乐。
 - [音效](#音效) — 11 个资源 · 面向视频、游戏、播客与直播的免费音效库、音效包与氛围音。
 - [视频素材](#视频素材) — 17 个资源 · 免费视频片段与 B-roll，含 4K、历史档案与公有领域素材。
-- [图片素材](#图片素材) — 21 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
+- [图片素材](#图片素材) — 23 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
 - [字体](#字体) — 12 个资源 · 可免费商用的字体——用于封面图、品牌、字幕与印刷。
-- [图形与图标](#图形与图标) — 28 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
+- [图形与图标](#图形与图标) — 29 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
 - [视频制作](#视频制作) — 9 个资源 · LUT、调色资产、转场与剪辑软件模板。
-- [样机与设计模板](#样机与设计模板) — 9 个资源 · PSD/设备样机、封面图与社交媒体模板。
-- [3D 与游戏素材](#3d-与游戏素材) — 18 个资源 · 模型、HDRI、PBR 材质、角色与游戏即用素材包。
+- [样机与设计模板](#样机与设计模板) — 12 个资源 · PSD/设备样机、封面图与社交媒体模板。
+- [3D 与游戏素材](#3d-与游戏素材) — 19 个资源 · 模型、HDRI、PBR 材质、角色与游戏即用素材包。
 - [聚合搜索](#聚合搜索) — 6 个资源 · 跨数百万开放许可图片、音频与媒体的聚合搜索。
 - [相关清单](#相关清单)
 - [参与贡献](#参与贡献)
@@ -80,6 +82,7 @@
 | [Pretzel Rocks](https://www.pretzel.rocks/) | 面向直播主的无版权风险音乐播放器，含免费档。 _免费档要求在直播画面署名；付费档可去除。_ | Pretzel Free License | ✅ 需署名 | 💚 可商用 | 🔑 需注册 |
 | [Purple Planet](https://www.purple-planet.com/) | 按情绪分类的免费曲目，适合小型创作者与非广播用途。 _署名后可免费用于 YouTube 等网络视频；其他用途需购买许可。_ | Purple Planet Free License | ✅ 需署名 | ⚠️ 有条件 | — |
 | [Chosic](https://www.chosic.com/free-music/all/) | 免费与 CC 音乐聚合站，支持按许可证筛选。 | Various (per track) | ❓ 逐项而定 | ❓ 逐项而定 | — |
+| [Thematic](https://hellothematic.com/) | 以署名链接换免费音乐，专为视频/播客创作者设计。 _每首使用的曲目都需按站方要求在简介放置署名链接。_ | Thematic License | ✅ 需署名 | 💚 可商用 | 🔑 需注册 |
 
 ## 音效
 
@@ -150,6 +153,8 @@
 | [Picjumbo](https://picjumbo.com/) | Viktor Hanacek 的免费照片，个人与商业用途均可。 | Picjumbo License | — | 💚 可商用 | — |
 | [Negative Space](https://negativespace.co/) | 精美的 CC0 照片库，每周更新，支持搜索。 | CC0 | — | 💚 可商用 | — |
 | [Skitterphoto](https://skitterphoto.com/) | 摄影师每日发布的 CC0 公共领域照片。 | CC0 | — | 💚 可商用 | — |
+| [Life of Pix](https://www.lifeofpix.com/) | 广告工作室 Leeroy 的免费高分辨率艺术照片。 _不得批量二次分发为图库。_ | Life of Pix License (free) | — | 💚 可商用 | — |
+| [Public Domain Pictures](https://www.publicdomainpictures.net/) | 免费公共领域风格照片库，另有高级高分辨率档。 _部分下载需免费账号；不得作为图库二次分发。_ | Free license (per image) | — | 💚 可商用 | 可选 |
 
 ## 字体
 
@@ -204,6 +209,7 @@
 | [Freepik](https://www.freepik.com/) | 海量免费矢量图、PSD 与照片；免费档需署名。 _免费档每日下载有限额。_ | Freepik Free License | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
 | [Vecteezy](https://www.vecteezy.com/) | 免费矢量图与照片，免费档需署名。 | Vecteezy Free License | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
 | [3dicons](https://3dicons.co/) | 开源 3D 图标库，含 5,000+ 渲染图标。 | CC0 | — | 💚 可商用 | — |
+| [Openclipart](https://openclipart.org/) | 老牌社区剪贴画库，全部 CC0。 | CC0 | — | 💚 可商用 | — |
 
 ## 视频制作
 
@@ -236,6 +242,9 @@
 | [Smartmockups](https://smartmockups.com/) | 浏览器样机生成器，含免费模板（Canva 旗下）。 _免费档限制分辨率与模板数量。_ | Smartmockups Free License | — | ⚠️ 有条件 | 🔑 需注册 |
 | [Pixeden](https://www.pixeden.com/) | 免费 PSD 样机、图形与网页设计资源。 _免费条目以下载页许可说明为准。_ | Pixeden License (per item) | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
 | [Anthony Boyd Graphics](https://www.anthonyboyd.graphics/) | Anthony Boyd 的逼真 PSD 样机、材质与渲染图。 _可免费商用；不得二次分发。_ | ABB Free License | — | 💚 可商用 | — |
+| [HTML5 UP](https://html5up.net/) | AJ 制作的精美全响应式 HTML5 网站模板。 | CC BY 3.0 | ✅ 需署名 | 💚 可商用 | — |
+| [Start Bootstrap](https://startbootstrap.com/) | MIT 许可的免费 Bootstrap 主题、模板与代码片段。 | MIT | — | 💚 可商用 | — |
+| [SlidesCarnival](https://www.slidescarnival.com/) | 免费的 PowerPoint / Google Slides 演示模板。 _多数模板可免费商用；以每个模板的许可说明为准。_ | Various (per template) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 
 ## 3D 与游戏素材
 
@@ -261,6 +270,7 @@
 | [SketchUp 3D Warehouse](https://3dwarehouse.sketchup.com/) | SketchUp 社区的数百万免费 3D 模型。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
 | [Free3D](https://free3d.com/) | 大型 3D 市场的免费模型专区。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
 | [Quaternius](https://quaternius.com/) | 风格化 CC0 低多边形素材包：动物、地牢、科幻等。 | CC0 | — | 💚 可商用 | — |
+| [CraftPix Freebies](https://craftpix.net/freebies/) | 免费 2D 游戏素材：精灵图、tileset、GUI 套件等。 _可免费用于商业游戏项目；不得转售原始素材。_ | CraftPix Free License | — | 💚 可商用 | 可选 |
 
 ## 聚合搜索
 

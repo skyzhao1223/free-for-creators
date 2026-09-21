@@ -192,6 +192,18 @@
       "attribution": "varies",
       "monetization": "varies",
       "signup": "not-required"
+    },
+    {
+      "name": "Thematic",
+      "url": "https://hellothematic.com/",
+      "description": "Free songs for creators in exchange for a simple credit link.",
+      "description_zh": "以署名链接换免费音乐，专为视频/播客创作者设计。",
+      "license": "Thematic License",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "required",
+      "notes": "Each track used needs its credit link in your description.",
+      "notes_zh": "每首使用的曲目都需按站方要求在简介放置署名链接。"
     }
   ]
 }

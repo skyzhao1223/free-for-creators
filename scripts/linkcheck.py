@@ -149,6 +149,17 @@ def main():
                         f.write("| %s | %s | %s | %s |\n" % (slug, name, url, detail))
                     f.write("\n")
 
+    report_path = os.environ.get("LINKCHECK_REPORT")
+    if report_path:
+        lines = ["## Broken links (%d)" % len(broken), "",
+                 "| Category | Resource | URL | Detail |",
+                 "| --- | --- | --- | --- |"]
+        for _, slug, name, url, detail in sorted(broken, key=lambda r: (r[1], r[2])):
+            lines.append("| %s | %s | %s | %s |" % (slug, name, url, detail))
+        lines += ["", "OK: %d \u00b7 Blocked (manual check): %d" % (len(ok), len(blocked))]
+        with open(report_path, "w", encoding="utf-8") as f:
+            f.write("\n".join(lines) + "\n")
+
     sys.exit(1 if broken else 0)
 
 

@@ -65,7 +65,7 @@ Semantics we use consistently:
   python3 scripts/linkcheck.py --slug fonts  # one category
   ```
 
-  CI runs it every Monday. Links returning 403/429 etc. are reported as *blocked* (bot walls, manual check) and do not fail the build; 404/DNS failures do.
+  CI runs it every Monday. Links returning 403/429 etc. are reported as *blocked* (bot walls, manual check) and do not fail the build; 404/DNS failures do. When the weekly check fails, a bot opens (or updates) an issue labeled [`link-check`](https://github.com/skyzhao1223/free-for-creators/labels/link-check) with the full broken-link report — fixing one of those is a great first contribution.
 
 ## Style
 
@@ -76,7 +76,7 @@ Semantics we use consistently:
 
 ## Website
 
-The interactive directory at https://skyzhao1223.github.io/free-for-creators/ is a dependency-free single-page app ([`site/index.html`](../site/index.html)) that fetches the very same `data/*.json` at runtime — no second source of truth. The [Pages workflow](../.github/workflows/pages.yml) validates the data, copies `data/*.json` plus a generated `manifest.json` into the artifact, and deploys on every push to `main`. Local preview:
+The interactive directory at https://skyzhao1223.github.io/free-for-creators/ is a dependency-free single-page app ([`site/index.html`](../site/index.html)) that fetches the very same `data/*.json` at runtime — no second source of truth. The [Pages workflow](../.github/workflows/pages.yml) validates the data, copies `data/*.json` plus generated `manifest.json` and `all.json` (every category merged into one file, handy for programmatic use) into the artifact, and deploys on every push to `main`. Local preview:
 
 ```bash
 mkdir -p site/data && cp data/*.json site/data/

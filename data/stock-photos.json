@@ -220,6 +220,30 @@
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
+    },
+    {
+      "name": "Life of Pix",
+      "url": "https://www.lifeofpix.com/",
+      "description": "Free high-resolution artistic photos from the Leeroy ad agency.",
+      "description_zh": "广告工作室 Leeroy 的免费高分辨率艺术照片。",
+      "license": "Life of Pix License (free)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "No mass redistribution as stock.",
+      "notes_zh": "不得批量二次分发为图库。"
+    },
+    {
+      "name": "Public Domain Pictures",
+      "url": "https://www.publicdomainpictures.net/",
+      "description": "Free public-domain-style photo library with a premium high-res tier.",
+      "description_zh": "免费公共领域风格照片库，另有高级高分辨率档。",
+      "license": "Free license (per image)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "optional",
+      "notes": "Some downloads need a free account; no redistributing as stock.",
+      "notes_zh": "部分下载需免费账号；不得作为图库二次分发。"
     }
   ]
 }

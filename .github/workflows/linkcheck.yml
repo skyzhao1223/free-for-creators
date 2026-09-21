@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  issues: write
 
 jobs:
   linkcheck:
@@ -18,6 +19,8 @@ jobs:
         with:
           python-version: "3.12"
       - name: Check all resource links
+        env:
+          LINKCHECK_REPORT: ${{ runner.temp }}/linkcheck-report.md
         run: python scripts/linkcheck.py
       - name: Hint on failure
         if: failure()
@@ -26,3 +29,31 @@ jobs:
           echo "  - update/replace the URL in data/*.json, or"
           echo "  - remove the entry if the service is gone, or"
           echo "  - add \"skip_linkcheck\": true with justification (login walls etc)."
+      - name: Open or update tracking issue
+        if: failure()
+        uses: actions/github-script@v7
+        env:
+          LINKCHECK_REPORT: ${{ runner.temp }}/linkcheck-report.md
+        with:
+          script: |
+            const fs = require("fs");
+            const p = process.env.LINKCHECK_REPORT;
+            const report = (p && fs.existsSync(p)) ? fs.readFileSync(p, "utf8") : "_Report unavailable — see workflow logs._";
+            const { owner, repo } = context.repo;
+            const runUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner, repo, state: "open", labels: "link-check", per_page: 1,
+            });
+            if (open.length) {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: open[0].number,
+                body: `Still failing as of ${new Date().toISOString()}.\n\n${report}\n\nRun: ${runUrl}`,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner, repo,
+                title: "🔗 Link check found broken links",
+                body: `The scheduled link check failed.\n\n${report}\n\nRun: ${runUrl}`,
+                labels: ["link-check"],
+              });
+            }
