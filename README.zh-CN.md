@@ -9,14 +9,15 @@
 # 🎁 Free for Creators · 创作者免费素材清单
 
 <p align="center">
+  <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-122-blue" alt="122 resources">
+  <img src="https://img.shields.io/badge/resources-148-blue" alt="148 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、122 个资源**。
+> 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、148 个资源**。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -25,6 +26,8 @@
 3. **能否用于已货币化/商业内容？** → 看「商用」列
 
 与纯链接清单不同，本仓库由 **CI 自动核验**：GitHub Action 每周检查全部链接；所有条目以结构化 JSON 存于 [`data/`](data)，可自由复用（CC0）。
+
+🌐 更喜欢点选浏览？**[打开交互式目录网站](https://skyzhao1223.github.io/free-for-creators/)**——支持搜索，并按许可、署名、商用条件筛选。
 
 > ⚠️ **免责声明** — 许可条款会变，本清单由志愿者维护，不构成法律建议。发布前（尤其是货币化或商单内容）请务必到源站核对最新许可。
 
@@ -43,14 +46,14 @@
 
 - [音乐](#音乐) — 17 个资源 · 适合视频、直播、播客与游戏的免版税、无版权风险音乐。
 - [音效](#音效) — 11 个资源 · 面向视频、游戏、播客与直播的免费音效库、音效包与氛围音。
-- [视频素材](#视频素材) — 15 个资源 · 免费视频片段与 B-roll，含 4K、历史档案与公有领域素材。
-- [图片素材](#图片素材) — 18 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
-- [字体](#字体) — 10 个资源 · 可免费商用的字体——用于封面图、品牌、字幕与印刷。
-- [图形与图标](#图形与图标) — 20 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
-- [视频制作](#视频制作) — 7 个资源 · LUT、调色资产、转场与剪辑软件模板。
-- [样机与设计模板](#样机与设计模板) — 6 个资源 · PSD/设备样机、封面图与社交媒体模板。
-- [3D 与游戏素材](#3d-与游戏素材) — 15 个资源 · 模型、HDRI、PBR 材质、角色与游戏即用素材包。
-- [聚合搜索](#聚合搜索) — 3 个资源 · 跨数百万开放许可图片、音频与媒体的聚合搜索。
+- [视频素材](#视频素材) — 17 个资源 · 免费视频片段与 B-roll，含 4K、历史档案与公有领域素材。
+- [图片素材](#图片素材) — 21 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
+- [字体](#字体) — 12 个资源 · 可免费商用的字体——用于封面图、品牌、字幕与印刷。
+- [图形与图标](#图形与图标) — 28 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
+- [视频制作](#视频制作) — 9 个资源 · LUT、调色资产、转场与剪辑软件模板。
+- [样机与设计模板](#样机与设计模板) — 9 个资源 · PSD/设备样机、封面图与社交媒体模板。
+- [3D 与游戏素材](#3d-与游戏素材) — 18 个资源 · 模型、HDRI、PBR 材质、角色与游戏即用素材包。
+- [聚合搜索](#聚合搜索) — 6 个资源 · 跨数百万开放许可图片、音频与媒体的聚合搜索。
 - [相关清单](#相关清单)
 - [参与贡献](#参与贡献)
 
@@ -117,6 +120,8 @@
 | [Prelinger Archives](https://archive.org/details/prelinger) | 历史广告、教育与业余影片，多为公有领域。 | Public Domain (mostly) | — | 💚 可商用 | — |
 | [Pond5 Public Domain Project](https://www.pond5.com/free) | 公有领域的历史与档案媒体。 | Public Domain | — | 💚 可商用 | ❓ |
 | [ESA Multimedia](https://www.esa.int/ESA_Multimedia/Videos) | 欧洲航天局的地球与太空视频、图片。 | CC BY-SA 3.0 IGO | ✅ 需署名 | 💚 可商用 | — |
+| [DVIDS](https://www.dvidshub.net/) | 美军全球防务行动的公有领域视频与图片。 _含可识别人物时，不得暗示其为你背书。_ | Public Domain (US Government works) | — | 💚 可商用 | — |
+| [Beachfront B-Roll](https://www.beachfrontbroll.com/) | 电影人 Dustin Beckstrand 的免费高清/4K B-roll 片段。 _欢迎署名但不强制；不得作为图库转售。_ | Free (custom) | — | 💚 可商用 | — |
 
 ## 图片素材
 
@@ -142,6 +147,9 @@
 | [rawpixel Public Domain](https://www.rawpixel.com/public-domain) | 数字化的复古艺术、海报与书籍插画。 _免费账户每月下载有限额。_ | Public Domain / rawpixel free tier | ❓ 逐项而定 | 💚 可商用 | 可选 |
 | [Old Book Illustrations](https://www.oldbookillustrations.com/) | 古籍插画公有领域扫描件。 | Public Domain | — | 💚 可商用 | — |
 | [NYPL Digital Collections](https://digitalcollections.nypl.org/) | 纽约公共图书馆档案；可按公有领域筛选。 | Various (filter: public domain) | ❓ 逐项而定 | ❓ 逐项而定 | — |
+| [Picjumbo](https://picjumbo.com/) | Viktor Hanacek 的免费照片，个人与商业用途均可。 | Picjumbo License | — | 💚 可商用 | — |
+| [Negative Space](https://negativespace.co/) | 精美的 CC0 照片库，每周更新，支持搜索。 | CC0 | — | 💚 可商用 | — |
+| [Skitterphoto](https://skitterphoto.com/) | 摄影师每日发布的 CC0 公共领域照片。 | CC0 | — | 💚 可商用 | — |
 
 ## 字体
 
@@ -159,6 +167,8 @@
 | [DaFont](https://www.dafont.com/) | 超大字体目录；许多字体仅限演示或个人使用。 _商用前务必逐字核对许可文件。_ | Various (per font) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [1001 Fonts](https://www.1001fonts.com/) | 10,000+ 字体，支持按许可筛选。 | Various (per font) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [free-font (CJK)](https://github.com/jaywcjlove/free-font) | 中英文可商用免费字体精选。 _中文资源；请逐字核对许可。_ | Various (per font) | ❓ 逐项而定 | 💚 可商用 | — |
+| [Use & Modify](https://usemodify.com/) | 瑞士设计师精选的可商用免费字体目录，支持筛选。 | OFL / open licenses (per family) | — | 💚 可商用 | — |
+| [Open Foundry](https://open-foundry.com/) | 开放许可字体平台，附展示项目。 | Various open licenses (per font) | ❓ 逐项而定 | 💚 可商用 | — |
 
 ## 图形与图标
 
@@ -186,6 +196,14 @@
 | [Flaticon](https://www.flaticon.com/) | 超大图标目录；免费档需署名。 | Flaticon Free License | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
 | [The Noun Project](https://thenounproject.com/) | 万物皆有图标；免费下载需署名。 | Free with attribution (paid removes it) | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
 | [Icons8](https://icons8.com/icons) | 风格一致的图标、插画与音乐；免费档需挂链接。 | Icons8 Free License | ✅ 需署名 | ⚠️ 有条件 | — |
+| [Heroicons](https://heroicons.com/) | Tailwind 团队手工打造的 SVG 图标。 | MIT | — | 💚 可商用 | — |
+| [Phosphor Icons](https://phosphoricons.com/) | 灵活的开源图标家族，含 6 种字重。 | MIT | — | 💚 可商用 | — |
+| [Iconoir](https://iconoir.com/) | 1,600+ 手绘风格开源图标，永久免费。 | MIT | — | 💚 可商用 | — |
+| [Remix Icon](https://remixicon.com/) | 中性风格的开源系统图标库。 | Apache 2.0 | — | 💚 可商用 | — |
+| [Material Symbols](https://fonts.google.com/icons) | Google 可变图标家族（Material Icons 的继任者）。 | Apache 2.0 | — | 💚 可商用 | — |
+| [Freepik](https://www.freepik.com/) | 海量免费矢量图、PSD 与照片；免费档需署名。 _免费档每日下载有限额。_ | Freepik Free License | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
+| [Vecteezy](https://www.vecteezy.com/) | 免费矢量图与照片，免费档需署名。 | Vecteezy Free License | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
+| [3dicons](https://3dicons.co/) | 开源 3D 图标库，含 5,000+ 渲染图标。 | CC0 | — | 💚 可商用 | — |
 
 ## 视频制作
 
@@ -200,6 +218,8 @@
 | [Mixkit Templates](https://mixkit.co/free-after-effects-templates/) | 免费的 AE、Premiere、DaVinci 与 Final Cut 模板与转场。 | Mixkit License | — | 💚 可商用 | — |
 | [Motion Array (free section)](https://motionarray.com/) | 高端市场的免费模板、LUT 与预设专区。 | Motion Array royalty-free license | — | 💚 可商用 | 🔑 需注册 |
 | [Velosofy](https://www.velosofy.com/) | 社区免费视频模板库（AE、Premiere、Vegas）。 | Various (per template) | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
+| [FootageCrate](https://footagecrate.com/) | ProductionCrew 出品的免费 VFX 元素、叠加特效与动作素材。 _免费档每日 5 次下载；限额内可商用。_ | FootageCrate Free License | — | ⚠️ 有条件 | 🔑 需注册 |
+| [MotionElements](https://www.motionelements.com/) | 素材市场，每周轮换免费专区：模板、音效、视频。 _免费条目每周轮换，逐项核对许可。_ | MotionElements Free License | — | ❓ 逐项而定 | 🔑 需注册 |
 
 ## 样机与设计模板
 
@@ -213,6 +233,9 @@
 | [Pixelbuddha Free](https://pixelbuddha.net/free) | 免费设计资源：样机、图标、UI 套件。 | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
 | [Canva Templates](https://www.canva.com/templates/) | 数千个免费模板：封面图、帖子、演示文稿与短视频。 _Canva 素材有转售与再分发限制；请阅读内容许可。_ | Canva Content License | — | ⚠️ 有条件 | 🔑 需注册 |
 | [Adobe Express Templates](https://www.adobe.com/express/templates) | 免费的社媒图形与品牌模板。 | Adobe Stock/Express License | — | ⚠️ 有条件 | 🔑 需注册 |
+| [Smartmockups](https://smartmockups.com/) | 浏览器样机生成器，含免费模板（Canva 旗下）。 _免费档限制分辨率与模板数量。_ | Smartmockups Free License | — | ⚠️ 有条件 | 🔑 需注册 |
+| [Pixeden](https://www.pixeden.com/) | 免费 PSD 样机、图形与网页设计资源。 _免费条目以下载页许可说明为准。_ | Pixeden License (per item) | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
+| [Anthony Boyd Graphics](https://www.anthonyboyd.graphics/) | Anthony Boyd 的逼真 PSD 样机、材质与渲染图。 _可免费商用；不得二次分发。_ | ABB Free License | — | 💚 可商用 | — |
 
 ## 3D 与游戏素材
 
@@ -235,6 +258,9 @@
 | [NASA 3D Resources](https://nasa3d.arc.nasa.gov/) | NASA 的公有领域 3D 模型、材质与图像。 | Public Domain (mostly) | — | 💚 可商用 | — |
 | [CGTrader Free Models](https://www.cgtrader.com/free-3d-models) | 大型 3D 市场的免费模型专区。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
 | [TurboSquid Free Models](https://www.turbosquid.com/Search/3D-Models/free) | TurboSquid 的免费模型专区。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
+| [SketchUp 3D Warehouse](https://3dwarehouse.sketchup.com/) | SketchUp 社区的数百万免费 3D 模型。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
+| [Free3D](https://free3d.com/) | 大型 3D 市场的免费模型专区。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
+| [Quaternius](https://quaternius.com/) | 风格化 CC0 低多边形素材包：动物、地牢、科幻等。 | CC0 | — | 💚 可商用 | — |
 
 ## 聚合搜索
 
@@ -245,6 +271,9 @@
 | [Openverse](https://openverse.org/) | 检索全网 8 亿+ 知识共享图片与音频。 _以每条结果展示的许可为准。_ | Aggregator (per-source licenses) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [Every Stock Photo](https://everystockphoto.com/) | 跨多个公有领域与 CC 图源搜索免费照片。 | Aggregator (per-source licenses) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [Wikimedia Commons](https://commons.wikimedia.org/) | 1 亿+ 自由许可媒体文件，编辑与历史类内容尤其丰富。 | Various (per file) | ❓ 逐项而定 | ❓ 逐项而定 | — |
+| [The Public Domain Review](https://publicdomainreview.org/) | 精选公有领域珍品的策展站点，附背景文章。 _属发现/策展站点而非素材托管；请逐件核对作品状态。_ | Public Domain works | — | 💚 可商用 | — |
+| [DPLA](https://dp.la/) | 美国数字公共图书馆：聚合全美图书馆与博物馆的数百万条目。 | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | — |
+| [Europeana](https://www.europeana.eu/) | 欧洲文化遗产：3,000+ 机构的艺术品、照片与声音。 | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 
 ## 相关清单
 

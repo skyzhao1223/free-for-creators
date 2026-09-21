@@ -108,6 +108,26 @@
       "signup": "not-required",
       "notes": "Chinese-language resource; verify each font's license.",
       "notes_zh": "中文资源；请逐字核对许可。"
+    },
+    {
+      "name": "Use & Modify",
+      "url": "https://usemodify.com/",
+      "description": "Curated catalog of free fonts by a Swiss designer, with filters.",
+      "description_zh": "瑞士设计师精选的可商用免费字体目录，支持筛选。",
+      "license": "OFL / open licenses (per family)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Open Foundry",
+      "url": "https://open-foundry.com/",
+      "description": "Platform for open-licensed typefaces with showcase projects.",
+      "description_zh": "开放许可字体平台，附展示项目。",
+      "license": "Various open licenses (per font)",
+      "attribution": "varies",
+      "monetization": "allowed",
+      "signup": "not-required"
     }
   ]
 }

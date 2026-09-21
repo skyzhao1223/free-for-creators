@@ -190,6 +190,36 @@
       "attribution": "varies",
       "monetization": "varies",
       "signup": "not-required"
+    },
+    {
+      "name": "Picjumbo",
+      "url": "https://picjumbo.com/",
+      "description": "Free photos for personal and commercial use by Viktor Hanacek.",
+      "description_zh": "Viktor Hanacek 的免费照片，个人与商业用途均可。",
+      "license": "Picjumbo License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Negative Space",
+      "url": "https://negativespace.co/",
+      "description": "Beautiful CC0 photos with search, new drops every week.",
+      "description_zh": "精美的 CC0 照片库，每周更新，支持搜索。",
+      "license": "CC0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Skitterphoto",
+      "url": "https://skitterphoto.com/",
+      "description": "Daily public-domain photos from photographers, all CC0.",
+      "description_zh": "摄影师每日发布的 CC0 公共领域照片。",
+      "license": "CC0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
     }
   ]
 }

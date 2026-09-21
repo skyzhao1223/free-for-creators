@@ -74,8 +74,18 @@ Semantics we use consistently:
 - One fact per entry; if a site has a separate free section, link **to the free section** (e.g. `motionarray.com` free browse, not the homepage) when such a URL exists.
 - Prefer the resource's own domain over aggregators, except for aggregator-type entries (search engines).
 
+## Website
+
+The interactive directory at https://skyzhao1223.github.io/free-for-creators/ is a dependency-free single-page app ([`site/index.html`](../site/index.html)) that fetches the very same `data/*.json` at runtime — no second source of truth. The [Pages workflow](../.github/workflows/pages.yml) validates the data, copies `data/*.json` plus a generated `manifest.json` into the artifact, and deploys on every push to `main`. Local preview:
+
+```bash
+mkdir -p site/data && cp data/*.json site/data/
+python3 -c "import json,sys; sys.path.insert(0,'scripts'); from build_readme import CATEGORY_ORDER; json.dump([{'slug': s} for s in CATEGORY_ORDER], open('site/data/manifest.json','w'))"
+python3 -m http.server -d site 8000   # open http://localhost:8000
+```
+
 ## Repository slug
 
-Badges and the Star History chart use the `REPO` constant in `scripts/build_readme.py` (currently `skyzhao1223/free-for-creators`). If the repo is renamed or moved, update that constant **and** `.github/ISSUE_TEMPLATE/config.yml`, then regenerate the READMEs.
+Badges and the Star History chart use the `REPO` constant in `scripts/build_readme.py` (currently `skyzhao1223/free-for-creators`). If the repo is renamed or moved, update `REPO` and `PAGES_URL` in `scripts/build_readme.py`, the `REPO` constant in `site/index.html`, **and** `.github/ISSUE_TEMPLATE/config.yml`, then regenerate the READMEs.
 
 That's it — thanks for making creators' lives safer, one license column at a time. 🎨

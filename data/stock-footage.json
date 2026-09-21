@@ -162,6 +162,30 @@
       "attribution": "required",
       "monetization": "allowed",
       "signup": "not-required"
+    },
+    {
+      "name": "DVIDS",
+      "url": "https://www.dvidshub.net/",
+      "description": "US military public-domain video and imagery from defense operations worldwide.",
+      "description_zh": "美军全球防务行动的公有领域视频与图片。",
+      "license": "Public Domain (US Government works)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Identifiable people may not be shown endorsing anything.",
+      "notes_zh": "含可识别人物时，不得暗示其为你背书。"
+    },
+    {
+      "name": "Beachfront B-Roll",
+      "url": "https://www.beachfrontbroll.com/",
+      "description": "Free HD and 4K B-roll clips from filmmaker Dustin Beckstrand.",
+      "description_zh": "电影人 Dustin Beckstrand 的免费高清/4K B-roll 片段。",
+      "license": "Free (custom)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Credit appreciated but not required; no reselling as stock.",
+      "notes_zh": "欢迎署名但不强制；不得作为图库转售。"
     }
   ]
 }

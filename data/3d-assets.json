@@ -160,6 +160,36 @@
       "attribution": "varies",
       "monetization": "varies",
       "signup": "optional"
+    },
+    {
+      "name": "SketchUp 3D Warehouse",
+      "url": "https://3dwarehouse.sketchup.com/",
+      "description": "Millions of free 3D models from the SketchUp community.",
+      "description_zh": "SketchUp 社区的数百万免费 3D 模型。",
+      "license": "Per-model licenses",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "optional"
+    },
+    {
+      "name": "Free3D",
+      "url": "https://free3d.com/",
+      "description": "Free-model section of a large 3D marketplace.",
+      "description_zh": "大型 3D 市场的免费模型专区。",
+      "license": "Per-model licenses",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "optional"
+    },
+    {
+      "name": "Quaternius",
+      "url": "https://quaternius.com/",
+      "description": "Stylish CC0 low-poly packs: animals, dungeons, sci-fi and more.",
+      "description_zh": "风格化 CC0 低多边形素材包：动物、地牢、科幻等。",
+      "license": "CC0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
     }
   ]
 }

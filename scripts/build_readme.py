@@ -27,6 +27,7 @@ OUTPUTS = {
 # Used for CI badges and the Star History embed.
 # NOTE: update this (and .github/ISSUE_TEMPLATE/config.yml) if the repo lives elsewhere.
 REPO = "skyzhao1223/free-for-creators"
+PAGES_URL = "https://skyzhao1223.github.io/free-for-creators/"
 
 # Order in which categories appear in the README.
 CATEGORY_ORDER = [
@@ -81,6 +82,7 @@ T = {
         "q2": "2. **Do I have to credit anyone?** \u2192 the *Attribution* column",
         "q3": "3. **Can I use it in monetized content?** \u2192 the *Monetization* column",
         "ci_line": "Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action link-checks every URL, and all entries live as structured, machine-readable JSON in [`data/`](data) \u2014 free to reuse (CC0).",
+        "website_line": "\U0001f310 Prefer clicking? **[Browse the interactive directory](https://skyzhao1223.github.io/free-for-creators/)** \u2014 search and filter every entry by license, attribution and monetization.",
         "disclaimer": "> \u26a0\ufe0f **Disclaimer** \u2014 Licenses change and this list is maintained by volunteers. It is not legal advice. Always verify the current license on the source website before publishing, especially for monetized or client work.",
         "legend_title": "## Legend",
         "legend_header": "| Symbol | Meaning |",
@@ -122,6 +124,7 @@ T = {
         "q2": "2. **\u662f\u5426\u9700\u8981\u7f72\u540d\uff1f** \u2192 \u770b\u300c\u7f72\u540d\u300d\u5217",
         "q3": "3. **\u80fd\u5426\u7528\u4e8e\u5df2\u8d27\u5e01\u5316/\u5546\u4e1a\u5185\u5bb9\uff1f** \u2192 \u770b\u300c\u5546\u7528\u300d\u5217",
         "ci_line": "\u4e0e\u7eaf\u94fe\u63a5\u6e05\u5355\u4e0d\u540c\uff0c\u672c\u4ed3\u5e93\u7531 **CI \u81ea\u52a8\u6838\u9a8c**\uff1aGitHub Action \u6bcf\u5468\u68c0\u67e5\u5168\u90e8\u94fe\u63a5\uff1b\u6240\u6709\u6761\u76ee\u4ee5\u7ed3\u6784\u5316 JSON \u5b58\u4e8e [`data/`](data)\uff0c\u53ef\u81ea\u7531\u590d\u7528\uff08CC0\uff09\u3002",
+        "website_line": "\U0001f310 \u66f4\u559c\u6b22\u70b9\u9009\u6d4f\u89c8\uff1f**[\u6253\u5f00\u4ea4\u4e92\u5f0f\u76ee\u5f55\u7f51\u7ad9](https://skyzhao1223.github.io/free-for-creators/)**\u2014\u2014\u652f\u6301\u641c\u7d22\uff0c\u5e76\u6309\u8bb8\u53ef\u3001\u7f72\u540d\u3001\u5546\u7528\u6761\u4ef6\u7b5b\u9009\u3002",
         "disclaimer": "> \u26a0\ufe0f **\u514d\u8d23\u58f0\u660e** \u2014 \u8bb8\u53ef\u6761\u6b3e\u4f1a\u53d8\uff0c\u672c\u6e05\u5355\u7531\u5fd7\u613f\u8005\u7ef4\u62a4\uff0c\u4e0d\u6784\u6210\u6cd5\u5f8b\u5efa\u8bae\u3002\u53d1\u5e03\u524d\uff08\u5c24\u5176\u662f\u8d27\u5e01\u5316\u6216\u5546\u5355\u5185\u5bb9\uff09\u8bf7\u52a1\u5fc5\u5230\u6e90\u7ad9\u6838\u5bf9\u6700\u65b0\u8bb8\u53ef\u3002",
         "legend_title": "## \u56fe\u4f8b",
         "legend_header": "| \u56fe\u6807 | \u542b\u4e49 |",
@@ -312,6 +315,7 @@ def render(categories, lang):
     a(t["title"])
     a("")
     a('<p align="center">')
+    a('  <a href="' + PAGES_URL + '"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>')
     a('  <a href="https://github.com/%s/actions/workflows/ci.yml"><img src="https://github.com/%s/actions/workflows/ci.yml/badge.svg" alt="CI"></a>' % (REPO, REPO))
     a('  <a href="https://github.com/%s/actions/workflows/linkcheck.yml"><img src="https://github.com/%s/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>' % (REPO, REPO))
     a('  <img src="https://img.shields.io/badge/resources-%d-blue" alt="%d resources">' % (total, total))
@@ -328,6 +332,8 @@ def render(categories, lang):
     a(t["q3"])
     a("")
     a(t["ci_line"])
+    a("")
+    a(t["website_line"])
     a("")
     a(t["disclaimer"])
     a("")

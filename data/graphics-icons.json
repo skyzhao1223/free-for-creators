@@ -208,6 +208,88 @@
       "attribution": "required",
       "monetization": "conditional",
       "signup": "not-required"
+    },
+    {
+      "name": "Heroicons",
+      "url": "https://heroicons.com/",
+      "description": "Beautiful hand-crafted SVG icons by the makers of Tailwind CSS.",
+      "description_zh": "Tailwind 团队手工打造的 SVG 图标。",
+      "license": "MIT",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Phosphor Icons",
+      "url": "https://phosphoricons.com/",
+      "description": "Flexible open-source icon family with six weights.",
+      "description_zh": "灵活的开源图标家族，含 6 种字重。",
+      "license": "MIT",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Iconoir",
+      "url": "https://iconoir.com/",
+      "description": "1,600+ hand-crafted open-source icons, free forever.",
+      "description_zh": "1,600+ 手绘风格开源图标，永久免费。",
+      "license": "MIT",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Remix Icon",
+      "url": "https://remixicon.com/",
+      "description": "Neutral-style open-source system symbol icons.",
+      "description_zh": "中性风格的开源系统图标库。",
+      "license": "Apache 2.0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Material Symbols",
+      "url": "https://fonts.google.com/icons",
+      "description": "Google's variable icon family, successor to Material Icons.",
+      "description_zh": "Google 可变图标家族（Material Icons 的继任者）。",
+      "license": "Apache 2.0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Freepik",
+      "url": "https://www.freepik.com/",
+      "description": "Enormous catalog of free vectors, PSDs and photos; free plan needs attribution.",
+      "description_zh": "海量免费矢量图、PSD 与照片；免费档需署名。",
+      "license": "Freepik Free License",
+      "attribution": "required",
+      "monetization": "conditional",
+      "signup": "required",
+      "notes": "Daily download cap on the free plan.",
+      "notes_zh": "免费档每日下载有限额。"
+    },
+    {
+      "name": "Vecteezy",
+      "url": "https://www.vecteezy.com/",
+      "description": "Free vectors and photos with attribution on the free plan.",
+      "description_zh": "免费矢量图与照片，免费档需署名。",
+      "license": "Vecteezy Free License",
+      "attribution": "required",
+      "monetization": "conditional",
+      "signup": "required"
+    },
+    {
+      "name": "3dicons",
+      "url": "https://3dicons.co/",
+      "description": "Open-source 3D icon library with 5,000+ rendered icons.",
+      "description_zh": "开源 3D 图标库，含 5,000+ 渲染图标。",
+      "license": "CC0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
     }
   ]
 }

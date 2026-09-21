@@ -76,6 +76,30 @@
       "attribution": "varies",
       "monetization": "varies",
       "signup": "optional"
+    },
+    {
+      "name": "FootageCrate",
+      "url": "https://footagecrate.com/",
+      "description": "Free VFX elements, overlays and action footage from ProductionCrew.",
+      "description_zh": "ProductionCrew 出品的免费 VFX 元素、叠加特效与动作素材。",
+      "license": "FootageCrate Free License",
+      "attribution": "not-required",
+      "monetization": "conditional",
+      "signup": "required",
+      "notes": "Free tier: 5 downloads/day; commercial use allowed within limits.",
+      "notes_zh": "免费档每日 5 次下载；限额内可商用。"
+    },
+    {
+      "name": "MotionElements",
+      "url": "https://www.motionelements.com/",
+      "description": "Marketplace with a rotating free section: templates, SFX, video.",
+      "description_zh": "素材市场，每周轮换免费专区：模板、音效、视频。",
+      "license": "MotionElements Free License",
+      "attribution": "not-required",
+      "monetization": "varies",
+      "signup": "required",
+      "notes": "Free items rotate weekly; check the license per item.",
+      "notes_zh": "免费条目每周轮换，逐项核对许可。"
     }
   ]
 }

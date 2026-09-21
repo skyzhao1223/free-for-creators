@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free for Creators — license-verified free assets for creators</title>
+<meta name="description" content="Interactive directory of free resources for video creators, streamers, podcasters, game devs and designers — filter by license, attribution and monetization. 许可透明的创作者免费素材清单。">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="0.9em" font-size="90">🎁</text></svg>'>
+<style>
+:root{--bg:#ffffff;--fg:#1f2328;--muted:#656d76;--card:#f6f8fa;--border:#d0d7de;--accent:#0969da;--ok:#1a7f37;--warn:#9a6700;--bad:#cf222e;}
+@media (prefers-color-scheme:dark){:root{--bg:#0d1117;--fg:#e6edf3;--muted:#8b949e;--card:#161b22;--border:#30363d;--accent:#4493f8;--ok:#3fb950;--warn:#d29922;--bad:#f85149;}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--border);padding:26px 0 18px;margin-bottom:22px}
+.hd{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start;justify-content:space-between}
+h1{font-size:26px;margin:0}
+h1 .sub{display:block;font-size:14px;font-weight:400;color:var(--muted);margin-top:3px;max-width:640px}
+.nav{display:flex;gap:14px;align-items:center;font-size:14px;padding-top:6px}
+.nav a{color:var(--accent);text-decoration:none}
+.nav a:hover{text-decoration:underline}
+#search{width:100%;padding:11px 14px;font-size:16px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--fg);outline:none}
+#search:focus{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{border:1px solid var(--border);background:var(--card);color:var(--fg);border-radius:999px;padding:5px 13px;font-size:13px;cursor:pointer;font-family:inherit}
+.chip:hover{border-color:var(--accent)}
+.chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.chip .n{opacity:.65;font-size:11px;margin-left:5px}
+#lang-btn.chip{padding:4px 12px}
+.toggles{display:flex;flex-wrap:wrap;gap:18px;font-size:13.5px;color:var(--muted);margin:4px 0 6px}
+.toggles label{cursor:pointer;user-select:none}
+.toggles input{vertical-align:-2px;margin-right:4px}
+#status{color:var(--muted);font-size:13px;margin:10px 0 18px}
+section{margin-bottom:8px}
+section h2{font-size:18px;margin:26px 0 2px}
+section .cd{font-size:13px;color:var(--muted);margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.card{border:1px solid var(--border);background:var(--card);border-radius:10px;padding:13px 14px;display:flex;flex-direction:column}
+.card a.name{color:var(--fg);font-weight:600;text-decoration:none;font-size:15px}
+.card a.name:hover{color:var(--accent)}
+.card .desc{font-size:13.5px;margin:4px 0 2px}
+.card .note{font-size:12.5px;color:var(--muted);font-style:italic;margin:4px 0 0}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.b{font-size:11.5px;border-radius:999px;padding:2px 8px;border:1px solid var(--border);white-space:nowrap}
+.b-ok{color:var(--ok);border-color:var(--ok)}
+.b-warn{color:var(--warn);border-color:var(--warn)}
+.b-bad{color:var(--bad);border-color:var(--bad)}
+.b-mut{color:var(--muted)}
+.lic{font-size:11.5px;color:var(--muted);margin-top:9px;word-break:break-word}
+footer{border-top:1px solid var(--border);margin-top:40px;padding:20px 0 30px;color:var(--muted);font-size:13px;text-align:center}
+footer a{color:var(--accent)}
+.empty{color:var(--muted);padding:40px 0;text-align:center}
+</style>
+</head>
+<body>
+<header><div class="wrap hd">
+  <h1>🎁 Free for Creators<span class="sub" id="tagline"></span></h1>
+  <div class="nav">
+    <a href="https://github.com/skyzhao1223/free-for-creators">GitHub</a>
+    <a href="https://github.com/skyzhao1223/free-for-creators#readme" id="readme-link">README</a>
+    <button class="chip" id="lang-btn" type="button">中文</button>
+  </div>
+</div></header>
+<main class="wrap">
+  <input id="search" type="search" autocomplete="off" spellcheck="false">
+  <div class="chips" id="chips"></div>
+  <div class="toggles">
+    <label><input type="checkbox" id="f-monetization"> <span data-i18n="f_mon"></span></label>
+    <label><input type="checkbox" id="f-attribution"> <span data-i18n="f_attr"></span></label>
+    <label><input type="checkbox" id="f-signup"> <span data-i18n="f_signup"></span></label>
+  </div>
+  <p id="status"></p>
+  <div id="results"></div>
+</main>
+<footer><div class="wrap" id="footer-text"></div></footer>
+<script>
+"use strict";
+const REPO = "skyzhao1223/free-for-creators";
+
+const I18N = {
+  en: {
+    tagline: "License-verified free assets for creators — music, footage, photos, fonts, icons, LUTs, mockups and 3D. Filter by license, attribution and monetization.",
+    search_ph: "Search resources, licenses, notes…",
+    all: "All",
+    f_mon: "💚 Commercial use OK",
+    f_attr: "➖ No attribution required",
+    f_signup: "🔓 No signup required",
+    showing: (n, t) => "Showing " + n + " of " + t + " resources",
+    empty: "No resources match your filters.",
+    loaderr: "Failed to load data: ",
+    footer: 'Data: <a href="https://github.com/' + REPO + '/tree/main/data">data/*.json</a> · Content released under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> · Licenses change — always verify on the source site. Not legal advice.',
+    lang_btn: "中文",
+    mon: { allowed: "💚 Commercial OK", conditional: "⚠️ Conditional", varies: "❓ Varies", "not-allowed": "🚫 No commercial use" },
+    attr: { required: "✅ Credit required", "not-required": "➖ No credit", varies: "❓ Credit varies" },
+    signup: { required: "🔑 Signup" }
+  },
+  zh: {
+    tagline: "许可透明的创作者免费素材清单——音乐、视频、图片、字体、图标、LUT、样机与 3D。按许可、署名、商用条件筛选。",
+    search_ph: "搜索资源、许可证、备注…",
+    all: "全部",
+    f_mon: "💚 可商用",
+    f_attr: "➖ 无需署名",
+    f_signup: "🔓 无需注册",
+    showing: (n, t) => "显示 " + t + " 个资源中的 " + n + " 个",
+    empty: "没有符合筛选条件的资源。",
+    loaderr: "数据加载失败：",
+    footer: '数据源：<a href="https://github.com/' + REPO + '/tree/main/data">data/*.json</a> · 内容以 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> 发布 · 许可条款会变——发布前请到源站核对。本站不构成法律建议。',
+    lang_btn: "English",
+    mon: { allowed: "💚 可商用", conditional: "⚠️ 有条件", varies: "❓ 逐项而定", "not-allowed": "🚫 禁止商用" },
+    attr: { required: "✅ 需署名", "not-required": "➖ 免署名", varies: "❓ 署名不定" },
+    signup: { required: "🔑 需注册" }
+  }
+};
+
+let LANG = (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
+let CATS = [];
+let activeSlug = null;
+let q = "";
+const state = { monetization: false, attribution: false, signup: false };
+
+const $ = (id) => document.getElementById(id);
+const t = (key) => I18N[LANG][key];
+const catName = (c) => (LANG === "zh" ? (c.category_zh || c.category) : c.category);
+const catDesc = (c) => (LANG === "zh" ? (c.description_zh || c.description) : c.description);
+const entryDesc = (e) => (LANG === "zh" && e.description_zh ? e.description_zh : e.description);
+const entryNotes = (e) => {
+  if (!e.notes) return null;
+  return LANG === "zh" && e.notes_zh ? e.notes_zh : e.notes;
+};
+const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+function matches(e) {
+  if (state.monetization && e.monetization !== "allowed") return false;
+  if (state.attribution && e.attribution !== "not-required") return false;
+  if (state.signup && e.signup !== "not-required") return false;
+  if (q) {
+    const hay = [e.name, e.license, e.description, e.description_zh || "", e.notes || "", e.notes_zh || ""].join(" ").toLowerCase();
+    if (hay.indexOf(q) === -1) return false;
+  }
+  return true;
+}
+
+const monClass = (v) => (v === "allowed" ? "b-ok" : v === "conditional" ? "b-warn" : v === "not-allowed" ? "b-bad" : "b-mut");
+const attrClass = (v) => (v === "required" ? "b-warn" : v === "not-required" ? "b-ok" : "b-mut");
+
+function render() {
+  document.documentElement.lang = LANG === "zh" ? "zh-CN" : "en";
+  document.title = LANG === "zh" ? "Free for Creators · 创作者免费素材清单" : "Free for Creators — license-verified free assets";
+  $("tagline").textContent = t("tagline");
+  $("search").placeholder = t("search_ph");
+  $("lang-btn").textContent = t("lang_btn");
+  document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
+  $("footer-text").innerHTML = t("footer");
+
+  const total = CATS.reduce((n, c) => n + c.entries.length, 0);
+  let chips = '<button class="chip ' + (activeSlug === null ? "active" : "") + '" data-slug="" type="button">' + t("all") + '<span class="n">' + total + "</span></button>";
+  for (const c of CATS) {
+    chips += '<button class="chip ' + (activeSlug === c.slug ? "active" : "") + '" data-slug="' + c.slug + '" type="button">' + esc(catName(c)) + '<span class="n">' + c.entries.length + "</span></button>";
+  }
+  $("chips").innerHTML = chips;
+
+  let shown = 0, html = "";
+  for (const c of CATS) {
+    if (activeSlug && c.slug !== activeSlug) continue;
+    const list = c.entries.filter(matches);
+    if (!list.length) continue;
+    shown += list.length;
+    html += "<section><h2>" + esc(catName(c)) + '</h2><div class="cd">' + esc(catDesc(c)) + '</div><div class="grid">';
+    for (const e of list) {
+      const note = entryNotes(e);
+      html += '<div class="card"><a class="name" href="' + esc(e.url) + '" target="_blank" rel="noopener">' + esc(e.name) + "</a>"
+        + '<div class="desc">' + esc(entryDesc(e)) + "</div>"
+        + (note ? '<div class="note">' + esc(note) + "</div>" : "")
+        + '<div class="badges"><span class="b ' + monClass(e.monetization) + '">' + t("mon")[e.monetization] + "</span>"
+        + '<span class="b ' + attrClass(e.attribution) + '">' + t("attr")[e.attribution] + "</span>"
+        + (e.signup === "required" ? '<span class="b b-mut">' + t("signup").required + "</span>" : "")
+        + '</div><div class="lic">📄 ' + esc(e.license) + "</div></div>";
+    }
+    html += "</div></section>";
+  }
+  $("results").innerHTML = html || '<div class="empty">' + t("empty") + "</div>";
+  $("status").textContent = t("showing")(shown, total);
+}
+
+$("search").addEventListener("input", (e) => { q = e.target.value.trim().toLowerCase(); render(); });
+$("chips").addEventListener("click", (e) => {
+  const b = e.target.closest(".chip");
+  if (!b) return;
+  activeSlug = b.dataset.slug || null;
+  render();
+});
+[["f-monetization", "monetization"], ["f-attribution", "attribution"], ["f-signup", "signup"]].forEach(([id, key]) => {
+  $(id).addEventListener("change", (e) => { state[key] = e.target.checked; render(); });
+});
+$("lang-btn").addEventListener("click", () => { LANG = LANG === "en" ? "zh" : "en"; render(); });
+
+fetch("data/manifest.json")
+  .then((r) => r.json())
+  .then((manifest) => Promise.all(manifest.map((m) => fetch("data/" + m.slug + ".json").then((r) => r.json()))))
+  .then((cats) => { CATS = cats; render(); })
+  .catch((err) => { $("results").innerHTML = '<div class="empty">' + t("loaderr") + esc(err) + "</div>"; });
+</script>
+</body>
+</html>

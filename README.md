@@ -9,14 +9,15 @@
 # 🎁 Free for Creators
 
 <p align="center">
+  <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-122-blue" alt="122 resources">
+  <img src="https://img.shields.io/badge/resources-148-blue" alt="148 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **122 resources across 10 categories**.
+> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **148 resources across 10 categories**.
 
 Every entry answers the three questions that decide whether a “free” asset is actually free for *you*:
 
@@ -25,6 +26,8 @@ Every entry answers the three questions that decide whether a “free” asset i
 3. **Can I use it in monetized content?** → the *Monetization* column
 
 Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action link-checks every URL, and all entries live as structured, machine-readable JSON in [`data/`](data) — free to reuse (CC0).
+
+🌐 Prefer clicking? **[Browse the interactive directory](https://skyzhao1223.github.io/free-for-creators/)** — search and filter every entry by license, attribution and monetization.
 
 > ⚠️ **Disclaimer** — Licenses change and this list is maintained by volunteers. It is not legal advice. Always verify the current license on the source website before publishing, especially for monetized or client work.
 
@@ -43,14 +46,14 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 
 - [Music](#music) — 17 resources · Royalty-free and copyright-safe music for videos, streams, podcasts and games.
 - [Sound Effects](#sound-effects) — 11 resources · Free SFX libraries, packs and ambience for video, games, podcasts and streams.
-- [Stock Footage](#stock-footage) — 15 resources · Free video clips and B-roll, including 4K, archival and public domain footage.
-- [Stock Photos](#stock-photos) — 18 resources · Free photography, from modern stock to museum-grade public domain archives.
-- [Fonts](#fonts) — 10 resources · Typefaces free for commercial use — for thumbnails, branding, subtitles and print.
-- [Graphics & Icons](#graphics--icons) — 20 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
-- [Video Production](#video-production) — 7 resources · LUTs, color grading assets, transitions and editor templates.
-- [Mockups & Design Templates](#mockups--design-templates) — 6 resources · PSD/device mockups, thumbnail and social media templates.
-- [3D & Game Assets](#3d--game-assets) — 15 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
-- [Search Engines](#search-engines) — 3 resources · Meta-search across millions of openly licensed images, audio and media.
+- [Stock Footage](#stock-footage) — 17 resources · Free video clips and B-roll, including 4K, archival and public domain footage.
+- [Stock Photos](#stock-photos) — 21 resources · Free photography, from modern stock to museum-grade public domain archives.
+- [Fonts](#fonts) — 12 resources · Typefaces free for commercial use — for thumbnails, branding, subtitles and print.
+- [Graphics & Icons](#graphics--icons) — 28 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
+- [Video Production](#video-production) — 9 resources · LUTs, color grading assets, transitions and editor templates.
+- [Mockups & Design Templates](#mockups--design-templates) — 9 resources · PSD/device mockups, thumbnail and social media templates.
+- [3D & Game Assets](#3d--game-assets) — 18 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
+- [Search Engines](#search-engines) — 6 resources · Meta-search across millions of openly licensed images, audio and media.
 - [Related Lists](#related-lists)
 - [Contributing](#contributing)
 
@@ -117,6 +120,8 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Prelinger Archives](https://archive.org/details/prelinger) | Historic advertising, educational and amateur films, mostly public domain. | Public Domain (mostly) | — | 💚 Allowed | — |
 | [Pond5 Public Domain Project](https://www.pond5.com/free) | Free historic and archival media in the public domain. | Public Domain | — | 💚 Allowed | ❓ |
 | [ESA Multimedia](https://www.esa.int/ESA_Multimedia/Videos) | European Space Agency videos and images of Earth and space. | CC BY-SA 3.0 IGO | ✅ Required | 💚 Allowed | — |
+| [DVIDS](https://www.dvidshub.net/) | US military public-domain video and imagery from defense operations worldwide. _Identifiable people may not be shown endorsing anything._ | Public Domain (US Government works) | — | 💚 Allowed | — |
+| [Beachfront B-Roll](https://www.beachfrontbroll.com/) | Free HD and 4K B-roll clips from filmmaker Dustin Beckstrand. _Credit appreciated but not required; no reselling as stock._ | Free (custom) | — | 💚 Allowed | — |
 
 ## Stock Photos
 
@@ -142,6 +147,9 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [rawpixel Public Domain](https://www.rawpixel.com/public-domain) | Digitized vintage art, posters and book illustrations. _Free account has a monthly download limit._ | Public Domain / rawpixel free tier | ❓ Varies | 💚 Allowed | Optional |
 | [Old Book Illustrations](https://www.oldbookillustrations.com/) | Public domain scans of illustrations from old books. | Public Domain | — | 💚 Allowed | — |
 | [NYPL Digital Collections](https://digitalcollections.nypl.org/) | New York Public Library archive; filter for public domain items. | Various (filter: public domain) | ❓ Varies | ❓ Varies | — |
+| [Picjumbo](https://picjumbo.com/) | Free photos for personal and commercial use by Viktor Hanacek. | Picjumbo License | — | 💚 Allowed | — |
+| [Negative Space](https://negativespace.co/) | Beautiful CC0 photos with search, new drops every week. | CC0 | — | 💚 Allowed | — |
+| [Skitterphoto](https://skitterphoto.com/) | Daily public-domain photos from photographers, all CC0. | CC0 | — | 💚 Allowed | — |
 
 ## Fonts
 
@@ -159,6 +167,8 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [DaFont](https://www.dafont.com/) | Huge catalog; many fonts are demo or personal-use only. _Always check the per-font license file before commercial use._ | Various (per font) | ❓ Varies | ❓ Varies | — |
 | [1001 Fonts](https://www.1001fonts.com/) | 10,000+ fonts with license filtering. | Various (per font) | ❓ Varies | ❓ Varies | — |
 | [free-font (CJK)](https://github.com/jaywcjlove/free-font) | Curated Chinese and English fonts free for commercial use. _Chinese-language resource; verify each font's license._ | Various (per font) | ❓ Varies | 💚 Allowed | — |
+| [Use & Modify](https://usemodify.com/) | Curated catalog of free fonts by a Swiss designer, with filters. | OFL / open licenses (per family) | — | 💚 Allowed | — |
+| [Open Foundry](https://open-foundry.com/) | Platform for open-licensed typefaces with showcase projects. | Various open licenses (per font) | ❓ Varies | 💚 Allowed | — |
 
 ## Graphics & Icons
 
@@ -186,6 +196,14 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Flaticon](https://www.flaticon.com/) | Enormous icon catalog; the free plan requires attribution. | Flaticon Free License | ✅ Required | ⚠️ Conditional | 🔑 Yes |
 | [The Noun Project](https://thenounproject.com/) | Icons for every idea; free downloads require attribution. | Free with attribution (paid removes it) | ✅ Required | ⚠️ Conditional | 🔑 Yes |
 | [Icons8](https://icons8.com/icons) | Consistent icon, illustration and music families; free tier needs a link. | Icons8 Free License | ✅ Required | ⚠️ Conditional | — |
+| [Heroicons](https://heroicons.com/) | Beautiful hand-crafted SVG icons by the makers of Tailwind CSS. | MIT | — | 💚 Allowed | — |
+| [Phosphor Icons](https://phosphoricons.com/) | Flexible open-source icon family with six weights. | MIT | — | 💚 Allowed | — |
+| [Iconoir](https://iconoir.com/) | 1,600+ hand-crafted open-source icons, free forever. | MIT | — | 💚 Allowed | — |
+| [Remix Icon](https://remixicon.com/) | Neutral-style open-source system symbol icons. | Apache 2.0 | — | 💚 Allowed | — |
+| [Material Symbols](https://fonts.google.com/icons) | Google's variable icon family, successor to Material Icons. | Apache 2.0 | — | 💚 Allowed | — |
+| [Freepik](https://www.freepik.com/) | Enormous catalog of free vectors, PSDs and photos; free plan needs attribution. _Daily download cap on the free plan._ | Freepik Free License | ✅ Required | ⚠️ Conditional | 🔑 Yes |
+| [Vecteezy](https://www.vecteezy.com/) | Free vectors and photos with attribution on the free plan. | Vecteezy Free License | ✅ Required | ⚠️ Conditional | 🔑 Yes |
+| [3dicons](https://3dicons.co/) | Open-source 3D icon library with 5,000+ rendered icons. | CC0 | — | 💚 Allowed | — |
 
 ## Video Production
 
@@ -200,6 +218,8 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Mixkit Templates](https://mixkit.co/free-after-effects-templates/) | Free After Effects, Premiere, DaVinci and Final Cut templates and transitions. | Mixkit License | — | 💚 Allowed | — |
 | [Motion Array (free section)](https://motionarray.com/) | Free templates, LUTs and presets section of a premium marketplace. | Motion Array royalty-free license | — | 💚 Allowed | 🔑 Yes |
 | [Velosofy](https://www.velosofy.com/) | Community library of free video templates (AE, Premiere, Sony Vegas). | Various (per template) | ❓ Varies | ❓ Varies | Optional |
+| [FootageCrate](https://footagecrate.com/) | Free VFX elements, overlays and action footage from ProductionCrew. _Free tier: 5 downloads/day; commercial use allowed within limits._ | FootageCrate Free License | — | ⚠️ Conditional | 🔑 Yes |
+| [MotionElements](https://www.motionelements.com/) | Marketplace with a rotating free section: templates, SFX, video. _Free items rotate weekly; check the license per item._ | MotionElements Free License | — | ❓ Varies | 🔑 Yes |
 
 ## Mockups & Design Templates
 
@@ -213,6 +233,9 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Pixelbuddha Free](https://pixelbuddha.net/free) | Free design resources: mockups, icons, UI kits. | Various (per item) | ❓ Varies | ❓ Varies | Optional |
 | [Canva Templates](https://www.canva.com/templates/) | Thousands of free templates for thumbnails, posts, decks and shorts. _Canva content has resale and redistribution restrictions; read the Content License._ | Canva Content License | — | ⚠️ Conditional | 🔑 Yes |
 | [Adobe Express Templates](https://www.adobe.com/express/templates) | Free templates for social media graphics and branding. | Adobe Stock/Express License | — | ⚠️ Conditional | 🔑 Yes |
+| [Smartmockups](https://smartmockups.com/) | Browser-based mockup generator with free templates, now under Canva. _Free tier limits resolution and template count._ | Smartmockups Free License | — | ⚠️ Conditional | 🔑 Yes |
+| [Pixeden](https://www.pixeden.com/) | Free PSD mockups, graphics and web design resources. _Check the license note on each free item page._ | Pixeden License (per item) | ❓ Varies | ❓ Varies | Optional |
+| [Anthony Boyd Graphics](https://www.anthonyboyd.graphics/) | Photorealistic PSD mockups, textures and renders by Anthony Boyd. _Free for commercial use; no redistribution._ | ABB Free License | — | 💚 Allowed | — |
 
 ## 3D & Game Assets
 
@@ -235,6 +258,9 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [NASA 3D Resources](https://nasa3d.arc.nasa.gov/) | Public domain 3D models, textures and images from NASA. | Public Domain (mostly) | — | 💚 Allowed | — |
 | [CGTrader Free Models](https://www.cgtrader.com/free-3d-models) | Free-model section of a major 3D marketplace. | Per-model licenses | ❓ Varies | ❓ Varies | Optional |
 | [TurboSquid Free Models](https://www.turbosquid.com/Search/3D-Models/free) | Free-model section of TurboSquid. | Per-model licenses | ❓ Varies | ❓ Varies | Optional |
+| [SketchUp 3D Warehouse](https://3dwarehouse.sketchup.com/) | Millions of free 3D models from the SketchUp community. | Per-model licenses | ❓ Varies | ❓ Varies | Optional |
+| [Free3D](https://free3d.com/) | Free-model section of a large 3D marketplace. | Per-model licenses | ❓ Varies | ❓ Varies | Optional |
+| [Quaternius](https://quaternius.com/) | Stylish CC0 low-poly packs: animals, dungeons, sci-fi and more. | CC0 | — | 💚 Allowed | — |
 
 ## Search Engines
 
@@ -245,6 +271,9 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Openverse](https://openverse.org/) | Search 800M+ Creative Commons images and audio from across the web. _Always check the license shown for each individual result._ | Aggregator (per-source licenses) | ❓ Varies | ❓ Varies | — |
 | [Every Stock Photo](https://everystockphoto.com/) | Search free photos from many public domain and CC sources. | Aggregator (per-source licenses) | ❓ Varies | ❓ Varies | — |
 | [Wikimedia Commons](https://commons.wikimedia.org/) | 100M+ freely licensed media files, strong for editorial and historical content. | Various (per file) | ❓ Varies | ❓ Varies | — |
+| [The Public Domain Review](https://publicdomainreview.org/) | Curated essays and collections rediscovering public-domain treasures. _A discovery/curation site, not a stock host; check each work._ | Public Domain works | — | 💚 Allowed | — |
+| [DPLA](https://dp.la/) | Digital Public Library of America: millions of items from US libraries and museums. | Various (per item) | ❓ Varies | ❓ Varies | — |
+| [Europeana](https://www.europeana.eu/) | European cultural heritage: artworks, photos and sounds from 3,000+ institutions. | Various (per item) | ❓ Varies | ❓ Varies | — |
 
 ## Related Lists
 
