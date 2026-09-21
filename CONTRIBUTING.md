@@ -80,7 +80,7 @@ The interactive directory at https://skyzhao1223.github.io/free-for-creators/ is
 
 ```bash
 mkdir -p site/data && cp data/*.json site/data/
-python3 -c "import json,sys; sys.path.insert(0,'scripts'); from build_readme import CATEGORY_ORDER; json.dump([{'slug': s} for s in CATEGORY_ORDER], open('site/data/manifest.json','w'))"
+python3 -c "import json,sys; sys.path.insert(0,'scripts'); from build_readme import CATEGORY_ORDER; json.dump([{'slug': s} for s in CATEGORY_ORDER], open('site/data/manifest.json','w')); cats=[json.load(open(f'data/{s}.json')) for s in CATEGORY_ORDER]; json.dump({'total': sum(len(c['entries']) for c in cats), 'categories': cats}, open('site/data/all.json','w'), ensure_ascii=False)"
 python3 -m http.server -d site 8000   # open http://localhost:8000
 ```
 

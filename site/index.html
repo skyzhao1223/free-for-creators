@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f6fb">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#07070f">
+<link rel="canonical" href="https://skyzhao1223.github.io/free-for-creators/">
 <title>Free for Creators — license-verified free assets for creators</title>
 <meta name="description" content="Interactive directory of free resources for video creators, streamers, podcasters, game devs and designers — filter by license, attribution and monetization. 许可透明的创作者免费素材清单。">
 <meta property="og:title" content="Free for Creators — license-verified free assets">
@@ -192,6 +195,7 @@ section .cd { font-size: 13px; color: var(--muted); margin: 3px 0 14px 20px; }
 .lic { font-size: 11.5px; color: var(--muted); margin-top: 11px; padding-top: 10px; border-top: 1px solid var(--border); word-break: break-word; }
 .empty { text-align: center; color: var(--muted); padding: 70px 0 80px; }
 .empty .big { font-size: 44px; display: block; margin-bottom: 10px; }
+mark { background: color-mix(in srgb, var(--accent) 24%, transparent); color: inherit; border-radius: 3px; padding: 0 1px; }
 
 /* ---------- to-top & footer ---------- */
 #to-top {
@@ -250,7 +254,9 @@ footer a:hover { text-decoration: underline; }
       <label class="tgl"><input type="checkbox" id="f-monetization"><span data-i18n="f_mon"></span></label>
       <label class="tgl"><input type="checkbox" id="f-attribution"><span data-i18n="f_attr"></span></label>
       <label class="tgl"><input type="checkbox" id="f-signup"><span data-i18n="f_signup"></span></label>
+      <label class="tgl"><input type="checkbox" id="f-cc0"><span data-i18n="f_cc0"></span></label>
       <label class="sortlbl"><span data-i18n="sort_label"></span> <select id="sort" class="sortsel" aria-label="Sort order"></select></label>
+      <button id="share" class="chip" type="button"><span data-i18n="share_btn"></span></button>
       <button id="clear" type="button" hidden></button>
     </div>
   </div>
@@ -288,6 +294,10 @@ const I18N = {
     f_mon: "💚 Commercial use OK",
     f_attr: "➖ No attribution required",
     f_signup: "🔓 No signup required",
+    f_cc0: "🆓 CC0 / Public domain",
+    share_btn: "🔗 Share view",
+    share_done: "✓ Link copied",
+    share_title: "Copy a link to this filtered view",
     clear: "Clear filters",
     showing: (n, t) => "Showing <b>" + n + "</b> of " + t + " resources",
     empty: "Nothing matches those filters.",
@@ -322,6 +332,10 @@ const I18N = {
     f_mon: "💚 可商用",
     f_attr: "➖ 无需署名",
     f_signup: "🔓 无需注册",
+    f_cc0: "🆓 仅 CC0 / 公有领域",
+    share_btn: "🔗 分享当前视图",
+    share_done: "✓ 已复制链接",
+    share_title: "复制当前筛选视图的链接",
     clear: "清除筛选",
     showing: (n, t) => "显示 " + t + " 个资源中的 <b>" + n + "</b> 个",
     empty: "没有符合筛选条件的资源。",
@@ -359,7 +373,7 @@ let activeSlug = null;
 let q = "";
 let favOnly = false;
 let sortMode = "default";
-const state = { monetization: false, attribution: false, signup: false };
+const state = { monetization: false, attribution: false, signup: false, cc0: false };
 let FAVS = new Set();
 try { FAVS = new Set(JSON.parse(localStorage.getItem("ffc-favs") || "[]")); } catch (e) {}
 const saveFavs = () => { try { localStorage.setItem("ffc-favs", JSON.stringify([...FAVS])); } catch (e) {} };
@@ -384,6 +398,7 @@ function writeHash() {
   if (state.monetization) p.push("mon=1");
   if (state.attribution) p.push("attr=1");
   if (state.signup) p.push("signup=1");
+  if (state.cc0) p.push("cc0=1");
   if (favOnly) p.push("fav=1");
   if (sortMode !== "default") p.push("sort=" + encodeURIComponent(sortMode));
   const hash = p.length ? "#" + p.join("&") : "";
@@ -401,25 +416,34 @@ function readHash() {
     else if (k === "mon") { state.monetization = v === "1"; $("f-monetization").checked = state.monetization; }
     else if (k === "attr") { state.attribution = v === "1"; $("f-attribution").checked = state.attribution; }
     else if (k === "signup") { state.signup = v === "1"; $("f-signup").checked = state.signup; }
+    else if (k === "cc0") { state.cc0 = v === "1"; $("f-cc0").checked = state.cc0; }
     else if (k === "fav") favOnly = v === "1";
     else if (k === "sort") sortMode = ["default", "name", "open"].indexOf(v) !== -1 ? v : "default";
   });
 }
 
 /* ---------- filtering & rendering ---------- */
-function matches(e) {
+function matches(e, c) {
   if (favOnly && !FAVS.has(e.url)) return false;
   if (state.monetization && e.monetization !== "allowed") return false;
   if (state.attribution && e.attribution !== "not-required") return false;
   if (state.signup && e.signup !== "not-required") return false;
+  if (state.cc0 && !isCC0(e)) return false;
   if (q) {
-    const hay = [e.name, e.license, e.description, e.description_zh || "", e.notes || "", e.notes_zh || ""].join(" ").toLowerCase();
+    const hay = [e.name, e.license, e.description, e.description_zh || "", e.notes || "", e.notes_zh || "", c ? catName(c) : ""].join(" ").toLowerCase();
     if (hay.indexOf(q) === -1) return false;
   }
   return true;
 }
-const anyFilter = () => q !== "" || activeSlug !== null || favOnly || state.monetization || state.attribution || state.signup;
-const openScore = (e) => (e.monetization === "allowed" ? 4 : 0) + (e.attribution === "not-required" ? 2 : 0) + (e.signup === "not-required" ? 1 : 0);
+const anyFilter = () => q !== "" || activeSlug !== null || favOnly || state.monetization || state.attribution || state.signup || state.cc0;
+const isCC0 = (e) => /cc0|public domain/i.test(e.license || "");
+const openScore = (e) => (e.monetization === "allowed" ? 4 : 0) + (e.attribution === "not-required" ? 2 : 0) + (e.signup === "not-required" ? 1 : 0) + (isCC0(e) ? 3 : 0);
+function hl(text) {
+  const s = esc(text);
+  if (!q || /[^a-z0-9\u4e00-\u9fff .+-]/.test(q)) return s;
+  const qe = q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/ /g, "\\s+");
+  try { return s.replace(new RegExp("(" + qe + ")", "gi"), "<mark>$1</mark>"); } catch (err) { return s; }
+}
 const monClass = (v) => (v === "allowed" ? "b-ok" : v === "conditional" ? "b-warn" : v === "not-allowed" ? "b-bad" : "b-mut");
 const attrClass = (v) => (v === "required" ? "b-warn" : v === "not-required" ? "b-ok" : "b-mut");
 
@@ -430,6 +454,7 @@ function render() {
   $("search").placeholder = t("search_ph");
   $("lang-btn").textContent = t("lang_btn");
   $("clear").textContent = t("clear");
+  $("share").title = t("share_title");
   document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
   $("footer-text").innerHTML = t("footer");
   $("theme-btn").textContent = document.documentElement.dataset.theme === "dark" ? "🌙" : "☀️";
@@ -449,11 +474,13 @@ function render() {
     '<span class="stat">' + t("stat_cats")(CATS.length) + "</span>" +
     '<span class="stat">' + t("stat_ci") + "</span>";
 
+  const countFilters = q !== "" || favOnly || state.monetization || state.attribution || state.signup || state.cc0;
+  const matchCount = (c) => c.entries.filter((e) => matches(e, c)).length;
   let chips = '<button class="chip ' + (favOnly ? "active" : "") + '" data-fav="1" type="button" role="tab">⭐ ' + t("fav_chip") + '<span class="n">' + FAVS.size + "</span></button>";
-  chips += '<button class="chip ' + (activeSlug === null && !favOnly ? "active" : "") + '" data-slug="" type="button" role="tab">' + t("all") + '<span class="n">' + total + "</span></button>";
+  chips += '<button class="chip ' + (activeSlug === null && !favOnly ? "active" : "") + '" data-slug="" type="button" role="tab">' + t("all") + '<span class="n">' + (countFilters ? CATS.reduce((n, c) => n + matchCount(c), 0) + "/" + total : total) + "</span></button>";
   for (const c of CATS) {
     chips += '<button class="chip ' + (activeSlug === c.slug ? "active" : "") + '" data-slug="' + c.slug + '" type="button" role="tab">' +
-      '<i style="background:' + catColor(c.slug) + '"></i>' + esc(catName(c)) + '<span class="n">' + c.entries.length + "</span></button>";
+      '<i style="background:' + catColor(c.slug) + '"></i>' + esc(catName(c)) + '<span class="n">' + (countFilters ? matchCount(c) + "/" + c.entries.length : c.entries.length) + "</span></button>";
   }
   $("chips").innerHTML = chips;
   $("clear").hidden = !anyFilter();
@@ -464,7 +491,7 @@ function render() {
   let shown = 0, html = "";
   for (const c of CATS) {
     if (activeSlug && c.slug !== activeSlug) continue;
-    let list = c.entries.filter(matches);
+    let list = c.entries.filter((e) => matches(e, c));
     if (sortMode === "name") list = list.slice().sort((a, b) => a.name.localeCompare(b.name));
     else if (sortMode === "open") list = list.slice().sort((a, b) => openScore(b) - openScore(a) || a.name.localeCompare(b.name));
     if (!list.length) continue;
@@ -475,9 +502,9 @@ function render() {
       const note = entryNotes(e);
       const isFav = FAVS.has(e.url);
       html += '<div class="card"><div class="name-row"><i style="background:' + catColor(c.slug) + '"></i>' +
-        '<a class="name" href="' + esc(e.url) + '" target="_blank" rel="noopener">' + esc(e.name) + "</a>" +
+        '<a class="name" href="' + esc(e.url) + '" target="_blank" rel="noopener">' + hl(e.name) + "</a>" +
         '<button class="fav' + (isFav ? " on" : "") + '" data-url="' + esc(e.url) + '" type="button" aria-pressed="' + isFav + '" title="' + t(isFav ? "fav_on" : "fav_off") + '">' + (isFav ? "★" : "☆") + "</button></div>" +
-        '<div class="desc">' + esc(entryDesc(e)) + "</div>" +
+        '<div class="desc">' + hl(entryDesc(e)) + "</div>" +
         (note ? '<div class="note">' + esc(note) + "</div>" : "") +
         '<div class="badges"><span class="b ' + monClass(e.monetization) + '">' + t("mon")[e.monetization] + "</span>" +
         '<span class="b ' + attrClass(e.attribution) + '">' + t("attr")[e.attribution] + "</span>" +
@@ -501,13 +528,18 @@ function clearAll() {
   activeSlug = null;
   favOnly = false;
   sortMode = "default";
-  state.monetization = state.attribution = state.signup = false;
-  $("f-monetization").checked = $("f-attribution").checked = $("f-signup").checked = false;
+  state.monetization = state.attribution = state.signup = state.cc0 = false;
+  $("f-monetization").checked = $("f-attribution").checked = $("f-signup").checked = $("f-cc0").checked = false;
   render();
 }
 
 /* ---------- events ---------- */
-$("search").addEventListener("input", (e) => { q = e.target.value.trim().toLowerCase(); render(); });
+let searchTimer = null;
+$("search").addEventListener("input", (e) => {
+  const v = e.target.value;
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => { q = v.trim().toLowerCase(); render(); }, 150);
+});
 $("chips").addEventListener("click", (e) => {
   const b = e.target.closest(".chip");
   if (!b) return;
@@ -515,7 +547,7 @@ $("chips").addEventListener("click", (e) => {
   activeSlug = b.dataset.slug || null;
   render();
 });
-[["f-monetization", "monetization"], ["f-attribution", "attribution"], ["f-signup", "signup"]].forEach(([id, key]) => {
+[["f-monetization", "monetization"], ["f-attribution", "attribution"], ["f-signup", "signup"], ["f-cc0", "cc0"]].forEach(([id, key]) => {
   $(id).addEventListener("change", (e) => { state[key] = e.target.checked; render(); });
 });
 $("results").addEventListener("click", (e) => {
@@ -539,6 +571,13 @@ $("results").addEventListener("click", (e) => {
   render();
 });
 $("sort").addEventListener("change", (e) => { sortMode = e.target.value; render(); });
+$("share").addEventListener("click", () => {
+  const url = location.href;
+  const span = $("share").querySelector("span");
+  const done = () => { span.textContent = t("share_done"); setTimeout(() => { span.textContent = t("share_btn"); }, 1500); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, () => window.prompt("URL:", url));
+  else window.prompt("URL:", url);
+});
 $("lang-btn").addEventListener("click", () => {
   LANG = LANG === "en" ? "zh" : "en";
   try { localStorage.setItem("ffc-lang", LANG); } catch (e) {}
@@ -568,14 +607,18 @@ window.addEventListener("hashchange", () => { readHash(); render(); });
 /* ---------- boot ---------- */
 readHash();
 render(); // render chrome immediately (0 categories until data lands)
-fetch("data/manifest.json")
-  .then((r) => { if (!r.ok) throw new Error("manifest " + r.status); return r.json(); })
-  .then((manifest) => Promise.all(manifest.map((m) => fetch("data/" + m.slug + ".json").then((r) => { if (!r.ok) throw new Error(m.slug + " " + r.status); return r.json(); }))))
-  .then((cats) => { CATS = cats; render(); })
-  .catch((err) => {
-    $("results").innerHTML = '<div class="empty"><span class="big">⚠️</span>' + t("loaderr") + esc(err) + "</div>";
-    $("status").textContent = "";
-  });
+const loadFail = (err) => {
+  $("results").innerHTML = '<div class="empty"><span class="big">⚠️</span>' + t("loaderr") + esc(err) + "</div>";
+  $("status").textContent = "";
+};
+fetch("data/all.json")
+  .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then((d) => { CATS = d.categories; render(); })
+  .catch(() => fetch("data/manifest.json")
+    .then((r) => { if (!r.ok) throw new Error("manifest " + r.status); return r.json(); })
+    .then((manifest) => Promise.all(manifest.map((m) => fetch("data/" + m.slug + ".json").then((r) => { if (!r.ok) throw new Error(m.slug + " " + r.status); return r.json(); }))))
+    .then((cats) => { CATS = cats; render(); })
+    .catch(loadFail));
 </script>
 </body>
 </html>
