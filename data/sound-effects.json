@@ -1,32 +1,39 @@
 {
   "category": "Sound Effects",
+  "category_zh": "音效",
   "slug": "sound-effects",
   "description": "Free SFX libraries, packs and ambience for video, games, podcasts and streams.",
+  "description_zh": "面向视频、游戏、播客与直播的免费音效库、音效包与氛围音。",
   "entries": [
     {
       "name": "Freesound",
       "url": "https://freesound.org/",
       "description": "Massive collaborative database of sounds under CC0 and CC-BY licenses.",
+      "description_zh": "以 CC0 与 CC-BY 许可为主的大型协作声音数据库。",
       "license": "Various CC licenses (per sound)",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "required",
-      "notes": "Filter by license; CC-BY sounds need credit in your description."
+      "notes": "Filter by license; CC-BY sounds need credit in your description.",
+      "notes_zh": "按许可证筛选；CC-BY 声音需在简介中署名。"
     },
     {
       "name": "ZapSplat",
       "url": "https://www.zapsplat.com/",
       "description": "100,000+ free sound effects; free tier works with attribution.",
+      "description_zh": "10 万+ 免费音效；免费档需署名。",
       "license": "ZapSplat Free License",
       "attribution": "required",
       "monetization": "conditional",
       "signup": "required",
-      "notes": "Gold membership removes attribution and raises quality limits."
+      "notes": "Gold membership removes attribution and raises quality limits.",
+      "notes_zh": "Gold 会员可免署名并提高下载质量上限。"
     },
     {
       "name": "Pixabay Sound Effects",
       "url": "https://pixabay.com/sound-effects/",
       "description": "Royalty-free sound effects library from Pixabay.",
+      "description_zh": "Pixabay 的免版税音效库。",
       "license": "Pixabay Content License",
       "attribution": "not-required",
       "monetization": "allowed",
@@ -36,6 +43,7 @@
       "name": "Mixkit Sound Effects",
       "url": "https://mixkit.co/free-sound-effects/",
       "description": "Free SFX for videos, games and streams from Envato's Mixkit.",
+      "description_zh": "Envato Mixkit 的免费音效，适用于视频、游戏与直播。",
       "license": "Mixkit Sound Effects Free License",
       "attribution": "not-required",
       "monetization": "allowed",
@@ -45,16 +53,19 @@
       "name": "BBC Sound Effects",
       "url": "https://sound-effects.bbcrewind.co.uk/",
       "description": "33,000+ sounds from the historic BBC archive.",
+      "description_zh": "BBC 历史档案中的 33,000+ 声音。",
       "license": "RemArc/BBC License (personal, educational, research only)",
       "attribution": "not-required",
       "monetization": "not-allowed",
       "signup": "not-required",
-      "notes": "NOT free for commercial or monetized content; great for learning and research."
+      "notes": "NOT free for commercial or monetized content; great for learning and research.",
+      "notes_zh": "不可用于商业或已货币化内容；适合学习与研究。"
     },
     {
       "name": "Sonniss GDC Audio Bundles",
       "url": "https://sonniss.com/gameaudiogdc",
       "description": "Multi-gigabyte professional game audio packs released free every year.",
+      "description_zh": "每年免费发放的数 GB 专业游戏音频包。",
       "license": "Royalty-free (Sonniss GDC license)",
       "attribution": "not-required",
       "monetization": "allowed",
@@ -64,6 +75,7 @@
       "name": "Orange Free Sounds",
       "url": "https://orangefreesounds.com/",
       "description": "Large mixed library of free sounds, loops and ringtones.",
+      "description_zh": "大型混合免费声音、循环与铃声库。",
       "license": "Various CC licenses",
       "attribution": "varies",
       "monetization": "varies",
@@ -73,6 +85,7 @@
       "name": "SoundBible",
       "url": "https://soundbible.com/",
       "description": "Simple, no-frills free sound effect downloads.",
+      "description_zh": "简单直接的免费音效下载站。",
       "license": "CC0 / CC-BY (per sound)",
       "attribution": "varies",
       "monetization": "varies",
@@ -82,6 +95,7 @@
       "name": "Freesfx.co.uk",
       "url": "https://www.freesfx.co.uk/",
       "description": "Thousands of free sound effects usable with a credit.",
+      "description_zh": "数千个免费音效，使用时需署名。",
       "license": "freesfx.co.uk License",
       "attribution": "required",
       "monetization": "conditional",
@@ -91,6 +105,7 @@
       "name": "Kenney Audio",
       "url": "https://kenney.nl/assets?type=audio",
       "description": "CC0 audio packs (UI, sci-fi, RPG) from the prolific Kenney library.",
+      "description_zh": "高产素材库 Kenney 的 CC0 音频包（UI、科幻、RPG）。",
       "license": "CC0",
       "attribution": "not-required",
       "monetization": "allowed",
@@ -100,11 +115,13 @@
       "name": "Tabletop Audio",
       "url": "https://tabletopaudio.com/",
       "description": "Ambience loops for tabletop RPG sessions, streams and podcasts.",
+      "description_zh": "适合跑团、直播与播客的氛围循环音。",
       "license": "CC BY-NC-ND 4.0",
       "attribution": "required",
       "monetization": "not-allowed",
       "signup": "not-required",
-      "notes": "NonCommercial only: fine for personal and non-monetized use."
+      "notes": "NonCommercial only: fine for personal and non-monetized use.",
+      "notes_zh": "仅限非商业：可用于个人及未货币化内容。"
     }
   ]
 }

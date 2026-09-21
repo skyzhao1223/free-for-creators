@@ -1,12 +1,15 @@
 {
   "category": "Fonts",
+  "category_zh": "字体",
   "slug": "fonts",
   "description": "Typefaces free for commercial use — for thumbnails, branding, subtitles and print.",
+  "description_zh": "可免费商用的字体——用于封面图、品牌、字幕与印刷。",
   "entries": [
     {
       "name": "Google Fonts",
       "url": "https://fonts.google.com/",
       "description": "1,700+ families, almost all under open licenses.",
+      "description_zh": "1,700+ 字体家族，几乎全部采用开放许可。",
       "license": "OFL / Apache 2.0 / UFL (per family)",
       "attribution": "not-required",
       "monetization": "allowed",
@@ -16,6 +19,7 @@
       "name": "Fontshare",
       "url": "https://www.fontshare.com/",
       "description": "Professional-quality free fonts from the Indian Type Foundry.",
+      "description_zh": "Indian Type Foundry 出品的专业级免费字体。",
       "license": "ITF Free Font License",
       "attribution": "not-required",
       "monetization": "allowed",
@@ -25,6 +29,7 @@
       "name": "Bunny Fonts",
       "url": "https://fonts.bunny.net/",
       "description": "Privacy-friendly, all-OFL drop-in replacement for Google Fonts.",
+      "description_zh": "隐私友好、全 OFL 许可，可直接替换 Google Fonts。",
       "license": "OFL",
       "attribution": "not-required",
       "monetization": "allowed",
@@ -34,6 +39,7 @@
       "name": "Font Squirrel",
       "url": "https://www.fontsquirrel.com/",
       "description": "Hand-vetted fonts that are 100% free for commercial use.",
+      "description_zh": "人工审核、100% 可免费商用的字体。",
       "license": "Various free licenses",
       "attribution": "not-required",
       "monetization": "allowed",
@@ -43,6 +49,7 @@
       "name": "The League of Moveable Type",
       "url": "https://www.theleagueofmoveabletype.com/",
       "description": "The original open-source type foundry.",
+      "description_zh": "最早的开源字体铸造厂。",
       "license": "OFL",
       "attribution": "not-required",
       "monetization": "allowed",
@@ -52,6 +59,7 @@
       "name": "Velvetyne",
       "url": "https://velvetyne.fr/",
       "description": "Experimental and quirky free open-source typefaces.",
+      "description_zh": "实验性、风格独特的免费开源字体。",
       "license": "OFL / custom open licenses",
       "attribution": "not-required",
       "monetization": "allowed",
@@ -61,6 +69,7 @@
       "name": "Font Library",
       "url": "https://fontlibrary.org/",
       "description": "Community catalog of libre typefaces.",
+      "description_zh": "社区维护的自由字体目录。",
       "license": "OFL / CC (per family)",
       "attribution": "varies",
       "monetization": "allowed",
@@ -70,16 +79,19 @@
       "name": "DaFont",
       "url": "https://www.dafont.com/",
       "description": "Huge catalog; many fonts are demo or personal-use only.",
+      "description_zh": "超大字体目录；许多字体仅限演示或个人使用。",
       "license": "Various (per font)",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "not-required",
-      "notes": "Always check the per-font license file before commercial use."
+      "notes": "Always check the per-font license file before commercial use.",
+      "notes_zh": "商用前务必逐字核对许可文件。"
     },
     {
       "name": "1001 Fonts",
       "url": "https://www.1001fonts.com/",
       "description": "10,000+ fonts with license filtering.",
+      "description_zh": "10,000+ 字体，支持按许可筛选。",
       "license": "Various (per font)",
       "attribution": "varies",
       "monetization": "varies",
@@ -89,11 +101,13 @@
       "name": "free-font (CJK)",
       "url": "https://github.com/jaywcjlove/free-font",
       "description": "Curated Chinese and English fonts free for commercial use.",
+      "description_zh": "中英文可商用免费字体精选。",
       "license": "Various (per font)",
       "attribution": "varies",
       "monetization": "allowed",
       "signup": "not-required",
-      "notes": "Chinese-language resource; verify each font's license."
+      "notes": "Chinese-language resource; verify each font's license.",
+      "notes_zh": "中文资源；请逐字核对许可。"
     }
   ]
 }

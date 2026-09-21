@@ -10,6 +10,10 @@
       "type": "string",
       "description": "Human-readable category name, used as the README heading."
     },
+    "category_zh": {
+      "type": "string",
+      "description": "Chinese category name, used as the README.zh-CN.md heading."
+    },
     "slug": {
       "type": "string",
       "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
@@ -18,6 +22,10 @@
     "description": {
       "type": "string",
       "description": "One-line description of the category."
+    },
+    "description_zh": {
+      "type": "string",
+      "description": "Chinese one-line description of the category."
     },
     "entries": {
       "type": "array",
@@ -42,6 +50,11 @@
           "maxLength": 160,
           "description": "What it is, in one line. No pipe characters."
         },
+        "description_zh": {
+          "type": "string",
+          "maxLength": 160,
+          "description": "Chinese description. Optional — the zh README falls back to English."
+        },
         "license": {
           "type": "string",
           "description": "License name, e.g. 'CC0', 'Pixabay Content License', 'Various (per item)'."
@@ -61,6 +74,10 @@
         "notes": {
           "type": "string",
           "description": "Optional caveats shown in italics after the description."
+        },
+        "notes_zh": {
+          "type": "string",
+          "description": "Chinese caveats. Optional — the zh README falls back to English."
         },
         "skip_linkcheck": {
           "type": "boolean",

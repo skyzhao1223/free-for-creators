@@ -1,22 +1,27 @@
 {
   "category": "Search Engines",
+  "category_zh": "聚合搜索",
   "slug": "search-engines",
   "description": "Meta-search across millions of openly licensed images, audio and media.",
+  "description_zh": "跨数百万开放许可图片、音频与媒体的聚合搜索。",
   "entries": [
     {
       "name": "Openverse",
       "url": "https://openverse.org/",
       "description": "Search 800M+ Creative Commons images and audio from across the web.",
+      "description_zh": "检索全网 8 亿+ 知识共享图片与音频。",
       "license": "Aggregator (per-source licenses)",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "not-required",
-      "notes": "Always check the license shown for each individual result."
+      "notes": "Always check the license shown for each individual result.",
+      "notes_zh": "以每条结果展示的许可为准。"
     },
     {
       "name": "Every Stock Photo",
       "url": "https://everystockphoto.com/",
       "description": "Search free photos from many public domain and CC sources.",
+      "description_zh": "跨多个公有领域与 CC 图源搜索免费照片。",
       "license": "Aggregator (per-source licenses)",
       "attribution": "varies",
       "monetization": "varies",
@@ -26,6 +31,7 @@
       "name": "Wikimedia Commons",
       "url": "https://commons.wikimedia.org/",
       "description": "100M+ freely licensed media files, strong for editorial and historical content.",
+      "description_zh": "1 亿+ 自由许可媒体文件，编辑与历史类内容尤其丰富。",
       "license": "Various (per file)",
       "attribution": "varies",
       "monetization": "varies",

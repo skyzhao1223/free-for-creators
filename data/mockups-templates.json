@@ -1,12 +1,15 @@
 {
   "category": "Mockups & Design Templates",
+  "category_zh": "样机与设计模板",
   "slug": "mockups-templates",
   "description": "PSD/device mockups, thumbnail and social media templates.",
+  "description_zh": "PSD/设备样机、封面图与社交媒体模板。",
   "entries": [
     {
       "name": "Mockup World",
       "url": "https://www.mockupworld.co/",
       "description": "Aggregator of free photorealistic PSD mockups from across the web.",
+      "description_zh": "全网免费逼真 PSD 样机聚合站。",
       "license": "Various (per item)",
       "attribution": "varies",
       "monetization": "varies",
@@ -16,16 +19,19 @@
       "name": "GraphicsFuel",
       "url": "https://www.graphicsfuel.com/",
       "description": "Free high-resolution PSD mockups and design templates.",
+      "description_zh": "免费高分辨率 PSD 样机与设计模板。",
       "license": "Various (per item)",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "not-required",
-      "notes": "Check the license note on each download page."
+      "notes": "Check the license note on each download page.",
+      "notes_zh": "以下载页标注的许可为准。"
     },
     {
       "name": "ls.graphics Free Mockups",
       "url": "https://www.ls.graphics/free-mockups",
       "description": "High-quality free device and scene mockups from a premium shop.",
+      "description_zh": "高端商店的免费高质量设备与场景样机。",
       "license": "ls.graphics Free License",
       "attribution": "not-required",
       "monetization": "allowed",
@@ -35,6 +41,7 @@
       "name": "Pixelbuddha Free",
       "url": "https://pixelbuddha.net/free",
       "description": "Free design resources: mockups, icons, UI kits.",
+      "description_zh": "免费设计资源：样机、图标、UI 套件。",
       "license": "Various (per item)",
       "attribution": "varies",
       "monetization": "varies",
@@ -44,16 +51,19 @@
       "name": "Canva Templates",
       "url": "https://www.canva.com/templates/",
       "description": "Thousands of free templates for thumbnails, posts, decks and shorts.",
+      "description_zh": "数千个免费模板：封面图、帖子、演示文稿与短视频。",
       "license": "Canva Content License",
       "attribution": "not-required",
       "monetization": "conditional",
       "signup": "required",
-      "notes": "Canva content has resale and redistribution restrictions; read the Content License."
+      "notes": "Canva content has resale and redistribution restrictions; read the Content License.",
+      "notes_zh": "Canva 素材有转售与再分发限制；请阅读内容许可。"
     },
     {
       "name": "Adobe Express Templates",
       "url": "https://www.adobe.com/express/templates",
       "description": "Free templates for social media graphics and branding.",
+      "description_zh": "免费的社媒图形与品牌模板。",
       "license": "Adobe Stock/Express License",
       "attribution": "not-required",
       "monetization": "conditional",

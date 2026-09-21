@@ -1,22 +1,27 @@
 {
   "category": "Music",
+  "category_zh": "音乐",
   "slug": "music",
   "description": "Royalty-free and copyright-safe music for videos, streams, podcasts and games.",
+  "description_zh": "适合视频、直播、播客与游戏的免版税、无版权风险音乐。",
   "entries": [
     {
       "name": "YouTube Audio Library",
       "url": "https://www.youtube.com/audiolibrary",
       "description": "Free music and sound effects provided by YouTube for use in your videos.",
+      "description_zh": "YouTube 官方提供的免费音乐与音效，可用于你的视频。",
       "license": "YouTube Audio Library License (some tracks CC-BY)",
       "attribution": "varies",
       "monetization": "allowed",
       "signup": "required",
-      "notes": "Some tracks require attribution exactly as shown in the library."
+      "notes": "Some tracks require attribution exactly as shown in the library.",
+      "notes_zh": "部分曲目要求按库中说明的方式署名。"
     },
     {
       "name": "Pixabay Music",
       "url": "https://pixabay.com/music/",
       "description": "Large and growing library of royalty-free tracks and loops.",
+      "description_zh": "Pixabay 旗下大型免版税音乐与循环素材库。",
       "license": "Pixabay Content License",
       "attribution": "not-required",
       "monetization": "allowed",
@@ -26,16 +31,19 @@
       "name": "Free Music Archive",
       "url": "https://freemusicarchive.org/",
       "description": "Huge archive of Creative Commons music curated since the WFMU radio days.",
+      "description_zh": "源自 WFMU 电台的大型知识共享（CC）音乐档案库。",
       "license": "Various CC licenses",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "not-required",
-      "notes": "Filter by license; some tracks are NonCommercial or NoDerivatives."
+      "notes": "Filter by license; some tracks are NonCommercial or NoDerivatives.",
+      "notes_zh": "按许可证筛选；部分曲目仅限非商业或禁止演绎。"
     },
     {
       "name": "Incompetech",
       "url": "https://incompetech.com/music/royalty-free/",
       "description": "Kevin MacLeod's legendary library of film-score style music.",
+      "description_zh": "Kevin MacLeod 的传奇影视配乐库。",
       "license": "CC BY 4.0 (paid no-attribution license available)",
       "attribution": "required",
       "monetization": "allowed",
@@ -45,16 +53,19 @@
       "name": "Bensound",
       "url": "https://www.bensound.com/",
       "description": "Catchy corporate, acoustic and cinematic tracks by composer Benjamin Tissot.",
+      "description_zh": "作曲人 Benjamin Tissot 的轻快企业风、原声与电影感曲目。",
       "license": "Bensound Free License",
       "attribution": "required",
       "monetization": "conditional",
       "signup": "not-required",
-      "notes": "Free license covers online videos with credit; some tracks are Pro-only."
+      "notes": "Free license covers online videos with credit; some tracks are Pro-only.",
+      "notes_zh": "免费许可覆盖需署名的网络视频；部分曲目仅限 Pro。"
     },
     {
       "name": "Mixkit Music",
       "url": "https://mixkit.co/free-stock-music/",
       "description": "Envato's free music for videos, streams and podcasts.",
+      "description_zh": "Envato 旗下 Mixkit 的免费音乐，可用于视频、直播与播客。",
       "license": "Mixkit Stock License (Free)",
       "attribution": "not-required",
       "monetization": "allowed",
@@ -64,16 +75,19 @@
       "name": "Uppbeat",
       "url": "https://uppbeat.io/",
       "description": "Modern royalty-free music made for creators, with a free monthly tier.",
+      "description_zh": "面向创作者的现代免版税音乐，含每月免费额度。",
       "license": "Uppbeat Free License",
       "attribution": "required",
       "monetization": "allowed",
       "signup": "required",
-      "notes": "Free account has a monthly download cap and requires pasting the credit link."
+      "notes": "Free account has a monthly download cap and requires pasting the credit link.",
+      "notes_zh": "免费账户每月下载有上限，且必须粘贴署名链接。"
     },
     {
       "name": "Scott Buckley",
       "url": "https://www.scottbuckley.com.au/library/",
       "description": "Film-quality orchestral and ambient library released under CC-BY.",
+      "description_zh": "以 CC-BY 发布的电影级管弦与氛围音乐库。",
       "license": "CC BY 4.0",
       "attribution": "required",
       "monetization": "allowed",
@@ -83,6 +97,7 @@
       "name": "Audionautix",
       "url": "https://audionautix.com/",
       "description": "Jason Shaw's free rock, acoustic and electronic tracks.",
+      "description_zh": "Jason Shaw 的免费摇滚、原声与电子音乐。",
       "license": "CC BY 4.0",
       "attribution": "required",
       "monetization": "allowed",
@@ -92,6 +107,7 @@
       "name": "FreePD",
       "url": "https://freepd.com/",
       "description": "Public domain music across many genres, zero restrictions.",
+      "description_zh": "覆盖多种流派的公有领域音乐，零限制。",
       "license": "Public Domain",
       "attribution": "not-required",
       "monetization": "allowed",
@@ -101,16 +117,19 @@
       "name": "Musopen",
       "url": "https://musopen.org/",
       "description": "Public domain classical recordings, sheet music and music textbooks.",
+      "description_zh": "公有领域古典音乐录音、乐谱与教材。",
       "license": "Public Domain / various",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required",
-      "notes": "Most recordings are public domain; verify the license on each item."
+      "notes": "Most recordings are public domain; verify the license on each item.",
+      "notes_zh": "多数录音为公有领域；请逐项核对许可。"
     },
     {
       "name": "ccMixter",
       "url": "https://ccmixter.org/",
       "description": "Community remix site with thousands of Creative Commons licensed tracks.",
+      "description_zh": "社区混音站点，数千首 CC 许可曲目。",
       "license": "Various CC licenses",
       "attribution": "varies",
       "monetization": "varies",
@@ -120,46 +139,55 @@
       "name": "NoCopyrightSounds (NCS)",
       "url": "https://ncs.io/",
       "description": "Iconic electronic music label, free for creators who follow its usage policy.",
+      "description_zh": "知名电子音乐厂牌，遵守其使用政策即可免费使用。",
       "license": "NCS Usage Policy",
       "attribution": "required",
       "monetization": "allowed",
       "signup": "not-required",
-      "notes": "Credit the track title, artist and NCS link; policy covers monetized YouTube and Twitch."
+      "notes": "Credit the track title, artist and NCS link; policy covers monetized YouTube and Twitch.",
+      "notes_zh": "需注明曲名、作者与 NCS 链接；政策覆盖已开通收益的 YouTube 与 Twitch。"
     },
     {
       "name": "StreamBeats",
       "url": "https://www.streambeats.com/",
       "description": "Harris Heller's copyright-safe music library built specifically for streamers.",
+      "description_zh": "Harris Heller 为直播主打造的无版权风险音乐库。",
       "license": "Free (custom StreamBeats license)",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required",
-      "notes": "Available on major streaming platforms; designed to be DMCA-safe."
+      "notes": "Available on major streaming platforms; designed to be DMCA-safe.",
+      "notes_zh": "各大音乐平台可听；专为规避 DMCA 设计。"
     },
     {
       "name": "Pretzel Rocks",
       "url": "https://www.pretzel.rocks/",
       "description": "DMCA-safe music player for streamers with a free tier.",
+      "description_zh": "面向直播主的无版权风险音乐播放器，含免费档。",
       "license": "Pretzel Free License",
       "attribution": "required",
       "monetization": "allowed",
       "signup": "required",
-      "notes": "Free tier requires on-stream attribution; paid tier removes it."
+      "notes": "Free tier requires on-stream attribution; paid tier removes it.",
+      "notes_zh": "免费档要求在直播画面署名；付费档可去除。"
     },
     {
       "name": "Purple Planet",
       "url": "https://www.purple-planet.com/",
       "description": "Mood-based free tracks for small creators and non-broadcast use.",
+      "description_zh": "按情绪分类的免费曲目，适合小型创作者与非广播用途。",
       "license": "Purple Planet Free License",
       "attribution": "required",
       "monetization": "conditional",
       "signup": "not-required",
-      "notes": "Free for YouTube and online video with credit; other uses need a paid license."
+      "notes": "Free for YouTube and online video with credit; other uses need a paid license.",
+      "notes_zh": "署名后可免费用于 YouTube 等网络视频；其他用途需购买许可。"
     },
     {
       "name": "Chosic",
       "url": "https://www.chosic.com/free-music/all/",
       "description": "Aggregator of free and CC music with handy license filters.",
+      "description_zh": "免费与 CC 音乐聚合站，支持按许可证筛选。",
       "license": "Various (per track)",
       "attribution": "varies",
       "monetization": "varies",
