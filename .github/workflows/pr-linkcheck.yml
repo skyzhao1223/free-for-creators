@@ -1,0 +1,75 @@
+name: PR new-link check
+
+# pull_request_target runs in the context of the BASE repo so the bot can
+# comment on PRs (including from forks). Safety: we check out the base branch
+# ONLY and read PR data through git objects (git show <ref>:<file>) — code
+# from the PR is never checked out, installed, or executed.
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+    paths:
+      - "data/**"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: pr-linkcheck-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  new-links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7 # base branch only; full history for merge-base
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Fetch PR head ref
+        run: git fetch origin pull/${{ github.event.pull_request.number }}/head
+      - name: Link-check URLs added by this PR
+        id: check
+        continue-on-error: true
+        env:
+          PR_REF: FETCH_HEAD
+          PR_REPORT: ${{ runner.temp }}/pr-link-report.md
+        run: python scripts/pr_linkcheck.py
+      - name: Comment result on PR
+        if: steps.check.outputs.skip != 'true'
+        uses: actions/github-script@v9
+        env:
+          PR_REPORT: ${{ runner.temp }}/pr-link-report.md
+          CHECK_OUTCOME: ${{ steps.check.outcome }}
+        with:
+          script: |
+            const fs = require("fs");
+            const marker = "<!-- pr-linkcheck -->";
+            const p = process.env.PR_REPORT;
+            const report = (p && fs.existsSync(p))
+              ? fs.readFileSync(p, "utf8")
+              : "_Checker crashed — see the workflow log._";
+            const ok = process.env.CHECK_OUTCOME === "success";
+            const head = ok
+              ? "✅ **New-link check passed**"
+              : "❌ **New-link check found broken links**";
+            const body = `${marker}\n${head}\n\n${report}`;
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.pull_request.number;
+            const { data: comments } = await github.rest.issues.listComments({
+              owner, repo, issue_number, per_page: 100,
+            });
+            const existing = comments.find((c) => c.body.startsWith(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }
+      - name: Fail on broken new links
+        if: steps.check.outcome == 'failure'
+        run: |
+          echo "::error::PR adds broken links — see the bot comment on the PR."
+          exit 1

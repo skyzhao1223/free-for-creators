@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>404 — Free for Creators</title>
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="0.9em" font-size="90">🎁</text></svg>'>
+<style>
+:root {
+  --bg: #f6f6fb; --fg: #1c1e26; --muted: #676c7c; --card: #ffffff;
+  --border: #e4e6f0; --accent: #6d28d9; --accent-fg: #fff;
+  --grad-a: #4c1d95; --grad-b: #1d4ed8; --grad-c: #0891b2; --blob-op: .16;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #07070f; --fg: #e8eaf6; --muted: #8b93b5; --card: rgba(255,255,255,.045);
+    --border: rgba(255,255,255,.10); --accent: #a78bfa; --accent-fg: #14101f;
+    --grad-a: #ffffff; --grad-b: #c4b5fd; --grad-c: #7dd3fc; --blob-op: .5;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: var(--bg); color: var(--fg); position: relative; overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "Noto Sans", "PingFang SC", Helvetica, Arial, sans-serif, "Apple Color Emoji";
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+.blob { position: fixed; border-radius: 50%; filter: blur(100px); opacity: var(--blob-op); pointer-events: none; }
+.b1 { width: 520px; height: 520px; left: -160px; top: -200px; background: #7c3aed; }
+.b2 { width: 460px; height: 460px; right: -160px; bottom: -220px; background: #0ea5e9; }
+main { position: relative; text-align: center; padding: 40px 24px; max-width: 560px; }
+.code {
+  font-size: 110px; font-weight: 800; letter-spacing: -.04em; line-height: 1;
+  background: linear-gradient(92deg, var(--grad-a) 10%, var(--grad-b) 55%, var(--grad-c) 95%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.gift { font-size: 44px; display: block; margin: 14px 0 6px; }
+p { color: var(--muted); font-size: 15.5px; margin-top: 8px; }
+a.home {
+  display: inline-block; margin-top: 26px; padding: 11px 26px; border-radius: 999px;
+  background: var(--accent); color: var(--accent-fg); text-decoration: none;
+  font-size: 15px; font-weight: 600; transition: transform .12s, box-shadow .12s;
+  box-shadow: 0 8px 24px rgba(109, 40, 217, .25);
+}
+a.home:hover { transform: translateY(-2px); }
+small { display: block; margin-top: 30px; color: var(--muted); font-size: 12px; opacity: .8; }
+</style>
+</head>
+<body>
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+<main>
+  <div class="code">404</div>
+  <span class="gift">🎁</span>
+  <p>This page isn't in the directory — but 150+ free, license-verified resources are.</p>
+  <p lang="zh">这个页面不在目录里——但 150+ 个经过许可核验的免费素材在。</p>
+  <a class="home" href="https://skyzhao1223.github.io/free-for-creators/">Back to the directory · 返回目录</a>
+  <small>Free for Creators · CC0 · github.com/skyzhao1223/free-for-creators</small>
+</main>
+</body>
+</html>

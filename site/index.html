@@ -144,6 +144,11 @@ kbd {
 .tgl span:hover { border-color: var(--accent); color: var(--fg); }
 .tgl input:checked + span { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
 .tgl input:focus-visible + span { box-shadow: 0 0 0 3px var(--accent-soft); }
+.sortlbl { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--muted); margin-left: 6px; }
+.sortsel { border: 1px solid var(--border); background: var(--card); color: var(--fg); border-radius: 999px; padding: 5px 10px; font-size: 12.5px; font-weight: 600; font-family: inherit; cursor: pointer; outline: none; }
+.sortsel:focus-visible { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.b-credit { cursor: pointer; font-family: inherit; }
+.b-credit:hover { border-color: var(--accent); color: var(--accent); }
 #clear {
   border: 0; background: transparent; color: var(--muted); font-size: 12.5px; font-weight: 600;
   cursor: pointer; font-family: inherit; padding: 5px 10px; border-radius: 999px; text-decoration: underline; text-underline-offset: 3px;
@@ -245,6 +250,7 @@ footer a:hover { text-decoration: underline; }
       <label class="tgl"><input type="checkbox" id="f-monetization"><span data-i18n="f_mon"></span></label>
       <label class="tgl"><input type="checkbox" id="f-attribution"><span data-i18n="f_attr"></span></label>
       <label class="tgl"><input type="checkbox" id="f-signup"><span data-i18n="f_signup"></span></label>
+      <label class="sortlbl"><span data-i18n="sort_label"></span> <select id="sort" class="sortsel" aria-label="Sort order"></select></label>
       <button id="clear" type="button" hidden></button>
     </div>
   </div>
@@ -294,6 +300,14 @@ const I18N = {
     fav_chip: "Favorites",
     fav_on: "Remove from favorites",
     fav_off: "Add to favorites",
+    sort_label: "Sort:",
+    sort_default: "Curated",
+    sort_name: "A–Z",
+    sort_open: "Most permissive",
+    credit_btn: "📋 Credit line",
+    credit_done: "✓ Copied",
+    credit_title: "Copy an editable credit line for this source",
+    credit_tpl: (name, url, license) => '"ASSET NAME" by AUTHOR — via ' + name + " (" + url + ") — License: " + license,
     mon: { allowed: "💚 Commercial OK", conditional: "⚠️ Conditional", varies: "❓ Varies", "not-allowed": "🚫 No commercial use" },
     attr: { required: "✅ Credit required", "not-required": "➖ No credit", varies: "❓ Credit varies" },
     signup: { required: "🔑 Signup" }
@@ -320,6 +334,14 @@ const I18N = {
     fav_chip: "收藏",
     fav_on: "取消收藏",
     fav_off: "收藏",
+    sort_label: "排序：",
+    sort_default: "默认",
+    sort_name: "按名称",
+    sort_open: "最宽松优先",
+    credit_btn: "📋 署名行",
+    credit_done: "✓ 已复制",
+    credit_title: "复制可编辑的署名行（补上作品名与作者）",
+    credit_tpl: (name, url, license) => "「作品名」作者：「作者名」— 来自 " + name + "（" + url + "）— 许可：" + license,
     mon: { allowed: "💚 可商用", conditional: "⚠️ 有条件", varies: "❓ 逐项而定", "not-allowed": "🚫 禁止商用" },
     attr: { required: "✅ 需署名", "not-required": "➖ 免署名", varies: "❓ 署名不定" },
     signup: { required: "🔑 需注册" }
@@ -336,6 +358,7 @@ let CATS = [];
 let activeSlug = null;
 let q = "";
 let favOnly = false;
+let sortMode = "default";
 const state = { monetization: false, attribution: false, signup: false };
 let FAVS = new Set();
 try { FAVS = new Set(JSON.parse(localStorage.getItem("ffc-favs") || "[]")); } catch (e) {}
@@ -362,6 +385,7 @@ function writeHash() {
   if (state.attribution) p.push("attr=1");
   if (state.signup) p.push("signup=1");
   if (favOnly) p.push("fav=1");
+  if (sortMode !== "default") p.push("sort=" + encodeURIComponent(sortMode));
   const hash = p.length ? "#" + p.join("&") : "";
   history.replaceState(null, "", location.pathname + location.search + hash);
 }
@@ -378,6 +402,7 @@ function readHash() {
     else if (k === "attr") { state.attribution = v === "1"; $("f-attribution").checked = state.attribution; }
     else if (k === "signup") { state.signup = v === "1"; $("f-signup").checked = state.signup; }
     else if (k === "fav") favOnly = v === "1";
+    else if (k === "sort") sortMode = ["default", "name", "open"].indexOf(v) !== -1 ? v : "default";
   });
 }
 
@@ -394,6 +419,7 @@ function matches(e) {
   return true;
 }
 const anyFilter = () => q !== "" || activeSlug !== null || favOnly || state.monetization || state.attribution || state.signup;
+const openScore = (e) => (e.monetization === "allowed" ? 4 : 0) + (e.attribution === "not-required" ? 2 : 0) + (e.signup === "not-required" ? 1 : 0);
 const monClass = (v) => (v === "allowed" ? "b-ok" : v === "conditional" ? "b-warn" : v === "not-allowed" ? "b-bad" : "b-mut");
 const attrClass = (v) => (v === "required" ? "b-warn" : v === "not-required" ? "b-ok" : "b-mut");
 
@@ -431,11 +457,16 @@ function render() {
   }
   $("chips").innerHTML = chips;
   $("clear").hidden = !anyFilter();
+  $("sort").innerHTML = ["default", "name", "open"]
+    .map((m) => '<option value="' + m + '"' + (m === sortMode ? " selected" : "") + ">" + t("sort_" + m) + "</option>")
+    .join("");
 
   let shown = 0, html = "";
   for (const c of CATS) {
     if (activeSlug && c.slug !== activeSlug) continue;
-    const list = c.entries.filter(matches);
+    let list = c.entries.filter(matches);
+    if (sortMode === "name") list = list.slice().sort((a, b) => a.name.localeCompare(b.name));
+    else if (sortMode === "open") list = list.slice().sort((a, b) => openScore(b) - openScore(a) || a.name.localeCompare(b.name));
     if (!list.length) continue;
     shown += list.length;
     html += "<section><h2><i style=\"background:" + catColor(c.slug) + '"></i>' + esc(catName(c)) + '<span class="cnt">' + list.length + "</span></h2>" +
@@ -451,6 +482,7 @@ function render() {
         '<div class="badges"><span class="b ' + monClass(e.monetization) + '">' + t("mon")[e.monetization] + "</span>" +
         '<span class="b ' + attrClass(e.attribution) + '">' + t("attr")[e.attribution] + "</span>" +
         (e.signup === "required" ? '<span class="b b-mut">' + t("signup").required + "</span>" : "") +
+        (e.attribution === "required" ? '<button type="button" class="b b-mut b-credit" data-credit="' + esc(t("credit_tpl")(e.name, e.url, e.license)) + '" title="' + t("credit_title") + '">' + t("credit_btn") + "</button>" : "") +
         '</div><div class="lic">📄 ' + esc(e.license) + "</div></div>";
     }
     html += "</div></section>";
@@ -468,6 +500,7 @@ function clearAll() {
   q = ""; $("search").value = "";
   activeSlug = null;
   favOnly = false;
+  sortMode = "default";
   state.monetization = state.attribution = state.signup = false;
   $("f-monetization").checked = $("f-attribution").checked = $("f-signup").checked = false;
   render();
@@ -486,6 +519,18 @@ $("chips").addEventListener("click", (e) => {
   $(id).addEventListener("change", (e) => { state[key] = e.target.checked; render(); });
 });
 $("results").addEventListener("click", (e) => {
+  const credit = e.target.closest(".b-credit");
+  if (credit) {
+    const text = credit.dataset.credit;
+    const done = () => {
+      const old = credit.textContent;
+      credit.textContent = t("credit_done");
+      setTimeout(() => { credit.textContent = old; }, 1500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, () => window.prompt("Copy:", text));
+    else window.prompt("Copy:", text);
+    return;
+  }
   const b = e.target.closest(".fav");
   if (!b) return;
   const url = b.dataset.url;
@@ -493,6 +538,7 @@ $("results").addEventListener("click", (e) => {
   saveFavs();
   render();
 });
+$("sort").addEventListener("change", (e) => { sortMode = e.target.value; render(); });
 $("lang-btn").addEventListener("click", () => {
   LANG = LANG === "en" ? "zh" : "en";
   try { localStorage.setItem("ffc-lang", LANG); } catch (e) {}

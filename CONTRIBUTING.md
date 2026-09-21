@@ -17,7 +17,7 @@ You can either open an issue with the [Suggest a resource](../../issues/new/choo
    python3 scripts/build_readme.py
    ```
 
-4. Commit the JSON **and** the regenerated READMEs, then open a PR. CI validates schema and README sync.
+4. Commit the JSON **and** the regenerated READMEs, then open a PR. CI validates schema and README sync, and a bot link-checks the URLs your PR adds and comments the results on the PR (❌ broken links block the merge; ⚠️ *blocked* means the site refused our bot — verify those in a browser once).
 
 ## Inclusion criteria
 
