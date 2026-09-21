@@ -31,7 +31,7 @@ jobs:
           echo "  - add \"skip_linkcheck\": true with justification (login walls etc)."
       - name: Open or update tracking issue
         if: failure()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         env:
           LINKCHECK_REPORT: ${{ runner.temp }}/linkcheck-report.md
         with:
