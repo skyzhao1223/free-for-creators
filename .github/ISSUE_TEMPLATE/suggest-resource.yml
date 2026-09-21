@@ -1,0 +1,77 @@
+name: Suggest a resource
+description: Suggest a free resource to add to the list
+title: "[Add]: "
+labels: ["new-resource"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing! Please **verify the license on the site** before submitting.
+        Maintainers (or you, via PR) will turn this into a `data/*.json` entry.
+  - type: input
+    id: name
+    attributes:
+      label: Resource name
+      placeholder: Poly Haven
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL (canonical, https, no tracking params)
+      placeholder: https://polyhaven.com/
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Music
+        - Sound Effects
+        - Stock Footage
+        - Stock Photos
+        - Fonts
+        - Graphics & Icons
+        - Video Production
+        - Mockups & Design Templates
+        - 3D & Game Assets
+        - Search Engines
+        - Other (explain below)
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: License (as stated on the site)
+      placeholder: CC0
+    validations:
+      required: true
+  - type: dropdown
+    id: attribution
+    attributes:
+      label: Attribution required?
+      options:
+        - "Yes"
+        - "No"
+        - Varies per item
+    validations:
+      required: true
+  - type: dropdown
+    id: monetization
+    attributes:
+      label: Usable in monetized content for free?
+      options:
+        - "Yes"
+        - Only under conditions (explain below)
+        - Varies per item
+        - "No"
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Anything else maintainers should know?
+      description: Free-tier caps, signup requirements, conditions for commercial use, link to the license page…
+    validations:
+      required: false

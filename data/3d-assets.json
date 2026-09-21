@@ -1,0 +1,145 @@
+{
+  "category": "3D & Game Assets",
+  "slug": "3d-assets",
+  "description": "Models, HDRIs, PBR textures, characters and game-ready asset packs.",
+  "entries": [
+    {
+      "name": "Poly Haven",
+      "url": "https://polyhaven.com/",
+      "description": "100% CC0 HDRIs, PBR textures and 3D models. The gold standard.",
+      "license": "CC0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "ambientCG",
+      "url": "https://ambientcg.com/",
+      "description": "2,000+ CC0 PBR materials for any engine or renderer.",
+      "license": "CC0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "FreePBR",
+      "url": "https://www.freepbr.com/",
+      "description": "Free PBR textures and 3D models.",
+      "license": "FreePBR License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Redistribution of the raw files is not allowed."
+    },
+    {
+      "name": "Textures.com",
+      "url": "https://www.textures.com/",
+      "description": "Enormous material library with a free daily-credit tier.",
+      "license": "Free account license",
+      "attribution": "not-required",
+      "monetization": "conditional",
+      "signup": "required",
+      "notes": "Free credits cap resolution; some commercial uses need a paid license."
+    },
+    {
+      "name": "Quixel Megascans",
+      "url": "https://quixel.com/megascans",
+      "description": "Photorealistic scanned assets; free for Unreal Engine projects.",
+      "license": "Epic/Quixel License",
+      "attribution": "not-required",
+      "monetization": "conditional",
+      "signup": "required",
+      "notes": "Free usage is tied to Unreal Engine under current terms; verify before other engines."
+    },
+    {
+      "name": "Mixamo",
+      "url": "https://www.mixamo.com/",
+      "description": "Auto-rigged characters and a huge animation library from Adobe.",
+      "license": "Mixamo License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "required"
+    },
+    {
+      "name": "Kenney",
+      "url": "https://kenney.nl/assets",
+      "description": "Thousands of CC0 2D/3D game assets, UI packs and audio.",
+      "license": "CC0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "OpenGameArt",
+      "url": "https://opengameart.org/",
+      "description": "Long-running community archive of openly licensed game art.",
+      "license": "Various (CC0/CC-BY/GPL...)",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "not-required"
+    },
+    {
+      "name": "itch.io Free Game Assets",
+      "url": "https://itch.io/game-assets/free",
+      "description": "Free section of the itch.io asset marketplace.",
+      "license": "Per-item licenses",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "optional"
+    },
+    {
+      "name": "Poly Pizza",
+      "url": "https://poly.pizza/",
+      "description": "Thousands of free low-poly models, mostly CC0.",
+      "license": "CC0 / CC-BY (per model)",
+      "attribution": "varies",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "KayKit",
+      "url": "https://kaylousberg.itch.io/",
+      "description": "Themed CC0 asset packs (dungeon, city, nature) for games.",
+      "license": "CC0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Sketchfab Free Models",
+      "url": "https://sketchfab.com/features/free-3d-models",
+      "description": "Downloadable free models filterable by CC license.",
+      "license": "Per-model licenses",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "required"
+    },
+    {
+      "name": "NASA 3D Resources",
+      "url": "https://nasa3d.arc.nasa.gov/",
+      "description": "Public domain 3D models, textures and images from NASA.",
+      "license": "Public Domain (mostly)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "CGTrader Free Models",
+      "url": "https://www.cgtrader.com/free-3d-models",
+      "description": "Free-model section of a major 3D marketplace.",
+      "license": "Per-model licenses",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "optional"
+    },
+    {
+      "name": "TurboSquid Free Models",
+      "url": "https://www.turbosquid.com/Search/3D-Models/free",
+      "description": "Free-model section of TurboSquid.",
+      "license": "Per-model licenses",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "optional"
+    }
+  ]
+}

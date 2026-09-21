@@ -1,0 +1,110 @@
+{
+  "category": "Sound Effects",
+  "slug": "sound-effects",
+  "description": "Free SFX libraries, packs and ambience for video, games, podcasts and streams.",
+  "entries": [
+    {
+      "name": "Freesound",
+      "url": "https://freesound.org/",
+      "description": "Massive collaborative database of sounds under CC0 and CC-BY licenses.",
+      "license": "Various CC licenses (per sound)",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "required",
+      "notes": "Filter by license; CC-BY sounds need credit in your description."
+    },
+    {
+      "name": "ZapSplat",
+      "url": "https://www.zapsplat.com/",
+      "description": "100,000+ free sound effects; free tier works with attribution.",
+      "license": "ZapSplat Free License",
+      "attribution": "required",
+      "monetization": "conditional",
+      "signup": "required",
+      "notes": "Gold membership removes attribution and raises quality limits."
+    },
+    {
+      "name": "Pixabay Sound Effects",
+      "url": "https://pixabay.com/sound-effects/",
+      "description": "Royalty-free sound effects library from Pixabay.",
+      "license": "Pixabay Content License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Mixkit Sound Effects",
+      "url": "https://mixkit.co/free-sound-effects/",
+      "description": "Free SFX for videos, games and streams from Envato's Mixkit.",
+      "license": "Mixkit Sound Effects Free License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "BBC Sound Effects",
+      "url": "https://sound-effects.bbcrewind.co.uk/",
+      "description": "33,000+ sounds from the historic BBC archive.",
+      "license": "RemArc/BBC License (personal, educational, research only)",
+      "attribution": "not-required",
+      "monetization": "not-allowed",
+      "signup": "not-required",
+      "notes": "NOT free for commercial or monetized content; great for learning and research."
+    },
+    {
+      "name": "Sonniss GDC Audio Bundles",
+      "url": "https://sonniss.com/gameaudiogdc",
+      "description": "Multi-gigabyte professional game audio packs released free every year.",
+      "license": "Royalty-free (Sonniss GDC license)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Orange Free Sounds",
+      "url": "https://orangefreesounds.com/",
+      "description": "Large mixed library of free sounds, loops and ringtones.",
+      "license": "Various CC licenses",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "not-required"
+    },
+    {
+      "name": "SoundBible",
+      "url": "https://soundbible.com/",
+      "description": "Simple, no-frills free sound effect downloads.",
+      "license": "CC0 / CC-BY (per sound)",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "not-required"
+    },
+    {
+      "name": "Freesfx.co.uk",
+      "url": "https://www.freesfx.co.uk/",
+      "description": "Thousands of free sound effects usable with a credit.",
+      "license": "freesfx.co.uk License",
+      "attribution": "required",
+      "monetization": "conditional",
+      "signup": "not-required"
+    },
+    {
+      "name": "Kenney Audio",
+      "url": "https://kenney.nl/assets?type=audio",
+      "description": "CC0 audio packs (UI, sci-fi, RPG) from the prolific Kenney library.",
+      "license": "CC0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Tabletop Audio",
+      "url": "https://tabletopaudio.com/",
+      "description": "Ambience loops for tabletop RPG sessions, streams and podcasts.",
+      "license": "CC BY-NC-ND 4.0",
+      "attribution": "required",
+      "monetization": "not-allowed",
+      "signup": "not-required",
+      "notes": "NonCommercial only: fine for personal and non-monetized use."
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "category": "Video Production",
+  "slug": "video-production",
+  "description": "LUTs, color grading assets, transitions and editor templates.",
+  "entries": [
+    {
+      "name": "RocketStock Free LUTs",
+      "url": "https://www.rocketstock.com/free-luts/",
+      "description": "Free cinematic LUT pack from a premium VFX vendor.",
+      "license": "Royalty-free (RocketStock)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "unknown"
+    },
+    {
+      "name": "IWLTBAP Free LUTs",
+      "url": "https://iwltbap.com/free-luts/",
+      "description": "Free filmic LUTs from a well-known color grading shop.",
+      "license": "Free (IWLTBAP)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "unknown"
+    },
+    {
+      "name": "FreshLuts",
+      "url": "https://freshluts.com/",
+      "description": "Community site for sharing and downloading free LUTs.",
+      "license": "Various (community uploads)",
+      "attribution": "varies",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Community uploads: check the usage rights of each LUT."
+    },
+    {
+      "name": "Fujifilm Camera Profiles",
+      "url": "https://github.com/abpy/FujifilmCameraProfiles",
+      "description": "Open DNG/DCP profiles and LUTs matching Fujifilm film simulations.",
+      "license": "Open (see repository)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Mixkit Templates",
+      "url": "https://mixkit.co/free-after-effects-templates/",
+      "description": "Free After Effects, Premiere, DaVinci and Final Cut templates and transitions.",
+      "license": "Mixkit License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Motion Array (free section)",
+      "url": "https://motionarray.com/",
+      "description": "Free templates, LUTs and presets section of a premium marketplace.",
+      "license": "Motion Array royalty-free license",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "required"
+    },
+    {
+      "name": "Velosofy",
+      "url": "https://www.velosofy.com/",
+      "description": "Community library of free video templates (AE, Premiere, Sony Vegas).",
+      "license": "Various (per template)",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "optional"
+    }
+  ]
+}

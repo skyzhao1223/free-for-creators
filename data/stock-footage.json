@@ -1,0 +1,146 @@
+{
+  "category": "Stock Footage",
+  "slug": "stock-footage",
+  "description": "Free video clips and B-roll, including 4K, archival and public domain footage.",
+  "entries": [
+    {
+      "name": "Pexels Videos",
+      "url": "https://www.pexels.com/videos/",
+      "description": "Free HD and 4K stock videos with a very permissive license.",
+      "license": "Pexels License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Pixabay Videos",
+      "url": "https://pixabay.com/videos/",
+      "description": "Large free footage library including motion graphics and loops.",
+      "license": "Pixabay Content License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Mixkit Video",
+      "url": "https://mixkit.co/free-stock-video/",
+      "description": "Free HD clips plus Premiere, After Effects and DaVinci templates.",
+      "license": "Mixkit Stock License (Free)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Coverr",
+      "url": "https://coverr.co/",
+      "description": "Free cinematic clips originally built for website backgrounds.",
+      "license": "Coverr License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Videvo",
+      "url": "https://www.videvo.net/",
+      "description": "Free footage and motion graphics with per-asset licenses.",
+      "license": "Videvo License / CC BY 3.0 (per asset)",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "optional",
+      "notes": "Watch the per-asset license label; CC-BY items require attribution."
+    },
+    {
+      "name": "Videezy",
+      "url": "https://www.videezy.com/",
+      "description": "Free HD and 4K clips, most requiring an attribution link.",
+      "license": "Videezy License",
+      "attribution": "varies",
+      "monetization": "conditional",
+      "signup": "optional"
+    },
+    {
+      "name": "Vidsplay",
+      "url": "https://www.vidsplay.com/",
+      "description": "New free clips added weekly.",
+      "license": "Vidsplay License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Cannot be redistributed as stock footage elsewhere."
+    },
+    {
+      "name": "Dareful",
+      "url": "https://www.dareful.com/",
+      "description": "Hand-picked free 4K stock video clips.",
+      "license": "CC BY 4.0",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Life of Vids",
+      "url": "https://www.lifeofvids.com/",
+      "description": "Free artistic clips released by an advertising agency.",
+      "license": "Life of Vids License (free)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Mazwai",
+      "url": "https://mazwai.com/",
+      "description": "Curated cinematic footage, hand-picked from videographers.",
+      "license": "CC BY 3.0 / Mazwai License (per clip)",
+      "attribution": "varies",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "SplitShire",
+      "url": "https://www.splitshire.com/",
+      "description": "Free photos and videos by photographer Daniel Nanescu.",
+      "license": "SplitShire License (free)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "No redistribution as stock."
+    },
+    {
+      "name": "NASA Image and Video Library",
+      "url": "https://images.nasa.gov/",
+      "description": "Public domain space footage, launch videos and Earth imagery.",
+      "license": "Public Domain (with minor exceptions)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "NASA media is generally not copyrightable; identifiable people need care."
+    },
+    {
+      "name": "Prelinger Archives",
+      "url": "https://archive.org/details/prelinger",
+      "description": "Historic advertising, educational and amateur films, mostly public domain.",
+      "license": "Public Domain (mostly)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Pond5 Public Domain Project",
+      "url": "https://www.pond5.com/free",
+      "description": "Free historic and archival media in the public domain.",
+      "license": "Public Domain",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "unknown"
+    },
+    {
+      "name": "ESA Multimedia",
+      "url": "https://www.esa.int/ESA_Multimedia/Videos",
+      "description": "European Space Agency videos and images of Earth and space.",
+      "license": "CC BY-SA 3.0 IGO",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    }
+  ]
+}

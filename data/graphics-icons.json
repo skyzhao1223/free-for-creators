@@ -1,0 +1,189 @@
+{
+  "category": "Graphics & Icons",
+  "slug": "graphics-icons",
+  "description": "Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.",
+  "entries": [
+    {
+      "name": "unDraw",
+      "url": "https://undraw.co/illustrations",
+      "description": "Open-source illustrations with customizable colors for any project.",
+      "license": "unDraw License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Storyset by Freepik",
+      "url": "https://storyset.com/",
+      "description": "Editable, animatable illustrations you can restyle in the browser.",
+      "license": "Storyset by Freepik License",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Humaaans",
+      "url": "https://www.humaaans.com/",
+      "description": "Mix-and-match illustration library of people, by Pablo Stanley.",
+      "license": "CC0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Open Peeps",
+      "url": "https://www.openpeeps.com/",
+      "description": "Hand-drawn people illustrations you can assemble into scenes.",
+      "license": "CC0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Open Doodles",
+      "url": "https://www.opendoodles.com/",
+      "description": "Free sketchy doodle illustrations by Pablo Stanley.",
+      "license": "CC0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "DrawKit",
+      "url": "https://www.drawkit.com/",
+      "description": "Free and premium illustration packs for products and marketing.",
+      "license": "DrawKit Free License (per pack)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "ManyPixels Illustration Gallery",
+      "url": "https://www.manypixels.co/gallery",
+      "description": "2,000+ royalty-free illustrations with color customization.",
+      "license": "ManyPixels License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Cannot be resold or redistributed as stock."
+    },
+    {
+      "name": "IRA Design",
+      "url": "https://iradesign.io/",
+      "description": "Build your own gradient character and background illustrations.",
+      "license": "IRA Design License (free)",
+      "attribution": "varies",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Absurd Design",
+      "url": "https://absurd.design/",
+      "description": "Surreal hand-drawn illustration packs for landing pages.",
+      "license": "Absurd Design License",
+      "attribution": "varies",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Check the current license terms for attribution rules."
+    },
+    {
+      "name": "Blush",
+      "url": "https://blush.design/",
+      "description": "Marketplace of artist-made illustrations with free collections.",
+      "license": "Free licenses (per artist)",
+      "attribution": "varies",
+      "monetization": "allowed",
+      "signup": "required"
+    },
+    {
+      "name": "SVG Repo",
+      "url": "https://www.svgrepo.com/",
+      "description": "500,000+ open-licensed vectors and icons with license filters.",
+      "license": "Various (per item)",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "not-required"
+    },
+    {
+      "name": "Iconify",
+      "url": "https://icon-sets.iconify.design/",
+      "description": "Search 200,000+ icons from over 100 open-source sets in one place.",
+      "license": "Per-set open licenses",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "not-required"
+    },
+    {
+      "name": "Feather Icons",
+      "url": "https://feathericons.com/",
+      "description": "Minimal, consistent open-source icon set.",
+      "license": "MIT",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Tabler Icons",
+      "url": "https://tabler.io/icons",
+      "description": "5,900+ free MIT-licensed SVG icons for web and print.",
+      "license": "MIT",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Lucide",
+      "url": "https://lucide.dev/",
+      "description": "Community-maintained fork of Feather with active development.",
+      "license": "ISC",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Bootstrap Icons",
+      "url": "https://icons.getbootstrap.com/",
+      "description": "Free SVG icon library, usable with any framework.",
+      "license": "MIT",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "bioicons",
+      "url": "https://bioicons.com/",
+      "description": "Gallery of free open-license icons for science and biology illustration.",
+      "license": "Various open licenses (per icon)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Flaticon",
+      "url": "https://www.flaticon.com/",
+      "description": "Enormous icon catalog; the free plan requires attribution.",
+      "license": "Flaticon Free License",
+      "attribution": "required",
+      "monetization": "conditional",
+      "signup": "required"
+    },
+    {
+      "name": "The Noun Project",
+      "url": "https://thenounproject.com/",
+      "description": "Icons for every idea; free downloads require attribution.",
+      "license": "Free with attribution (paid removes it)",
+      "attribution": "required",
+      "monetization": "conditional",
+      "signup": "required"
+    },
+    {
+      "name": "Icons8",
+      "url": "https://icons8.com/icons",
+      "description": "Consistent icon, illustration and music families; free tier needs a link.",
+      "license": "Icons8 Free License",
+      "attribution": "required",
+      "monetization": "conditional",
+      "signup": "not-required"
+    }
+  ]
+}

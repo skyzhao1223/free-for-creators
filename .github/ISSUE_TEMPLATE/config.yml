@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Contributing guide
+    url: https://github.com/skyzhao1223/free-for-creators/blob/main/CONTRIBUTING.md
+    about: How entries are validated and what the license columns mean

@@ -1,0 +1,169 @@
+{
+  "category": "Music",
+  "slug": "music",
+  "description": "Royalty-free and copyright-safe music for videos, streams, podcasts and games.",
+  "entries": [
+    {
+      "name": "YouTube Audio Library",
+      "url": "https://www.youtube.com/audiolibrary",
+      "description": "Free music and sound effects provided by YouTube for use in your videos.",
+      "license": "YouTube Audio Library License (some tracks CC-BY)",
+      "attribution": "varies",
+      "monetization": "allowed",
+      "signup": "required",
+      "notes": "Some tracks require attribution exactly as shown in the library."
+    },
+    {
+      "name": "Pixabay Music",
+      "url": "https://pixabay.com/music/",
+      "description": "Large and growing library of royalty-free tracks and loops.",
+      "license": "Pixabay Content License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Free Music Archive",
+      "url": "https://freemusicarchive.org/",
+      "description": "Huge archive of Creative Commons music curated since the WFMU radio days.",
+      "license": "Various CC licenses",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "not-required",
+      "notes": "Filter by license; some tracks are NonCommercial or NoDerivatives."
+    },
+    {
+      "name": "Incompetech",
+      "url": "https://incompetech.com/music/royalty-free/",
+      "description": "Kevin MacLeod's legendary library of film-score style music.",
+      "license": "CC BY 4.0 (paid no-attribution license available)",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Bensound",
+      "url": "https://www.bensound.com/",
+      "description": "Catchy corporate, acoustic and cinematic tracks by composer Benjamin Tissot.",
+      "license": "Bensound Free License",
+      "attribution": "required",
+      "monetization": "conditional",
+      "signup": "not-required",
+      "notes": "Free license covers online videos with credit; some tracks are Pro-only."
+    },
+    {
+      "name": "Mixkit Music",
+      "url": "https://mixkit.co/free-stock-music/",
+      "description": "Envato's free music for videos, streams and podcasts.",
+      "license": "Mixkit Stock License (Free)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Uppbeat",
+      "url": "https://uppbeat.io/",
+      "description": "Modern royalty-free music made for creators, with a free monthly tier.",
+      "license": "Uppbeat Free License",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "required",
+      "notes": "Free account has a monthly download cap and requires pasting the credit link."
+    },
+    {
+      "name": "Scott Buckley",
+      "url": "https://www.scottbuckley.com.au/library/",
+      "description": "Film-quality orchestral and ambient library released under CC-BY.",
+      "license": "CC BY 4.0",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Audionautix",
+      "url": "https://audionautix.com/",
+      "description": "Jason Shaw's free rock, acoustic and electronic tracks.",
+      "license": "CC BY 4.0",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "FreePD",
+      "url": "https://freepd.com/",
+      "description": "Public domain music across many genres, zero restrictions.",
+      "license": "Public Domain",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Musopen",
+      "url": "https://musopen.org/",
+      "description": "Public domain classical recordings, sheet music and music textbooks.",
+      "license": "Public Domain / various",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Most recordings are public domain; verify the license on each item."
+    },
+    {
+      "name": "ccMixter",
+      "url": "https://ccmixter.org/",
+      "description": "Community remix site with thousands of Creative Commons licensed tracks.",
+      "license": "Various CC licenses",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "not-required"
+    },
+    {
+      "name": "NoCopyrightSounds (NCS)",
+      "url": "https://ncs.io/",
+      "description": "Iconic electronic music label, free for creators who follow its usage policy.",
+      "license": "NCS Usage Policy",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Credit the track title, artist and NCS link; policy covers monetized YouTube and Twitch."
+    },
+    {
+      "name": "StreamBeats",
+      "url": "https://www.streambeats.com/",
+      "description": "Harris Heller's copyright-safe music library built specifically for streamers.",
+      "license": "Free (custom StreamBeats license)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Available on major streaming platforms; designed to be DMCA-safe."
+    },
+    {
+      "name": "Pretzel Rocks",
+      "url": "https://www.pretzel.rocks/",
+      "description": "DMCA-safe music player for streamers with a free tier.",
+      "license": "Pretzel Free License",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "required",
+      "notes": "Free tier requires on-stream attribution; paid tier removes it."
+    },
+    {
+      "name": "Purple Planet",
+      "url": "https://www.purple-planet.com/",
+      "description": "Mood-based free tracks for small creators and non-broadcast use.",
+      "license": "Purple Planet Free License",
+      "attribution": "required",
+      "monetization": "conditional",
+      "signup": "not-required",
+      "notes": "Free for YouTube and online video with credit; other uses need a paid license."
+    },
+    {
+      "name": "Chosic",
+      "url": "https://www.chosic.com/free-music/all/",
+      "description": "Aggregator of free and CC music with handy license filters.",
+      "license": "Various (per track)",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "not-required"
+    }
+  ]
+}

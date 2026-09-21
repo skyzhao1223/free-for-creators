@@ -1,0 +1,32 @@
+name: Report a dead link or outdated info
+description: A resource is gone, moved, or its license/free tier changed
+title: "[Fix]: "
+labels: ["needs-fix"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: URL of the affected entry (as listed in the README)
+      placeholder: https://example.com/free-stuff
+    validations:
+      required: true
+  - type: dropdown
+    id: problem
+    attributes:
+      label: What is wrong?
+      options:
+        - Dead link (404 / domain gone)
+        - Moved to a new URL
+        - No longer free
+        - License or attribution rules changed
+        - Wrong information in the entry
+        - Other (explain below)
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details / suggested fix
+      description: New URL, current license wording, date you checked, screenshots if useful.
+    validations:
+      required: false

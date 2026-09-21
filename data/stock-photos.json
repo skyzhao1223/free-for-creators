@@ -1,0 +1,172 @@
+{
+  "category": "Stock Photos",
+  "slug": "stock-photos",
+  "description": "Free photography, from modern stock to museum-grade public domain archives.",
+  "entries": [
+    {
+      "name": "Unsplash",
+      "url": "https://unsplash.com/",
+      "description": "Huge library of free-to-use high-resolution photos.",
+      "license": "Unsplash License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Cannot sell unaltered copies or compile a competing stock service."
+    },
+    {
+      "name": "Pexels",
+      "url": "https://www.pexels.com/",
+      "description": "Free stock photos, very permissive license.",
+      "license": "Pexels License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Pixabay",
+      "url": "https://pixabay.com/",
+      "description": "Photos, illustrations and vectors under one simple content license.",
+      "license": "Pixabay Content License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Burst by Shopify",
+      "url": "https://burst.shopify.com/",
+      "description": "Business and ecommerce-oriented free photography.",
+      "license": "Free (CC0 where noted)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "StockSnap.io",
+      "url": "https://stocksnap.io/",
+      "description": "Hundreds of new CC0 photos added weekly, with search.",
+      "license": "CC0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Gratisography",
+      "url": "https://gratisography.com/",
+      "description": "Quirky, whimsical free photos by Ryan McGuire.",
+      "license": "Gratisography License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "No redistribution as stock."
+    },
+    {
+      "name": "Kaboompics",
+      "url": "https://kaboompics.com/",
+      "description": "Lifestyle and interior photography with matching color palettes.",
+      "license": "Kaboompics License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Reshot",
+      "url": "https://www.reshot.com/",
+      "description": "Free photos, icons and illustrations, no attribution required.",
+      "license": "Reshot License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "ISO Republic",
+      "url": "https://isorepublic.com/",
+      "description": "Free photos and videos under a simple custom license.",
+      "license": "ISO Republic License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "FoodiesFeed",
+      "url": "https://www.foodiesfeed.com/",
+      "description": "Thousands of free high-res food photos.",
+      "license": "FoodiesFeed License (free)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Smithsonian Open Access",
+      "url": "https://www.si.edu/openaccess",
+      "description": "Millions of CC0 images from Smithsonian museums and archives.",
+      "license": "CC0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "The Met Open Access",
+      "url": "https://www.metmuseum.org/art/collection/open-access",
+      "description": "Public domain artworks from the Metropolitan Museum of Art.",
+      "license": "CC0 (Open Access works)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Art Institute of Chicago",
+      "url": "https://www.artic.edu/open-access/open-access-images",
+      "description": "Public domain artworks including famous Impressionist pieces.",
+      "license": "CC0 (public domain works)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Library of Congress: Free to Use",
+      "url": "https://www.loc.gov/free-to-use/",
+      "description": "Curated public domain photo sets from US history and culture.",
+      "license": "Public Domain (curated sets)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "British Library on Flickr",
+      "url": "https://www.flickr.com/photos/britishlibrary",
+      "description": "Millions of public domain book illustrations, maps and photos.",
+      "license": "Public Domain",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "rawpixel Public Domain",
+      "url": "https://www.rawpixel.com/public-domain",
+      "description": "Digitized vintage art, posters and book illustrations.",
+      "license": "Public Domain / rawpixel free tier",
+      "attribution": "varies",
+      "monetization": "allowed",
+      "signup": "optional",
+      "notes": "Free account has a monthly download limit."
+    },
+    {
+      "name": "Old Book Illustrations",
+      "url": "https://www.oldbookillustrations.com/",
+      "description": "Public domain scans of illustrations from old books.",
+      "license": "Public Domain",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "NYPL Digital Collections",
+      "url": "https://digitalcollections.nypl.org/",
+      "description": "New York Public Library archive; filter for public domain items.",
+      "license": "Various (filter: public domain)",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "not-required"
+    }
+  ]
+}

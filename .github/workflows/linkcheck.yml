@@ -1,0 +1,28 @@
+name: Link check
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # every Monday 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  linkcheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check all resource links
+        run: python scripts/linkcheck.py
+      - name: Hint on failure
+        if: failure()
+        run: |
+          echo "Broken links were found. See the job summary above, then either:"
+          echo "  - update/replace the URL in data/*.json, or"
+          echo "  - remove the entry if the service is gone, or"
+          echo "  - add \"skip_linkcheck\": true with justification (login walls etc)."

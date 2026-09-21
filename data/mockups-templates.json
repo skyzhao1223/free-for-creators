@@ -1,0 +1,63 @@
+{
+  "category": "Mockups & Design Templates",
+  "slug": "mockups-templates",
+  "description": "PSD/device mockups, thumbnail and social media templates.",
+  "entries": [
+    {
+      "name": "Mockup World",
+      "url": "https://www.mockupworld.co/",
+      "description": "Aggregator of free photorealistic PSD mockups from across the web.",
+      "license": "Various (per item)",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "not-required"
+    },
+    {
+      "name": "GraphicsFuel",
+      "url": "https://www.graphicsfuel.com/",
+      "description": "Free high-resolution PSD mockups and design templates.",
+      "license": "Various (per item)",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "not-required",
+      "notes": "Check the license note on each download page."
+    },
+    {
+      "name": "ls.graphics Free Mockups",
+      "url": "https://www.ls.graphics/free-mockups",
+      "description": "High-quality free device and scene mockups from a premium shop.",
+      "license": "ls.graphics Free License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Pixelbuddha Free",
+      "url": "https://pixelbuddha.net/free",
+      "description": "Free design resources: mockups, icons, UI kits.",
+      "license": "Various (per item)",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "optional"
+    },
+    {
+      "name": "Canva Templates",
+      "url": "https://www.canva.com/templates/",
+      "description": "Thousands of free templates for thumbnails, posts, decks and shorts.",
+      "license": "Canva Content License",
+      "attribution": "not-required",
+      "monetization": "conditional",
+      "signup": "required",
+      "notes": "Canva content has resale and redistribution restrictions; read the Content License."
+    },
+    {
+      "name": "Adobe Express Templates",
+      "url": "https://www.adobe.com/express/templates",
+      "description": "Free templates for social media graphics and branding.",
+      "license": "Adobe Stock/Express License",
+      "attribution": "not-required",
+      "monetization": "conditional",
+      "signup": "required"
+    }
+  ]
+}

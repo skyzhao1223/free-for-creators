@@ -1,0 +1,99 @@
+{
+  "category": "Fonts",
+  "slug": "fonts",
+  "description": "Typefaces free for commercial use — for thumbnails, branding, subtitles and print.",
+  "entries": [
+    {
+      "name": "Google Fonts",
+      "url": "https://fonts.google.com/",
+      "description": "1,700+ families, almost all under open licenses.",
+      "license": "OFL / Apache 2.0 / UFL (per family)",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Fontshare",
+      "url": "https://www.fontshare.com/",
+      "description": "Professional-quality free fonts from the Indian Type Foundry.",
+      "license": "ITF Free Font License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Bunny Fonts",
+      "url": "https://fonts.bunny.net/",
+      "description": "Privacy-friendly, all-OFL drop-in replacement for Google Fonts.",
+      "license": "OFL",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Font Squirrel",
+      "url": "https://www.fontsquirrel.com/",
+      "description": "Hand-vetted fonts that are 100% free for commercial use.",
+      "license": "Various free licenses",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "The League of Moveable Type",
+      "url": "https://www.theleagueofmoveabletype.com/",
+      "description": "The original open-source type foundry.",
+      "license": "OFL",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Velvetyne",
+      "url": "https://velvetyne.fr/",
+      "description": "Experimental and quirky free open-source typefaces.",
+      "license": "OFL / custom open licenses",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Font Library",
+      "url": "https://fontlibrary.org/",
+      "description": "Community catalog of libre typefaces.",
+      "license": "OFL / CC (per family)",
+      "attribution": "varies",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "DaFont",
+      "url": "https://www.dafont.com/",
+      "description": "Huge catalog; many fonts are demo or personal-use only.",
+      "license": "Various (per font)",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "not-required",
+      "notes": "Always check the per-font license file before commercial use."
+    },
+    {
+      "name": "1001 Fonts",
+      "url": "https://www.1001fonts.com/",
+      "description": "10,000+ fonts with license filtering.",
+      "license": "Various (per font)",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "not-required"
+    },
+    {
+      "name": "free-font (CJK)",
+      "url": "https://github.com/jaywcjlove/free-font",
+      "description": "Curated Chinese and English fonts free for commercial use.",
+      "license": "Various (per font)",
+      "attribution": "varies",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Chinese-language resource; verify each font's license."
+    }
+  ]
+}
