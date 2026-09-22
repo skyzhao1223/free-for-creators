@@ -35,7 +35,7 @@
   --accent: #6d28d9; --accent-fg: #ffffff; --accent-soft: rgba(109,40,217,.08);
   --ok: #15803d; --warn: #b45309; --bad: #b91c1c;
   --grad-a: #4c1d95; --grad-b: #1d4ed8; --grad-c: #0891b2;
-  --sticky-bg: rgba(247,247,251,.85);
+  --sticky-bg: rgba(247,247,251,.75);
   --blob-op: .13; --grid-op: .55; --noise-op: .025;
   --row-hover: rgba(109,40,217,.05);
   --shadow: 0 8px 24px rgba(30,20,60,.10);
@@ -46,7 +46,7 @@
   --accent: #a78bfa; --accent-fg: #14101f; --accent-soft: rgba(167,139,250,.11);
   --ok: #4ade80; --warn: #fbbf24; --bad: #f87171;
   --grad-a: #ffffff; --grad-b: #c4b5fd; --grad-c: #7dd3fc;
-  --sticky-bg: rgba(7,7,15,.8);
+  --sticky-bg: rgba(7,7,15,.72);
   --blob-op: .42; --grid-op: 1; --noise-op: .05;
   --row-hover: rgba(167,139,250,.07);
   --shadow: 0 10px 30px rgba(0,0,0,.45);
@@ -115,11 +115,17 @@ a { color: var(--accent); }
 /* ---------- sticky controls ---------- */
 .controls-wrap {
   position: sticky; top: 0; z-index: 50;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  padding: 10px 0 9px;
+  transition: background-color .22s ease, border-color .22s ease;
+}
+.controls-wrap.stuck {
   background: var(--sticky-bg);
   -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
-  padding: 10px 0 9px;
+  border-bottom-color: var(--border);
 }
+#ctl-sentinel { height: 1px; margin-top: -1px; }
 .ctl-row { display: flex; gap: 8px; align-items: center; }
 .search-box {
   display: flex; align-items: center; gap: 9px; flex: 1; min-width: 0;
@@ -414,6 +420,7 @@ footer a:hover { text-decoration: underline; }
   </div>
 </header>
 
+<div id="ctl-sentinel" aria-hidden="true"></div>
 <div class="controls-wrap">
   <div class="controls wrap">
     <div class="ctl-row">
@@ -1039,6 +1046,16 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 window.addEventListener("scroll", syncChipsVisibility, { passive: true });
 window.addEventListener("resize", syncChipsVisibility);
+/* sticky bar: transparent at rest (blends into the ambient background),
+   frosted glass only once it actually sticks — scroll-listener based so it
+   works in every environment (IO callbacks can be frame-starved) */
+const ctlWrap = document.querySelector(".controls-wrap");
+const syncStuck = () => {
+  ctlWrap.classList.toggle("stuck", document.getElementById("ctl-sentinel").getBoundingClientRect().bottom < 1);
+};
+window.addEventListener("scroll", syncStuck, { passive: true });
+window.addEventListener("resize", syncStuck);
+syncStuck();
 toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 window.addEventListener("hashchange", () => { readHash(); render(); });
 
