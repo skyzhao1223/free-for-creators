@@ -11,6 +11,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -20,3 +21,11 @@ jobs:
         run: python scripts/build_readme.py --validate-only
       - name: Check README is in sync with data/
         run: python scripts/build_readme.py --check
+      # site/data/ is gitignored and rebuilt on deploy, so build it into a throwaway
+      # directory here: this proves the Pages payload still assembles. site/all.html and
+      # site/sitemap.xml ARE committed, so --check fails if they drifted from data/.
+      # Both steps also verify site/index.html's CAT_COLORS covers every CATEGORY_ORDER slug.
+      - name: Check generated site files are in sync
+        run: python scripts/build_site.py --check
+      - name: Build site payload
+        run: python scripts/build_site.py --out "${{ runner.temp }}/site-data"

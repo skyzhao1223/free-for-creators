@@ -41,7 +41,7 @@ def set_output(key, value):
 
 
 def urls_at(ref):
-    """Return {url: (slug, name)} for every entry in data/*.json at <ref>."""
+    """Return {url: (slug, name, linkcheck_js)} for every entry in data/*.json at <ref>."""
     urls = {}
     listing = git("ls-tree", "--name-only", ref, "data/")
     for fname in listing.split():
@@ -53,7 +53,7 @@ def urls_at(ref):
         for e in data.get("entries", []):
             url = e.get("url")
             if url:
-                urls[url] = (slug, e.get("name", "?"))
+                urls[url] = (slug, e.get("name", "?"), bool(e.get("linkcheck_js")))
     return urls
 
 
@@ -71,7 +71,7 @@ def main():
     old_urls = urls_at(base)
     new_urls = urls_at(head)
     added = sorted(
-        [(meta[0], meta[1], url) for url, meta in new_urls.items() if url not in old_urls],
+        [(meta[0], meta[1], url, meta[2]) for url, meta in new_urls.items() if url not in old_urls],
         key=lambda r: (r[0], r[1]),
     )
 
@@ -84,7 +84,7 @@ def main():
     print("Checking %d new URL(s)..." % len(added))
     results = []
     with ThreadPoolExecutor(max_workers=6) as ex:
-        futures = [(ex.submit(check_one, url), slug, name, url) for slug, name, url in added]
+        futures = [(ex.submit(check_one, url, js), slug, name, url) for slug, name, url, js in added]
         for fut, slug, name, url in futures:
             try:
                 status, detail = fut.result()
