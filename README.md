@@ -12,14 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-157-blue" alt="157 resources">
+  <img src="https://img.shields.io/badge/resources-158-blue" alt="158 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **157 resources across 10 categories**.
+> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **158 resources across 10 categories**.
 
-**At a glance:** 108 entries are 💚 safe for monetized content · 94 need ➖ no attribution · 119 need 🔓 no account · 34 are CC0 / public domain.
+**At a glance:** 109 entries are 💚 safe for monetized content · 95 need ➖ no attribution · 120 need 🔓 no account · 35 are CC0 / public domain.
 
 Every entry answers the three questions that decide whether a “free” asset is actually free for *you*:
 
@@ -47,7 +47,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 ## Table of Contents
 
 - [Music](#music) — 18 resources · Royalty-free and copyright-safe music for videos, streams, podcasts and games.
-- [Sound Effects](#sound-effects) — 11 resources · Free SFX libraries, packs and ambience for video, games, podcasts and streams.
+- [Sound Effects](#sound-effects) — 12 resources · Free SFX libraries, packs and ambience for video, games, podcasts and streams.
 - [Stock Footage](#stock-footage) — 17 resources · Free video clips and B-roll, including 4K, archival and public domain footage.
 - [Stock Photos](#stock-photos) — 23 resources · Free photography, from modern stock to museum-grade public domain archives.
 - [Fonts](#fonts) — 12 resources · Typefaces free for commercial use — for thumbnails, branding, subtitles and print.
@@ -101,6 +101,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Freesfx.co.uk](https://www.freesfx.co.uk/) | Thousands of free sound effects usable with a credit. | freesfx.co.uk License | ✅ Required | ⚠️ Conditional | — |
 | [Kenney Audio](https://kenney.nl/assets?type=audio) | CC0 audio packs (UI, sci-fi, RPG) from the prolific Kenney library. | CC0 | — | 💚 Allowed | — |
 | [Tabletop Audio](https://tabletopaudio.com/) | Ambience loops for tabletop RPG sessions, streams and podcasts. _NonCommercial only: fine for personal and non-monetized use._ | CC BY-NC-ND 4.0 | ✅ Required | 🚫 Not allowed | — |
+| [SFXMint](https://sfxmint.com/) | Free CC0 game and UI sound effects in WAV/MP3; AI-generated or procedurally synthesized. _Library sounds are CC0; the separate AI generation feature has its own pricing — preview sounds before shipping._ | CC0 | — | 💚 Allowed | — |
 
 ## Stock Footage
 

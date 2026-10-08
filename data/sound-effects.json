@@ -122,6 +122,18 @@
       "signup": "not-required",
       "notes": "NonCommercial only: fine for personal and non-monetized use.",
       "notes_zh": "仅限非商业：可用于个人及未货币化内容。"
+    },
+    {
+      "name": "SFXMint",
+      "url": "https://sfxmint.com/",
+      "description": "Free CC0 game and UI sound effects in WAV/MP3; AI-generated or procedurally synthesized.",
+      "description_zh": "免费 CC0 游戏与 UI 音效库，提供 WAV/MP3 下载；素材由 AI 生成或程序合成。",
+      "license": "CC0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Library sounds are CC0; the separate AI generation feature has its own pricing — preview sounds before shipping.",
+      "notes_zh": "站内音效素材均为 CC0；独立的 AI 生成功能另行计费——发布前请先试听确认。"
     }
   ]
 }
