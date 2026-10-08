@@ -121,19 +121,34 @@ def esc(s):
             .replace('"', "&quot;"))
 
 
+def git(*args):
+    return subprocess.run(["git"] + list(args), cwd=str(ROOT), capture_output=True, text=True, timeout=20)
+
+
 def data_lastmod():
-    """Date of the last commit that touched data/ — deterministic per repo state, so
-    --check does not churn on every build. Falls back to today when git is unavailable."""
+    """Date of the last commit that touched data/.
+
+    A shallow clone grafts HEAD into a root commit, so `git log -- data/` reports HEAD
+    even when HEAD never touched data/ — the sitemap's lastmod would then be the deploy
+    date and `--check` would fail spuriously in CI. Detect that instead of guessing.
+    """
     try:
-        out = subprocess.run(
-            ["git", "log", "-1", "--format=%cs", "--", "data/"],
-            cwd=str(ROOT), capture_output=True, text=True, timeout=15,
-        )
+        if git("rev-parse", "--is-shallow-repository").stdout.strip() == "true":
+            print("ERROR: this is a shallow clone, so the last commit that touched data/ "
+                  "cannot be determined and site/sitemap.xml's <lastmod> would be wrong.\n"
+                  "       Fetch full history first:  git fetch --unshallow\n"
+                  "       (CI does this via `fetch-depth: 0`.)", file=sys.stderr)
+            sys.exit(2)
+        out = git("log", "-1", "--format=%cs", "--", "data/")
         stamp = out.stdout.strip()
         if out.returncode == 0 and re.match(r"^\d{4}-\d{2}-\d{2}$", stamp):
             return stamp
+    except SystemExit:
+        raise
     except Exception:
         pass
+    # No usable git history at all (e.g. an exported tarball): today is the honest
+    # answer, and --check will simply report drift.
     return date.today().isoformat()
 
 

@@ -13,7 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      # fetch-depth: 0 — build_site.py derives sitemap.xml's <lastmod> from the last
+      # commit that touched data/. A shallow clone grafts HEAD as a root commit and
+      # would report HEAD's date instead, making --check fail on unrelated commits.
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
