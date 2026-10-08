@@ -11,6 +11,7 @@
       "description": "100% CC0 HDRIs, PBR textures and 3D models. The gold standard.",
       "description_zh": "100% CC0 的 HDRI、PBR 材质与 3D 模型，业界标杆。",
       "license": "CC0",
+      "license_family": "cc0",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -21,6 +22,7 @@
       "description": "2,000+ CC0 PBR materials for any engine or renderer.",
       "description_zh": "2,000+ CC0 PBR 材质，任何引擎与渲染器可用。",
       "license": "CC0",
+      "license_family": "cc0",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -31,6 +33,7 @@
       "description": "Free PBR textures and 3D models.",
       "description_zh": "免费 PBR 材质与 3D 模型。",
       "license": "FreePBR License",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required",
@@ -43,6 +46,7 @@
       "description": "Enormous material library with a free daily-credit tier.",
       "description_zh": "海量材质库，免费账户每日有下载额度。",
       "license": "Free account license",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "conditional",
       "signup": "required",
@@ -55,6 +59,7 @@
       "description": "Photorealistic scanned assets; free for Unreal Engine projects.",
       "description_zh": "照片级扫描资产；用于 Unreal Engine 项目免费。",
       "license": "Epic/Quixel License",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "conditional",
       "signup": "required",
@@ -67,6 +72,7 @@
       "description": "Auto-rigged characters and a huge animation library from Adobe.",
       "description_zh": "Adobe 的自动绑定角色与海量动画库。",
       "license": "Mixamo License",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "required"
@@ -77,6 +83,7 @@
       "description": "Thousands of CC0 2D/3D game assets, UI packs and audio.",
       "description_zh": "数千个 CC0 的 2D/3D 游戏素材、UI 包与音频。",
       "license": "CC0",
+      "license_family": "cc0",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -87,6 +94,8 @@
       "description": "Long-running community archive of openly licensed game art.",
       "description_zh": "老牌社区开放许可游戏美术档案库。",
       "license": "Various (CC0/CC-BY/GPL...)",
+      "license_family": "mixed",
+      "contains_cc0": true,
       "attribution": "varies",
       "monetization": "varies",
       "signup": "not-required"
@@ -97,6 +106,7 @@
       "description": "Free section of the itch.io asset marketplace.",
       "description_zh": "itch.io 素材市场的免费专区。",
       "license": "Per-item licenses",
+      "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "optional"
@@ -107,6 +117,8 @@
       "description": "Thousands of free low-poly models, mostly CC0.",
       "description_zh": "数千个免费低多边形模型，多为 CC0。",
       "license": "CC0 / CC-BY (per model)",
+      "license_family": "mixed",
+      "contains_cc0": true,
       "attribution": "varies",
       "monetization": "allowed",
       "signup": "not-required"
@@ -117,6 +129,7 @@
       "description": "Themed CC0 asset packs (dungeon, city, nature) for games.",
       "description_zh": "游戏用主题 CC0 素材包（地牢、城市、自然）。",
       "license": "CC0",
+      "license_family": "cc0",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -127,6 +140,7 @@
       "description": "Downloadable free models filterable by CC license.",
       "description_zh": "可按 CC 许可筛选的免费可下载模型。",
       "license": "Per-model licenses",
+      "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "required"
@@ -137,6 +151,8 @@
       "description": "Public domain 3D models, textures and images from NASA.",
       "description_zh": "NASA 的公有领域 3D 模型、材质与图像。",
       "license": "Public Domain (mostly)",
+      "license_family": "mixed",
+      "contains_cc0": true,
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -147,6 +163,7 @@
       "description": "Free-model section of a major 3D marketplace.",
       "description_zh": "大型 3D 市场的免费模型专区。",
       "license": "Per-model licenses",
+      "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "optional"
@@ -157,6 +174,7 @@
       "description": "Free-model section of TurboSquid.",
       "description_zh": "TurboSquid 的免费模型专区。",
       "license": "Per-model licenses",
+      "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "optional"
@@ -167,6 +185,7 @@
       "description": "Millions of free 3D models from the SketchUp community.",
       "description_zh": "SketchUp 社区的数百万免费 3D 模型。",
       "license": "Per-model licenses",
+      "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "optional"
@@ -177,6 +196,7 @@
       "description": "Free-model section of a large 3D marketplace.",
       "description_zh": "大型 3D 市场的免费模型专区。",
       "license": "Per-model licenses",
+      "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "optional"
@@ -187,6 +207,7 @@
       "description": "Stylish CC0 low-poly packs: animals, dungeons, sci-fi and more.",
       "description_zh": "风格化 CC0 低多边形素材包：动物、地牢、科幻等。",
       "license": "CC0",
+      "license_family": "cc0",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -197,6 +218,7 @@
       "description": "Free 2D game assets: sprites, tilesets, GUI kits and more.",
       "description_zh": "免费 2D 游戏素材：精灵图、tileset、GUI 套件等。",
       "license": "CraftPix Free License",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "optional",

@@ -11,6 +11,7 @@
       "description": "Free HD and 4K stock videos with a very permissive license.",
       "description_zh": "免费高清与 4K 视频素材，许可非常宽松。",
       "license": "Pexels License",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -21,6 +22,7 @@
       "description": "Large free footage library including motion graphics and loops.",
       "description_zh": "大型免费视频库，含动态图形与循环背景。",
       "license": "Pixabay Content License",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -31,6 +33,7 @@
       "description": "Free HD clips plus Premiere, After Effects and DaVinci templates.",
       "description_zh": "免费高清片段，另附 Premiere、After Effects 与 DaVinci 模板。",
       "license": "Mixkit Stock License (Free)",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -41,6 +44,7 @@
       "description": "Free cinematic clips originally built for website backgrounds.",
       "description_zh": "免费电影感片段，最初为网站背景视频而生。",
       "license": "Coverr License",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -51,6 +55,7 @@
       "description": "Free footage and motion graphics with per-asset licenses.",
       "description_zh": "免费视频素材与动态图形，逐项标注许可。",
       "license": "Videvo License / CC BY 3.0 (per asset)",
+      "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "optional",
@@ -63,9 +68,11 @@
       "description": "Free HD and 4K clips, most requiring an attribution link.",
       "description_zh": "免费高清/4K 片段，多数要求署名链接。",
       "license": "Videezy License",
+      "license_family": "site-free",
       "attribution": "varies",
       "monetization": "conditional",
-      "signup": "optional"
+      "signup": "optional",
+      "linkcheck_js": true
     },
     {
       "name": "Vidsplay",
@@ -73,6 +80,7 @@
       "description": "New free clips added weekly.",
       "description_zh": "每周更新免费片段。",
       "license": "Vidsplay License",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required",
@@ -85,6 +93,7 @@
       "description": "Hand-picked free 4K stock video clips.",
       "description_zh": "人工精选的免费 4K 视频片段。",
       "license": "CC BY 4.0",
+      "license_family": "cc-by",
       "attribution": "required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -95,6 +104,7 @@
       "description": "Free artistic clips released by an advertising agency.",
       "description_zh": "广告工作室发布的免费艺术感片段。",
       "license": "Life of Vids License (free)",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -105,6 +115,7 @@
       "description": "Curated cinematic footage, hand-picked from videographers.",
       "description_zh": "从摄影师处精选的电影感素材。",
       "license": "CC BY 3.0 / Mazwai License (per clip)",
+      "license_family": "mixed",
       "attribution": "varies",
       "monetization": "allowed",
       "signup": "not-required"
@@ -115,6 +126,7 @@
       "description": "Free photos and videos by photographer Daniel Nanescu.",
       "description_zh": "摄影师 Daniel Nanescu 的免费照片与视频。",
       "license": "SplitShire License (free)",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required",
@@ -127,11 +139,14 @@
       "description": "Public domain space footage, launch videos and Earth imagery.",
       "description_zh": "公有领域的太空影像、发射视频与地球画面。",
       "license": "Public Domain (with minor exceptions)",
+      "license_family": "mixed",
+      "contains_cc0": true,
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required",
       "notes": "NASA media is generally not copyrightable; identifiable people need care.",
-      "notes_zh": "NASA 素材一般不受版权保护；含可识别人物时需谨慎。"
+      "notes_zh": "NASA 素材一般不受版权保护；含可识别人物时需谨慎。",
+      "linkcheck_js": true
     },
     {
       "name": "Prelinger Archives",
@@ -139,6 +154,8 @@
       "description": "Historic advertising, educational and amateur films, mostly public domain.",
       "description_zh": "历史广告、教育与业余影片，多为公有领域。",
       "license": "Public Domain (mostly)",
+      "license_family": "mixed",
+      "contains_cc0": true,
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -149,6 +166,7 @@
       "description": "Free historic and archival media in the public domain.",
       "description_zh": "公有领域的历史与档案媒体。",
       "license": "Public Domain",
+      "license_family": "cc0",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "unknown"
@@ -159,6 +177,7 @@
       "description": "European Space Agency videos and images of Earth and space.",
       "description_zh": "欧洲航天局的地球与太空视频、图片。",
       "license": "CC BY-SA 3.0 IGO",
+      "license_family": "cc-by",
       "attribution": "required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -169,6 +188,7 @@
       "description": "US military public-domain video and imagery from defense operations worldwide.",
       "description_zh": "美军全球防务行动的公有领域视频与图片。",
       "license": "Public Domain (US Government works)",
+      "license_family": "cc0",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required",
@@ -181,6 +201,7 @@
       "description": "Free HD and 4K B-roll clips from filmmaker Dustin Beckstrand.",
       "description_zh": "电影人 Dustin Beckstrand 的免费高清/4K B-roll 片段。",
       "license": "Free (custom)",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required",

@@ -11,6 +11,7 @@
       "description": "Free cinematic LUT pack from a premium VFX vendor.",
       "description_zh": "高端 VFX 厂商赠送的免费电影感 LUT 包。",
       "license": "Royalty-free (RocketStock)",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "unknown"
@@ -21,6 +22,7 @@
       "description": "Free filmic LUTs from a well-known color grading shop.",
       "description_zh": "知名调色商店的免费电影感 LUT。",
       "license": "Free (IWLTBAP)",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "unknown"
@@ -31,6 +33,7 @@
       "description": "Community site for sharing and downloading free LUTs.",
       "description_zh": "社区分享与下载免费 LUT 的站点。",
       "license": "Various (community uploads)",
+      "license_family": "mixed",
       "attribution": "varies",
       "monetization": "allowed",
       "signup": "not-required",
@@ -43,6 +46,7 @@
       "description": "Open DNG/DCP profiles and LUTs matching Fujifilm film simulations.",
       "description_zh": "匹配富士胶片模拟的开放 DNG/DCP 配置与 LUT。",
       "license": "Open (see repository)",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -53,19 +57,23 @@
       "description": "Free After Effects, Premiere, DaVinci and Final Cut templates and transitions.",
       "description_zh": "免费的 AE、Premiere、DaVinci 与 Final Cut 模板与转场。",
       "license": "Mixkit License",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
     },
     {
-      "name": "Motion Array (free section)",
+      "name": "Motion Array",
       "url": "https://motionarray.com/",
       "description": "Free templates, LUTs and presets section of a premium marketplace.",
       "description_zh": "高端市场的免费模板、LUT 与预设专区。",
       "license": "Motion Array royalty-free license",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "required"
+      "signup": "required",
+      "notes": "Free assets sit behind the on-site Free filter plus a free account; the free plan caps monthly downloads.",
+      "notes_zh": "免费素材需通过站内 Free 筛选并登录免费账号获取；免费版每月下载有额度上限。"
     },
     {
       "name": "Velosofy",
@@ -73,6 +81,7 @@
       "description": "Community library of free video templates (AE, Premiere, Sony Vegas).",
       "description_zh": "社区免费视频模板库（AE、Premiere、Vegas）。",
       "license": "Various (per template)",
+      "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "optional"
@@ -83,6 +92,7 @@
       "description": "Free VFX elements, overlays and action footage from ProductionCrew.",
       "description_zh": "ProductionCrew 出品的免费 VFX 元素、叠加特效与动作素材。",
       "license": "FootageCrate Free License",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "conditional",
       "signup": "required",
@@ -91,10 +101,11 @@
     },
     {
       "name": "MotionElements",
-      "url": "https://www.motionelements.com/",
+      "url": "https://www.motionelements.com/free/stock-footage",
       "description": "Marketplace with a rotating free section: templates, SFX, video.",
       "description_zh": "素材市场，每周轮换免费专区：模板、音效、视频。",
       "license": "MotionElements Free License",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "varies",
       "signup": "required",
@@ -107,6 +118,7 @@
       "description": "Rotating monthly free assets from Envato Elements: templates, video, audio, fonts.",
       "description_zh": "Envato Elements 每月轮换免费素材：模板、视频、音频、字体。",
       "license": "Envato free-file license",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "required",

@@ -16,6 +16,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from urllib.parse import parse_qsl, urlsplit, urlunsplit
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
@@ -23,6 +24,12 @@ OUTPUTS = {
     "en": ROOT / "README.md",
     "zh": ROOT / "README.zh-CN.md",
 }
+
+# The hero banner / social preview are rendered from this HTML by headless Chrome
+# (see CONTRIBUTING.md). Its two counts are derived facts, so they are stamped here
+# and checked by CI — the banner used to advertise 148 assets while the data had 158.
+ASSET_HTML = ROOT / "assets" / "social-preview.html"
+ASSET_SAMPLE_ROWS = 4  # rows drawn in the mock table card; the footer says "+ N more"
 
 # Used for CI badges and the Star History embed.
 # NOTE: update this (and .github/ISSUE_TEMPLATE/config.yml) if the repo lives elsewhere.
@@ -43,11 +50,60 @@ CATEGORY_ORDER = [
     "search-engines",
 ]
 
-REQUIRED_ENTRY_FIELDS = ("name", "url", "description", "license", "attribution", "monetization")
-OPTIONAL_ENTRY_FIELDS = ("signup", "notes", "skip_linkcheck", "description_zh", "notes_zh")
-ATTRIBUTION_VALUES = {"required", "not-required", "varies"}
-MONETIZATION_VALUES = {"allowed", "conditional", "varies", "not-allowed"}
-SIGNUP_VALUES = {"required", "not-required", "optional", "unknown"}
+# The field list and every enum are READ FROM schema/entry.schema.json instead of being
+# restated here. The schema used to be "editor aid" while this file held the real
+# contract, so the two could disagree silently (and did: the schema forbade unknown
+# top-level keys and >160-char descriptions, neither of which was enforced).
+SCHEMA_PATH = ROOT / "schema" / "entry.schema.json"
+
+
+def _load_contract(path=SCHEMA_PATH):
+    schema = json.loads(Path(path).read_text(encoding="utf-8"))
+    entry = schema["definitions"]["entry"]
+    props = entry["properties"]
+    required = tuple(entry["required"])
+    optional = tuple(k for k in props if k not in required)
+    enums = {k: set(v["enum"]) for k, v in props.items() if "enum" in v}
+    return schema, required, optional, enums
+
+
+SCHEMA, REQUIRED_ENTRY_FIELDS, OPTIONAL_ENTRY_FIELDS, _ENUMS = _load_contract()
+ENTRY_PROPS = SCHEMA["definitions"]["entry"]["properties"]
+# Every boolean the schema declares is type-checked, so a new flag needs no new code.
+BOOL_FIELDS = {k for k, v in ENTRY_PROPS.items() if v.get("type") == "boolean"}
+ATTRIBUTION_VALUES = _ENUMS["attribution"]
+MONETIZATION_VALUES = _ENUMS["monetization"]
+SIGNUP_VALUES = _ENUMS["signup"]
+# Controlled license classes. The free-text `license` field is for humans; this one
+# drives the "At a glance" stats and the website's CC0 filter (no regex guessing).
+LICENSE_FAMILY_VALUES = _ENUMS["license_family"]
+MAX_DESCRIPTION = SCHEMA["definitions"]["entry"]["properties"]["description"]["maxLength"]
+MAX_DESCRIPTION_ZH = SCHEMA["definitions"]["entry"]["properties"]["description_zh"]["maxLength"]
+
+# CONTRIBUTING.md: "no affiliate links, no tracking parameters". These used to be
+# unenforced — a utm_ tag would have sailed through CI.
+TRACKING_PARAMS = {
+    "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "utm_id",
+    "gclid", "fbclid", "igshid", "mc_cid", "mc_eid", "s_kwcid", "twclid", "msclkid",
+    "ref", "ref_src", "referer", "aff", "affiliate", "aff_id", "partner",
+}
+
+
+def url_key(url):
+    """Normalise a URL for duplicate detection.
+
+    Lowercases scheme and host, drops a leading 'www.' and the trailing slash. The
+    query string is KEPT on purpose: for a couple of entries it is the only thing
+    separating two legitimate rows (kenney.nl/assets vs kenney.nl/assets?type=audio).
+    Before this, `https://www.fonts.google.com/` and a `?utm_source=x` variant both
+    slipped past the uniqueness check that CONTRIBUTING.md advertises.
+    """
+    p = urlsplit(url.strip())
+    host = p.netloc.lower()
+    if host.startswith("www."):
+        host = host[4:]
+    return urlunsplit((p.scheme.lower(), host, p.path.rstrip("/") or "/", p.query, ""))
+
 
 ATTR_DISPLAY = {
     "en": {"required": "\u2705 Required", "not-required": "\u2014", "varies": "\u2753 Varies"},
@@ -77,7 +133,7 @@ T = {
         "lang_switch": "<strong>English</strong> | <a href=\"README.zh-CN.md\">\u7b80\u4f53\u4e2d\u6587</a>",
         "title": "# \U0001f381 Free for Creators",
         "tagline": "> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **{total} resources across {ncat} categories**.",
-        "glance": "**At a glance:** {monetizable} entries are 💚 safe for monetized content · {no_attribution} need ➖ no attribution · {no_signup} need 🔓 no account · {open} are CC0 / public domain.",
+        "glance": "**At a glance:** {monetizable} entries are 💚 safe for monetized content · {no_attribution} need ➖ no attribution · {no_signup} need 🔓 no account · {open} are entirely CC0 / public domain · {open_mixed} more mix in CC0 items (filter per asset).",
         "questions_intro": "Every entry answers the three questions that decide whether a \u201cfree\u201d asset is actually free for *you*:",
         "q1": "1. **What is the license?**",
         "q2": "2. **Do I have to credit anyone?** \u2192 the *Attribution* column",
@@ -106,7 +162,6 @@ T = {
             "- [free-for-dev](https://github.com/ripienaar/free-for-dev) \u2014 free SaaS/PaaS/IaaS tiers for developers",
             "- [awesome-stock-resources](https://github.com/neutraltone/awesome-stock-resources) \u2014 classic stock photo/video collection",
             "- [GameDev-Resources](https://github.com/Kavex/GameDev-Resources) \u2014 game development resources",
-            "- [free-font](https://github.com/jaywcjlove/free-font) \u2014 \u4e2d\u82f1\u6587\u53ef\u5546\u7528\u514d\u8d39\u5b57\u4f53 (free CJK fonts)",
             "- [design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) \u2014 design resources for developers",
         ],
         "contributing_title": "## Contributing",
@@ -120,7 +175,7 @@ T = {
         "lang_switch": "<a href=\"README.md\">English</a> | <strong>\u7b80\u4f53\u4e2d\u6587</strong>",
         "title": "# \U0001f381 Free for Creators \u00b7 \u521b\u4f5c\u8005\u514d\u8d39\u7d20\u6750\u6e05\u5355",
         "tagline": "> \u4e00\u4efd**\u8bb8\u53ef\u900f\u660e**\u7684\u514d\u8d39\u7d20\u6750\u76ee\u5f55\uff0c\u4e13\u4e3a\u89c6\u9891\u521b\u4f5c\u8005\u3001\u4e3b\u64ad\u3001\u64ad\u5ba2\u3001\u6e38\u620f\u5f00\u53d1\u8005\u3001\u97f3\u4e50\u4eba\u4e0e\u8bbe\u8ba1\u5e08\u6253\u9020\uff1a**{ncat} \u5927\u5206\u7c7b\u3001{total} \u4e2a\u8d44\u6e90**\u3002",
-        "glance": "**一眼看数据**：{monetizable} 条 💚 可直接用于货币化内容 · {no_attribution} 条 ➖ 无需署名 · {no_signup} 条 🔓 无需注册 · {open} 条属 CC0 / 公有领域。",
+        "glance": "**一眼看数据**：{monetizable} 条 💚 可直接用于货币化内容 · {no_attribution} 条 ➖ 无需署名 · {no_signup} 条 🔓 无需注册 · {open} 条整站属 CC0 / 公有领域 · 另有 {open_mixed} 条含 CC0 素材（需逐项筛选）。",
         "questions_intro": "\u6bcf\u6761\u8d44\u6e90\u90fd\u56de\u7b54\u4e86\u51b3\u5b9a\u300c\u514d\u8d39\u300d\u7d20\u6750\u80fd\u5426\u653e\u5fc3\u7528\u7684\u4e09\u4e2a\u95ee\u9898\uff1a",
         "q1": "1. **\u8bb8\u53ef\u534f\u8bae\u662f\u4ec0\u4e48\uff1f**",
         "q2": "2. **\u662f\u5426\u9700\u8981\u7f72\u540d\uff1f** \u2192 \u770b\u300c\u7f72\u540d\u300d\u5217",
@@ -149,7 +204,6 @@ T = {
             "- [free-for-dev](https://github.com/ripienaar/free-for-dev) \u2014 \u9762\u5411\u5f00\u53d1\u8005\u7684\u514d\u8d39 SaaS/PaaS/IaaS \u989d\u5ea6",
             "- [awesome-stock-resources](https://github.com/neutraltone/awesome-stock-resources) \u2014 \u7ecf\u5178\u56fe\u5e93/\u89c6\u9891\u7d20\u6750\u5408\u96c6",
             "- [GameDev-Resources](https://github.com/Kavex/GameDev-Resources) \u2014 \u6e38\u620f\u5f00\u53d1\u8d44\u6e90",
-            "- [free-font](https://github.com/jaywcjlove/free-font) \u2014 \u4e2d\u82f1\u6587\u53ef\u5546\u7528\u514d\u8d39\u5b57\u4f53",
             "- [design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) \u2014 \u9762\u5411\u5f00\u53d1\u8005\u7684\u8bbe\u8ba1\u8d44\u6e90",
         ],
         "contributing_title": "## \u53c2\u4e0e\u8d21\u732e",
@@ -185,6 +239,14 @@ def load_categories():
             continue
         if slug != path.stem:
             errors.append("%s: slug '%s' does not match filename" % (path.name, slug))
+        # The schema sets additionalProperties:false at the top level and gives slug a
+        # pattern; neither was enforced before, so a typo'd top-level key passed CI.
+        unknown_top = set(data) - set(SCHEMA["properties"])
+        if unknown_top:
+            errors.append("%s: unknown top-level key(s) %s" % (path.name, ", ".join(sorted(unknown_top))))
+        slug_pattern = SCHEMA["properties"]["slug"].get("pattern")
+        if slug_pattern and not re.match(slug_pattern, slug):
+            errors.append("%s: slug '%s' does not match schema pattern %s" % (path.name, slug, slug_pattern))
         by_slug[slug] = (path, data)
 
     missing = [s for s in CATEGORY_ORDER if s not in by_slug]
@@ -200,7 +262,7 @@ def load_categories():
         if slug not in by_slug:
             continue
         path, data = by_slug[slug]
-        for field in ("category", "slug", "description", "entries"):
+        for field in SCHEMA["required"]:
             if field not in data:
                 errors.append("%s: missing field '%s'" % (path.name, field))
         for field in ("category_zh", "description_zh"):
@@ -224,18 +286,45 @@ def load_categories():
                 errors.append("%s: monetization '%s' not in %s" % (where, e["monetization"], sorted(MONETIZATION_VALUES)))
             if "signup" in e and e["signup"] not in SIGNUP_VALUES:
                 errors.append("%s: signup '%s' not in %s" % (where, e["signup"], sorted(SIGNUP_VALUES)))
+            if e.get("license_family") and e["license_family"] not in LICENSE_FAMILY_VALUES:
+                errors.append("%s: license_family '%s' not in %s" % (where, e["license_family"], sorted(LICENSE_FAMILY_VALUES)))
+            for field in sorted(BOOL_FIELDS & set(e)):
+                if not isinstance(e[field], bool):
+                    errors.append("%s: '%s' must be a boolean" % (where, field))
+            if e.get("contains_cc0") and e.get("license_family") != "mixed":
+                warnings.append("%s: contains_cc0 is only meaningful with license_family 'mixed' (got '%s')"
+                                % (where, e.get("license_family")))
+            # Cross-field coherence: the family must agree with the monetization column.
+            fam, mon = e.get("license_family"), e.get("monetization")
+            if fam == "noncommercial" and mon != "not-allowed":
+                warnings.append("%s: license_family 'noncommercial' but monetization '%s'" % (where, mon))
+            if mon == "not-allowed" and fam != "noncommercial":
+                warnings.append("%s: monetization 'not-allowed' but license_family '%s'" % (where, fam))
+            if fam == "cc0" and e.get("attribution") == "required":
+                warnings.append("%s: license_family 'cc0' but attribution 'required'" % where)
             url = e.get("url", "")
             if url:
                 if not url.startswith("https://"):
                     errors.append("%s: url must start with https:// (%s)" % (where, url))
-                key = url.rstrip("/").lower()
+                parts = urlsplit(url)
+                if parts.fragment:
+                    errors.append("%s: url must not contain a fragment '#%s' (%s)" % (where, parts.fragment, url))
+                tracking = sorted({k.lower() for k, _ in parse_qsl(parts.query)} & TRACKING_PARAMS)
+                if tracking:
+                    errors.append("%s: url has tracking/affiliate parameter(s) %s (%s)"
+                                  % (where, ", ".join(tracking), url))
+                key = url_key(url)
                 if key in seen_urls:
-                    errors.append("%s: duplicate url also in '%s'" % (where, seen_urls[key]))
+                    errors.append("%s: duplicate url — also used by %s" % (where, seen_urls[key]))
                 else:
-                    seen_urls[key] = e.get("name", "?")
+                    seen_urls[key] = "'%s' (%s)" % (e.get("name", "?"), url)
             desc = e.get("description", "")
-            if len(desc) > 160:
-                warnings.append("%s: description longer than 160 chars (%d)" % (where, len(desc)))
+            if len(desc) > MAX_DESCRIPTION:
+                # schema declares maxLength, so this is a hard error, not a warning
+                errors.append("%s: description longer than %d chars (%d)" % (where, MAX_DESCRIPTION, len(desc)))
+            desc_zh = e.get("description_zh", "")
+            if len(desc_zh) > MAX_DESCRIPTION_ZH:
+                errors.append("%s: description_zh longer than %d chars (%d)" % (where, MAX_DESCRIPTION_ZH, len(desc_zh)))
             if "description_zh" not in e:
                 warnings.append("%s: missing description_zh" % where)
             for field in REQUIRED_ENTRY_FIELDS + OPTIONAL_ENTRY_FIELDS:
@@ -258,7 +347,12 @@ def compute_stats(categories):
         "monetizable": sum(1 for e in entries if e["monetization"] == "allowed"),
         "no_attribution": sum(1 for e in entries if e["attribution"] == "not-required"),
         "no_signup": sum(1 for e in entries if e.get("signup") == "not-required"),
-        "open": sum(1 for e in entries if re.search(r"cc0|public domain", e.get("license", ""), re.IGNORECASE)),
+        # `open` counts entries whose *whole* catalogue is CC0/public domain.
+        # Sites that merely host some CC0 items among mixed per-item licenses are
+        # counted separately as `open_mixed` — the old regex over `license` text
+        # lumped the two together and overstated the pure-CC0 figure.
+        "open": sum(1 for e in entries if e.get("license_family") == "cc0"),
+        "open_mixed": sum(1 for e in entries if e.get("contains_cc0")),
     }
 
 
@@ -408,6 +502,14 @@ def render(categories, lang):
     return "\n".join(lines)
 
 
+def stamp_asset_counts(html, total):
+    """Stamp the entry counts into assets/social-preview.html. Idempotent."""
+    html = re.sub(r"<b>\d+ license-verified free assets</b>",
+                  "<b>%d license-verified free assets</b>" % total, html)
+    return re.sub(r"\+ <b>\d+ more</b>",
+                  "+ <b>%d more</b>" % (total - ASSET_SAMPLE_ROWS), html)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--check", action="store_true", help="fail if any README is not in sync with data/")
@@ -421,6 +523,8 @@ def main():
         return
 
     rendered = {lang: render(categories, lang) for lang in OUTPUTS}
+    asset_current = ASSET_HTML.read_text(encoding="utf-8") if ASSET_HTML.exists() else None
+    asset_wanted = stamp_asset_counts(asset_current, total) if asset_current is not None else None
     if args.check:
         bad = False
         for lang, path in OUTPUTS.items():
@@ -430,14 +534,23 @@ def main():
                 print("ERROR: %s is out of sync with data/. Run: python3 scripts/build_readme.py" % path.name, file=sys.stderr)
                 if current is None:
                     print("(%s does not exist)" % path.name, file=sys.stderr)
+        if asset_wanted is not None and asset_wanted != asset_current:
+            bad = True
+            print("ERROR: %s advertises a stale resource count (%d entries in data/). "
+                  "Run: python3 scripts/build_readme.py, then re-render the images (see CONTRIBUTING.md)."
+                  % (ASSET_HTML.name, total), file=sys.stderr)
         if bad:
             sys.exit(1)
-        print("All READMEs are in sync.")
+        print("All READMEs and the banner counts are in sync.")
         return
 
     for lang, path in OUTPUTS.items():
         path.write_text(rendered[lang], encoding="utf-8")
         print("Wrote %s" % path)
+    if asset_wanted is not None and asset_wanted != asset_current:
+        ASSET_HTML.write_text(asset_wanted, encoding="utf-8")
+        print("Stamped %d entries into %s" % (total, ASSET_HTML))
+        print("  -> now re-render the images (see CONTRIBUTING.md 'Social preview & banner')")
 
 
 if __name__ == "__main__":

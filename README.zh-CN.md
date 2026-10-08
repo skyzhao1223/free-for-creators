@@ -19,7 +19,7 @@
 
 > 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、158 个资源**。
 
-**一眼看数据**：109 条 💚 可直接用于货币化内容 · 95 条 ➖ 无需署名 · 120 条 🔓 无需注册 · 35 条属 CC0 / 公有领域。
+**一眼看数据**：107 条 💚 可直接用于货币化内容 · 95 条 ➖ 无需署名 · 120 条 🔓 无需注册 · 25 条整站属 CC0 / 公有领域 · 另有 12 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -172,9 +172,9 @@
 | [Font Library](https://fontlibrary.org/) | 社区维护的自由字体目录。 | OFL / CC (per family) | ❓ 逐项而定 | 💚 可商用 | — |
 | [DaFont](https://www.dafont.com/) | 超大字体目录；许多字体仅限演示或个人使用。 _商用前务必逐字核对许可文件。_ | Various (per font) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [1001 Fonts](https://www.1001fonts.com/) | 10,000+ 字体，支持按许可筛选。 | Various (per font) | ❓ 逐项而定 | ❓ 逐项而定 | — |
-| [free-font (CJK)](https://github.com/jaywcjlove/free-font) | 中英文可商用免费字体精选。 _中文资源；请逐字核对许可。_ | Various (per font) | ❓ 逐项而定 | 💚 可商用 | — |
+| [free-font (CJK)](https://github.com/jaywcjlove/free-font) | 中英文可商用免费字体精选。 _绝大多数为 OFL 等开源许可，但少数字体标记为「个人免费」「个人非商业」「CC BY-NC」或「需要授权」——商用前请逐个核对许可标签。_ | Various (per font) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [Use & Modify](https://usemodify.com/) | 瑞士设计师精选的可商用免费字体目录，支持筛选。 | OFL / open licenses (per family) | — | 💚 可商用 | — |
-| [Open Foundry](https://open-foundry.com/) | 开放许可字体平台，附展示项目。 | Various open licenses (per font) | ❓ 逐项而定 | 💚 可商用 | — |
+| [Open Foundry](https://open-foundry.com/) | 开放许可字体平台，附展示项目。 _官网 FAQ：能否商用取决于每个字体自身的许可，部分许可存在限制——用于客户项目前请先阅读该字体许可。_ | Various open licenses (per font) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 
 ## 图形与图标
 
@@ -191,14 +191,14 @@
 | [ManyPixels Illustration Gallery](https://www.manypixels.co/gallery) | 2,000+ 免版税插画，支持换色。 _不得转售或作为图库分发。_ | ManyPixels License | — | 💚 可商用 | — |
 | [IRA Design](https://iradesign.io/) | 自定义渐变人物与背景插画生成器。 | IRA Design License (free) | ❓ 逐项而定 | 💚 可商用 | — |
 | [Absurd Design](https://absurd.design/) | 超现实手绘插画包，适合落地页。 _署名要求以当前许可条款为准。_ | Absurd Design License | ❓ 逐项而定 | 💚 可商用 | — |
-| [Blush](https://blush.design/) | 画师插画市场，含免费合集。 | Free licenses (per artist) | ❓ 逐项而定 | 💚 可商用 | 🔑 需注册 |
+| [Blush](https://blush.design/) | 画师插画市场，含免费合集。 _无需署名。但不得转售或再分发插画本身，也不得以其为基础制作周边商品（如直接印在 T 恤上售卖）。_ | Blush Free License | — | 💚 可商用 | 🔑 需注册 |
 | [SVG Repo](https://www.svgrepo.com/) | 50 万+ 开放许可矢量图与图标，支持按许可筛选。 | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [Iconify](https://icon-sets.iconify.design/) | 一站检索 100+ 开源图标集的 20 万+ 图标。 | Per-set open licenses | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [Feather Icons](https://feathericons.com/) | 极简、风格一致的开源图标集。 | MIT | — | 💚 可商用 | — |
 | [Tabler Icons](https://tabler.io/icons) | 5,900+ 免费 MIT 许可 SVG 图标，网页与印刷均可用。 | MIT | — | 💚 可商用 | — |
 | [Lucide](https://lucide.dev/) | Feather 的社区维护分支，更新活跃。 | ISC | — | 💚 可商用 | — |
 | [Bootstrap Icons](https://icons.getbootstrap.com/) | 免费 SVG 图标库，任何框架可用。 | MIT | — | 💚 可商用 | — |
-| [bioicons](https://bioicons.com/) | 科学与生物插画用免费开放许可图标库。 | Various open licenses (per icon) | — | 💚 可商用 | — |
+| [bioicons](https://bioicons.com/) | 科学与生物插画用免费开放许可图标库。 _混合 CC0 / CC BY / CC BY-SA / MIT——其中 BY 与 BY-SA 子集需要署名；站内会标注每个图标的许可。_ | Various open licenses (per icon) | ❓ 逐项而定 | 💚 可商用 | — |
 | [Flaticon](https://www.flaticon.com/) | 超大图标目录；免费档需署名。 | Flaticon Free License | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
 | [The Noun Project](https://thenounproject.com/) | 万物皆有图标；免费下载需署名。 | Free with attribution (paid removes it) | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
 | [Icons8](https://icons8.com/icons) | 风格一致的图标、插画与音乐；免费档需挂链接。 | Icons8 Free License | ✅ 需署名 | ⚠️ 有条件 | — |
@@ -207,8 +207,8 @@
 | [Iconoir](https://iconoir.com/) | 1,600+ 手绘风格开源图标，永久免费。 | MIT | — | 💚 可商用 | — |
 | [Remix Icon](https://remixicon.com/) | 中性风格的开源系统图标库。 | Apache 2.0 | — | 💚 可商用 | — |
 | [Material Symbols](https://fonts.google.com/icons) | Google 可变图标家族（Material Icons 的继任者）。 | Apache 2.0 | — | 💚 可商用 | — |
-| [Freepik](https://www.freepik.com/) | 海量免费矢量图、PSD 与照片；免费档需署名。 _免费档每日下载有限额。_ | Freepik Free License | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
-| [Vecteezy](https://www.vecteezy.com/) | 免费矢量图与照片，免费档需署名。 | Vecteezy Free License | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
+| [Magnific (formerly Freepik)](https://www.magnific.com/) | 免费矢量图、PSD 与图片目录；免费方案需要署名。 _2026 年由 Freepik 更名而来。免费版需保留可见的「Designed by Freepik」署名链接、每日 10 次素材下载；定价页另称免费版仅限个人使用（与条款口径不一致，商用前请自行核对）。_ | Magnific License (free tier) | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
+| [Vecteezy](https://www.vecteezy.com/free-vector) | 免费矢量图与照片，免费档需署名。 | Vecteezy Free License | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
 | [3dicons](https://3dicons.co/) | 开源 3D 图标库，含 5,000+ 渲染图标。 | CC0 | — | 💚 可商用 | — |
 | [Openclipart](https://openclipart.org/) | 老牌社区剪贴画库，全部 CC0。 | CC0 | — | 💚 可商用 | — |
 
@@ -223,10 +223,10 @@
 | [FreshLuts](https://freshluts.com/) | 社区分享与下载免费 LUT 的站点。 _社区上传：请逐个核对使用权限。_ | Various (community uploads) | ❓ 逐项而定 | 💚 可商用 | — |
 | [Fujifilm Camera Profiles](https://github.com/abpy/FujifilmCameraProfiles) | 匹配富士胶片模拟的开放 DNG/DCP 配置与 LUT。 | Open (see repository) | — | 💚 可商用 | — |
 | [Mixkit Templates](https://mixkit.co/free-after-effects-templates/) | 免费的 AE、Premiere、DaVinci 与 Final Cut 模板与转场。 | Mixkit License | — | 💚 可商用 | — |
-| [Motion Array (free section)](https://motionarray.com/) | 高端市场的免费模板、LUT 与预设专区。 | Motion Array royalty-free license | — | 💚 可商用 | 🔑 需注册 |
+| [Motion Array](https://motionarray.com/) | 高端市场的免费模板、LUT 与预设专区。 _免费素材需通过站内 Free 筛选并登录免费账号获取；免费版每月下载有额度上限。_ | Motion Array royalty-free license | — | 💚 可商用 | 🔑 需注册 |
 | [Velosofy](https://www.velosofy.com/) | 社区免费视频模板库（AE、Premiere、Vegas）。 | Various (per template) | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
 | [FootageCrate](https://footagecrate.com/) | ProductionCrew 出品的免费 VFX 元素、叠加特效与动作素材。 _免费档每日 5 次下载；限额内可商用。_ | FootageCrate Free License | — | ⚠️ 有条件 | 🔑 需注册 |
-| [MotionElements](https://www.motionelements.com/) | 素材市场，每周轮换免费专区：模板、音效、视频。 _免费条目每周轮换，逐项核对许可。_ | MotionElements Free License | — | ❓ 逐项而定 | 🔑 需注册 |
+| [MotionElements](https://www.motionelements.com/free/stock-footage) | 素材市场，每周轮换免费专区：模板、音效、视频。 _免费条目每周轮换，逐项核对许可。_ | MotionElements Free License | — | ❓ 逐项而定 | 🔑 需注册 |
 | [Envato Free Files](https://elements.envato.com/free-files) | Envato Elements 每月轮换免费素材：模板、视频、音频、字体。 _每月免费文件采用 Envato 标准许可；以下载页为准。_ | Envato free-file license | — | 💚 可商用 | 🔑 需注册 |
 
 ## 样机与设计模板
@@ -241,7 +241,7 @@
 | [Pixelbuddha Free](https://pixelbuddha.net/free) | 免费设计资源：样机、图标、UI 套件。 | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
 | [Canva Templates](https://www.canva.com/templates/) | 数千个免费模板：封面图、帖子、演示文稿与短视频。 _Canva 素材有转售与再分发限制；请阅读内容许可。_ | Canva Content License | — | ⚠️ 有条件 | 🔑 需注册 |
 | [Adobe Express Templates](https://www.adobe.com/express/templates) | 免费的社媒图形与品牌模板。 | Adobe Stock/Express License | — | ⚠️ 有条件 | 🔑 需注册 |
-| [Smartmockups](https://smartmockups.com/) | 浏览器样机生成器，含免费模板（Canva 旗下）。 _免费档限制分辨率与模板数量。_ | Smartmockups Free License | — | ⚠️ 有条件 | 🔑 需注册 |
+| [Smartmockups](https://www.canva.com/mockups/) | 浏览器样机生成器，含免费模板（Canva 旗下）。 _免费档限制分辨率与模板数量。_ | Smartmockups Free License | — | ⚠️ 有条件 | 🔑 需注册 |
 | [Pixeden](https://www.pixeden.com/) | 免费 PSD 样机、图形与网页设计资源。 _免费条目以下载页许可说明为准。_ | Pixeden License (per item) | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
 | [Anthony Boyd Graphics](https://www.anthonyboyd.graphics/) | Anthony Boyd 的逼真 PSD 样机、材质与渲染图。 _可免费商用；不得二次分发。_ | ABB Free License | — | 💚 可商用 | — |
 | [HTML5 UP](https://html5up.net/) | AJ 制作的精美全响应式 HTML5 网站模板。 | CC BY 3.0 | ✅ 需署名 | 💚 可商用 | — |
@@ -293,7 +293,6 @@
 - [free-for-dev](https://github.com/ripienaar/free-for-dev) — 面向开发者的免费 SaaS/PaaS/IaaS 额度
 - [awesome-stock-resources](https://github.com/neutraltone/awesome-stock-resources) — 经典图库/视频素材合集
 - [GameDev-Resources](https://github.com/Kavex/GameDev-Resources) — 游戏开发资源
-- [free-font](https://github.com/jaywcjlove/free-font) — 中英文可商用免费字体
 - [design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) — 面向开发者的设计资源
 
 ## 参与贡献

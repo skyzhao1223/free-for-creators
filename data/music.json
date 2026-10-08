@@ -11,11 +11,13 @@
       "description": "Free music and sound effects provided by YouTube for use in your videos.",
       "description_zh": "YouTube 官方提供的免费音乐与音效，可用于你的视频。",
       "license": "YouTube Audio Library License (some tracks CC-BY)",
+      "license_family": "site-free",
       "attribution": "varies",
       "monetization": "allowed",
       "signup": "required",
       "notes": "Some tracks require attribution exactly as shown in the library.",
-      "notes_zh": "部分曲目要求按库中说明的方式署名。"
+      "notes_zh": "部分曲目要求按库中说明的方式署名。",
+      "skip_linkcheck": true
     },
     {
       "name": "Pixabay Music",
@@ -23,6 +25,7 @@
       "description": "Large and growing library of royalty-free tracks and loops.",
       "description_zh": "Pixabay 旗下大型免版税音乐与循环素材库。",
       "license": "Pixabay Content License",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -33,6 +36,7 @@
       "description": "Huge archive of Creative Commons music curated since the WFMU radio days.",
       "description_zh": "源自 WFMU 电台的大型知识共享（CC）音乐档案库。",
       "license": "Various CC licenses",
+      "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "not-required",
@@ -45,6 +49,7 @@
       "description": "Kevin MacLeod's legendary library of film-score style music.",
       "description_zh": "Kevin MacLeod 的传奇影视配乐库。",
       "license": "CC BY 4.0 (paid no-attribution license available)",
+      "license_family": "cc-by",
       "attribution": "required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -55,6 +60,7 @@
       "description": "Catchy corporate, acoustic and cinematic tracks by composer Benjamin Tissot.",
       "description_zh": "作曲人 Benjamin Tissot 的轻快企业风、原声与电影感曲目。",
       "license": "Bensound Free License",
+      "license_family": "site-free",
       "attribution": "required",
       "monetization": "conditional",
       "signup": "not-required",
@@ -67,6 +73,7 @@
       "description": "Envato's free music for videos, streams and podcasts.",
       "description_zh": "Envato 旗下 Mixkit 的免费音乐，可用于视频、直播与播客。",
       "license": "Mixkit Stock License (Free)",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -77,6 +84,7 @@
       "description": "Modern royalty-free music made for creators, with a free monthly tier.",
       "description_zh": "面向创作者的现代免版税音乐，含每月免费额度。",
       "license": "Uppbeat Free License",
+      "license_family": "site-free",
       "attribution": "required",
       "monetization": "allowed",
       "signup": "required",
@@ -89,6 +97,7 @@
       "description": "Film-quality orchestral and ambient library released under CC-BY.",
       "description_zh": "以 CC-BY 发布的电影级管弦与氛围音乐库。",
       "license": "CC BY 4.0",
+      "license_family": "cc-by",
       "attribution": "required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -99,6 +108,7 @@
       "description": "Jason Shaw's free rock, acoustic and electronic tracks.",
       "description_zh": "Jason Shaw 的免费摇滚、原声与电子音乐。",
       "license": "CC BY 4.0",
+      "license_family": "cc-by",
       "attribution": "required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -109,6 +119,7 @@
       "description": "Public domain music across many genres, zero restrictions.",
       "description_zh": "覆盖多种流派的公有领域音乐，零限制。",
       "license": "Public Domain",
+      "license_family": "cc0",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -119,6 +130,8 @@
       "description": "Public domain classical recordings, sheet music and music textbooks.",
       "description_zh": "公有领域古典音乐录音、乐谱与教材。",
       "license": "Public Domain / various",
+      "license_family": "mixed",
+      "contains_cc0": true,
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required",
@@ -131,6 +144,7 @@
       "description": "Community remix site with thousands of Creative Commons licensed tracks.",
       "description_zh": "社区混音站点，数千首 CC 许可曲目。",
       "license": "Various CC licenses",
+      "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "not-required"
@@ -141,6 +155,7 @@
       "description": "Iconic electronic music label, free for creators who follow its usage policy.",
       "description_zh": "知名电子音乐厂牌，遵守其使用政策即可免费使用。",
       "license": "NCS Usage Policy",
+      "license_family": "site-free",
       "attribution": "required",
       "monetization": "allowed",
       "signup": "not-required",
@@ -153,6 +168,7 @@
       "description": "Harris Heller's copyright-safe music library built specifically for streamers.",
       "description_zh": "Harris Heller 为直播主打造的无版权风险音乐库。",
       "license": "Free (custom StreamBeats license)",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required",
@@ -165,11 +181,13 @@
       "description": "DMCA-safe music player for streamers with a free tier.",
       "description_zh": "面向直播主的无版权风险音乐播放器，含免费档。",
       "license": "Pretzel Free License",
+      "license_family": "site-free",
       "attribution": "required",
       "monetization": "allowed",
       "signup": "required",
       "notes": "Free tier requires on-stream attribution; paid tier removes it.",
-      "notes_zh": "免费档要求在直播画面署名；付费档可去除。"
+      "notes_zh": "免费档要求在直播画面署名；付费档可去除。",
+      "linkcheck_js": true
     },
     {
       "name": "Purple Planet",
@@ -177,6 +195,7 @@
       "description": "Mood-based free tracks for small creators and non-broadcast use.",
       "description_zh": "按情绪分类的免费曲目，适合小型创作者与非广播用途。",
       "license": "Purple Planet Free License",
+      "license_family": "site-free",
       "attribution": "required",
       "monetization": "conditional",
       "signup": "not-required",
@@ -189,6 +208,7 @@
       "description": "Aggregator of free and CC music with handy license filters.",
       "description_zh": "免费与 CC 音乐聚合站，支持按许可证筛选。",
       "license": "Various (per track)",
+      "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "not-required"
@@ -199,6 +219,7 @@
       "description": "Free songs for creators in exchange for a simple credit link.",
       "description_zh": "以署名链接换免费音乐，专为视频/播客创作者设计。",
       "license": "Thematic License",
+      "license_family": "site-free",
       "attribution": "required",
       "monetization": "allowed",
       "signup": "required",

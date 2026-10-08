@@ -11,6 +11,7 @@
       "description": "Open-source illustrations with customizable colors for any project.",
       "description_zh": "开源插画，颜色可自定义，适用于任何项目。",
       "license": "unDraw License",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -21,6 +22,7 @@
       "description": "Editable, animatable illustrations you can restyle in the browser.",
       "description_zh": "可在浏览器中编辑并做成动画的插画。",
       "license": "Storyset by Freepik License",
+      "license_family": "site-free",
       "attribution": "required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -31,6 +33,7 @@
       "description": "Mix-and-match illustration library of people, by Pablo Stanley.",
       "description_zh": "Pablo Stanley 的人物拼装插画库。",
       "license": "CC0",
+      "license_family": "cc0",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -41,6 +44,7 @@
       "description": "Hand-drawn people illustrations you can assemble into scenes.",
       "description_zh": "手绘人物插画，可自由组合场景。",
       "license": "CC0",
+      "license_family": "cc0",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -51,6 +55,7 @@
       "description": "Free sketchy doodle illustrations by Pablo Stanley.",
       "description_zh": "Pablo Stanley 的免费手绘涂鸦插画。",
       "license": "CC0",
+      "license_family": "cc0",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -61,6 +66,7 @@
       "description": "Free and premium illustration packs for products and marketing.",
       "description_zh": "面向产品与营销的免费/付费插画包。",
       "license": "DrawKit Free License (per pack)",
+      "license_family": "mixed",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -71,6 +77,7 @@
       "description": "2,000+ royalty-free illustrations with color customization.",
       "description_zh": "2,000+ 免版税插画，支持换色。",
       "license": "ManyPixels License",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required",
@@ -83,6 +90,7 @@
       "description": "Build your own gradient character and background illustrations.",
       "description_zh": "自定义渐变人物与背景插画生成器。",
       "license": "IRA Design License (free)",
+      "license_family": "site-free",
       "attribution": "varies",
       "monetization": "allowed",
       "signup": "not-required"
@@ -93,6 +101,7 @@
       "description": "Surreal hand-drawn illustration packs for landing pages.",
       "description_zh": "超现实手绘插画包，适合落地页。",
       "license": "Absurd Design License",
+      "license_family": "site-free",
       "attribution": "varies",
       "monetization": "allowed",
       "signup": "not-required",
@@ -104,10 +113,13 @@
       "url": "https://blush.design/",
       "description": "Marketplace of artist-made illustrations with free collections.",
       "description_zh": "画师插画市场，含免费合集。",
-      "license": "Free licenses (per artist)",
-      "attribution": "varies",
+      "license": "Blush Free License",
+      "license_family": "site-free",
+      "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "required"
+      "signup": "required",
+      "notes": "No credit needed. Not allowed: reselling or redistributing the art, or using it as the basis for merchandise.",
+      "notes_zh": "无需署名。但不得转售或再分发插画本身，也不得以其为基础制作周边商品（如直接印在 T 恤上售卖）。"
     },
     {
       "name": "SVG Repo",
@@ -115,6 +127,7 @@
       "description": "500,000+ open-licensed vectors and icons with license filters.",
       "description_zh": "50 万+ 开放许可矢量图与图标，支持按许可筛选。",
       "license": "Various (per item)",
+      "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "not-required"
@@ -125,6 +138,7 @@
       "description": "Search 200,000+ icons from over 100 open-source sets in one place.",
       "description_zh": "一站检索 100+ 开源图标集的 20 万+ 图标。",
       "license": "Per-set open licenses",
+      "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "not-required"
@@ -135,6 +149,7 @@
       "description": "Minimal, consistent open-source icon set.",
       "description_zh": "极简、风格一致的开源图标集。",
       "license": "MIT",
+      "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -145,6 +160,7 @@
       "description": "5,900+ free MIT-licensed SVG icons for web and print.",
       "description_zh": "5,900+ 免费 MIT 许可 SVG 图标，网页与印刷均可用。",
       "license": "MIT",
+      "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -155,6 +171,7 @@
       "description": "Community-maintained fork of Feather with active development.",
       "description_zh": "Feather 的社区维护分支，更新活跃。",
       "license": "ISC",
+      "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -165,6 +182,7 @@
       "description": "Free SVG icon library, usable with any framework.",
       "description_zh": "免费 SVG 图标库，任何框架可用。",
       "license": "MIT",
+      "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -175,9 +193,12 @@
       "description": "Gallery of free open-license icons for science and biology illustration.",
       "description_zh": "科学与生物插画用免费开放许可图标库。",
       "license": "Various open licenses (per icon)",
-      "attribution": "not-required",
+      "license_family": "mixed",
+      "attribution": "varies",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "notes": "Mixed CC0 / CC BY / CC BY-SA / MIT — the BY and BY-SA subsets need credit; each icon's license is listed on site.",
+      "notes_zh": "混合 CC0 / CC BY / CC BY-SA / MIT——其中 BY 与 BY-SA 子集需要署名；站内会标注每个图标的许可。"
     },
     {
       "name": "Flaticon",
@@ -185,6 +206,7 @@
       "description": "Enormous icon catalog; the free plan requires attribution.",
       "description_zh": "超大图标目录；免费档需署名。",
       "license": "Flaticon Free License",
+      "license_family": "site-free",
       "attribution": "required",
       "monetization": "conditional",
       "signup": "required"
@@ -195,6 +217,7 @@
       "description": "Icons for every idea; free downloads require attribution.",
       "description_zh": "万物皆有图标；免费下载需署名。",
       "license": "Free with attribution (paid removes it)",
+      "license_family": "site-free",
       "attribution": "required",
       "monetization": "conditional",
       "signup": "required"
@@ -205,6 +228,7 @@
       "description": "Consistent icon, illustration and music families; free tier needs a link.",
       "description_zh": "风格一致的图标、插画与音乐；免费档需挂链接。",
       "license": "Icons8 Free License",
+      "license_family": "site-free",
       "attribution": "required",
       "monetization": "conditional",
       "signup": "not-required"
@@ -215,6 +239,7 @@
       "description": "Beautiful hand-crafted SVG icons by the makers of Tailwind CSS.",
       "description_zh": "Tailwind 团队手工打造的 SVG 图标。",
       "license": "MIT",
+      "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -225,6 +250,7 @@
       "description": "Flexible open-source icon family with six weights.",
       "description_zh": "灵活的开源图标家族，含 6 种字重。",
       "license": "MIT",
+      "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -235,6 +261,7 @@
       "description": "1,600+ hand-crafted open-source icons, free forever.",
       "description_zh": "1,600+ 手绘风格开源图标，永久免费。",
       "license": "MIT",
+      "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -245,6 +272,7 @@
       "description": "Neutral-style open-source system symbol icons.",
       "description_zh": "中性风格的开源系统图标库。",
       "license": "Apache 2.0",
+      "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -255,28 +283,32 @@
       "description": "Google's variable icon family, successor to Material Icons.",
       "description_zh": "Google 可变图标家族（Material Icons 的继任者）。",
       "license": "Apache 2.0",
+      "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "linkcheck_js": true
     },
     {
-      "name": "Freepik",
-      "url": "https://www.freepik.com/",
-      "description": "Enormous catalog of free vectors, PSDs and photos; free plan needs attribution.",
-      "description_zh": "海量免费矢量图、PSD 与照片；免费档需署名。",
-      "license": "Freepik Free License",
+      "name": "Magnific (formerly Freepik)",
+      "url": "https://www.magnific.com/",
+      "description": "Catalog of free vectors, PSDs and photos; the free plan needs attribution.",
+      "description_zh": "免费矢量图、PSD 与图片目录；免费方案需要署名。",
+      "license": "Magnific License (free tier)",
+      "license_family": "site-free",
       "attribution": "required",
       "monetization": "conditional",
       "signup": "required",
-      "notes": "Daily download cap on the free plan.",
-      "notes_zh": "免费档每日下载有限额。"
+      "notes": "Renamed from Freepik (2026). Free tier needs a visible 'Designed by Freepik' credit link, 10 stock downloads/day; the pricing page also calls the free plan personal-use-only.",
+      "notes_zh": "2026 年由 Freepik 更名而来。免费版需保留可见的「Designed by Freepik」署名链接、每日 10 次素材下载；定价页另称免费版仅限个人使用（与条款口径不一致，商用前请自行核对）。"
     },
     {
       "name": "Vecteezy",
-      "url": "https://www.vecteezy.com/",
+      "url": "https://www.vecteezy.com/free-vector",
       "description": "Free vectors and photos with attribution on the free plan.",
       "description_zh": "免费矢量图与照片，免费档需署名。",
       "license": "Vecteezy Free License",
+      "license_family": "site-free",
       "attribution": "required",
       "monetization": "conditional",
       "signup": "required"
@@ -287,6 +319,7 @@
       "description": "Open-source 3D icon library with 5,000+ rendered icons.",
       "description_zh": "开源 3D 图标库，含 5,000+ 渲染图标。",
       "license": "CC0",
+      "license_family": "cc0",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -297,6 +330,7 @@
       "description": "Long-running community clipart library, everything CC0.",
       "description_zh": "老牌社区剪贴画库，全部 CC0。",
       "license": "CC0",
+      "license_family": "cc0",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"

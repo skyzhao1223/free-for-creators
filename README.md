@@ -19,7 +19,7 @@
 
 > A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **158 resources across 10 categories**.
 
-**At a glance:** 109 entries are 💚 safe for monetized content · 95 need ➖ no attribution · 120 need 🔓 no account · 35 are CC0 / public domain.
+**At a glance:** 107 entries are 💚 safe for monetized content · 95 need ➖ no attribution · 120 need 🔓 no account · 25 are entirely CC0 / public domain · 12 more mix in CC0 items (filter per asset).
 
 Every entry answers the three questions that decide whether a “free” asset is actually free for *you*:
 
@@ -172,9 +172,9 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Font Library](https://fontlibrary.org/) | Community catalog of libre typefaces. | OFL / CC (per family) | ❓ Varies | 💚 Allowed | — |
 | [DaFont](https://www.dafont.com/) | Huge catalog; many fonts are demo or personal-use only. _Always check the per-font license file before commercial use._ | Various (per font) | ❓ Varies | ❓ Varies | — |
 | [1001 Fonts](https://www.1001fonts.com/) | 10,000+ fonts with license filtering. | Various (per font) | ❓ Varies | ❓ Varies | — |
-| [free-font (CJK)](https://github.com/jaywcjlove/free-font) | Curated Chinese and English fonts free for commercial use. _Chinese-language resource; verify each font's license._ | Various (per font) | ❓ Varies | 💚 Allowed | — |
+| [free-font (CJK)](https://github.com/jaywcjlove/free-font) | Curated Chinese and English fonts free for commercial use. _Chinese-language list; mostly OFL, but a few fonts are personal-use-only, CC BY-NC or need authorization — check each font's license tag._ | Various (per font) | ❓ Varies | ❓ Varies | — |
 | [Use & Modify](https://usemodify.com/) | Curated catalog of free fonts by a Swiss designer, with filters. | OFL / open licenses (per family) | — | 💚 Allowed | — |
-| [Open Foundry](https://open-foundry.com/) | Platform for open-licensed typefaces with showcase projects. | Various open licenses (per font) | ❓ Varies | 💚 Allowed | — |
+| [Open Foundry](https://open-foundry.com/) | Platform for open-licensed typefaces with showcase projects. _Site FAQ: commercial use depends on each font's own licence and some have restrictions — read it before client work._ | Various open licenses (per font) | ❓ Varies | ❓ Varies | — |
 
 ## Graphics & Icons
 
@@ -191,14 +191,14 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [ManyPixels Illustration Gallery](https://www.manypixels.co/gallery) | 2,000+ royalty-free illustrations with color customization. _Cannot be resold or redistributed as stock._ | ManyPixels License | — | 💚 Allowed | — |
 | [IRA Design](https://iradesign.io/) | Build your own gradient character and background illustrations. | IRA Design License (free) | ❓ Varies | 💚 Allowed | — |
 | [Absurd Design](https://absurd.design/) | Surreal hand-drawn illustration packs for landing pages. _Check the current license terms for attribution rules._ | Absurd Design License | ❓ Varies | 💚 Allowed | — |
-| [Blush](https://blush.design/) | Marketplace of artist-made illustrations with free collections. | Free licenses (per artist) | ❓ Varies | 💚 Allowed | 🔑 Yes |
+| [Blush](https://blush.design/) | Marketplace of artist-made illustrations with free collections. _No credit needed. Not allowed: reselling or redistributing the art, or using it as the basis for merchandise._ | Blush Free License | — | 💚 Allowed | 🔑 Yes |
 | [SVG Repo](https://www.svgrepo.com/) | 500,000+ open-licensed vectors and icons with license filters. | Various (per item) | ❓ Varies | ❓ Varies | — |
 | [Iconify](https://icon-sets.iconify.design/) | Search 200,000+ icons from over 100 open-source sets in one place. | Per-set open licenses | ❓ Varies | ❓ Varies | — |
 | [Feather Icons](https://feathericons.com/) | Minimal, consistent open-source icon set. | MIT | — | 💚 Allowed | — |
 | [Tabler Icons](https://tabler.io/icons) | 5,900+ free MIT-licensed SVG icons for web and print. | MIT | — | 💚 Allowed | — |
 | [Lucide](https://lucide.dev/) | Community-maintained fork of Feather with active development. | ISC | — | 💚 Allowed | — |
 | [Bootstrap Icons](https://icons.getbootstrap.com/) | Free SVG icon library, usable with any framework. | MIT | — | 💚 Allowed | — |
-| [bioicons](https://bioicons.com/) | Gallery of free open-license icons for science and biology illustration. | Various open licenses (per icon) | — | 💚 Allowed | — |
+| [bioicons](https://bioicons.com/) | Gallery of free open-license icons for science and biology illustration. _Mixed CC0 / CC BY / CC BY-SA / MIT — the BY and BY-SA subsets need credit; each icon's license is listed on site._ | Various open licenses (per icon) | ❓ Varies | 💚 Allowed | — |
 | [Flaticon](https://www.flaticon.com/) | Enormous icon catalog; the free plan requires attribution. | Flaticon Free License | ✅ Required | ⚠️ Conditional | 🔑 Yes |
 | [The Noun Project](https://thenounproject.com/) | Icons for every idea; free downloads require attribution. | Free with attribution (paid removes it) | ✅ Required | ⚠️ Conditional | 🔑 Yes |
 | [Icons8](https://icons8.com/icons) | Consistent icon, illustration and music families; free tier needs a link. | Icons8 Free License | ✅ Required | ⚠️ Conditional | — |
@@ -207,8 +207,8 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Iconoir](https://iconoir.com/) | 1,600+ hand-crafted open-source icons, free forever. | MIT | — | 💚 Allowed | — |
 | [Remix Icon](https://remixicon.com/) | Neutral-style open-source system symbol icons. | Apache 2.0 | — | 💚 Allowed | — |
 | [Material Symbols](https://fonts.google.com/icons) | Google's variable icon family, successor to Material Icons. | Apache 2.0 | — | 💚 Allowed | — |
-| [Freepik](https://www.freepik.com/) | Enormous catalog of free vectors, PSDs and photos; free plan needs attribution. _Daily download cap on the free plan._ | Freepik Free License | ✅ Required | ⚠️ Conditional | 🔑 Yes |
-| [Vecteezy](https://www.vecteezy.com/) | Free vectors and photos with attribution on the free plan. | Vecteezy Free License | ✅ Required | ⚠️ Conditional | 🔑 Yes |
+| [Magnific (formerly Freepik)](https://www.magnific.com/) | Catalog of free vectors, PSDs and photos; the free plan needs attribution. _Renamed from Freepik (2026). Free tier needs a visible 'Designed by Freepik' credit link, 10 stock downloads/day; the pricing page also calls the free plan personal-use-only._ | Magnific License (free tier) | ✅ Required | ⚠️ Conditional | 🔑 Yes |
+| [Vecteezy](https://www.vecteezy.com/free-vector) | Free vectors and photos with attribution on the free plan. | Vecteezy Free License | ✅ Required | ⚠️ Conditional | 🔑 Yes |
 | [3dicons](https://3dicons.co/) | Open-source 3D icon library with 5,000+ rendered icons. | CC0 | — | 💚 Allowed | — |
 | [Openclipart](https://openclipart.org/) | Long-running community clipart library, everything CC0. | CC0 | — | 💚 Allowed | — |
 
@@ -223,10 +223,10 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [FreshLuts](https://freshluts.com/) | Community site for sharing and downloading free LUTs. _Community uploads: check the usage rights of each LUT._ | Various (community uploads) | ❓ Varies | 💚 Allowed | — |
 | [Fujifilm Camera Profiles](https://github.com/abpy/FujifilmCameraProfiles) | Open DNG/DCP profiles and LUTs matching Fujifilm film simulations. | Open (see repository) | — | 💚 Allowed | — |
 | [Mixkit Templates](https://mixkit.co/free-after-effects-templates/) | Free After Effects, Premiere, DaVinci and Final Cut templates and transitions. | Mixkit License | — | 💚 Allowed | — |
-| [Motion Array (free section)](https://motionarray.com/) | Free templates, LUTs and presets section of a premium marketplace. | Motion Array royalty-free license | — | 💚 Allowed | 🔑 Yes |
+| [Motion Array](https://motionarray.com/) | Free templates, LUTs and presets section of a premium marketplace. _Free assets sit behind the on-site Free filter plus a free account; the free plan caps monthly downloads._ | Motion Array royalty-free license | — | 💚 Allowed | 🔑 Yes |
 | [Velosofy](https://www.velosofy.com/) | Community library of free video templates (AE, Premiere, Sony Vegas). | Various (per template) | ❓ Varies | ❓ Varies | Optional |
 | [FootageCrate](https://footagecrate.com/) | Free VFX elements, overlays and action footage from ProductionCrew. _Free tier: 5 downloads/day; commercial use allowed within limits._ | FootageCrate Free License | — | ⚠️ Conditional | 🔑 Yes |
-| [MotionElements](https://www.motionelements.com/) | Marketplace with a rotating free section: templates, SFX, video. _Free items rotate weekly; check the license per item._ | MotionElements Free License | — | ❓ Varies | 🔑 Yes |
+| [MotionElements](https://www.motionelements.com/free/stock-footage) | Marketplace with a rotating free section: templates, SFX, video. _Free items rotate weekly; check the license per item._ | MotionElements Free License | — | ❓ Varies | 🔑 Yes |
 | [Envato Free Files](https://elements.envato.com/free-files) | Rotating monthly free assets from Envato Elements: templates, video, audio, fonts. _Each month's free files carry the standard Envato license; check the download page._ | Envato free-file license | — | 💚 Allowed | 🔑 Yes |
 
 ## Mockups & Design Templates
@@ -241,7 +241,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Pixelbuddha Free](https://pixelbuddha.net/free) | Free design resources: mockups, icons, UI kits. | Various (per item) | ❓ Varies | ❓ Varies | Optional |
 | [Canva Templates](https://www.canva.com/templates/) | Thousands of free templates for thumbnails, posts, decks and shorts. _Canva content has resale and redistribution restrictions; read the Content License._ | Canva Content License | — | ⚠️ Conditional | 🔑 Yes |
 | [Adobe Express Templates](https://www.adobe.com/express/templates) | Free templates for social media graphics and branding. | Adobe Stock/Express License | — | ⚠️ Conditional | 🔑 Yes |
-| [Smartmockups](https://smartmockups.com/) | Browser-based mockup generator with free templates, now under Canva. _Free tier limits resolution and template count._ | Smartmockups Free License | — | ⚠️ Conditional | 🔑 Yes |
+| [Smartmockups](https://www.canva.com/mockups/) | Browser-based mockup generator with free templates, now under Canva. _Free tier limits resolution and template count._ | Smartmockups Free License | — | ⚠️ Conditional | 🔑 Yes |
 | [Pixeden](https://www.pixeden.com/) | Free PSD mockups, graphics and web design resources. _Check the license note on each free item page._ | Pixeden License (per item) | ❓ Varies | ❓ Varies | Optional |
 | [Anthony Boyd Graphics](https://www.anthonyboyd.graphics/) | Photorealistic PSD mockups, textures and renders by Anthony Boyd. _Free for commercial use; no redistribution._ | ABB Free License | — | 💚 Allowed | — |
 | [HTML5 UP](https://html5up.net/) | Sleek, fully responsive HTML5 site templates by AJ. | CC BY 3.0 | ✅ Required | 💚 Allowed | — |
@@ -293,7 +293,6 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 - [free-for-dev](https://github.com/ripienaar/free-for-dev) — free SaaS/PaaS/IaaS tiers for developers
 - [awesome-stock-resources](https://github.com/neutraltone/awesome-stock-resources) — classic stock photo/video collection
 - [GameDev-Resources](https://github.com/Kavex/GameDev-Resources) — game development resources
-- [free-font](https://github.com/jaywcjlove/free-font) — 中英文可商用免费字体 (free CJK fonts)
 - [design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) — design resources for developers
 
 ## Contributing

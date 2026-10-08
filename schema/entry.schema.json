@@ -36,7 +36,7 @@
   "definitions": {
     "entry": {
       "type": "object",
-      "required": ["name", "url", "description", "license", "attribution", "monetization"],
+      "required": ["name", "url", "description", "license", "license_family", "attribution", "monetization"],
       "additionalProperties": false,
       "properties": {
         "name": { "type": "string", "minLength": 1 },
@@ -57,7 +57,15 @@
         },
         "license": {
           "type": "string",
-          "description": "License name, e.g. 'CC0', 'Pixabay Content License', 'Various (per item)'."
+          "description": "License name as the source states it, e.g. 'CC0', 'Pixabay Content License', 'Various (per item)'. Free text — for filtering use license_family."
+        },
+        "license_family": {
+          "enum": ["cc0", "permissive", "cc-by", "site-free", "mixed", "noncommercial"],
+          "description": "Controlled class of the license, used for stats and the site's CC0 filter. cc0 = CC0/public domain only, no conditions. permissive = OSS licenses (MIT/Apache/OFL/ISC/UFL). cc-by = Creative Commons attribution/share-alike. site-free = the site's own free license (attribution column says whether credit is needed). mixed = terms differ per item, or are not uniformly known. noncommercial = not free for commercial/monetized use."
+        },
+        "contains_cc0": {
+          "type": "boolean",
+          "description": "Only with license_family 'mixed': the site does host CC0/public-domain items, but they must be filtered per asset. Set true so the CC0 filter still surfaces it."
         },
         "attribution": {
           "enum": ["required", "not-required", "varies"],
@@ -82,6 +90,10 @@
         "skip_linkcheck": {
           "type": "boolean",
           "description": "Set true only when CI cannot check the URL (e.g. login walls). Justify in the PR."
+        },
+        "linkcheck_js": {
+          "type": "boolean",
+          "description": "Set true when the page is a JavaScript app whose HTML contains no <title>/<h1>, so scripts/linkcheck.py cannot confirm content from a plain fetch and would otherwise report it as needing a manual check. The URL is still checked for status, redirects and soft-404s."
         }
       }
     }

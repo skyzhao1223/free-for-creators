@@ -11,9 +11,11 @@
       "description": "1,700+ families, almost all under open licenses.",
       "description_zh": "1,700+ 字体家族，几乎全部采用开放许可。",
       "license": "OFL / Apache 2.0 / UFL (per family)",
+      "license_family": "mixed",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "linkcheck_js": true
     },
     {
       "name": "Fontshare",
@@ -21,9 +23,11 @@
       "description": "Professional-quality free fonts from the Indian Type Foundry.",
       "description_zh": "Indian Type Foundry 出品的专业级免费字体。",
       "license": "ITF Free Font License",
+      "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "linkcheck_js": true
     },
     {
       "name": "Bunny Fonts",
@@ -31,6 +35,7 @@
       "description": "Privacy-friendly, all-OFL drop-in replacement for Google Fonts.",
       "description_zh": "隐私友好、全 OFL 许可，可直接替换 Google Fonts。",
       "license": "OFL",
+      "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -41,6 +46,7 @@
       "description": "Hand-vetted fonts that are 100% free for commercial use.",
       "description_zh": "人工审核、100% 可免费商用的字体。",
       "license": "Various free licenses",
+      "license_family": "mixed",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -51,6 +57,7 @@
       "description": "The original open-source type foundry.",
       "description_zh": "最早的开源字体铸造厂。",
       "license": "OFL",
+      "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -61,6 +68,7 @@
       "description": "Experimental and quirky free open-source typefaces.",
       "description_zh": "实验性、风格独特的免费开源字体。",
       "license": "OFL / custom open licenses",
+      "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -71,6 +79,7 @@
       "description": "Community catalog of libre typefaces.",
       "description_zh": "社区维护的自由字体目录。",
       "license": "OFL / CC (per family)",
+      "license_family": "mixed",
       "attribution": "varies",
       "monetization": "allowed",
       "signup": "not-required"
@@ -81,6 +90,7 @@
       "description": "Huge catalog; many fonts are demo or personal-use only.",
       "description_zh": "超大字体目录；许多字体仅限演示或个人使用。",
       "license": "Various (per font)",
+      "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "not-required",
@@ -93,6 +103,7 @@
       "description": "10,000+ fonts with license filtering.",
       "description_zh": "10,000+ 字体，支持按许可筛选。",
       "license": "Various (per font)",
+      "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
       "signup": "not-required"
@@ -103,11 +114,12 @@
       "description": "Curated Chinese and English fonts free for commercial use.",
       "description_zh": "中英文可商用免费字体精选。",
       "license": "Various (per font)",
+      "license_family": "mixed",
       "attribution": "varies",
-      "monetization": "allowed",
+      "monetization": "varies",
       "signup": "not-required",
-      "notes": "Chinese-language resource; verify each font's license.",
-      "notes_zh": "中文资源；请逐字核对许可。"
+      "notes": "Chinese-language list; mostly OFL, but a few fonts are personal-use-only, CC BY-NC or need authorization — check each font's license tag.",
+      "notes_zh": "绝大多数为 OFL 等开源许可，但少数字体标记为「个人免费」「个人非商业」「CC BY-NC」或「需要授权」——商用前请逐个核对许可标签。"
     },
     {
       "name": "Use & Modify",
@@ -115,6 +127,7 @@
       "description": "Curated catalog of free fonts by a Swiss designer, with filters.",
       "description_zh": "瑞士设计师精选的可商用免费字体目录，支持筛选。",
       "license": "OFL / open licenses (per family)",
+      "license_family": "mixed",
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
@@ -125,9 +138,12 @@
       "description": "Platform for open-licensed typefaces with showcase projects.",
       "description_zh": "开放许可字体平台，附展示项目。",
       "license": "Various open licenses (per font)",
+      "license_family": "mixed",
       "attribution": "varies",
-      "monetization": "allowed",
-      "signup": "not-required"
+      "monetization": "varies",
+      "signup": "not-required",
+      "notes": "Site FAQ: commercial use depends on each font's own licence and some have restrictions — read it before client work.",
+      "notes_zh": "官网 FAQ：能否商用取决于每个字体自身的许可，部分许可存在限制——用于客户项目前请先阅读该字体许可。"
     }
   ]
 }
