@@ -71,7 +71,9 @@
       "license_family": "site-free",
       "attribution": "varies",
       "monetization": "conditional",
-      "signup": "optional",
+      "signup": "required",
+      "notes": "Standard clips are free for commercial use with attribution, but each download costs a credit, so an account is required.",
+      "notes_zh": "标准素材可免费商用但需署名；每次下载消耗 1 个 credit，因此必须注册账号。",
       "linkcheck_js": true
     },
     {

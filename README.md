@@ -19,7 +19,7 @@
 
 > A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **157 resources across 10 categories**.
 
-**At a glance:** 105 entries are 💚 safe for monetized content · 94 need ➖ no attribution · 119 need 🔓 no account · 25 are entirely CC0 / public domain · 12 more mix in CC0 items (filter per asset).
+**At a glance:** 105 entries are 💚 safe for monetized content · 94 need ➖ no attribution · 120 need 🔓 no account · 25 are entirely CC0 / public domain · 12 more mix in CC0 items (filter per asset).
 
 Every entry answers the three questions that decide whether a “free” asset is actually free for *you*:
 
@@ -114,7 +114,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Mixkit Video](https://mixkit.co/free-stock-video/) | Free HD clips plus Premiere, After Effects and DaVinci templates. | Mixkit Stock License (Free) | — | 💚 Allowed | — |
 | [Coverr](https://coverr.co/) | Free cinematic clips originally built for website backgrounds. | Coverr License | — | 💚 Allowed | — |
 | [Videvo](https://www.videvo.net/) | Free footage and motion graphics with per-asset licenses. _Watch the per-asset license label; CC-BY items require attribution._ | Videvo License / CC BY 3.0 (per asset) | ❓ Varies | ❓ Varies | Optional |
-| [Videezy](https://www.videezy.com/) | Free HD and 4K clips, most requiring an attribution link. | Videezy License | ❓ Varies | ⚠️ Conditional | Optional |
+| [Videezy](https://www.videezy.com/) | Free HD and 4K clips, most requiring an attribution link. _Standard clips are free for commercial use with attribution, but each download costs a credit, so an account is required._ | Videezy License | ❓ Varies | ⚠️ Conditional | 🔑 Yes |
 | [Vidsplay](https://www.vidsplay.com/) | New free clips added weekly. _Cannot be redistributed as stock footage elsewhere._ | Vidsplay License | — | 💚 Allowed | — |
 | [Dareful](https://www.dareful.com/) | Hand-picked free 4K stock video clips. _Credit by linking back, e.g. "Video courtesy of Dareful" plus a link to the clip page._ | CC BY 4.0 | ✅ Required | 💚 Allowed | — |
 | [Life of Vids](https://www.lifeofvids.com/) | Free artistic clips released by an advertising agency. | Life of Vids License (free) | — | 💚 Allowed | — |
@@ -238,7 +238,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Mockup World](https://www.mockupworld.co/) | Aggregator of free photorealistic PSD mockups from across the web. | Various (per item) | ❓ Varies | ❓ Varies | — |
 | [GraphicsFuel](https://www.graphicsfuel.com/) | Free high-resolution PSD mockups and design templates. _Check the license note on each download page._ | Various (per item) | ❓ Varies | ❓ Varies | — |
 | [ls.graphics Free Mockups](https://www.ls.graphics/free-mockups) | High-quality free device and scene mockups from a premium shop. | ls.graphics Free License | — | 💚 Allowed | — |
-| [Pixelbuddha Free](https://pixelbuddha.net/free) | Free design resources: mockups, icons, UI kits. | Various (per item) | ❓ Varies | ❓ Varies | Optional |
+| [Pixelbuddha Free](https://pixelbuddha.net/free) | Free design resources: mockups, icons, UI kits. _As of Oct 2026 the free section offers only "Join & Download $10/mo"; no guest or free-account download path was found._ | Various (per item) | ❓ Varies | ❓ Varies | 🔑 Yes |
 | [Canva Templates](https://www.canva.com/templates/) | Thousands of free templates for thumbnails, posts, decks and shorts. _Canva content has resale and redistribution restrictions; read the Content License._ | Canva Content License | — | ⚠️ Conditional | 🔑 Yes |
 | [Adobe Express Templates](https://www.adobe.com/express/templates) | Free templates for social media graphics and branding. | Adobe Stock/Express License | — | ⚠️ Conditional | 🔑 Yes |
 | [Smartmockups](https://www.canva.com/mockups/) | Browser-based mockup generator with free templates, now under Canva. _Free tier limits resolution and template count._ | Smartmockups Free License | — | ⚠️ Conditional | 🔑 Yes |
@@ -261,7 +261,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Mixamo](https://www.mixamo.com/) | Auto-rigged characters and a huge animation library from Adobe. | Mixamo License | — | 💚 Allowed | 🔑 Yes |
 | [Kenney](https://kenney.nl/assets) | Thousands of CC0 2D/3D game assets, UI packs and audio. | CC0 | — | 💚 Allowed | — |
 | [OpenGameArt](https://opengameart.org/) | Long-running community archive of openly licensed game art. | Various (CC0/CC-BY/GPL...) | ❓ Varies | ❓ Varies | — |
-| [itch.io Free Game Assets](https://itch.io/game-assets/free) | Free section of the itch.io asset marketplace. | Per-item licenses | ❓ Varies | ❓ Varies | Optional |
+| [itch.io Free Game Assets](https://itch.io/game-assets/free) | Free section of the itch.io asset marketplace. _No account needed: click Download Now, then "No thanks, just take me to the downloads" to skip the name-your-price step._ | Per-item licenses | ❓ Varies | ❓ Varies | — |
 | [Poly Pizza](https://poly.pizza/) | Thousands of free low-poly models, mostly CC0. | CC0 / CC-BY (per model) | ❓ Varies | 💚 Allowed | — |
 | [KayKit](https://kaylousberg.itch.io/) | Themed CC0 asset packs (dungeon, city, nature) for games. | CC0 | — | 💚 Allowed | — |
 | [Sketchfab Free Models](https://sketchfab.com/features/free-3d-models) | Downloadable free models filterable by CC license. | Per-model licenses | ❓ Varies | ❓ Varies | 🔑 Yes |

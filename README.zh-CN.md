@@ -19,7 +19,7 @@
 
 > 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、157 个资源**。
 
-**一眼看数据**：105 条 💚 可直接用于货币化内容 · 94 条 ➖ 无需署名 · 119 条 🔓 无需注册 · 25 条整站属 CC0 / 公有领域 · 另有 12 条含 CC0 素材（需逐项筛选）。
+**一眼看数据**：105 条 💚 可直接用于货币化内容 · 94 条 ➖ 无需署名 · 120 条 🔓 无需注册 · 25 条整站属 CC0 / 公有领域 · 另有 12 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -114,7 +114,7 @@
 | [Mixkit Video](https://mixkit.co/free-stock-video/) | 免费高清片段，另附 Premiere、After Effects 与 DaVinci 模板。 | Mixkit Stock License (Free) | — | 💚 可商用 | — |
 | [Coverr](https://coverr.co/) | 免费电影感片段，最初为网站背景视频而生。 | Coverr License | — | 💚 可商用 | — |
 | [Videvo](https://www.videvo.net/) | 免费视频素材与动态图形，逐项标注许可。 _注意逐条许可标签；CC-BY 条目需署名。_ | Videvo License / CC BY 3.0 (per asset) | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
-| [Videezy](https://www.videezy.com/) | 免费高清/4K 片段，多数要求署名链接。 | Videezy License | ❓ 逐项而定 | ⚠️ 有条件 | 可选 |
+| [Videezy](https://www.videezy.com/) | 免费高清/4K 片段，多数要求署名链接。 _标准素材可免费商用但需署名；每次下载消耗 1 个 credit，因此必须注册账号。_ | Videezy License | ❓ 逐项而定 | ⚠️ 有条件 | 🔑 需注册 |
 | [Vidsplay](https://www.vidsplay.com/) | 每周更新免费片段。 _不得在其他平台作为图库素材二次分发。_ | Vidsplay License | — | 💚 可商用 | — |
 | [Dareful](https://www.dareful.com/) | 人工精选的免费 4K 视频片段。 _需回链署名，例如「Video courtesy of Dareful」并链接到该素材页。_ | CC BY 4.0 | ✅ 需署名 | 💚 可商用 | — |
 | [Life of Vids](https://www.lifeofvids.com/) | 广告工作室发布的免费艺术感片段。 | Life of Vids License (free) | — | 💚 可商用 | — |
@@ -238,7 +238,7 @@
 | [Mockup World](https://www.mockupworld.co/) | 全网免费逼真 PSD 样机聚合站。 | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [GraphicsFuel](https://www.graphicsfuel.com/) | 免费高分辨率 PSD 样机与设计模板。 _以下载页标注的许可为准。_ | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [ls.graphics Free Mockups](https://www.ls.graphics/free-mockups) | 高端商店的免费高质量设备与场景样机。 | ls.graphics Free License | — | 💚 可商用 | — |
-| [Pixelbuddha Free](https://pixelbuddha.net/free) | 免费设计资源：样机、图标、UI 套件。 | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
+| [Pixelbuddha Free](https://pixelbuddha.net/free) | 免费设计资源：样机、图标、UI 套件。 _截至 2026 年 10 月，/free 分区只提供「Join & Download $10/mo」，四个分类下均未发现游客或免费账号的下载入口。_ | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | 🔑 需注册 |
 | [Canva Templates](https://www.canva.com/templates/) | 数千个免费模板：封面图、帖子、演示文稿与短视频。 _Canva 素材有转售与再分发限制；请阅读内容许可。_ | Canva Content License | — | ⚠️ 有条件 | 🔑 需注册 |
 | [Adobe Express Templates](https://www.adobe.com/express/templates) | 免费的社媒图形与品牌模板。 | Adobe Stock/Express License | — | ⚠️ 有条件 | 🔑 需注册 |
 | [Smartmockups](https://www.canva.com/mockups/) | 浏览器样机生成器，含免费模板（Canva 旗下）。 _免费档限制分辨率与模板数量。_ | Smartmockups Free License | — | ⚠️ 有条件 | 🔑 需注册 |
@@ -261,7 +261,7 @@
 | [Mixamo](https://www.mixamo.com/) | Adobe 的自动绑定角色与海量动画库。 | Mixamo License | — | 💚 可商用 | 🔑 需注册 |
 | [Kenney](https://kenney.nl/assets) | 数千个 CC0 的 2D/3D 游戏素材、UI 包与音频。 | CC0 | — | 💚 可商用 | — |
 | [OpenGameArt](https://opengameart.org/) | 老牌社区开放许可游戏美术档案库。 | Various (CC0/CC-BY/GPL...) | ❓ 逐项而定 | ❓ 逐项而定 | — |
-| [itch.io Free Game Assets](https://itch.io/game-assets/free) | itch.io 素材市场的免费专区。 | Per-item licenses | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
+| [itch.io Free Game Assets](https://itch.io/game-assets/free) | itch.io 素材市场的免费专区。 _无需注册：点 Download Now 后选「No thanks, just take me to the downloads」，即可跳过随意付费步骤直接下载。_ | Per-item licenses | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [Poly Pizza](https://poly.pizza/) | 数千个免费低多边形模型，多为 CC0。 | CC0 / CC-BY (per model) | ❓ 逐项而定 | 💚 可商用 | — |
 | [KayKit](https://kaylousberg.itch.io/) | 游戏用主题 CC0 素材包（地牢、城市、自然）。 | CC0 | — | 💚 可商用 | — |
 | [Sketchfab Free Models](https://sketchfab.com/features/free-3d-models) | 可按 CC 许可筛选的免费可下载模型。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 🔑 需注册 |

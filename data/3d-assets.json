@@ -109,7 +109,9 @@
       "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
-      "signup": "optional"
+      "signup": "not-required",
+      "notes": "No account needed: click Download Now, then \"No thanks, just take me to the downloads\" to skip the name-your-price step.",
+      "notes_zh": "无需注册：点 Download Now 后选「No thanks, just take me to the downloads」，即可跳过随意付费步骤直接下载。"
     },
     {
       "name": "Poly Pizza",

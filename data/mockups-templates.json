@@ -50,7 +50,9 @@
       "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
-      "signup": "optional"
+      "signup": "required",
+      "notes": "As of Oct 2026 the free section offers only \"Join & Download $10/mo\"; no guest or free-account download path was found.",
+      "notes_zh": "截至 2026 年 10 月，/free 分区只提供「Join & Download $10/mo」，四个分类下均未发现游客或免费账号的下载入口。"
     },
     {
       "name": "Canva Templates",
