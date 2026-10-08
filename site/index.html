@@ -9,8 +9,16 @@
 <title>Free for Creators — license-verified free assets for creators</title>
 <meta name="description" content="Interactive directory of free resources for video creators, streamers, podcasters, game devs and designers — filter by license, attribution and monetization. 许可透明的创作者免费素材清单。">
 <link rel="canonical" href="https://skyzhao1223.github.io/free-for-creators/">
+<!-- Start the data fetch during HTML parse instead of after the inline script runs. -->
+<link rel="preload" href="data/all.json" as="fetch" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebSite","name":"Free for Creators","alternateName":"创作者免费素材清单","url":"https://skyzhao1223.github.io/free-for-creators/","inLanguage":["en","zh-CN"],"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://skyzhao1223.github.io/free-for-creators/#q={search_term_string}"},"query-input":"required name=search_term_string"}},
+{"@type":"Dataset","name":"Free for Creators","description":"License-verified directory of free assets for video creators, streamers, podcasters, game developers, musicians and designers. Each entry records license, attribution, monetization and sign-up facts.","url":"https://skyzhao1223.github.io/free-for-creators/all.html","license":"https://creativecommons.org/publicdomain/zero/1.0/","keywords":"free assets, CC0, public domain, stock footage, stock photos, music, sound effects, fonts, icons, 3D, mockups, LUTs","distribution":{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://skyzhao1223.github.io/free-for-creators/data/all.json"}}
+]}
+</script>
 <meta property="og:title" content="Free for Creators — license-verified free assets">
-<meta property="og:description" content="Interactive directory of 150+ free resources for creators — filter by license, attribution and monetization. 许可透明的创作者免费素材清单。">
+<meta property="og:description" content="Interactive directory of free resources for creators — filter every entry by license, attribution and monetization. 许可透明的创作者免费素材清单。">
 <meta property="og:image" content="https://raw.githubusercontent.com/skyzhao1223/free-for-creators/main/assets/social-preview.png">
 <meta property="og:url" content="https://skyzhao1223.github.io/free-for-creators/">
 <meta property="og:type" content="website">
@@ -89,10 +97,27 @@ a { color: var(--accent); }
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>');
 }
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   .b1, .b2, .b3 { animation: none; }
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   .dbar { animation: none; }
+  .pal-panel { animation: none; }
 }
+
+/* Screen-reader-only text, and the skip link that reveals itself on focus.
+   Keyboard users otherwise tab through ~40 controls before reaching a result. */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+.skip {
+  position: absolute; left: 12px; top: -60px; z-index: 200;
+  padding: 9px 16px; border-radius: 8px;
+  background: var(--accent); color: var(--accent-fg);
+  font-size: 13px; font-weight: 600; text-decoration: none;
+  transition: top .15s ease;
+}
+.skip:focus { top: 12px; }
 
 /* ---------- top bar ---------- */
 .topbar { border-bottom: 1px solid var(--border); }
@@ -145,8 +170,10 @@ kbd {
 .vbtns { display: flex; border: 1px solid var(--border-strong); border-radius: 9px; overflow: hidden; background: var(--card); }
 .vbtn { border: 0; background: transparent; color: var(--muted); cursor: pointer; font-size: 13px; padding: 7.5px 10px; font-family: inherit; line-height: 1; }
 .vbtn.active { background: var(--accent); color: var(--accent-fg); }
-.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; max-height: 130px; opacity: 1; overflow: hidden; transition: max-height .22s ease, opacity .16s ease, margin-top .22s ease; }
-.chips.chips-hidden { max-height: 0; opacity: 0; margin-top: 0; pointer-events: none; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; max-height: 130px; opacity: 1; visibility: visible; overflow: hidden; transition: max-height .22s ease, opacity .16s ease, margin-top .22s ease; }
+/* `visibility` matters: with only max-height/opacity the 12 chip buttons stayed in
+   the tab order while invisible, so Tab could silently re-filter the list. */
+.chips.chips-hidden { max-height: 0; opacity: 0; margin-top: 0; pointer-events: none; visibility: hidden; }
 .chip {
   display: inline-flex; align-items: center; gap: 6px;
   border: 1px solid var(--border); background: var(--card); color: var(--fg);
@@ -155,7 +182,8 @@ kbd {
 }
 .chip:hover { border-color: var(--accent); }
 .chip i { width: 7px; height: 7px; border-radius: 2px; flex: none; }
-.chip .n { opacity: .6; font-size: 10px; font-weight: 500; font-family: var(--mono); }
+/* was `opacity:.6; font-size:10px` → 3.0:1 dark / 2.35:1 light, below AA for text */
+.chip .n { font-size: 11px; font-weight: 500; font-family: var(--mono); }
 .chip.active { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
 .chip.active .n { opacity: .85; }
 .filters { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; align-items: center; }
@@ -172,8 +200,10 @@ kbd {
 .sortsel {
   border: 1px solid var(--border); background: var(--card); color: var(--muted);
   border-radius: 7px; padding: 3px 8px; font-size: 11px; font-weight: 600;
-  font-family: var(--mono); cursor: pointer; outline: none;
+  font-family: var(--mono); cursor: pointer;
 }
+/* was `outline: none` with no replacement — the sort select had no visible focus at all */
+.sortsel:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; color: var(--fg); }
 #clear {
   border: 0; background: transparent; color: var(--muted); font-size: 11px; font-weight: 600;
   cursor: pointer; font-family: inherit; padding: 3px 8px; border-radius: 7px;
@@ -192,7 +222,8 @@ kbd {
 .tile:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--c) 55%, var(--border)); }
 .tile.active { border-color: var(--c); background: color-mix(in srgb, var(--c) 9%, var(--card)); }
 .tile-n { display: block; font-family: var(--mono); font-size: 19px; font-weight: 700; line-height: 1.15; color: var(--c); letter-spacing: -.02em; }
-.tile-n small { font-size: 10.5px; opacity: .55; font-weight: 500; }
+/* was `opacity:.55` on the category colour → 1.58:1 on light. --muted passes AA. */
+.tile-n small { font-size: 10.5px; color: var(--muted); font-weight: 500; }
 .tile-name { display: block; margin-top: 2px; font-size: 10.5px; font-weight: 600; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .tile:hover .tile-name { color: var(--fg); }
 .tile-glow { position: absolute; right: -22px; top: -22px; width: 76px; height: 76px; border-radius: 50%; background: var(--c); filter: blur(24px); opacity: .2; pointer-events: none; transition: opacity .2s; }
@@ -266,7 +297,8 @@ table.tbl { width: 100%; border-collapse: collapse; min-width: 900px; }
 .c-act { text-align: right; white-space: nowrap; width: 62px; }
 .act { border: 0; background: transparent; cursor: pointer; font-size: 13px; color: var(--muted); padding: 1px 4px; border-radius: 5px; line-height: 1.4; font-family: inherit; }
 .act:hover { color: var(--accent); background: var(--accent-soft); }
-.act.on { color: #f59e0b; }
+/* hardcoded #f59e0b measured 2.15:1 on the light card — below the 3:1 non-text minimum */
+.act.on { color: var(--warn); }
 
 /* ---------- grid view ---------- */
 section { margin-top: 20px; }
@@ -285,8 +317,8 @@ section .cd { font-size: 11.5px; color: var(--muted); margin: 1px 0 9px 18px; }
 .card a.name { color: var(--fg); font-weight: 650; text-decoration: none; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .card a.name:hover { color: var(--accent); }
 .fav { margin-left: auto; border: 0; background: transparent; cursor: pointer; font-size: 13px; line-height: 1; color: var(--muted); padding: 1px 3px; border-radius: 5px; transition: transform .12s, color .12s; flex: none; }
-.fav:hover { transform: scale(1.2); color: #f59e0b; }
-.fav.on { color: #f59e0b; }
+.fav:hover { transform: scale(1.2); color: var(--warn); }
+.fav.on { color: var(--warn); }
 .card .desc {
   font-size: 11.5px; color: var(--muted); margin-top: 5px; line-height: 1.45;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
@@ -341,10 +373,10 @@ mark { background: color-mix(in srgb, var(--accent) 26%, transparent); color: in
   width: 38px; height: 38px; border-radius: 9px;
   border: 1px solid var(--border-strong); background: var(--card); color: var(--fg);
   font-size: 15px; cursor: pointer; box-shadow: var(--shadow);
-  opacity: 0; pointer-events: none; transform: translateY(8px);
+  opacity: 0; pointer-events: none; visibility: hidden; transform: translateY(8px);
   transition: opacity .2s, transform .2s, border-color .15s;
 }
-#to-top.show { opacity: 1; pointer-events: auto; transform: none; }
+#to-top.show { opacity: 1; pointer-events: auto; visibility: visible; transform: none; }
 #to-top:hover { border-color: var(--accent); color: var(--accent); }
 footer { border-top: 1px solid var(--border); margin-top: 36px; padding: 20px 0 28px; color: var(--muted); font-size: 11px; text-align: center; font-family: var(--mono); }
 footer a { color: var(--accent); text-decoration: none; }
@@ -395,6 +427,7 @@ footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
+<a class="skip" href="#results" data-i18n="skip_link">Skip to results</a>
 <div class="bg" aria-hidden="true">
   <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
   <div class="gridlines"></div>
@@ -406,7 +439,7 @@ footer a:hover { text-decoration: underline; }
     <div class="tb-left">
       <span class="logo-emoji">🎁</span>
       <div style="min-width:0">
-        <div class="wordmark grad">Free for Creators</div>
+        <h1 class="wordmark grad">Free for Creators</h1>
         <div class="tagline" id="tagline"></div>
       </div>
     </div>
@@ -430,17 +463,17 @@ footer a:hover { text-decoration: underline; }
         <kbd class="k-slash">/</kbd>
       </div>
       <button class="ib" id="pal-open" type="button" title="Command palette"><span class="mono">⌘K</span></button>
-      <div class="vbtns">
-        <button class="vbtn" id="view-table" type="button" title="Table view">☰</button>
-        <button class="vbtn" id="view-grid" type="button" title="Grid view">▦</button>
+      <div class="vbtns" role="group" aria-label="View">
+        <button class="vbtn" id="view-table" type="button" title="Table view" aria-pressed="true">☰</button>
+        <button class="vbtn" id="view-grid" type="button" title="Grid view" aria-pressed="false">▦</button>
       </div>
     </div>
-    <div class="chips" id="chips" aria-label="Categories"></div>
+    <div class="chips" id="chips" role="group" aria-label="Categories"></div>
     <div class="filters">
       <label class="tgl"><input type="checkbox" id="f-monetization"><span data-i18n="f_mon"></span></label>
       <label class="tgl"><input type="checkbox" id="f-attribution"><span data-i18n="f_attr"></span></label>
-      <label class="tgl"><input type="checkbox" id="f-signup"><span data-i18n="f_signup"></span></label>
-      <label class="tgl"><input type="checkbox" id="f-cc0"><span data-i18n="f_cc0"></span></label>
+      <label class="tgl" data-i18n-title="f_signup_tip"><input type="checkbox" id="f-signup"><span data-i18n="f_signup"></span></label>
+      <label class="tgl" data-i18n-title="f_cc0_tip"><input type="checkbox" id="f-cc0"><span data-i18n="f_cc0"></span></label>
       <select id="sort" class="sortsel" aria-label="Sort order"></select>
       <button id="share" class="chip" type="button"><span data-i18n="share_btn"></span></button>
       <button id="clear" type="button" hidden></button>
@@ -449,15 +482,31 @@ footer a:hover { text-decoration: underline; }
 </div>
 
 <main class="wrap">
-  <div id="bento" aria-label="Category overview"></div>
-  <p id="status"></p>
-  <div id="results"><div class="loading"><span class="spin">🎁</span><span id="loading-text"></span></div></div>
+  <div id="bento" role="group" aria-label="Category overview"></div>
+  <h2 class="sr-only" id="results-heading">Resources</h2>
+  <p id="status" role="status" aria-live="polite" aria-atomic="true"></p>
+  <div id="results" tabindex="-1">
+    <noscript>
+      <style>#results .loading { display: none; }</style>
+      <div class="empty"><span class="big">🎁</span>
+        <p>This directory is interactive, so it needs JavaScript. Every entry is also
+           available without it:</p>
+        <p>· <a href="all.html">the full static table (all resources, no JavaScript)</a><br>
+           · <a href="data/all.json">data/all.json (machine-readable, CC0)</a><br>
+           · <a href="https://github.com/skyzhao1223/free-for-creators#readme">the README on GitHub</a></p>
+        <p lang="zh">本目录为交互式页面，需要 JavaScript。不开 JS 也能看全部内容：见上面的静态表格与 JSON。</p>
+      </div>
+    </noscript>
+    <div class="loading"><span class="spin">🎁</span><span id="loading-text"></span></div>
+  </div>
 </main>
 
 <div class="palette" id="palette" hidden>
   <div class="pal-panel" role="dialog" aria-modal="true" aria-label="Command palette">
-    <input id="pal-input" type="text" autocomplete="off" spellcheck="false">
-    <div id="pal-list"></div>
+    <input id="pal-input" type="text" autocomplete="off" spellcheck="false"
+           role="combobox" aria-expanded="false" aria-controls="pal-list"
+           aria-autocomplete="list" aria-activedescendant="">
+    <div id="pal-list" role="listbox"></div>
     <div class="pal-hint mono" id="pal-hint"></div>
   </div>
 </div>
@@ -477,6 +526,14 @@ const CAT_COLORS = {
   "3d-assets": "#6366f1", "search-engines": "#64748b"
 };
 const DOT_FALLBACK = "#8b93b5";
+/* Four category colours fall below WCAG 3:1 for large text on the light card:
+   #eab308 1.92:1, #f59e0b 2.15:1, #14b8a6 2.49:1, #10b981 2.54:1. Same hues,
+   darkened to >=3.2:1. The dark theme passes as-is (4.22–10.47:1) and keeps the
+   brighter set, so the two palettes are intentionally different. */
+const CAT_COLORS_LIGHT = {
+  "sound-effects": "#c78008", "fonts": "#0ea271",
+  "graphics-icons": "#12a191", "mockups-templates": "#b18806"
+};
 
 const I18N = {
   en: {
@@ -488,6 +545,10 @@ const I18N = {
     f_attr: "➖ no credit",
     f_signup: "🔓 no signup",
     f_cc0: "🆓 cc0 / public domain",
+    f_signup_tip: "Only entries confirmed to need no account. “signup optional” and “unknown” are excluded — see the acct column.",
+    f_cc0_tip: "Sites that are entirely CC0 / public domain, plus mixed catalogues that do contain CC0 items (filter per asset).",
+    skip_link: "Skip to results",
+    results_all: "All resources",
     sort_default: "sort: curated",
     sort_name: "sort: a–z",
     sort_open: "sort: most permissive",
@@ -502,7 +563,7 @@ const I18N = {
     empty_btn: "Clear all filters",
     loading: "loading directory…",
     loaderr: "Failed to load data: ",
-    footer: 'plain html/css/js · data: <a href="https://github.com/' + REPO + '/tree/main/data">data/*.json</a> (<a href="data/all.json">all.json</a>) · content <a href="https://creativecommons.org/publicdomain/zero/1.0/">cc0</a> · licenses change — verify at source · not legal advice',
+    footer: 'plain html/css/js · data: <a href="https://github.com/' + REPO + '/tree/main/data">data/*.json</a> (<a href="data/all.json">all.json</a>) · <a href="all.html">no-JS static table</a> · content <a href="https://creativecommons.org/publicdomain/zero/1.0/">cc0</a> · licenses change — verify at source · not legal advice',
     lang_btn: "中文",
     view_table: "Table view",
     view_grid: "Grid view",
@@ -514,11 +575,14 @@ const I18N = {
     pal_group_res: "Resources",
     th_res: "resource", th_cat: "category", th_license: "license",
     th_attr: "attribution", th_mon: "monetization", th_signup: "acct",
+    th_logo: "Logo", th_actions: "Actions",
+    table_caption: "Every listed resource with its license, attribution, monetization and account requirement",
     mon: { allowed: "💚 commercial ok", conditional: "⚠️ conditional", varies: "❓ varies", "not-allowed": "🚫 no commercial" },
     attr: { required: "✅ credit", "not-required": "➖ no credit", varies: "❓ varies" },
     mon_s: { allowed: "commercial ok", conditional: "conditional", varies: "varies", "not-allowed": "no commercial" },
     attr_s: { required: "credit req", "not-required": "no credit", varies: "varies" },
-    signup: { required: "🔑 signup" },
+    signup: { required: "🔑 signup", optional: "○ optional", unknown: "❓ unknown" },
+    signup_s: { required: "account needed", "not-required": "no account needed", optional: "account optional", unknown: "account requirement unknown" },
     fav_chip: "Favorites",
     fav_on: "Remove from favorites",
     fav_off: "Add to favorites",
@@ -536,6 +600,10 @@ const I18N = {
     f_attr: "➖ 免署名",
     f_signup: "🔓 免注册",
     f_cc0: "🆓 cc0 / 公有领域",
+    f_signup_tip: "只含已确认无需注册站点的条目；「注册可选」与「未知」不计入，详见「注册」列。",
+    f_cc0_tip: "整站属 CC0 / 公有领域的站点，外加确实含 CC0 素材的混合站点（需逐项筛选）。",
+    skip_link: "跳到结果列表",
+    results_all: "全部资源",
     sort_default: "排序: 默认",
     sort_name: "排序: 名称",
     sort_open: "排序: 最宽松",
@@ -550,7 +618,7 @@ const I18N = {
     empty_btn: "清除全部筛选",
     loading: "正在加载目录…",
     loaderr: "数据加载失败：",
-    footer: '纯 html/css/js · 数据源：<a href="https://github.com/' + REPO + '/tree/main/data">data/*.json</a>（<a href="data/all.json">all.json</a>）· 内容 <a href="https://creativecommons.org/publicdomain/zero/1.0/">cc0</a> · 许可会变，发布前请到源站核对 · 不构成法律建议',
+    footer: '纯 html/css/js · 数据源：<a href="https://github.com/' + REPO + '/tree/main/data">data/*.json</a>（<a href="data/all.json">all.json</a>）· <a href="all.html">无 JS 静态表</a> · 内容 <a href="https://creativecommons.org/publicdomain/zero/1.0/">cc0</a> · 许可会变，发布前请到源站核对 · 不构成法律建议',
     lang_btn: "EN",
     view_table: "表格视图",
     view_grid: "网格视图",
@@ -562,11 +630,14 @@ const I18N = {
     pal_group_res: "资源",
     th_res: "资源", th_cat: "分类", th_license: "许可",
     th_attr: "署名", th_mon: "商用", th_signup: "注册",
+    th_logo: "标识", th_actions: "操作",
+    table_caption: "全部资源及其许可、署名、商用与注册要求",
     mon: { allowed: "💚 可商用", conditional: "⚠️ 有条件", varies: "❓ 逐项而定", "not-allowed": "🚫 禁止商用" },
     attr: { required: "✅ 需署名", "not-required": "➖ 免署名", varies: "❓ 逐项而定" },
     mon_s: { allowed: "可商用", conditional: "有条件", varies: "视情况", "not-allowed": "禁商用" },
     attr_s: { required: "需署名", "not-required": "免署名", varies: "视情况" },
-    signup: { required: "🔑 注册" },
+    signup: { required: "🔑 注册", optional: "○ 可选", unknown: "❓ 未知" },
+    signup_s: { required: "需注册账号", "not-required": "无需注册", optional: "注册可选", unknown: "是否需注册未知" },
     fav_chip: "收藏",
     fav_on: "取消收藏",
     fav_off: "收藏",
@@ -599,16 +670,43 @@ try { FAVS = new Set(JSON.parse(localStorage.getItem("ffc-favs") || "[]")); } ca
 const saveFavs = () => { try { localStorage.setItem("ffc-favs", JSON.stringify([...FAVS])); } catch (e) {} };
 let revealed = false;
 const mobileMQ = window.matchMedia("(max-width: 760px)");
+/* prefers-reduced-motion has to stop JS-driven smooth scrolling too, not just CSS. */
+const reduceMotionMQ = window.matchMedia("(prefers-reduced-motion: reduce)");
+const scrollTop = () => window.scrollTo({ top: 0, behavior: reduceMotionMQ.matches ? "auto" : "smooth" });
+/* render() rebuilds #bento/#chips/#results with innerHTML, which destroys the focused
+   node and drops keyboard users back to <body> after every chip or star press.
+   Remember what had focus and put it back on the equivalent rebuilt node. */
+function focusKeyOf(el) {
+  if (!el || el === document.body) return null;
+  const zone = el.closest("#chips") ? "#chips" : el.closest("#bento") ? "#bento" : el.closest("#results") ? "#results" : null;
+  if (!zone || !el.dataset) return null;
+  const id = el.dataset.slug !== undefined ? "[data-slug='" + el.dataset.slug + "']"
+    : el.dataset.url ? "[data-url='" + String(el.dataset.url).replace(/'/g, "\\'") + "']" : null;
+  return id ? zone + " " + id : null;
+}
+function restoreFocus(key) {
+  if (!key) return;
+  const el = document.querySelector(key);
+  if (el && typeof el.focus === "function") el.focus();
+}
 let MOBILE = mobileMQ.matches;
 const MON_ICON = { allowed: "💚", conditional: "⚠️", varies: "❓", "not-allowed": "🚫" };
 const ATTR_ICON = { required: "✅", "not-required": "➖", varies: "❓" };
+/* `signup` has FOUR states in the data. Collapsing them to "🔑 or —" used to render
+   both `optional` and `unknown` as an em dash, which reads as "no account needed". */
+const SIGNUP_ICON = { required: "🔑", "not-required": "—", optional: "○", unknown: "❓" };
+const signupOf = (e) => (Object.prototype.hasOwnProperty.call(SIGNUP_ICON, e.signup) ? e.signup : "unknown");
 const onMQ = (e) => { MOBILE = e.matches; if (CATS.length) render(); };
 if (mobileMQ.addEventListener) mobileMQ.addEventListener("change", onMQ);
 else if (mobileMQ.addListener) mobileMQ.addListener(onMQ);
 
 const $ = (id) => document.getElementById(id);
 const t = (key) => I18N[LANG][key];
-const catColor = (slug) => CAT_COLORS[slug] || DOT_FALLBACK;
+const catColor = (slug) => {
+  const base = CAT_COLORS[slug] || DOT_FALLBACK;
+  if (document.documentElement.dataset.theme !== "light") return base;
+  return CAT_COLORS_LIGHT[slug] || base;
+};
 const catName = (c) => (LANG === "zh" ? (c.category_zh || c.category) : c.category);
 const catDesc = (c) => (LANG === "zh" ? (c.description_zh || c.description) : c.description);
 const entryDesc = (e) => (LANG === "zh" && e.description_zh ? e.description_zh : e.description);
@@ -640,15 +738,40 @@ function writeHash() {
   if (sortMode !== "default") p.push("sort=" + encodeURIComponent(sortMode));
   if (viewMode !== "table") p.push("view=" + encodeURIComponent(viewMode));
   const hash = p.length ? "#" + p.join("&") : "";
-  history.replaceState(null, "", location.pathname + location.search + hash);
+  try {
+    history.replaceState(null, "", location.pathname + location.search + hash);
+  } catch (e) {
+    /* Chrome throws SecurityError from replaceState on file://. Losing the pretty URL
+       is fine; letting the throw escape used to abort the whole boot sequence. */
+  }
+}
+/* Reset every piece of *shared* (hash) state to its default. `viewMode` is excluded
+   on purpose: it is a persisted user preference with a mobile default, not share state. */
+function resetFilters() {
+  q = ""; $("search").value = "";
+  activeSlug = null;
+  favOnly = false;
+  sortMode = "default";
+  state.monetization = state.attribution = state.signup = state.cc0 = false;
+  $("f-monetization").checked = $("f-attribution").checked = $("f-signup").checked = $("f-cc0").checked = false;
 }
 function readHash() {
+  /* writeHash only emits params that differ from the defaults, so a hash is a *patch*.
+     Without this reset, navigating from #q=foo to a shared #cat=music in the same tab
+     kept q=foo alive and showed a different list than the person who shared it. */
+  resetFilters();
   const h = location.hash.replace(/^#/, "");
   if (!h) return;
   h.split("&").forEach((kv) => {
     const i = kv.indexOf("=");
     if (i === -1) return;
-    const k = kv.slice(0, i), v = decodeURIComponent(kv.slice(i + 1));
+    const k = kv.slice(0, i);
+    let v;
+    try {
+      v = decodeURIComponent(kv.slice(i + 1));
+    } catch (e) {
+      return; /* malformed percent-encoding (#q=100%) must not kill the boot */
+    }
     if (k === "q") { q = v.toLowerCase(); $("search").value = v; }
     else if (k === "cat") activeSlug = v;
     else if (k === "mon") { state.monetization = v === "1"; $("f-monetization").checked = state.monetization; }
@@ -662,7 +785,13 @@ function readHash() {
 }
 
 /* ---------- filtering ---------- */
-const isCC0 = (e) => /cc0|public domain/i.test(e.license || "");
+/* Driven by the controlled `license_family` field in data/*.json. The regex is only a
+   fallback for data snapshots that predate the field — it counted 35 "CC0" entries by
+   matching substrings, 10 of which are mixed catalogues ("Public Domain (mostly)",
+   "Various (filter: public domain)") and it missed 2 that do host CC0 items. */
+const isCC0 = (e) => (e.license_family
+  ? e.license_family === "cc0" || e.contains_cc0 === true
+  : /cc0|public domain/i.test(e.license || ""));
 const openScore = (e) => (e.monetization === "allowed" ? 4 : 0) + (e.attribution === "not-required" ? 2 : 0) + (e.signup === "not-required" ? 1 : 0) + (isCC0(e) ? 3 : 0);
 function hl(text) {
   const s = esc(text);
@@ -704,9 +833,10 @@ function actionBtns(e) {
 }
 
 function renderTable(groups, firstTime) {
-  let html = '<div class="tbl-wrap' + (firstTime ? " reveal" : "") + '"><table class="tbl"><thead><tr>' +
-    "<th></th><th>" + t("th_res") + '</th><th class="c-cat">' + t("th_cat") + '</th><th class="c-lic">' + t("th_license") + "</th>" +
-    "<th>" + t("th_attr") + "</th><th>" + t("th_mon") + '</th><th class="c-sig">' + t("th_signup") + "</th><th></th>" +
+  let html = '<div class="tbl-wrap' + (firstTime ? " reveal" : "") + '"><table class="tbl">' +
+    '<caption class="sr-only">' + esc(t("table_caption")) + "</caption><thead><tr>" +
+    '<th scope="col"><span class="sr-only">' + esc(t("th_logo")) + '</span></th><th scope="col">' + t("th_res") + '</th><th scope="col" class="c-cat">' + t("th_cat") + '</th><th scope="col" class="c-lic">' + t("th_license") + "</th>" +
+    '<th scope="col">' + t("th_attr") + '</th><th scope="col">' + t("th_mon") + '</th><th scope="col" class="c-sig">' + t("th_signup") + '</th><th scope="col"><span class="sr-only">' + esc(t("th_actions")) + "</span></th>" +
     "</tr></thead><tbody>";
   for (const g of groups) {
     html += '<tr class="grp"><td colspan="8"><i style="background:' + catColor(g.c.slug) + '"></i><span class="gl">' + esc(catName(g.c)) + '</span><span class="gn">' + g.list.length + "</span></td></tr>";
@@ -720,7 +850,7 @@ function renderTable(groups, firstTime) {
         '<td class="c-lic" title="' + esc(e.license) + '">' + esc(e.license) + "</td>" +
         '<td class="c-st ' + attrT(e.attribution) + '" title="' + t("attr_s")[e.attribution] + '">' + (MOBILE ? ATTR_ICON[e.attribution] : t("attr_s")[e.attribution]) + "</td>" +
         '<td class="c-st ' + monT(e.monetization) + '" title="' + t("mon_s")[e.monetization] + '">' + (MOBILE ? MON_ICON[e.monetization] : t("mon_s")[e.monetization]) + "</td>" +
-        '<td class="c-st c-sig t-mut">' + (e.signup === "required" ? "🔑" : "—") + "</td>" +
+        '<td class="c-st c-sig t-mut" title="' + esc(t("signup_s")[signupOf(e)]) + '">' + SIGNUP_ICON[signupOf(e)] + "</td>" +
         '<td class="c-act">' + actionBtns(e) + "</td>" +
         "</tr>";
     }
@@ -743,7 +873,7 @@ function renderGrid(groups, firstTime) {
         (note ? '<div class="note">' + esc(note) + "</div>" : "") +
         '<div class="badges"><span class="b ' + monClass(e.monetization) + '">' + t("mon")[e.monetization] + "</span>" +
         '<span class="b ' + attrClass(e.attribution) + '">' + t("attr")[e.attribution] + "</span>" +
-        (e.signup === "required" ? '<span class="b b-mut">' + t("signup").required + "</span>" : "") +
+        (signupOf(e) !== "not-required" ? '<span class="b b-mut">' + t("signup")[signupOf(e)] + "</span>" : "") +
         (e.attribution === "required" ? '<button type="button" class="b b-mut b-credit" data-credit="' + esc(t("credit_tpl")(e.name, e.url, e.license)) + '" title="' + t("credit_title") + '">' + t("credit_btn") + "</button>" : "") +
         '</div><div class="lic">📄 ' + esc(e.license) + "</div></div>";
     }
@@ -753,8 +883,9 @@ function renderGrid(groups, firstTime) {
 }
 
 function render() {
+  const keepFocus = focusKeyOf(document.activeElement);
   document.documentElement.lang = LANG === "zh" ? "zh-CN" : "en";
-  document.title = LANG === "zh" ? "Free for Creators · 创作者免费素材清单" : "Free for Creators — license-verified free assets";
+  document.title = LANG === "zh" ? "Free for Creators · 创作者免费素材清单" : "Free for Creators — license-verified free assets for creators";
   $("tagline").textContent = t("tagline");
   $("search").placeholder = t("search_ph");
   $("lang-btn").textContent = t("lang_btn");
@@ -765,10 +896,13 @@ function render() {
   $("pal-input").placeholder = t("palette_ph");
   $("pal-hint").textContent = t("palette_hint");
   document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-title]").forEach((el) => { el.title = t(el.dataset.i18nTitle); });
   $("footer-text").innerHTML = t("footer");
   $("theme-btn").textContent = document.documentElement.dataset.theme === "dark" ? "🌙" : "☀️";
   $("view-table").classList.toggle("active", viewMode === "table");
   $("view-grid").classList.toggle("active", viewMode === "grid");
+  $("view-table").setAttribute("aria-pressed", String(viewMode === "table"));
+  $("view-grid").setAttribute("aria-pressed", String(viewMode === "grid"));
 
   if (!CATS.length) {
     $("stats").innerHTML = "";
@@ -790,7 +924,7 @@ function render() {
   /* bento category wall */
   $("bento").innerHTML = CATS.map((c) => {
     const mc = countFilters ? matchCount(c) : c.entries.length;
-    return '<button class="tile spot' + (activeSlug === c.slug ? " active" : "") + (firstTime ? " reveal" : "") + '" data-slug="' + c.slug + '" type="button" style="--c:' + catColor(c.slug) + '">' +
+    return '<button class="tile spot' + (activeSlug === c.slug ? " active" : "") + (firstTime ? " reveal" : "") + '" data-slug="' + c.slug + '" type="button" aria-pressed="' + (activeSlug === c.slug) + '" style="--c:' + catColor(c.slug) + '">' +
       '<span class="tile-glow"></span>' +
       '<span class="tile-n">' + (countFilters ? mc + "<small>/" + c.entries.length + "</small>" : mc) + "</span>" +
       '<span class="tile-name">' + esc(catName(c)) + "</span></button>";
@@ -798,9 +932,9 @@ function render() {
 
   /* chips (compact sticky nav) */
   let chips = '<button class="chip ' + (favOnly ? "active" : "") + '" data-fav="1" type="button">⭐ ' + t("fav_chip") + '<span class="n">' + FAVS.size + "</span></button>";
-  chips += '<button class="chip ' + (activeSlug === null && !favOnly ? "active" : "") + '" data-slug="" type="button">' + t("all") + '<span class="n">' + (countFilters ? CATS.reduce((n, c) => n + matchCount(c), 0) + "/" + total : total) + "</span></button>";
+  chips += '<button class="chip ' + (activeSlug === null && !favOnly ? "active" : "") + '" data-slug="" type="button" aria-pressed="' + (activeSlug === null && !favOnly) + '">' + t("all") + '<span class="n">' + (countFilters ? CATS.reduce((n, c) => n + matchCount(c), 0) + "/" + total : total) + "</span></button>";
   for (const c of CATS) {
-    chips += '<button class="chip ' + (activeSlug === c.slug ? "active" : "") + '" data-slug="' + c.slug + '" type="button">' +
+    chips += '<button class="chip ' + (activeSlug === c.slug ? "active" : "") + '" data-slug="' + c.slug + '" type="button" aria-pressed="' + (activeSlug === c.slug) + '">' +
       '<i style="background:' + catColor(c.slug) + '"></i>' + esc(catName(c)) + '<span class="n">' + (countFilters ? matchCount(c) + "/" + c.entries.length : c.entries.length) + "</span></button>";
   }
   $("chips").innerHTML = chips;
@@ -837,11 +971,17 @@ function render() {
     : "";
   $("status").innerHTML = "<span>" + t("showing")(shown, total) + "</span>" + bar;
 
+  /* The table view has no visible headings at all, so heading navigation was empty.
+     This sr-only <h2> names the current result set for screen-reader users. */
+  const hcat = activeSlug ? CATS.find((c) => c.slug === activeSlug) : null;
+  $("results-heading").textContent = (hcat ? catName(hcat) : t("results_all")) + " (" + shown + ")";
+
   if (firstTime) {
     revealed = true;
     observeReveals();
   }
   syncChipsVisibility();
+  restoreFocus(keepFocus);
   writeHash();
 }
 
@@ -855,12 +995,7 @@ function observeReveals() {
 }
 
 function clearAll() {
-  q = ""; $("search").value = "";
-  activeSlug = null;
-  favOnly = false;
-  sortMode = "default";
-  state.monetization = state.attribution = state.signup = state.cc0 = false;
-  $("f-monetization").checked = $("f-attribution").checked = $("f-signup").checked = $("f-cc0").checked = false;
+  resetFilters();
   render();
 }
 
@@ -891,30 +1026,56 @@ function renderPalette() {
   paletteItems.forEach((it, i) => {
     if (it.type !== lastType) {
       lastType = it.type;
-      html += '<div class="pal-group">' + (it.type === "cat" ? t("pal_group_cats") : t("pal_group_res")) + "</div>";
+      html += '<div class="pal-group" role="presentation">' + (it.type === "cat" ? t("pal_group_cats") : t("pal_group_res")) + "</div>";
     }
-    const sel = i === paletteIdx ? " sel" : "";
+    const sel = i === paletteIdx;
+    /* role/aria-selected/activedescendant: the .sel highlight used to be visual-only,
+       so a screen-reader user could not tell which row Enter would open. */
+    const opt = ' role="option" id="pal-opt-' + i + '" aria-selected="' + sel + '"';
     if (it.type === "cat") {
-      html += '<div class="pal-item' + sel + '" data-i="' + i + '"><span class="pal-dot" style="background:' + catColor(it.c.slug) + '"></span>' +
+      html += '<div class="pal-item' + (sel ? " sel" : "") + '" data-i="' + i + '"' + opt + '><span class="pal-dot" style="background:' + catColor(it.c.slug) + '"></span>' +
         '<span class="pal-name">' + esc(catName(it.c)) + '</span><span class="pal-meta mono">' + t("pal_jump") + " · " + it.c.entries.length + '</span><kbd class="pal-kbd">↵</kbd></div>';
     } else {
-      html += '<div class="pal-item' + sel + '" data-i="' + i + '">' + logoHtml(it.e, it.c.slug, "logo-sm") +
+      html += '<div class="pal-item' + (sel ? " sel" : "") + '" data-i="' + i + '"' + opt + '>' + logoHtml(it.e, it.c.slug, "logo-sm") +
         '<span class="pal-name">' + esc(it.e.name) + '</span><span class="pal-meta mono">' + esc(it.e.license) + '</span><kbd class="pal-kbd">↵</kbd></div>';
     }
   });
   $("pal-list").innerHTML = html || '<div class="pal-empty">' + t("palette_empty") + "</div>";
+  const input = $("pal-input");
+  input.setAttribute("aria-activedescendant", paletteItems.length ? "pal-opt-" + paletteIdx : "");
+  input.setAttribute("aria-expanded", $("palette").hidden ? "false" : "true");
 }
+let palReturnFocus = null;
 function openPalette() {
+  palReturnFocus = document.activeElement;
   $("palette").hidden = false;
   $("pal-input").value = "";
   buildPalette("");
   $("pal-input").focus();
   document.body.style.overflow = "hidden";
+  /* compensate for the scrollbar disappearing so the page does not shift sideways */
+  document.body.style.paddingRight = (window.innerWidth - document.documentElement.clientWidth) + "px";
 }
 function closePalette() {
   $("palette").hidden = true;
+  $("pal-input").setAttribute("aria-expanded", "false");
+  $("pal-input").setAttribute("aria-activedescendant", "");
   document.body.style.overflow = "";
+  document.body.style.paddingRight = "";
+  /* give focus back to whatever opened the palette instead of dropping it on <body> */
+  if (palReturnFocus && document.contains(palReturnFocus)) palReturnFocus.focus();
+  palReturnFocus = null;
 }
+/* aria-modal="true" promises the rest of the page is unreachable, so Tab must not
+   escape to #to-top / the footer behind the overlay. */
+$("palette").addEventListener("keydown", (e) => {
+  if (e.key !== "Tab") return;
+  const f = $("palette").querySelectorAll('input, button, a[href], [tabindex]:not([tabindex="-1"])');
+  if (!f.length) return;
+  const first = f[0], last = f[f.length - 1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+});
 function activatePalette(i) {
   const it = paletteItems[i];
   if (!it) return;
@@ -923,7 +1084,7 @@ function activatePalette(i) {
     activeSlug = it.c.slug;
     favOnly = false;
     render();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    scrollTop();
   } else {
     window.open(it.e.url, "_blank", "noopener");
   }
@@ -1056,7 +1217,7 @@ const syncStuck = () => {
 window.addEventListener("scroll", syncStuck, { passive: true });
 window.addEventListener("resize", syncStuck);
 syncStuck();
-toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+toTop.addEventListener("click", () => scrollTop());
 window.addEventListener("hashchange", () => { readHash(); render(); });
 
 /* ---------- boot ---------- */
