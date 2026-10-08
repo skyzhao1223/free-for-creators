@@ -96,7 +96,9 @@
       "license_family": "cc-by",
       "attribution": "required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "notes": "Credit by linking back, e.g. \"Video courtesy of Dareful\" plus a link to the clip page.",
+      "notes_zh": "需回链署名，例如「Video courtesy of Dareful」并链接到该素材页。"
     },
     {
       "name": "Life of Vids",
@@ -176,11 +178,13 @@
       "url": "https://www.esa.int/ESA_Multimedia/Videos",
       "description": "European Space Agency videos and images of Earth and space.",
       "description_zh": "欧洲航天局的地球与太空视频、图片。",
-      "license": "CC BY-SA 3.0 IGO",
-      "license_family": "cc-by",
+      "license": "ESA terms; some items CC BY-SA 3.0 IGO",
+      "license_family": "mixed",
       "attribution": "required",
-      "monetization": "allowed",
-      "signup": "not-required"
+      "monetization": "conditional",
+      "signup": "not-required",
+      "notes": "Free for educational, editorial and informational use with a credit; entertainment, advertising and merchandise need ESA's written authorisation.",
+      "notes_zh": "教育、编辑与信息类用途免费（须署名，如「Video: ESA」或「©ESA」）；娱乐、广告、周边商品等商业使用需 ESA 书面单独授权。"
     },
     {
       "name": "DVIDS",

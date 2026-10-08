@@ -12,14 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-158-blue" alt="158 resources">
+  <img src="https://img.shields.io/badge/resources-157-blue" alt="157 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、158 个资源**。
+> 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、157 个资源**。
 
-**一眼看数据**：107 条 💚 可直接用于货币化内容 · 95 条 ➖ 无需署名 · 120 条 🔓 无需注册 · 25 条整站属 CC0 / 公有领域 · 另有 12 条含 CC0 素材（需逐项筛选）。
+**一眼看数据**：105 条 💚 可直接用于货币化内容 · 94 条 ➖ 无需署名 · 119 条 🔓 无需注册 · 25 条整站属 CC0 / 公有领域 · 另有 12 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -53,7 +53,7 @@
 - [字体](#字体) — 12 个资源 · 可免费商用的字体——用于封面图、品牌、字幕与印刷。
 - [图形与图标](#图形与图标) — 29 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
 - [视频制作](#视频制作) — 10 个资源 · LUT、调色资产、转场与剪辑软件模板。
-- [样机与设计模板](#样机与设计模板) — 12 个资源 · PSD/设备样机、封面图与社交媒体模板。
+- [样机与设计模板](#样机与设计模板) — 11 个资源 · PSD/设备样机、封面图与社交媒体模板。
 - [3D 与游戏素材](#3d-与游戏素材) — 19 个资源 · 模型、HDRI、PBR 材质、角色与游戏即用素材包。
 - [聚合搜索](#聚合搜索) — 6 个资源 · 跨数百万开放许可图片、音频与媒体的聚合搜索。
 - [相关清单](#相关清单)
@@ -68,12 +68,12 @@
 | [YouTube Audio Library](https://www.youtube.com/audiolibrary) | YouTube 官方提供的免费音乐与音效，可用于你的视频。 _部分曲目要求按库中说明的方式署名。_ | YouTube Audio Library License (some tracks CC-BY) | ❓ 逐项而定 | 💚 可商用 | 🔑 需注册 |
 | [Pixabay Music](https://pixabay.com/music/) | Pixabay 旗下大型免版税音乐与循环素材库。 | Pixabay Content License | — | 💚 可商用 | — |
 | [Free Music Archive](https://freemusicarchive.org/) | 源自 WFMU 电台的大型知识共享（CC）音乐档案库。 _按许可证筛选；部分曲目仅限非商业或禁止演绎。_ | Various CC licenses | ❓ 逐项而定 | ❓ 逐项而定 | — |
-| [Incompetech](https://incompetech.com/music/royalty-free/) | Kevin MacLeod 的传奇影视配乐库。 | CC BY 4.0 (paid no-attribution license available) | ✅ 需署名 | 💚 可商用 | — |
+| [Incompetech](https://incompetech.com/music/royalty-free/) | Kevin MacLeod 的传奇影视配乐库。 _署名必须可见：「曲目名」— Kevin MacLeod (incompetech.com)，CC BY 4.0；官方明确允许用于已货币化视频。_ | CC BY 4.0 (paid no-attribution license available) | ✅ 需署名 | 💚 可商用 | — |
 | [Bensound](https://www.bensound.com/) | 作曲人 Benjamin Tissot 的轻快企业风、原声与电影感曲目。 _免费许可覆盖需署名的网络视频；部分曲目仅限 Pro。_ | Bensound Free License | ✅ 需署名 | ⚠️ 有条件 | — |
 | [Mixkit Music](https://mixkit.co/free-stock-music/) | Envato 旗下 Mixkit 的免费音乐，可用于视频、直播与播客。 | Mixkit Stock License (Free) | — | 💚 可商用 | — |
 | [Uppbeat](https://uppbeat.io/) | 面向创作者的现代免版税音乐，含每月免费额度。 _免费账户每月下载有上限，且必须粘贴署名链接。_ | Uppbeat Free License | ✅ 需署名 | 💚 可商用 | 🔑 需注册 |
-| [Scott Buckley](https://www.scottbuckley.com.au/library/) | 以 CC-BY 发布的电影级管弦与氛围音乐库。 | CC BY 4.0 | ✅ 需署名 | 💚 可商用 | — |
-| [Audionautix](https://audionautix.com/) | Jason Shaw 的免费摇滚、原声与电子音乐。 | CC BY 4.0 | ✅ 需署名 | 💚 可商用 | — |
+| [Scott Buckley](https://www.scottbuckley.com.au/library/) | 以 CC-BY 发布的电影级管弦与氛围音乐库。 _需在视频简介中署名 Scott Buckley；漏署名可能收到 YouTube 版权申诉。_ | CC BY 4.0 | ✅ 需署名 | 💚 可商用 | — |
+| [Audionautix](https://audionautix.com/) | Jason Shaw 的免费摇滚、原声与电子音乐。 _允许商用，但必须署名 Jason Shaw（audionautix.com）。_ | CC BY 4.0 | ✅ 需署名 | 💚 可商用 | — |
 | [FreePD](https://freepd.com/) | 覆盖多种流派的公有领域音乐，零限制。 | Public Domain | — | 💚 可商用 | — |
 | [Musopen](https://musopen.org/) | 公有领域古典音乐录音、乐谱与教材。 _多数录音为公有领域；请逐项核对许可。_ | Public Domain / various | — | 💚 可商用 | — |
 | [ccMixter](https://ccmixter.org/) | 社区混音站点，数千首 CC 许可曲目。 | Various CC licenses | ❓ 逐项而定 | ❓ 逐项而定 | — |
@@ -98,7 +98,7 @@
 | [Sonniss GDC Audio Bundles](https://sonniss.com/gameaudiogdc) | 每年免费发放的数 GB 专业游戏音频包。 | Royalty-free (Sonniss GDC license) | — | 💚 可商用 | — |
 | [Orange Free Sounds](https://orangefreesounds.com/) | 大型混合免费声音、循环与铃声库。 | Various CC licenses | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [SoundBible](https://soundbible.com/) | 简单直接的免费音效下载站。 | CC0 / CC-BY (per sound) | ❓ 逐项而定 | ❓ 逐项而定 | — |
-| [Freesfx.co.uk](https://www.freesfx.co.uk/) | 数千个免费音效，使用时需署名。 | freesfx.co.uk License | ✅ 需署名 | ⚠️ 有条件 | — |
+| [Freesfx.co.uk](https://www.freesfx.co.uk/) | 数千个免费音效，使用时需署名。 _可用于商业与广播制作，但署名中必须包含 freesfx.co.uk 网址。_ | freesfx.co.uk License | ✅ 需署名 | ⚠️ 有条件 | — |
 | [Kenney Audio](https://kenney.nl/assets?type=audio) | 高产素材库 Kenney 的 CC0 音频包（UI、科幻、RPG）。 | CC0 | — | 💚 可商用 | — |
 | [Tabletop Audio](https://tabletopaudio.com/) | 适合跑团、直播与播客的氛围循环音。 _仅限非商业：可用于个人及未货币化内容。_ | CC BY-NC-ND 4.0 | ✅ 需署名 | 🚫 禁止商用 | — |
 | [SFXMint](https://sfxmint.com/) | 免费 CC0 游戏与 UI 音效库，提供 WAV/MP3 下载；素材由 AI 生成或程序合成。 _站内音效素材均为 CC0；独立的 AI 生成功能另行计费——发布前请先试听确认。_ | CC0 | — | 💚 可商用 | — |
@@ -116,14 +116,14 @@
 | [Videvo](https://www.videvo.net/) | 免费视频素材与动态图形，逐项标注许可。 _注意逐条许可标签；CC-BY 条目需署名。_ | Videvo License / CC BY 3.0 (per asset) | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
 | [Videezy](https://www.videezy.com/) | 免费高清/4K 片段，多数要求署名链接。 | Videezy License | ❓ 逐项而定 | ⚠️ 有条件 | 可选 |
 | [Vidsplay](https://www.vidsplay.com/) | 每周更新免费片段。 _不得在其他平台作为图库素材二次分发。_ | Vidsplay License | — | 💚 可商用 | — |
-| [Dareful](https://www.dareful.com/) | 人工精选的免费 4K 视频片段。 | CC BY 4.0 | ✅ 需署名 | 💚 可商用 | — |
+| [Dareful](https://www.dareful.com/) | 人工精选的免费 4K 视频片段。 _需回链署名，例如「Video courtesy of Dareful」并链接到该素材页。_ | CC BY 4.0 | ✅ 需署名 | 💚 可商用 | — |
 | [Life of Vids](https://www.lifeofvids.com/) | 广告工作室发布的免费艺术感片段。 | Life of Vids License (free) | — | 💚 可商用 | — |
 | [Mazwai](https://mazwai.com/) | 从摄影师处精选的电影感素材。 | CC BY 3.0 / Mazwai License (per clip) | ❓ 逐项而定 | 💚 可商用 | — |
 | [SplitShire](https://www.splitshire.com/) | 摄影师 Daniel Nanescu 的免费照片与视频。 _不得作为图库二次分发。_ | SplitShire License (free) | — | 💚 可商用 | — |
 | [NASA Image and Video Library](https://images.nasa.gov/) | 公有领域的太空影像、发射视频与地球画面。 _NASA 素材一般不受版权保护；含可识别人物时需谨慎。_ | Public Domain (with minor exceptions) | — | 💚 可商用 | — |
 | [Prelinger Archives](https://archive.org/details/prelinger) | 历史广告、教育与业余影片，多为公有领域。 | Public Domain (mostly) | — | 💚 可商用 | — |
 | [Pond5 Public Domain Project](https://www.pond5.com/free) | 公有领域的历史与档案媒体。 | Public Domain | — | 💚 可商用 | ❓ |
-| [ESA Multimedia](https://www.esa.int/ESA_Multimedia/Videos) | 欧洲航天局的地球与太空视频、图片。 | CC BY-SA 3.0 IGO | ✅ 需署名 | 💚 可商用 | — |
+| [ESA Multimedia](https://www.esa.int/ESA_Multimedia/Videos) | 欧洲航天局的地球与太空视频、图片。 _教育、编辑与信息类用途免费（须署名，如「Video: ESA」或「©ESA」）；娱乐、广告、周边商品等商业使用需 ESA 书面单独授权。_ | ESA terms; some items CC BY-SA 3.0 IGO | ✅ 需署名 | ⚠️ 有条件 | — |
 | [DVIDS](https://www.dvidshub.net/) | 美军全球防务行动的公有领域视频与图片。 _含可识别人物时，不得暗示其为你背书。_ | Public Domain (US Government works) | — | 💚 可商用 | — |
 | [Beachfront B-Roll](https://www.beachfrontbroll.com/) | 电影人 Dustin Beckstrand 的免费高清/4K B-roll 片段。 _欢迎署名但不强制；不得作为图库转售。_ | Free (custom) | — | 💚 可商用 | — |
 
@@ -183,7 +183,7 @@
 | 资源 | 简介 | 许可 | 署名 | 商用 | 注册 |
 | --- | --- | --- | --- | --- | --- |
 | [unDraw](https://undraw.co/illustrations) | 开源插画，颜色可自定义，适用于任何项目。 | unDraw License | — | 💚 可商用 | — |
-| [Storyset by Freepik](https://storyset.com/) | 可在浏览器中编辑并做成动画的插画。 | Storyset by Freepik License | ✅ 需署名 | 💚 可商用 | — |
+| [Storyset by Freepik](https://storyset.com/) | 可在浏览器中编辑并做成动画的插画。 _使用免费插画时必须署名 Storyset；持有 Flaticon Premium 可免署名。_ | Storyset by Freepik License | ✅ 需署名 | 💚 可商用 | — |
 | [Humaaans](https://www.humaaans.com/) | Pablo Stanley 的人物拼装插画库。 | CC0 | — | 💚 可商用 | — |
 | [Open Peeps](https://www.openpeeps.com/) | 手绘人物插画，可自由组合场景。 | CC0 | — | 💚 可商用 | — |
 | [Open Doodles](https://www.opendoodles.com/) | Pablo Stanley 的免费手绘涂鸦插画。 | CC0 | — | 💚 可商用 | — |
@@ -200,7 +200,7 @@
 | [Bootstrap Icons](https://icons.getbootstrap.com/) | 免费 SVG 图标库，任何框架可用。 | MIT | — | 💚 可商用 | — |
 | [bioicons](https://bioicons.com/) | 科学与生物插画用免费开放许可图标库。 _混合 CC0 / CC BY / CC BY-SA / MIT——其中 BY 与 BY-SA 子集需要署名；站内会标注每个图标的许可。_ | Various open licenses (per icon) | ❓ 逐项而定 | 💚 可商用 | — |
 | [Flaticon](https://www.flaticon.com/) | 超大图标目录；免费档需署名。 | Flaticon Free License | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
-| [The Noun Project](https://thenounproject.com/) | 万物皆有图标；免费下载需署名。 | Free with attribution (paid removes it) | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
+| [The Noun Project](https://thenounproject.com/) | 万物皆有图标；免费下载需署名。 _免费账号下载需署名；免署名下载属 Noun Pro 付费权益。_ | Free with attribution (paid removes it) | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
 | [Icons8](https://icons8.com/icons) | 风格一致的图标、插画与音乐；免费档需挂链接。 | Icons8 Free License | ✅ 需署名 | ⚠️ 有条件 | — |
 | [Heroicons](https://heroicons.com/) | Tailwind 团队手工打造的 SVG 图标。 | MIT | — | 💚 可商用 | — |
 | [Phosphor Icons](https://phosphoricons.com/) | 灵活的开源图标家族，含 6 种字重。 | MIT | — | 💚 可商用 | — |
@@ -243,8 +243,7 @@
 | [Adobe Express Templates](https://www.adobe.com/express/templates) | 免费的社媒图形与品牌模板。 | Adobe Stock/Express License | — | ⚠️ 有条件 | 🔑 需注册 |
 | [Smartmockups](https://www.canva.com/mockups/) | 浏览器样机生成器，含免费模板（Canva 旗下）。 _免费档限制分辨率与模板数量。_ | Smartmockups Free License | — | ⚠️ 有条件 | 🔑 需注册 |
 | [Pixeden](https://www.pixeden.com/) | 免费 PSD 样机、图形与网页设计资源。 _免费条目以下载页许可说明为准。_ | Pixeden License (per item) | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
-| [Anthony Boyd Graphics](https://www.anthonyboyd.graphics/) | Anthony Boyd 的逼真 PSD 样机、材质与渲染图。 _可免费商用；不得二次分发。_ | ABB Free License | — | 💚 可商用 | — |
-| [HTML5 UP](https://html5up.net/) | AJ 制作的精美全响应式 HTML5 网站模板。 | CC BY 3.0 | ✅ 需署名 | 💚 可商用 | — |
+| [HTML5 UP](https://html5up.net/) | AJ 制作的精美全响应式 HTML5 网站模板。 _CC BY 3.0：需为设计署名 HTML5 UP；作者的 Pixelarity 提供免署名版本。_ | CC BY 3.0 | ✅ 需署名 | 💚 可商用 | — |
 | [Start Bootstrap](https://startbootstrap.com/) | MIT 许可的免费 Bootstrap 主题、模板与代码片段。 | MIT | — | 💚 可商用 | — |
 | [SlidesCarnival](https://www.slidescarnival.com/) | 免费的 PowerPoint / Google Slides 演示模板。 _多数模板可免费商用；以每个模板的许可说明为准。_ | Various (per template) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 

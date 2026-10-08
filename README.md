@@ -12,14 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-158-blue" alt="158 resources">
+  <img src="https://img.shields.io/badge/resources-157-blue" alt="157 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **158 resources across 10 categories**.
+> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **157 resources across 10 categories**.
 
-**At a glance:** 107 entries are 💚 safe for monetized content · 95 need ➖ no attribution · 120 need 🔓 no account · 25 are entirely CC0 / public domain · 12 more mix in CC0 items (filter per asset).
+**At a glance:** 105 entries are 💚 safe for monetized content · 94 need ➖ no attribution · 119 need 🔓 no account · 25 are entirely CC0 / public domain · 12 more mix in CC0 items (filter per asset).
 
 Every entry answers the three questions that decide whether a “free” asset is actually free for *you*:
 
@@ -53,7 +53,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 - [Fonts](#fonts) — 12 resources · Typefaces free for commercial use — for thumbnails, branding, subtitles and print.
 - [Graphics & Icons](#graphics--icons) — 29 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
 - [Video Production](#video-production) — 10 resources · LUTs, color grading assets, transitions and editor templates.
-- [Mockups & Design Templates](#mockups--design-templates) — 12 resources · PSD/device mockups, thumbnail and social media templates.
+- [Mockups & Design Templates](#mockups--design-templates) — 11 resources · PSD/device mockups, thumbnail and social media templates.
 - [3D & Game Assets](#3d--game-assets) — 19 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
 - [Search Engines](#search-engines) — 6 resources · Meta-search across millions of openly licensed images, audio and media.
 - [Related Lists](#related-lists)
@@ -68,12 +68,12 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [YouTube Audio Library](https://www.youtube.com/audiolibrary) | Free music and sound effects provided by YouTube for use in your videos. _Some tracks require attribution exactly as shown in the library._ | YouTube Audio Library License (some tracks CC-BY) | ❓ Varies | 💚 Allowed | 🔑 Yes |
 | [Pixabay Music](https://pixabay.com/music/) | Large and growing library of royalty-free tracks and loops. | Pixabay Content License | — | 💚 Allowed | — |
 | [Free Music Archive](https://freemusicarchive.org/) | Huge archive of Creative Commons music curated since the WFMU radio days. _Filter by license; some tracks are NonCommercial or NoDerivatives._ | Various CC licenses | ❓ Varies | ❓ Varies | — |
-| [Incompetech](https://incompetech.com/music/royalty-free/) | Kevin MacLeod's legendary library of film-score style music. | CC BY 4.0 (paid no-attribution license available) | ✅ Required | 💚 Allowed | — |
+| [Incompetech](https://incompetech.com/music/royalty-free/) | Kevin MacLeod's legendary library of film-score style music. _Credit must be visible: "Track Title" — Kevin MacLeod (incompetech.com), CC BY 4.0. Monetized videos are explicitly allowed._ | CC BY 4.0 (paid no-attribution license available) | ✅ Required | 💚 Allowed | — |
 | [Bensound](https://www.bensound.com/) | Catchy corporate, acoustic and cinematic tracks by composer Benjamin Tissot. _Free license covers online videos with credit; some tracks are Pro-only._ | Bensound Free License | ✅ Required | ⚠️ Conditional | — |
 | [Mixkit Music](https://mixkit.co/free-stock-music/) | Envato's free music for videos, streams and podcasts. | Mixkit Stock License (Free) | — | 💚 Allowed | — |
 | [Uppbeat](https://uppbeat.io/) | Modern royalty-free music made for creators, with a free monthly tier. _Free account has a monthly download cap and requires pasting the credit link._ | Uppbeat Free License | ✅ Required | 💚 Allowed | 🔑 Yes |
-| [Scott Buckley](https://www.scottbuckley.com.au/library/) | Film-quality orchestral and ambient library released under CC-BY. | CC BY 4.0 | ✅ Required | 💚 Allowed | — |
-| [Audionautix](https://audionautix.com/) | Jason Shaw's free rock, acoustic and electronic tracks. | CC BY 4.0 | ✅ Required | 💚 Allowed | — |
+| [Scott Buckley](https://www.scottbuckley.com.au/library/) | Film-quality orchestral and ambient library released under CC-BY. _Credit Scott Buckley in your video description; missing credits have triggered YouTube copyright claims._ | CC BY 4.0 | ✅ Required | 💚 Allowed | — |
+| [Audionautix](https://audionautix.com/) | Jason Shaw's free rock, acoustic and electronic tracks. _Commercial use is allowed as long as credit is given to Jason Shaw (audionautix.com)._ | CC BY 4.0 | ✅ Required | 💚 Allowed | — |
 | [FreePD](https://freepd.com/) | Public domain music across many genres, zero restrictions. | Public Domain | — | 💚 Allowed | — |
 | [Musopen](https://musopen.org/) | Public domain classical recordings, sheet music and music textbooks. _Most recordings are public domain; verify the license on each item._ | Public Domain / various | — | 💚 Allowed | — |
 | [ccMixter](https://ccmixter.org/) | Community remix site with thousands of Creative Commons licensed tracks. | Various CC licenses | ❓ Varies | ❓ Varies | — |
@@ -98,7 +98,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Sonniss GDC Audio Bundles](https://sonniss.com/gameaudiogdc) | Multi-gigabyte professional game audio packs released free every year. | Royalty-free (Sonniss GDC license) | — | 💚 Allowed | — |
 | [Orange Free Sounds](https://orangefreesounds.com/) | Large mixed library of free sounds, loops and ringtones. | Various CC licenses | ❓ Varies | ❓ Varies | — |
 | [SoundBible](https://soundbible.com/) | Simple, no-frills free sound effect downloads. | CC0 / CC-BY (per sound) | ❓ Varies | ❓ Varies | — |
-| [Freesfx.co.uk](https://www.freesfx.co.uk/) | Thousands of free sound effects usable with a credit. | freesfx.co.uk License | ✅ Required | ⚠️ Conditional | — |
+| [Freesfx.co.uk](https://www.freesfx.co.uk/) | Thousands of free sound effects usable with a credit. _Free for commercial and broadcast use, but the credit must include the freesfx.co.uk URL._ | freesfx.co.uk License | ✅ Required | ⚠️ Conditional | — |
 | [Kenney Audio](https://kenney.nl/assets?type=audio) | CC0 audio packs (UI, sci-fi, RPG) from the prolific Kenney library. | CC0 | — | 💚 Allowed | — |
 | [Tabletop Audio](https://tabletopaudio.com/) | Ambience loops for tabletop RPG sessions, streams and podcasts. _NonCommercial only: fine for personal and non-monetized use._ | CC BY-NC-ND 4.0 | ✅ Required | 🚫 Not allowed | — |
 | [SFXMint](https://sfxmint.com/) | Free CC0 game and UI sound effects in WAV/MP3; AI-generated or procedurally synthesized. _Library sounds are CC0; the separate AI generation feature has its own pricing — preview sounds before shipping._ | CC0 | — | 💚 Allowed | — |
@@ -116,14 +116,14 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Videvo](https://www.videvo.net/) | Free footage and motion graphics with per-asset licenses. _Watch the per-asset license label; CC-BY items require attribution._ | Videvo License / CC BY 3.0 (per asset) | ❓ Varies | ❓ Varies | Optional |
 | [Videezy](https://www.videezy.com/) | Free HD and 4K clips, most requiring an attribution link. | Videezy License | ❓ Varies | ⚠️ Conditional | Optional |
 | [Vidsplay](https://www.vidsplay.com/) | New free clips added weekly. _Cannot be redistributed as stock footage elsewhere._ | Vidsplay License | — | 💚 Allowed | — |
-| [Dareful](https://www.dareful.com/) | Hand-picked free 4K stock video clips. | CC BY 4.0 | ✅ Required | 💚 Allowed | — |
+| [Dareful](https://www.dareful.com/) | Hand-picked free 4K stock video clips. _Credit by linking back, e.g. "Video courtesy of Dareful" plus a link to the clip page._ | CC BY 4.0 | ✅ Required | 💚 Allowed | — |
 | [Life of Vids](https://www.lifeofvids.com/) | Free artistic clips released by an advertising agency. | Life of Vids License (free) | — | 💚 Allowed | — |
 | [Mazwai](https://mazwai.com/) | Curated cinematic footage, hand-picked from videographers. | CC BY 3.0 / Mazwai License (per clip) | ❓ Varies | 💚 Allowed | — |
 | [SplitShire](https://www.splitshire.com/) | Free photos and videos by photographer Daniel Nanescu. _No redistribution as stock._ | SplitShire License (free) | — | 💚 Allowed | — |
 | [NASA Image and Video Library](https://images.nasa.gov/) | Public domain space footage, launch videos and Earth imagery. _NASA media is generally not copyrightable; identifiable people need care._ | Public Domain (with minor exceptions) | — | 💚 Allowed | — |
 | [Prelinger Archives](https://archive.org/details/prelinger) | Historic advertising, educational and amateur films, mostly public domain. | Public Domain (mostly) | — | 💚 Allowed | — |
 | [Pond5 Public Domain Project](https://www.pond5.com/free) | Free historic and archival media in the public domain. | Public Domain | — | 💚 Allowed | ❓ |
-| [ESA Multimedia](https://www.esa.int/ESA_Multimedia/Videos) | European Space Agency videos and images of Earth and space. | CC BY-SA 3.0 IGO | ✅ Required | 💚 Allowed | — |
+| [ESA Multimedia](https://www.esa.int/ESA_Multimedia/Videos) | European Space Agency videos and images of Earth and space. _Free for educational, editorial and informational use with a credit; entertainment, advertising and merchandise need ESA's written authorisation._ | ESA terms; some items CC BY-SA 3.0 IGO | ✅ Required | ⚠️ Conditional | — |
 | [DVIDS](https://www.dvidshub.net/) | US military public-domain video and imagery from defense operations worldwide. _Identifiable people may not be shown endorsing anything._ | Public Domain (US Government works) | — | 💚 Allowed | — |
 | [Beachfront B-Roll](https://www.beachfrontbroll.com/) | Free HD and 4K B-roll clips from filmmaker Dustin Beckstrand. _Credit appreciated but not required; no reselling as stock._ | Free (custom) | — | 💚 Allowed | — |
 
@@ -183,7 +183,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | Resource | About | License | Attribution | Monetization | Sign-up |
 | --- | --- | --- | --- | --- | --- |
 | [unDraw](https://undraw.co/illustrations) | Open-source illustrations with customizable colors for any project. | unDraw License | — | 💚 Allowed | — |
-| [Storyset by Freepik](https://storyset.com/) | Editable, animatable illustrations you can restyle in the browser. | Storyset by Freepik License | ✅ Required | 💚 Allowed | — |
+| [Storyset by Freepik](https://storyset.com/) | Editable, animatable illustrations you can restyle in the browser. _Always credit Storyset when using the free illustrations; a Flaticon Premium license removes that requirement._ | Storyset by Freepik License | ✅ Required | 💚 Allowed | — |
 | [Humaaans](https://www.humaaans.com/) | Mix-and-match illustration library of people, by Pablo Stanley. | CC0 | — | 💚 Allowed | — |
 | [Open Peeps](https://www.openpeeps.com/) | Hand-drawn people illustrations you can assemble into scenes. | CC0 | — | 💚 Allowed | — |
 | [Open Doodles](https://www.opendoodles.com/) | Free sketchy doodle illustrations by Pablo Stanley. | CC0 | — | 💚 Allowed | — |
@@ -200,7 +200,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Bootstrap Icons](https://icons.getbootstrap.com/) | Free SVG icon library, usable with any framework. | MIT | — | 💚 Allowed | — |
 | [bioicons](https://bioicons.com/) | Gallery of free open-license icons for science and biology illustration. _Mixed CC0 / CC BY / CC BY-SA / MIT — the BY and BY-SA subsets need credit; each icon's license is listed on site._ | Various open licenses (per icon) | ❓ Varies | 💚 Allowed | — |
 | [Flaticon](https://www.flaticon.com/) | Enormous icon catalog; the free plan requires attribution. | Flaticon Free License | ✅ Required | ⚠️ Conditional | 🔑 Yes |
-| [The Noun Project](https://thenounproject.com/) | Icons for every idea; free downloads require attribution. | Free with attribution (paid removes it) | ✅ Required | ⚠️ Conditional | 🔑 Yes |
+| [The Noun Project](https://thenounproject.com/) | Icons for every idea; free downloads require attribution. _Free-account downloads require attribution; attribution-free downloads are a Noun Pro benefit._ | Free with attribution (paid removes it) | ✅ Required | ⚠️ Conditional | 🔑 Yes |
 | [Icons8](https://icons8.com/icons) | Consistent icon, illustration and music families; free tier needs a link. | Icons8 Free License | ✅ Required | ⚠️ Conditional | — |
 | [Heroicons](https://heroicons.com/) | Beautiful hand-crafted SVG icons by the makers of Tailwind CSS. | MIT | — | 💚 Allowed | — |
 | [Phosphor Icons](https://phosphoricons.com/) | Flexible open-source icon family with six weights. | MIT | — | 💚 Allowed | — |
@@ -243,8 +243,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Adobe Express Templates](https://www.adobe.com/express/templates) | Free templates for social media graphics and branding. | Adobe Stock/Express License | — | ⚠️ Conditional | 🔑 Yes |
 | [Smartmockups](https://www.canva.com/mockups/) | Browser-based mockup generator with free templates, now under Canva. _Free tier limits resolution and template count._ | Smartmockups Free License | — | ⚠️ Conditional | 🔑 Yes |
 | [Pixeden](https://www.pixeden.com/) | Free PSD mockups, graphics and web design resources. _Check the license note on each free item page._ | Pixeden License (per item) | ❓ Varies | ❓ Varies | Optional |
-| [Anthony Boyd Graphics](https://www.anthonyboyd.graphics/) | Photorealistic PSD mockups, textures and renders by Anthony Boyd. _Free for commercial use; no redistribution._ | ABB Free License | — | 💚 Allowed | — |
-| [HTML5 UP](https://html5up.net/) | Sleek, fully responsive HTML5 site templates by AJ. | CC BY 3.0 | ✅ Required | 💚 Allowed | — |
+| [HTML5 UP](https://html5up.net/) | Sleek, fully responsive HTML5 site templates by AJ. _CC BY 3.0: credit HTML5 UP for the design. Attribution-free versions are sold via the author's Pixelarity._ | CC BY 3.0 | ✅ Required | 💚 Allowed | — |
 | [Start Bootstrap](https://startbootstrap.com/) | Free MIT-licensed Bootstrap themes, templates and snippets. | MIT | — | 💚 Allowed | — |
 | [SlidesCarnival](https://www.slidescarnival.com/) | Free presentation templates for PowerPoint and Google Slides. _Most templates are free for commercial use; check each template's license note._ | Various (per template) | ❓ Varies | ❓ Varies | — |
 

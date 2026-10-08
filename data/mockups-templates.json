@@ -103,19 +103,6 @@
       "notes_zh": "免费条目以下载页许可说明为准。"
     },
     {
-      "name": "Anthony Boyd Graphics",
-      "url": "https://www.anthonyboyd.graphics/",
-      "description": "Photorealistic PSD mockups, textures and renders by Anthony Boyd.",
-      "description_zh": "Anthony Boyd 的逼真 PSD 样机、材质与渲染图。",
-      "license": "ABB Free License",
-      "license_family": "site-free",
-      "attribution": "not-required",
-      "monetization": "allowed",
-      "signup": "not-required",
-      "notes": "Free for commercial use; no redistribution.",
-      "notes_zh": "可免费商用；不得二次分发。"
-    },
-    {
       "name": "HTML5 UP",
       "url": "https://html5up.net/",
       "description": "Sleek, fully responsive HTML5 site templates by AJ.",
@@ -124,7 +111,9 @@
       "license_family": "cc-by",
       "attribution": "required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "notes": "CC BY 3.0: credit HTML5 UP for the design. Attribution-free versions are sold via the author's Pixelarity.",
+      "notes_zh": "CC BY 3.0：需为设计署名 HTML5 UP；作者的 Pixelarity 提供免署名版本。"
     },
     {
       "name": "Start Bootstrap",

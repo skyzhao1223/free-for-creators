@@ -25,7 +25,9 @@
       "license_family": "site-free",
       "attribution": "required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "notes": "Always credit Storyset when using the free illustrations; a Flaticon Premium license removes that requirement.",
+      "notes_zh": "使用免费插画时必须署名 Storyset；持有 Flaticon Premium 可免署名。"
     },
     {
       "name": "Humaaans",
@@ -220,7 +222,9 @@
       "license_family": "site-free",
       "attribution": "required",
       "monetization": "conditional",
-      "signup": "required"
+      "signup": "required",
+      "notes": "Free-account downloads require attribution; attribution-free downloads are a Noun Pro benefit.",
+      "notes_zh": "免费账号下载需署名；免署名下载属 Noun Pro 付费权益。"
     },
     {
       "name": "Icons8",

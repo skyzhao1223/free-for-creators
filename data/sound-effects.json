@@ -110,7 +110,9 @@
       "license_family": "site-free",
       "attribution": "required",
       "monetization": "conditional",
-      "signup": "not-required"
+      "signup": "not-required",
+      "notes": "Free for commercial and broadcast use, but the credit must include the freesfx.co.uk URL.",
+      "notes_zh": "可用于商业与广播制作，但署名中必须包含 freesfx.co.uk 网址。"
     },
     {
       "name": "Kenney Audio",
