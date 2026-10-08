@@ -9,15 +9,16 @@ Thanks for helping keep this list useful! There are two golden rules:
 
 You can either open an issue with the [Suggest a resource](../../issues/new/choose) template (no git needed), or send a PR:
 
-1. Pick the right category file in [`data/`](../data). New category? Add it to `CATEGORY_ORDER` in `scripts/build_readme.py` too.
+1. Pick the right category file in [`data/`](data). New category? See [Adding a category](#adding-a-category).
 2. Append an entry object (fields below). Keep entries in a sensible order.
-3. Regenerate both READMEs:
+3. Regenerate every derived file:
 
    ```bash
-   python3 scripts/build_readme.py
+   python3 scripts/build_readme.py   # README.md, README.zh-CN.md, banner counts
+   python3 scripts/build_site.py     # site/all.html, site/sitemap.xml, site/data/
    ```
 
-4. Commit the JSON **and** the regenerated READMEs, then open a PR. CI validates schema and README sync, and a bot link-checks the URLs your PR adds and comments the results on the PR (❌ broken links block the merge; ⚠️ *blocked* means the site refused our bot — verify those in a browser once).
+4. Commit the JSON **and** the regenerated files, then open a PR. CI validates the data against `schema/entry.schema.json`, checks that the READMEs / `site/all.html` / banner counts are all in sync, and a bot link-checks the URLs your PR adds and comments the results on the PR (❌ broken links block the merge; ⚠️ *blocked* means the site refused our bot or needs a human in a browser — verify those once).
 
 ## Inclusion criteria
 
@@ -33,27 +34,34 @@ Borderline AI-generated asset sites: include only when the site states an explic
 
 ## Entry schema
 
-Authoritative validation: `scripts/build_readme.py`; editor schema: `schema/entry.schema.json`.
+Single source of truth: `schema/entry.schema.json`. `scripts/build_readme.py` **reads** the required-field list, every enum and the description length limits out of that file, so editing the schema changes what CI enforces — there is no second copy to keep in sync.
 
 | Field | Required | Values | Meaning |
 | --- | --- | --- | --- |
 | `name` | ✅ | string | Resource name |
 | `url` | ✅ | `https://…` | Canonical landing page |
 | `description` | ✅ | ≤160 chars, no `\|` | One-line "what is it" |
-| `license` | ✅ | string | e.g. `CC0`, `Pixabay Content License`, `Various (per item)` |
+| `license` | ✅ | string | License name as the source states it, e.g. `CC0`, `Pixabay Content License`, `Various (per item)` |
+| `license_family` | ✅ | `cc0` / `permissive` / `cc-by` / `site-free` / `mixed` / `noncommercial` | Controlled class of that license — drives the stats and the website's CC0 filter |
 | `attribution` | ✅ | `required` / `not-required` / `varies` | Must you credit the author? |
 | `monetization` | ✅ | `allowed` / `conditional` / `varies` / `not-allowed` | Safe in monetized content? |
-| `signup` | optional | `required` / `not-required` / `optional` / `unknown` | Account needed to download? |
+| `signup` | optional¹ | `required` / `not-required` / `optional` / `unknown` | Account needed to download? |
 | `notes` | optional | string | Caveats: free-tier caps, platform restrictions, … |
 | `description_zh` | optional | ≤160 chars | Chinese description; `README.zh-CN.md` falls back to English without it |
 | `notes_zh` | optional | string | Chinese caveats (fallback: `notes`) |
+| `contains_cc0` | optional | boolean | With `license_family: mixed` only: the site *does* host CC0/public-domain items, but they must be filtered per asset |
 | `skip_linkcheck` | optional | boolean | Only for login-walled URLs; justify in the PR |
+| `linkcheck_js` | optional | boolean | The page is a JavaScript app whose HTML contains no `<title>`/`<h1>`, so the checker cannot confirm content from a plain fetch. Status, redirects and soft-404s are still checked |
+
+¹ Not enforced by the validator, but every current entry sets it — please fill it in. `unknown` renders as ❓ on the website, so use it only when you genuinely could not tell.
 
 Semantics we use consistently:
 
 - `monetization: conditional` — free commercial use **only under conditions** (credit link, free-tier caps, specific platforms like YouTube/Twitch). Put the condition in `notes`.
-- `monetization: varies` — the site hosts mixed per-item licenses (marketplaces, CC aggregators).
+- `monetization: varies` — the site hosts mixed per-item licenses (marketplaces, CC aggregators), **or** you could not confirm that every license in the mix allows commercial use. When in doubt, use `varies`: over-claiming `allowed` is the one error this repo must not make.
 - `attribution: varies` — some items need credit, some don't.
+- `license_family` — classify the *license*, not the site's marketing: `cc0` = everything is CC0/public domain with no conditions; `permissive` = OSS licenses (MIT/Apache/OFL/ISC/UFL); `cc-by` = Creative Commons attribution/share-alike; `site-free` = the site's own free license (the `attribution` column says whether credit is needed); `mixed` = terms differ per item, or are not uniformly known; `noncommercial` = not free for commercial use (must pair with `monetization: not-allowed`).
+- A `mixed` entry must **not** claim a blanket `monetization: allowed` unless every license in the mix permits commercial use (e.g. Google Fonts: OFL/Apache/UFL only). If some items are NC or unknown, use `varies`.
 
 ## Fixing problems
 
@@ -67,28 +75,58 @@ Semantics we use consistently:
 
   CI runs it every Monday. Links returning 403/429 etc. are reported as *blocked* (bot walls, manual check) and do not fail the build; 404/DNS failures do. When the weekly check fails, a bot opens (or updates) an issue labeled [`link-check`](https://github.com/skyzhao1223/free-for-creators/labels/link-check) with the full broken-link report — fixing one of those is a great first contribution.
 
+  A status code alone is not enough, so the checker also looks at what came back:
+
+  | Situation | Result | Why |
+  | --- | --- | --- |
+  | 200 whose own `<title>`/`<h1>` says "page not found" | **broken** (soft 404) | SPAs answer 200 for any path — `pretzel.rocks/library` did exactly this |
+  | 200 with no `<title>` and no `<h1>` in the HTML | blocked (JS shell) | cannot be confirmed without a browser; set `linkcheck_js: true` once a human has looked |
+  | redirect onto a different registrable domain | blocked (rebrand?) | e.g. `anthonyboyd.graphics` → `minimalmockups.com`, `freepik.com` → `magnific.com` |
+  | any other redirect | ok, with the final URL in the report | so a silent move is still visible |
+  | 404 on `HEAD` | re-checked with `GET` | some servers reject `HEAD` only |
+
 ## Style
 
 - Descriptions in English, imperative-free, no marketing fluff ("amazing", "best").
 - Adding `description_zh` (and `notes_zh` when you add `notes`) is very welcome — native wording beats machine translation. The build warns when a translation is missing but never fails on it.
-- One fact per entry; if a site has a separate free section, link **to the free section** (e.g. `motionarray.com` free browse, not the homepage) when such a URL exists.
+- One fact per entry; if a site has a separate free section, link **to the free section** when a stable URL for it exists — e.g. `https://www.motionelements.com/free/stock-footage`, `https://www.vecteezy.com/free-vector`. Two traps, both learned the hard way:
+  - **A `200` is not proof the page exists.** SPAs serve an empty shell for any path: `pretzel.rocks/library` returns `200` to every client *and* passes `scripts/linkcheck.py`, but renders `h1 "Page not found"` in a browser. Open the URL in a real browser once and check what actually renders, not just the status code.
+  - **Bot walls make the checker blind, and near-miss paths fail silently.** Some sites (Flaticon, Freepik, ZapSplat, Motion Array) return `403` to non-browser clients for *every* page including the homepage — `linkcheck.py` reports those as *blocked*, which does not fail CI but also proves nothing. Others 404 on a plausible-looking path: Vecteezy's `/free-vectors` (plural) is dead while `/free-vector` (singular) is the live page. If you cannot confirm a free-section URL both ways, keep the homepage and say in `notes` how to reach the free assets. Never paper over it with `skip_linkcheck` — that field is for login walls only.
+  - Motion Array specifically has **no** combined free-browse URL any more (`/browse/free/` is its own 404, `/free/` 301s to the homepage); only per-category pages such as `/after-effects-templates/free/` exist, and they are bot-walled. Its entry therefore stays on the homepage.
 - Prefer the resource's own domain over aggregators, except for aggregator-type entries (search engines).
 
 ## Website
 
-The interactive directory at https://skyzhao1223.github.io/free-for-creators/ is a dependency-free single-page app ([`site/index.html`](../site/index.html)) that fetches the very same `data/*.json` at runtime — no second source of truth. The [Pages workflow](../.github/workflows/pages.yml) validates the data, copies `data/*.json` plus generated `manifest.json` and `all.json` (every category merged into one file, handy for programmatic use) into the artifact, and deploys on every push to `main`. Local preview:
+The interactive directory at https://skyzhao1223.github.io/free-for-creators/ is a dependency-free single-page app ([`site/index.html`](site/index.html)) that fetches the very same `data/*.json` at runtime — no second source of truth. Everything the site needs is produced by **one** script:
 
 ```bash
-mkdir -p site/data && cp data/*.json site/data/
-python3 -c "import json,sys; sys.path.insert(0,'scripts'); from build_readme import CATEGORY_ORDER; json.dump([{'slug': s} for s in CATEGORY_ORDER], open('site/data/manifest.json','w')); cats=[json.load(open(f'data/{s}.json')) for s in CATEGORY_ORDER]; json.dump({'total': sum(len(c['entries']) for c in cats), 'categories': cats}, open('site/data/all.json','w'), ensure_ascii=False)"
+python3 scripts/build_site.py      # site/data/*.json + site/all.html + site/sitemap.xml
 python3 -m http.server -d site 8000   # open http://localhost:8000
 ```
 
+It writes three things:
+
+- `site/data/` — per-category copies plus generated `manifest.json` and `all.json` (every category merged into one file, handy for programmatic use). Gitignored; the [Pages workflow](.github/workflows/pages.yml) rebuilds it on every deploy. Use `--check-data site/data` to find out whether your local preview has gone stale.
+- `site/all.html` — **committed**. A fully static, no-JavaScript mirror of all entries, because `index.html` renders client-side and a crawler that does not run JavaScript would otherwise see an empty directory. It carries the `ItemList`/`Dataset` JSON-LD with live counts. CI fails if it drifts from `data/`.
+- `site/sitemap.xml` — **committed**, both URLs with a `<lastmod>` taken from the last commit that touched `data/`.
+
+The script also fails if `CAT_COLORS` in `site/index.html` does not cover every slug in `CATEGORY_ORDER` — that map is the one site-side constant you must update by hand when adding a category.
+
+## Adding a category
+
+1. Create `data/<slug>.json` (slug must match the filename and `^[a-z0-9]+(-[a-z0-9]+)*$`).
+2. Add the slug to `CATEGORY_ORDER` in `scripts/build_readme.py`.
+3. Add a colour for it in `CAT_COLORS` in `site/index.html` (`build_site.py` enforces this).
+4. Run `python3 scripts/build_readme.py && python3 scripts/build_site.py` and commit the regenerated files.
+
 ## Social preview & banner
 
-The hero image (`assets/banner.png`, used in both READMEs) and the GitHub social preview (`assets/social-preview.png`, 1280×640) are rendered from [`assets/social-preview.html`](../assets/social-preview.html). To re-render after design or count changes:
+The hero image (`assets/banner.png`, used in both READMEs) and the GitHub social preview (`assets/social-preview.png`, 1280×640) are rendered from [`assets/social-preview.html`](assets/social-preview.html).
+
+The two counts inside that HTML (`158 license-verified free assets` and `+ 154 more`) are **stamped by the build**, not edited by hand: `python3 scripts/build_readme.py` rewrites them from `data/`, and `--check` (which CI runs) fails if they drift. So after adding or removing entries, run the build, then re-render:
 
 ```bash
+python3 scripts/build_readme.py   # stamps the counts into assets/social-preview.html
 cd assets
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu \
   --hide-scrollbars --force-device-scale-factor=2 --window-size=1280,640 \
@@ -96,6 +134,8 @@ cd assets
 sips -z 640 1280 social-preview@2x.png --out social-preview.png
 cp social-preview@2x.png banner.png
 ```
+
+`social-preview@2x.png` is a local intermediate and is gitignored — `banner.png` *is* that 2× render, so committing both used to store the same 646 KB twice.
 
 Then re-upload `social-preview.png` under repo **Settings → General → Social preview** (GitHub accepts PNG/JPG/GIF only, max 1 MB).
 
