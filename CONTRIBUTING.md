@@ -133,11 +133,14 @@ cd assets
   --screenshot=social-preview@2x.png "file://$PWD/social-preview.html"
 sips -z 640 1280 social-preview@2x.png --out social-preview.png
 cp social-preview@2x.png banner.png
+cwebp -q 92 banner.png -o banner.webp   # the README hero: 646 KB PNG -> 156 KB at the same 2560x1280
 ```
 
 `social-preview@2x.png` is a local intermediate and is gitignored — `banner.png` *is* that 2× render, so committing both used to store the same 646 KB twice.
 
-Then re-upload `social-preview.png` under repo **Settings → General → Social preview** (GitHub accepts PNG/JPG/GIF only, max 1 MB).
+`banner.webp` is what both READMEs actually display (see the `<img src>` in `scripts/build_readme.py`). Quality is `-q 92` at the full 2560×1280, measured PSNR 53.9 dB / SSIM 24.9 dB — visually transparent, and 4.1× smaller than the PNG. `banner.png` is kept as the WebP's source and as a one-line fallback: if a GitHub image proxy ever stops serving WebP, point `build_readme.py` back at it and regenerate. Do **not** downscale below 1720×860; the README renders the hero at `width="860"`, so that is the 2× retina floor.
+
+Then re-upload `social-preview.png` under repo **Settings → General → Social preview** (GitHub accepts PNG/JPG/GIF only, max 1 MB — WebP is *not* accepted there, which is why the PNG stays).
 
 ## Repository slug
 
