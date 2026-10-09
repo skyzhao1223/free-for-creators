@@ -12,14 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-168-blue" alt="168 resources">
+  <img src="https://img.shields.io/badge/resources-170-blue" alt="170 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **168 resources across 10 categories**.
+> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **170 resources across 10 categories**.
 
-**At a glance:** 116 entries are 💚 safe for monetized content · 104 need ➖ no attribution · 131 need 🔓 no account · 26 are entirely CC0 / public domain · 12 more mix in CC0 items (filter per asset).
+**At a glance:** 118 entries are 💚 safe for monetized content · 106 need ➖ no attribution · 132 need 🔓 no account · 28 are entirely CC0 / public domain · 12 more mix in CC0 items (filter per asset).
 
 Every entry answers the three questions that decide whether a “free” asset is actually free for *you*:
 
@@ -49,12 +49,12 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 - [Music](#music) — 18 resources · Royalty-free and copyright-safe music for videos, streams, podcasts and games.
 - [Sound Effects](#sound-effects) — 12 resources · Free SFX libraries, packs and ambience for video, games, podcasts and streams.
 - [Stock Footage](#stock-footage) — 17 resources · Free video clips and B-roll, including 4K, archival and public domain footage.
-- [Stock Photos](#stock-photos) — 23 resources · Free photography, from modern stock to museum-grade public domain archives.
+- [Stock Photos](#stock-photos) — 24 resources · Free photography, from modern stock to museum-grade public domain archives.
 - [Fonts](#fonts) — 18 resources · Typefaces free for commercial use, including CJK families — for thumbnails, branding, subtitles and print.
 - [Graphics & Icons](#graphics--icons) — 35 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
 - [Video Production](#video-production) — 9 resources · LUTs, color grading assets, transitions and editor templates.
 - [Mockups & Design Templates](#mockups--design-templates) — 11 resources · PSD/device mockups, thumbnail and social media templates.
-- [3D & Game Assets](#3d--game-assets) — 19 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
+- [3D & Game Assets](#3d--game-assets) — 20 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
 - [Search Engines](#search-engines) — 6 resources · Meta-search across millions of openly licensed images, audio and media.
 - [Related Lists](#related-lists)
 - [Contributing](#contributing)
@@ -156,6 +156,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Skitterphoto](https://skitterphoto.com/) | Daily public-domain photos from photographers, all CC0. | CC0 | — | 💚 Allowed | — |
 | [Life of Pix](https://www.lifeofpix.com/) | Free high-resolution artistic photos from the Leeroy ad agency. _No mass redistribution as stock._ | Life of Pix License (free) | — | 💚 Allowed | — |
 | [Public Domain Pictures](https://www.publicdomainpictures.net/) | Free public-domain-style photo library with a premium high-res tier. _Some downloads need a free account; no redistributing as stock._ | Free license (per image) | — | 💚 Allowed | Optional |
+| [Cleveland Museum of Art Open Access](https://www.clevelandart.org/open-access) | The Cleveland Museum of Art's collection images and metadata, released under CC0 with a public API. _High-resolution images and the JSON API are both reachable with no account._ | CC0 | — | 💚 Allowed | — |
 
 ## Fonts
 
@@ -283,6 +284,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Free3D](https://free3d.com/) | Free-model section of a large 3D marketplace. | Per-model licenses | ❓ Varies | ❓ Varies | Optional |
 | [Quaternius](https://quaternius.com/) | Stylish CC0 low-poly packs: animals, dungeons, sci-fi and more. | CC0 | — | 💚 Allowed | — |
 | [CraftPix Freebies](https://craftpix.net/freebies/) | Free 2D game assets: sprites, tilesets, GUI kits and more. _Free for commercial game projects; no reselling raw assets._ | CraftPix Free License | — | 💚 Allowed | Optional |
+| [3D Textures.me](https://3dtextures.me/) | Seamless PBR material scans for Blender, Unity, Unreal and Godot, all released as CC0. _Textures are downloaded one at a time from each post; a bulk folder is offered to supporters._ | CC0 | — | 💚 Allowed | ❓ |
 
 ## Search Engines
 

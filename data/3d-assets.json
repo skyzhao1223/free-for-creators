@@ -228,6 +228,19 @@
       "signup": "optional",
       "notes": "Free for commercial game projects; no reselling raw assets.",
       "notes_zh": "可免费用于商业游戏项目；不得转售原始素材。"
+    },
+    {
+      "name": "3D Textures.me",
+      "url": "https://3dtextures.me/",
+      "description": "Seamless PBR material scans for Blender, Unity, Unreal and Godot, all released as CC0.",
+      "description_zh": "适用于 Blender、Unity、Unreal 与 Godot 的无缝 PBR 材质扫描，全部以 CC0 发布。",
+      "license": "CC0",
+      "license_family": "cc0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "unknown",
+      "notes": "Textures are downloaded one at a time from each post; a bulk folder is offered to supporters.",
+      "notes_zh": "纹理需在各自页面逐个下载；打包全部纹理的文件夹向赞助者提供。"
     }
   ]
 }

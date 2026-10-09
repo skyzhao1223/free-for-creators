@@ -12,14 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-168-blue" alt="168 resources">
+  <img src="https://img.shields.io/badge/resources-170-blue" alt="170 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、168 个资源**。
+> 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、170 个资源**。
 
-**一眼看数据**：116 条 💚 可直接用于货币化内容 · 104 条 ➖ 无需署名 · 131 条 🔓 无需注册 · 26 条整站属 CC0 / 公有领域 · 另有 12 条含 CC0 素材（需逐项筛选）。
+**一眼看数据**：118 条 💚 可直接用于货币化内容 · 106 条 ➖ 无需署名 · 132 条 🔓 无需注册 · 28 条整站属 CC0 / 公有领域 · 另有 12 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -49,12 +49,12 @@
 - [音乐](#音乐) — 18 个资源 · 适合视频、直播、播客与游戏的免版税、无版权风险音乐。
 - [音效](#音效) — 12 个资源 · 面向视频、游戏、播客与直播的免费音效库、音效包与氛围音。
 - [视频素材](#视频素材) — 17 个资源 · 免费视频片段与 B-roll，含 4K、历史档案与公有领域素材。
-- [图片素材](#图片素材) — 23 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
+- [图片素材](#图片素材) — 24 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
 - [字体](#字体) — 18 个资源 · 可免费商用的字体，含中日韩字体家族——用于封面图、品牌、字幕与印刷。
 - [图形与图标](#图形与图标) — 35 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
 - [视频制作](#视频制作) — 9 个资源 · LUT、调色资产、转场与剪辑软件模板。
 - [样机与设计模板](#样机与设计模板) — 11 个资源 · PSD/设备样机、封面图与社交媒体模板。
-- [3D 与游戏素材](#3d-与游戏素材) — 19 个资源 · 模型、HDRI、PBR 材质、角色与游戏即用素材包。
+- [3D 与游戏素材](#3d-与游戏素材) — 20 个资源 · 模型、HDRI、PBR 材质、角色与游戏即用素材包。
 - [聚合搜索](#聚合搜索) — 6 个资源 · 跨数百万开放许可图片、音频与媒体的聚合搜索。
 - [相关清单](#相关清单)
 - [参与贡献](#参与贡献)
@@ -156,6 +156,7 @@
 | [Skitterphoto](https://skitterphoto.com/) | 摄影师每日发布的 CC0 公共领域照片。 | CC0 | — | 💚 可商用 | — |
 | [Life of Pix](https://www.lifeofpix.com/) | 广告工作室 Leeroy 的免费高分辨率艺术照片。 _不得批量二次分发为图库。_ | Life of Pix License (free) | — | 💚 可商用 | — |
 | [Public Domain Pictures](https://www.publicdomainpictures.net/) | 免费公共领域风格照片库，另有高级高分辨率档。 _部分下载需免费账号；不得作为图库二次分发。_ | Free license (per image) | — | 💚 可商用 | 可选 |
+| [Cleveland Museum of Art Open Access](https://www.clevelandart.org/open-access) | 克利夫兰艺术博物馆的馆藏图像与元数据，以 CC0 发布并提供公开 API。 _高分辨率图像与 JSON API 均无需账号即可访问。_ | CC0 | — | 💚 可商用 | — |
 
 ## 字体
 
@@ -283,6 +284,7 @@
 | [Free3D](https://free3d.com/) | 大型 3D 市场的免费模型专区。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
 | [Quaternius](https://quaternius.com/) | 风格化 CC0 低多边形素材包：动物、地牢、科幻等。 | CC0 | — | 💚 可商用 | — |
 | [CraftPix Freebies](https://craftpix.net/freebies/) | 免费 2D 游戏素材：精灵图、tileset、GUI 套件等。 _可免费用于商业游戏项目；不得转售原始素材。_ | CraftPix Free License | — | 💚 可商用 | 可选 |
+| [3D Textures.me](https://3dtextures.me/) | 适用于 Blender、Unity、Unreal 与 Godot 的无缝 PBR 材质扫描，全部以 CC0 发布。 _纹理需在各自页面逐个下载；打包全部纹理的文件夹向赞助者提供。_ | CC0 | — | 💚 可商用 | ❓ |
 
 ## 聚合搜索
 

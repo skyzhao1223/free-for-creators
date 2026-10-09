@@ -271,6 +271,19 @@
       "signup": "optional",
       "notes": "Some downloads need a free account; no redistributing as stock.",
       "notes_zh": "部分下载需免费账号；不得作为图库二次分发。"
+    },
+    {
+      "name": "Cleveland Museum of Art Open Access",
+      "url": "https://www.clevelandart.org/open-access",
+      "description": "The Cleveland Museum of Art's collection images and metadata, released under CC0 with a public API.",
+      "description_zh": "克利夫兰艺术博物馆的馆藏图像与元数据，以 CC0 发布并提供公开 API。",
+      "license": "CC0",
+      "license_family": "cc0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "High-resolution images and the JSON API are both reachable with no account.",
+      "notes_zh": "高分辨率图像与 JSON API 均无需账号即可访问。"
     }
   ]
 }
