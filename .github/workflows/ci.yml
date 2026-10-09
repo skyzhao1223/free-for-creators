@@ -41,9 +41,20 @@ jobs:
   #
   # PATCHing repo metadata is NOT something GITHUB_TOKEN can do (workflow permissions
   # have no 'administration' key). Add a secret REPO_ADMIN_PAT — a fine-grained PAT with
-  # Administration: read and write on this repo only — to automate the update. Without
-  # it the job still detects drift and fails with the one-line manual fix, the same
-  # fail-loudly style as the README sync check.
+  # Administration: read and write on this repo only — to automate the update.
+  #
+  # Without that secret the drift is *detected but not fatal*: it is reported as a
+  # warning and the job exits 0. That is deliberate, and it differs from the README sync
+  # check on purpose. A contributor can always satisfy the README check by running the
+  # generator and committing, but nobody can satisfy a metadata PATCH from inside a
+  # workflow — so failing there would red every data push with no in-repo fix available.
+  # A configured-but-failing PAT *is* fatal, because that one is actionable.
+  #
+  # Annotation text below is kept free of $(...) and variable interpolation on purpose:
+  # an earlier version nested a quoted command substitution inside the message, the
+  # inner quote closed the string early, and bash died with "syntax error near
+  # unexpected token `('" — so the job reported a syntax error instead of the drift it
+  # had just correctly detected.
   sync-description:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
@@ -58,6 +69,7 @@ jobs:
       - name: Sync repo description with data/
         env:
           GH_TOKEN: ${{ secrets.REPO_ADMIN_PAT || github.token }}
+          HAS_PAT: ${{ secrets.REPO_ADMIN_PAT && 'yes' || '' }}
         run: |
           set -euo pipefail
           want="$(python3 scripts/build_readme.py --description)"
@@ -67,11 +79,15 @@ jobs:
             exit 0
           fi
           echo "Description drifted:"
-          echo "  live: $have"
-          echo "  data/: $want"
+          echo "  live:   $have"
+          echo "  data/:  $want"
+          if [ -z "$HAS_PAT" ]; then
+            echo "::warning title=Repo description is stale::No REPO_ADMIN_PAT secret is configured and GITHUB_TOKEN cannot PATCH repo metadata. Fix it once locally: run python3 scripts/build_readme.py --description, then gh repo edit --description with that text. Or add a fine-grained PAT secret (Administration read+write, this repo only) to automate it."
+            exit 0
+          fi
           if gh api -X PATCH "repos/$GITHUB_REPOSITORY" -f description="$want" >/dev/null 2>&1; then
             echo "Description updated via REPO_ADMIN_PAT."
           else
-            echo "::error::Repo description is stale and this token cannot PATCH repo metadata. Run locally: gh repo edit --description "\$(python3 scripts/build_readme.py --description)" — or add a REPO_ADMIN_PAT secret (fine-grained PAT, Administration read+write, this repo only) to automate it."
+            echo "::error title=Repo description PATCH failed::REPO_ADMIN_PAT is set but the metadata PATCH was rejected. Check that it is a fine-grained PAT with Administration read and write on this repo and that it has not expired. Manual fix: run python3 scripts/build_readme.py --description, then gh repo edit --description with that text."
             exit 1
           fi
