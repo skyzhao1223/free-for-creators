@@ -284,6 +284,34 @@
       "signup": "not-required",
       "notes": "High-resolution images and the JSON API are both reachable with no account.",
       "notes_zh": "高分辨率图像与 JSON API 均无需账号即可访问。"
+    },
+    {
+      "name": "Rijksmuseum (Amsterdam)",
+      "url": "https://www.rijksmuseum.nl/en/collection",
+      "description": "The Dutch national gallery's digitised collection; most objects are public domain, some CC-BY.",
+      "description_zh": "荷兰国家博物馆的数字化馆藏；多数作品属公有领域，部分为 CC-BY。",
+      "license": "Public domain (majority) / CC-BY",
+      "license_family": "mixed",
+      "contains_cc0": true,
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "unknown",
+      "notes": "Rights are stated per object; the museum also waives its own photographic rights over public-domain works.",
+      "notes_zh": "每个作品单独标注权利；博物馆对公有领域作品的翻拍也一并放弃权利。"
+    },
+    {
+      "name": "SMK Open (National Gallery of Denmark)",
+      "url": "https://www.smk.dk/article/smk-open/",
+      "description": "Danish national gallery's open-access programme; about two-thirds of the collection is public domain.",
+      "description_zh": "丹麦国立美术馆的开放存取项目；约三分之二馆藏属公有领域。",
+      "license": "Public domain (~2/3 of the collection)",
+      "license_family": "mixed",
+      "contains_cc0": true,
+      "attribution": "not-required",
+      "monetization": "varies",
+      "signup": "unknown",
+      "notes": "Only the public-domain works are free; SMK waives its own photographic rights, so those images carry no restrictions.",
+      "notes_zh": "仅公有领域作品可自由使用；SMK 放弃自身翻拍权利，这些图像不受任何限制。"
     }
   ]
 }

@@ -12,14 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-170-blue" alt="170 resources">
+  <img src="https://img.shields.io/badge/resources-172-blue" alt="172 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、170 个资源**。
+> 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、172 个资源**。
 
-**一眼看数据**：118 条 💚 可直接用于货币化内容 · 106 条 ➖ 无需署名 · 132 条 🔓 无需注册 · 28 条整站属 CC0 / 公有领域 · 另有 12 条含 CC0 素材（需逐项筛选）。
+**一眼看数据**：118 条 💚 可直接用于货币化内容 · 107 条 ➖ 无需署名 · 132 条 🔓 无需注册 · 28 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -49,7 +49,7 @@
 - [音乐](#音乐) — 18 个资源 · 适合视频、直播、播客与游戏的免版税、无版权风险音乐。
 - [音效](#音效) — 12 个资源 · 面向视频、游戏、播客与直播的免费音效库、音效包与氛围音。
 - [视频素材](#视频素材) — 17 个资源 · 免费视频片段与 B-roll，含 4K、历史档案与公有领域素材。
-- [图片素材](#图片素材) — 24 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
+- [图片素材](#图片素材) — 26 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
 - [字体](#字体) — 18 个资源 · 可免费商用的字体，含中日韩字体家族——用于封面图、品牌、字幕与印刷。
 - [图形与图标](#图形与图标) — 35 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
 - [视频制作](#视频制作) — 9 个资源 · LUT、调色资产、转场与剪辑软件模板。
@@ -157,6 +157,8 @@
 | [Life of Pix](https://www.lifeofpix.com/) | 广告工作室 Leeroy 的免费高分辨率艺术照片。 _不得批量二次分发为图库。_ | Life of Pix License (free) | — | 💚 可商用 | — |
 | [Public Domain Pictures](https://www.publicdomainpictures.net/) | 免费公共领域风格照片库，另有高级高分辨率档。 _部分下载需免费账号；不得作为图库二次分发。_ | Free license (per image) | — | 💚 可商用 | 可选 |
 | [Cleveland Museum of Art Open Access](https://www.clevelandart.org/open-access) | 克利夫兰艺术博物馆的馆藏图像与元数据，以 CC0 发布并提供公开 API。 _高分辨率图像与 JSON API 均无需账号即可访问。_ | CC0 | — | 💚 可商用 | — |
+| [Rijksmuseum (Amsterdam)](https://www.rijksmuseum.nl/en/collection) | 荷兰国家博物馆的数字化馆藏；多数作品属公有领域，部分为 CC-BY。 _每个作品单独标注权利；博物馆对公有领域作品的翻拍也一并放弃权利。_ | Public domain (majority) / CC-BY | ❓ 逐项而定 | ❓ 逐项而定 | ❓ |
+| [SMK Open (National Gallery of Denmark)](https://www.smk.dk/article/smk-open/) | 丹麦国立美术馆的开放存取项目；约三分之二馆藏属公有领域。 _仅公有领域作品可自由使用；SMK 放弃自身翻拍权利，这些图像不受任何限制。_ | Public domain (~2/3 of the collection) | — | ❓ 逐项而定 | ❓ |
 
 ## 字体
 

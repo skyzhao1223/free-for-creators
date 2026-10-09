@@ -12,14 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-170-blue" alt="170 resources">
+  <img src="https://img.shields.io/badge/resources-172-blue" alt="172 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **170 resources across 10 categories**.
+> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **172 resources across 10 categories**.
 
-**At a glance:** 118 entries are 💚 safe for monetized content · 106 need ➖ no attribution · 132 need 🔓 no account · 28 are entirely CC0 / public domain · 12 more mix in CC0 items (filter per asset).
+**At a glance:** 118 entries are 💚 safe for monetized content · 107 need ➖ no attribution · 132 need 🔓 no account · 28 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
 
 Every entry answers the three questions that decide whether a “free” asset is actually free for *you*:
 
@@ -49,7 +49,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 - [Music](#music) — 18 resources · Royalty-free and copyright-safe music for videos, streams, podcasts and games.
 - [Sound Effects](#sound-effects) — 12 resources · Free SFX libraries, packs and ambience for video, games, podcasts and streams.
 - [Stock Footage](#stock-footage) — 17 resources · Free video clips and B-roll, including 4K, archival and public domain footage.
-- [Stock Photos](#stock-photos) — 24 resources · Free photography, from modern stock to museum-grade public domain archives.
+- [Stock Photos](#stock-photos) — 26 resources · Free photography, from modern stock to museum-grade public domain archives.
 - [Fonts](#fonts) — 18 resources · Typefaces free for commercial use, including CJK families — for thumbnails, branding, subtitles and print.
 - [Graphics & Icons](#graphics--icons) — 35 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
 - [Video Production](#video-production) — 9 resources · LUTs, color grading assets, transitions and editor templates.
@@ -157,6 +157,8 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Life of Pix](https://www.lifeofpix.com/) | Free high-resolution artistic photos from the Leeroy ad agency. _No mass redistribution as stock._ | Life of Pix License (free) | — | 💚 Allowed | — |
 | [Public Domain Pictures](https://www.publicdomainpictures.net/) | Free public-domain-style photo library with a premium high-res tier. _Some downloads need a free account; no redistributing as stock._ | Free license (per image) | — | 💚 Allowed | Optional |
 | [Cleveland Museum of Art Open Access](https://www.clevelandart.org/open-access) | The Cleveland Museum of Art's collection images and metadata, released under CC0 with a public API. _High-resolution images and the JSON API are both reachable with no account._ | CC0 | — | 💚 Allowed | — |
+| [Rijksmuseum (Amsterdam)](https://www.rijksmuseum.nl/en/collection) | The Dutch national gallery's digitised collection; most objects are public domain, some CC-BY. _Rights are stated per object; the museum also waives its own photographic rights over public-domain works._ | Public domain (majority) / CC-BY | ❓ Varies | ❓ Varies | ❓ |
+| [SMK Open (National Gallery of Denmark)](https://www.smk.dk/article/smk-open/) | Danish national gallery's open-access programme; about two-thirds of the collection is public domain. _Only the public-domain works are free; SMK waives its own photographic rights, so those images carry no restrictions._ | Public domain (~2/3 of the collection) | — | ❓ Varies | ❓ |
 
 ## Fonts
 
