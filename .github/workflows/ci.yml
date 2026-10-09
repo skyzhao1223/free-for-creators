@@ -38,13 +38,18 @@ jobs:
   # while the READMEs said 172). Regenerate it from the same source of truth as the
   # READMEs and PATCH it back when it differs. Push-to-main only: fork PRs get a read-only
   # token by design, and a PR should not be able to rewrite repo metadata.
+  #
+  # PATCHing repo metadata is NOT something GITHUB_TOKEN can do (workflow permissions
+  # have no 'administration' key). Add a secret REPO_ADMIN_PAT — a fine-grained PAT with
+  # Administration: read and write on this repo only — to automate the update. Without
+  # it the job still detects drift and fails with the one-line manual fix, the same
+  # fail-loudly style as the README sync check.
   sync-description:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
       contents: read
-      administration: write
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -52,14 +57,21 @@ jobs:
           python-version: "3.12"
       - name: Sync repo description with data/
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.REPO_ADMIN_PAT || github.token }}
         run: |
           set -euo pipefail
           want="$(python3 scripts/build_readme.py --description)"
           have="$(gh repo view "$GITHUB_REPOSITORY" --json description --jq .description)"
           if [ "$want" = "$have" ]; then
             echo "Description already in sync."
+            exit 0
+          fi
+          echo "Description drifted:"
+          echo "  live: $have"
+          echo "  data/: $want"
+          if gh api -X PATCH "repos/$GITHUB_REPOSITORY" -f description="$want" >/dev/null 2>&1; then
+            echo "Description updated via REPO_ADMIN_PAT."
           else
-            gh repo edit "$GITHUB_REPOSITORY" --description "$want"
-            echo "Description updated."
+            echo "::error::Repo description is stale and this token cannot PATCH repo metadata. Run locally: gh repo edit --description "\$(python3 scripts/build_readme.py --description)" — or add a REPO_ADMIN_PAT secret (fine-grained PAT, Administration read+write, this repo only) to automate it."
+            exit 1
           fi
