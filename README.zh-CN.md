@@ -199,9 +199,9 @@
 | [Lucide](https://lucide.dev/) | Feather 的社区维护分支，更新活跃。 | ISC | — | 💚 可商用 | — |
 | [Bootstrap Icons](https://icons.getbootstrap.com/) | 免费 SVG 图标库，任何框架可用。 | MIT | — | 💚 可商用 | — |
 | [bioicons](https://bioicons.com/) | 科学与生物插画用免费开放许可图标库。 _混合 CC0 / CC BY / CC BY-SA / MIT——其中 BY 与 BY-SA 子集需要署名；站内会标注每个图标的许可。_ | Various open licenses (per icon) | ❓ 逐项而定 | 💚 可商用 | — |
-| [Flaticon](https://www.flaticon.com/) | 超大图标目录；免费档需署名。 | Flaticon Free License | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
+| [Flaticon](https://www.flaticon.com/) | 超大图标目录；免费档需署名。 _免费下载需署名；Premium 可免署名，并解除免费用户每个合集的可编辑图标上限。_ | Flaticon Free License | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
 | [The Noun Project](https://thenounproject.com/) | 万物皆有图标；免费下载需署名。 _免费账号下载需署名；免署名下载属 Noun Pro 付费权益。_ | Free with attribution (paid removes it) | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
-| [Icons8](https://icons8.com/icons) | 风格一致的图标、插画与音乐；免费档需挂链接。 | Icons8 Free License | ✅ 需署名 | ⚠️ 有条件 | — |
+| [Icons8](https://icons8.com/icons) | 风格一致的图标、插画与音乐；免费档需挂链接。 _免费档需在使用处放置可见的 icons8.com 链接——页脚、App 的关于/设置、游戏 Credits 或商品详情页均可。_ | Icons8 Free License | ✅ 需署名 | ⚠️ 有条件 | — |
 | [Heroicons](https://heroicons.com/) | Tailwind 团队手工打造的 SVG 图标。 | MIT | — | 💚 可商用 | — |
 | [Phosphor Icons](https://phosphoricons.com/) | 灵活的开源图标家族，含 6 种字重。 | MIT | — | 💚 可商用 | — |
 | [Iconoir](https://iconoir.com/) | 1,600+ 手绘风格开源图标，永久免费。 | MIT | — | 💚 可商用 | — |
@@ -238,7 +238,7 @@
 | [Mockup World](https://www.mockupworld.co/) | 全网免费逼真 PSD 样机聚合站。 | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [GraphicsFuel](https://www.graphicsfuel.com/) | 免费高分辨率 PSD 样机与设计模板。 _以下载页标注的许可为准。_ | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [ls.graphics Free Mockups](https://www.ls.graphics/free-mockups) | 高端商店的免费高质量设备与场景样机。 | ls.graphics Free License | — | 💚 可商用 | — |
-| [Pixelbuddha Free](https://pixelbuddha.net/free) | 免费设计资源：样机、图标、UI 套件。 _截至 2026 年 10 月，/free 分区只提供「Join & Download $10/mo」，四个分类下均未发现游客或免费账号的下载入口。_ | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | 🔑 需注册 |
+| [Pixelbuddha Free](https://pixelbuddha.net/free) | 免费设计资源：样机、图标、UI 套件。 _下载免费素材需先注册免费账号；$10/月的 Plus 是无限下载档，并非免费文件的门槛。_ | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | 🔑 需注册 |
 | [Canva Templates](https://www.canva.com/templates/) | 数千个免费模板：封面图、帖子、演示文稿与短视频。 _Canva 素材有转售与再分发限制；请阅读内容许可。_ | Canva Content License | — | ⚠️ 有条件 | 🔑 需注册 |
 | [Adobe Express Templates](https://www.adobe.com/express/templates) | 免费的社媒图形与品牌模板。 | Adobe Stock/Express License | — | ⚠️ 有条件 | 🔑 需注册 |
 | [Smartmockups](https://www.canva.com/mockups/) | 浏览器样机生成器，含免费模板（Canva 旗下）。 _免费档限制分辨率与模板数量。_ | Smartmockups Free License | — | ⚠️ 有条件 | 🔑 需注册 |
@@ -266,7 +266,7 @@
 | [KayKit](https://kaylousberg.itch.io/) | 游戏用主题 CC0 素材包（地牢、城市、自然）。 | CC0 | — | 💚 可商用 | — |
 | [Sketchfab Free Models](https://sketchfab.com/features/free-3d-models) | 可按 CC 许可筛选的免费可下载模型。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 🔑 需注册 |
 | [NASA 3D Resources](https://nasa3d.arc.nasa.gov/) | NASA 的公有领域 3D 模型、材质与图像。 | Public Domain (mostly) | — | 💚 可商用 | — |
-| [CGTrader Free Models](https://www.cgtrader.com/free-3d-models) | 大型 3D 市场的免费模型专区。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
+| [CGTrader Free Models](https://www.cgtrader.com/free-3d-models) | 大型 3D 市场的免费模型专区。 _点击 Free Download 会弹出登录面板——即便是免费模型也需要注册账号。_ | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 🔑 需注册 |
 | [TurboSquid Free Models](https://www.turbosquid.com/Search/3D-Models/free) | TurboSquid 的免费模型专区。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
 | [SketchUp 3D Warehouse](https://3dwarehouse.sketchup.com/) | SketchUp 社区的数百万免费 3D 模型。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
 | [Free3D](https://free3d.com/) | 大型 3D 市场的免费模型专区。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |

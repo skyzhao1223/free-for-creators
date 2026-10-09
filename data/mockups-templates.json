@@ -51,8 +51,8 @@
       "attribution": "varies",
       "monetization": "varies",
       "signup": "required",
-      "notes": "As of Oct 2026 the free section offers only \"Join & Download $10/mo\"; no guest or free-account download path was found.",
-      "notes_zh": "截至 2026 年 10 月，/free 分区只提供「Join & Download $10/mo」，四个分类下均未发现游客或免费账号的下载入口。"
+      "notes": "Free downloads need a free account; the $10/mo Plus tier is the unlimited option, not a gate on the free files.",
+      "notes_zh": "下载免费素材需先注册免费账号；$10/月的 Plus 是无限下载档，并非免费文件的门槛。"
     },
     {
       "name": "Canva Templates",

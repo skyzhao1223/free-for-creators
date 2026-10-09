@@ -211,7 +211,9 @@
       "license_family": "site-free",
       "attribution": "required",
       "monetization": "conditional",
-      "signup": "required"
+      "signup": "required",
+      "notes": "Free downloads need attribution; Premium removes it and lifts the free-user cap on edited icons per collection.",
+      "notes_zh": "免费下载需署名；Premium 可免署名，并解除免费用户每个合集的可编辑图标上限。"
     },
     {
       "name": "The Noun Project",
@@ -235,7 +237,9 @@
       "license_family": "site-free",
       "attribution": "required",
       "monetization": "conditional",
-      "signup": "not-required"
+      "signup": "not-required",
+      "notes": "Free tier needs a visible link to icons8.com wherever the asset appears — footer, app About/Settings, game credits or the listing.",
+      "notes_zh": "免费档需在使用处放置可见的 icons8.com 链接——页脚、App 的关于/设置、游戏 Credits 或商品详情页均可。"
     },
     {
       "name": "Heroicons",

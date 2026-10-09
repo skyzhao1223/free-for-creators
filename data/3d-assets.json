@@ -168,7 +168,9 @@
       "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
-      "signup": "optional"
+      "signup": "required",
+      "notes": "Clicking Free Download opens a login panel — an account is needed even for the free models.",
+      "notes_zh": "点击 Free Download 会弹出登录面板——即便是免费模型也需要注册账号。"
     },
     {
       "name": "TurboSquid Free Models",

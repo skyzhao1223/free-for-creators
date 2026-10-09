@@ -199,9 +199,9 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Lucide](https://lucide.dev/) | Community-maintained fork of Feather with active development. | ISC | — | 💚 Allowed | — |
 | [Bootstrap Icons](https://icons.getbootstrap.com/) | Free SVG icon library, usable with any framework. | MIT | — | 💚 Allowed | — |
 | [bioicons](https://bioicons.com/) | Gallery of free open-license icons for science and biology illustration. _Mixed CC0 / CC BY / CC BY-SA / MIT — the BY and BY-SA subsets need credit; each icon's license is listed on site._ | Various open licenses (per icon) | ❓ Varies | 💚 Allowed | — |
-| [Flaticon](https://www.flaticon.com/) | Enormous icon catalog; the free plan requires attribution. | Flaticon Free License | ✅ Required | ⚠️ Conditional | 🔑 Yes |
+| [Flaticon](https://www.flaticon.com/) | Enormous icon catalog; the free plan requires attribution. _Free downloads need attribution; Premium removes it and lifts the free-user cap on edited icons per collection._ | Flaticon Free License | ✅ Required | ⚠️ Conditional | 🔑 Yes |
 | [The Noun Project](https://thenounproject.com/) | Icons for every idea; free downloads require attribution. _Free-account downloads require attribution; attribution-free downloads are a Noun Pro benefit._ | Free with attribution (paid removes it) | ✅ Required | ⚠️ Conditional | 🔑 Yes |
-| [Icons8](https://icons8.com/icons) | Consistent icon, illustration and music families; free tier needs a link. | Icons8 Free License | ✅ Required | ⚠️ Conditional | — |
+| [Icons8](https://icons8.com/icons) | Consistent icon, illustration and music families; free tier needs a link. _Free tier needs a visible link to icons8.com wherever the asset appears — footer, app About/Settings, game credits or the listing._ | Icons8 Free License | ✅ Required | ⚠️ Conditional | — |
 | [Heroicons](https://heroicons.com/) | Beautiful hand-crafted SVG icons by the makers of Tailwind CSS. | MIT | — | 💚 Allowed | — |
 | [Phosphor Icons](https://phosphoricons.com/) | Flexible open-source icon family with six weights. | MIT | — | 💚 Allowed | — |
 | [Iconoir](https://iconoir.com/) | 1,600+ hand-crafted open-source icons, free forever. | MIT | — | 💚 Allowed | — |
@@ -238,7 +238,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Mockup World](https://www.mockupworld.co/) | Aggregator of free photorealistic PSD mockups from across the web. | Various (per item) | ❓ Varies | ❓ Varies | — |
 | [GraphicsFuel](https://www.graphicsfuel.com/) | Free high-resolution PSD mockups and design templates. _Check the license note on each download page._ | Various (per item) | ❓ Varies | ❓ Varies | — |
 | [ls.graphics Free Mockups](https://www.ls.graphics/free-mockups) | High-quality free device and scene mockups from a premium shop. | ls.graphics Free License | — | 💚 Allowed | — |
-| [Pixelbuddha Free](https://pixelbuddha.net/free) | Free design resources: mockups, icons, UI kits. _As of Oct 2026 the free section offers only "Join & Download $10/mo"; no guest or free-account download path was found._ | Various (per item) | ❓ Varies | ❓ Varies | 🔑 Yes |
+| [Pixelbuddha Free](https://pixelbuddha.net/free) | Free design resources: mockups, icons, UI kits. _Free downloads need a free account; the $10/mo Plus tier is the unlimited option, not a gate on the free files._ | Various (per item) | ❓ Varies | ❓ Varies | 🔑 Yes |
 | [Canva Templates](https://www.canva.com/templates/) | Thousands of free templates for thumbnails, posts, decks and shorts. _Canva content has resale and redistribution restrictions; read the Content License._ | Canva Content License | — | ⚠️ Conditional | 🔑 Yes |
 | [Adobe Express Templates](https://www.adobe.com/express/templates) | Free templates for social media graphics and branding. | Adobe Stock/Express License | — | ⚠️ Conditional | 🔑 Yes |
 | [Smartmockups](https://www.canva.com/mockups/) | Browser-based mockup generator with free templates, now under Canva. _Free tier limits resolution and template count._ | Smartmockups Free License | — | ⚠️ Conditional | 🔑 Yes |
@@ -266,7 +266,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [KayKit](https://kaylousberg.itch.io/) | Themed CC0 asset packs (dungeon, city, nature) for games. | CC0 | — | 💚 Allowed | — |
 | [Sketchfab Free Models](https://sketchfab.com/features/free-3d-models) | Downloadable free models filterable by CC license. | Per-model licenses | ❓ Varies | ❓ Varies | 🔑 Yes |
 | [NASA 3D Resources](https://nasa3d.arc.nasa.gov/) | Public domain 3D models, textures and images from NASA. | Public Domain (mostly) | — | 💚 Allowed | — |
-| [CGTrader Free Models](https://www.cgtrader.com/free-3d-models) | Free-model section of a major 3D marketplace. | Per-model licenses | ❓ Varies | ❓ Varies | Optional |
+| [CGTrader Free Models](https://www.cgtrader.com/free-3d-models) | Free-model section of a major 3D marketplace. _Clicking Free Download opens a login panel — an account is needed even for the free models._ | Per-model licenses | ❓ Varies | ❓ Varies | 🔑 Yes |
 | [TurboSquid Free Models](https://www.turbosquid.com/Search/3D-Models/free) | Free-model section of TurboSquid. | Per-model licenses | ❓ Varies | ❓ Varies | Optional |
 | [SketchUp 3D Warehouse](https://3dwarehouse.sketchup.com/) | Millions of free 3D models from the SketchUp community. | Per-model licenses | ❓ Varies | ❓ Varies | Optional |
 | [Free3D](https://free3d.com/) | Free-model section of a large 3D marketplace. | Per-model licenses | ❓ Varies | ❓ Varies | Optional |
