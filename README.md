@@ -311,7 +311,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 
 ## Contributing
 
-Found a great free resource? Spot a dead link or an outdated license? Please open a PR or use the issue templates — see [CONTRIBUTING.md](CONTRIBUTING.md). Entries are added to the JSON files in [`data/`](data); both READMEs are generated automatically.
+Found a great free resource? Spot a dead link or an outdated license? Please open a PR or use the issue templates — see [CONTRIBUTING.md](CONTRIBUTING.md). Entries are added to the JSON files in [`data/`](data); both READMEs are generated automatically. Not sure whether a resource fits your use case? Ask in [Discussions](https://github.com/skyzhao1223/free-for-creators/discussions).
 
 ## Star History
 

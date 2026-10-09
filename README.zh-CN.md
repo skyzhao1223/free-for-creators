@@ -311,7 +311,7 @@
 
 ## 参与贡献
 
-发现好资源？遇到死链或许可过期？欢迎提 PR 或使用 Issue 模板，详见 [CONTRIBUTING.md](CONTRIBUTING.md)。条目添加在 [`data/`](data) 的 JSON 中，两份 README 均自动生成。
+发现好资源？遇到死链或许可过期？欢迎提 PR 或使用 Issue 模板，详见 [CONTRIBUTING.md](CONTRIBUTING.md)。条目添加在 [`data/`](data) 的 JSON 中，两份 README 均自动生成。想确认某个资源是否适合你的使用场景？欢迎到 [Discussions](https://github.com/skyzhao1223/free-for-creators/discussions) 提问。
 
 ## Star 历史
 

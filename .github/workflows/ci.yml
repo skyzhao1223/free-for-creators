@@ -32,3 +32,34 @@ jobs:
       # site/index.html's CAT_COLORS drifts from CATEGORY_ORDER.
       - name: Build site payload
         run: python scripts/build_site.py --out "${{ runner.temp }}/site-data"
+
+  # The repo description shows up in GitHub search, topic pages and link previews, and it
+  # carries the entry count — so it drifts every time data/ grows (it once advertised 158
+  # while the READMEs said 172). Regenerate it from the same source of truth as the
+  # READMEs and PATCH it back when it differs. Push-to-main only: fork PRs get a read-only
+  # token by design, and a PR should not be able to rewrite repo metadata.
+  sync-description:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      administration: write
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Sync repo description with data/
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          want="$(python3 scripts/build_readme.py --description)"
+          have="$(gh repo view "$GITHUB_REPOSITORY" --json description --jq .description)"
+          if [ "$want" = "$have" ]; then
+            echo "Description already in sync."
+          else
+            gh repo edit "$GITHUB_REPOSITORY" --description "$want"
+            echo "Description updated."
+          fi

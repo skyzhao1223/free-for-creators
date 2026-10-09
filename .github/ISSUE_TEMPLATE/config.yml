@@ -1,5 +1,8 @@
 blank_issues_enabled: true
 contact_links:
+  - name: Ask a question in Discussions
+    url: https://github.com/skyzhao1223/free-for-creators/discussions
+    about: License questions, use-case checks — anything that is not a resource suggestion or a dead link
   - name: Contributing guide
     url: https://github.com/skyzhao1223/free-for-creators/blob/main/CONTRIBUTING.md
     about: How entries are validated and what the license columns mean

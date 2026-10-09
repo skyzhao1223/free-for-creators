@@ -6,6 +6,7 @@ Usage:
     python3 scripts/build_readme.py                # regenerate both READMEs
     python3 scripts/build_readme.py --check        # CI mode: fail if any README is out of sync
     python3 scripts/build_readme.py --validate-only
+    python3 scripts/build_readme.py --description  # print the repo description for the current data/
 
 Data lives in data/<slug>.json; the READMEs are generated, so edit the JSON, not the Markdown.
 Chinese rendering uses the optional *_zh fields and falls back to English when absent.
@@ -35,6 +36,24 @@ ASSET_SAMPLE_ROWS = 4  # rows drawn in the mock table card; the footer says "+ N
 # NOTE: update this (and .github/ISSUE_TEMPLATE/config.yml) if the repo lives elsewhere.
 REPO = "skyzhao1223/free-for-creators"
 PAGES_URL = "https://skyzhao1223.github.io/free-for-creators/"
+
+# GitHub shows the repo description in search results, topic pages and link previews,
+# and it carries the entry count — so it goes stale on every data/ change (it once
+# advertised 158 while the READMEs said 172). Generated from the same source of truth;
+# the sync-description job in ci.yml PATCHes it back on push to main. Limit: 350 chars.
+REPO_DESCRIPTION = (
+    "🎁 License-verified free assets for creators — {total} resources for music, SFX, "
+    "footage, photos, fonts, icons, LUTs, mockups & 3D, each tagged with attribution and "
+    "monetization rules. Weekly CI link-check, 0 dead links. "
+    "许可透明的创作者免费素材清单（中英双语）。"
+)
+
+
+def repo_description(total):
+    desc = REPO_DESCRIPTION.format(total=total)
+    if len(desc) > 350:
+        raise SystemExit("repo description is %d chars — GitHub's limit is 350" % len(desc))
+    return desc
 
 # Order in which categories appear in the README.
 CATEGORY_ORDER = [
@@ -165,7 +184,7 @@ T = {
             "- [design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) \u2014 design resources for developers",
         ],
         "contributing_title": "## Contributing",
-        "contributing": "Found a great free resource? Spot a dead link or an outdated license? Please open a PR or use the issue templates \u2014 see [CONTRIBUTING.md](CONTRIBUTING.md). Entries are added to the JSON files in [`data/`](data); both READMEs are generated automatically.",
+        "contributing": "Found a great free resource? Spot a dead link or an outdated license? Please open a PR or use the issue templates \u2014 see [CONTRIBUTING.md](CONTRIBUTING.md). Entries are added to the JSON files in [`data/`](data); both READMEs are generated automatically. Not sure whether a resource fits your use case? Ask in [Discussions](https://github.com/skyzhao1223/free-for-creators/discussions).",
         "star_title": "## Star History",
         "license_title": "## License",
         "license_body": "To the extent possible under law, the contributors waive all copyright and related rights to this collection under [CC0 1.0](LICENSE). Fork it, mirror it, build on it \u2014 no strings attached.",
@@ -207,7 +226,7 @@ T = {
             "- [design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) \u2014 \u9762\u5411\u5f00\u53d1\u8005\u7684\u8bbe\u8ba1\u8d44\u6e90",
         ],
         "contributing_title": "## \u53c2\u4e0e\u8d21\u732e",
-        "contributing": "\u53d1\u73b0\u597d\u8d44\u6e90\uff1f\u9047\u5230\u6b7b\u94fe\u6216\u8bb8\u53ef\u8fc7\u671f\uff1f\u6b22\u8fce\u63d0 PR \u6216\u4f7f\u7528 Issue \u6a21\u677f\uff0c\u8be6\u89c1 [CONTRIBUTING.md](CONTRIBUTING.md)\u3002\u6761\u76ee\u6dfb\u52a0\u5728 [`data/`](data) \u7684 JSON \u4e2d\uff0c\u4e24\u4efd README \u5747\u81ea\u52a8\u751f\u6210\u3002",
+        "contributing": "\u53d1\u73b0\u597d\u8d44\u6e90\uff1f\u9047\u5230\u6b7b\u94fe\u6216\u8bb8\u53ef\u8fc7\u671f\uff1f\u6b22\u8fce\u63d0 PR \u6216\u4f7f\u7528 Issue \u6a21\u677f\uff0c\u8be6\u89c1 [CONTRIBUTING.md](CONTRIBUTING.md)\u3002\u6761\u76ee\u6dfb\u52a0\u5728 [`data/`](data) \u7684 JSON \u4e2d\uff0c\u4e24\u4efd README \u5747\u81ea\u52a8\u751f\u6210\u3002想确认某个资源是否适合你的使用场景？欢迎到 [Discussions](https://github.com/skyzhao1223/free-for-creators/discussions) 提问。",
         "star_title": "## Star \u5386\u53f2",
         "license_title": "## \u8bb8\u53ef",
         "license_body": "\u5728\u6cd5\u5f8b\u5141\u8bb8\u7684\u6700\u5927\u8303\u56f4\u5185\uff0c\u8d21\u732e\u8005\u4f9d\u636e [CC0 1.0](LICENSE) \u653e\u5f03\u5bf9\u672c\u5408\u96c6\u7684\u5168\u90e8\u7248\u6743\u53ca\u76f8\u5173\u6743\u5229\u3002\u968f\u610f Fork\u3001\u955c\u50cf\u3001\u4e8c\u6b21\u521b\u4f5c\u2014\u2014\u65e0\u4efb\u4f55\u9644\u52a0\u6761\u4ef6\u3002",
@@ -514,10 +533,16 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--check", action="store_true", help="fail if any README is not in sync with data/")
     ap.add_argument("--validate-only", action="store_true", help="only validate data files")
+    ap.add_argument("--description", action="store_true",
+                    help="print the repo description for the current data/ (CI syncs it to GitHub)")
     args = ap.parse_args()
 
     categories = load_categories()
     total = sum(len(c["entries"]) for c in categories)
+    if args.description:
+        # stdout must stay pure — ci.yml captures it verbatim into the PATCH payload.
+        print(repo_description(total))
+        return
     print("Validated %d categories, %d entries." % (len(categories), total))
     if args.validate_only:
         return
