@@ -94,6 +94,25 @@ def inspect_body(body):
     return (bool(text) and bool(SOFT_404.search(text))), text[:90], bool(ti or h1)
 
 
+class Redirect308(urllib.request.HTTPRedirectHandler):
+    """Follow 308 as well as 301/302/303/307.
+
+    Python's urllib only learned 308 in 3.11. On 3.9/3.10 a permanent, method-preserving
+    308 surfaced as `HTTPError: 308`, which check_one classified as `broken` — so the
+    same URL was `broken` locally and `ok` in CI (which runs 3.12). Verdicts must not
+    depend on the interpreter version. Example that triggered this:
+    https://atelier-anchor.com/typefaces/smiley-sans/ -> 308 -> the same path sans slash.
+    """
+
+    def http_error_308(self, req, fp, code, msg, headers):
+        return self.http_error_307(req, fp, code, msg, headers)
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        # 308 and 307 share semantics for our purposes: keep the method, follow Location.
+        return super().redirect_request(req, fp, 307 if code == 308 else code,
+                                        msg, headers, newurl)
+
+
 def probe(url, method):
     """Return (status, final_url, body_text). body_text is '' for HEAD."""
     req = urllib.request.Request(url, method=method, headers={
@@ -102,7 +121,8 @@ def probe(url, method):
         "Accept-Language": "en-US,en;q=0.9",
     })
     ctx = ssl.create_default_context()
-    with urllib.request.urlopen(req, timeout=TIMEOUT, context=ctx) as r:
+    opener = urllib.request.build_opener(Redirect308, urllib.request.HTTPSHandler(context=ctx))
+    with opener.open(req, timeout=TIMEOUT) as r:
         body = r.read(BODY_BYTES).decode("utf-8", "replace") if method == "GET" else ""
         return r.status, r.geturl(), body
 
