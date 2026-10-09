@@ -12,14 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-156-blue" alt="156 resources">
+  <img src="https://img.shields.io/badge/resources-168-blue" alt="168 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、156 个资源**。
+> 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、168 个资源**。
 
-**一眼看数据**：104 条 💚 可直接用于货币化内容 · 93 条 ➖ 无需署名 · 120 条 🔓 无需注册 · 25 条整站属 CC0 / 公有领域 · 另有 12 条含 CC0 素材（需逐项筛选）。
+**一眼看数据**：116 条 💚 可直接用于货币化内容 · 104 条 ➖ 无需署名 · 131 条 🔓 无需注册 · 26 条整站属 CC0 / 公有领域 · 另有 12 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -50,8 +50,8 @@
 - [音效](#音效) — 12 个资源 · 面向视频、游戏、播客与直播的免费音效库、音效包与氛围音。
 - [视频素材](#视频素材) — 17 个资源 · 免费视频片段与 B-roll，含 4K、历史档案与公有领域素材。
 - [图片素材](#图片素材) — 23 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
-- [字体](#字体) — 12 个资源 · 可免费商用的字体——用于封面图、品牌、字幕与印刷。
-- [图形与图标](#图形与图标) — 29 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
+- [字体](#字体) — 18 个资源 · 可免费商用的字体，含中日韩字体家族——用于封面图、品牌、字幕与印刷。
+- [图形与图标](#图形与图标) — 35 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
 - [视频制作](#视频制作) — 9 个资源 · LUT、调色资产、转场与剪辑软件模板。
 - [样机与设计模板](#样机与设计模板) — 11 个资源 · PSD/设备样机、封面图与社交媒体模板。
 - [3D 与游戏素材](#3d-与游戏素材) — 19 个资源 · 模型、HDRI、PBR 材质、角色与游戏即用素材包。
@@ -159,7 +159,7 @@
 
 ## 字体
 
-*可免费商用的字体——用于封面图、品牌、字幕与印刷。*
+*可免费商用的字体，含中日韩字体家族——用于封面图、品牌、字幕与印刷。*
 
 | 资源 | 简介 | 许可 | 署名 | 商用 | 注册 |
 | --- | --- | --- | --- | --- | --- |
@@ -175,6 +175,12 @@
 | [free-font (CJK)](https://github.com/jaywcjlove/free-font) | 中英文可商用免费字体精选。 _绝大多数为 OFL 等开源许可，但少数字体标记为「个人免费」「个人非商业」「CC BY-NC」或「需要授权」——商用前请逐个核对许可标签。_ | Various (per font) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [Use & Modify](https://usemodify.com/) | 瑞士设计师精选的可商用免费字体目录，支持筛选。 | OFL / open licenses (per family) | — | 💚 可商用 | — |
 | [Open Foundry](https://open-foundry.com/) | 开放许可字体平台，附展示项目。 _官网 FAQ：能否商用取决于每个字体自身的许可，部分许可存在限制——用于客户项目前请先阅读该字体许可。_ | Various open licenses (per font) | ❓ 逐项而定 | ❓ 逐项而定 | — |
+| [Source Han Sans (思源黑体)](https://github.com/adobe-fonts/source-han-sans) | Adobe 与 Google 联合开源的中日韩黑体家族，每个语言区域七个字重。 | SIL Open Font License 1.1 | — | 💚 可商用 | — |
+| [Source Han Serif (思源宋体)](https://github.com/adobe-fonts/source-han-serif) | 思源黑体的宋体姊妹作，适用于中日韩正文、刊物与印刷排版。 | SIL Open Font License 1.1 | — | 💚 可商用 | — |
+| [Sarasa Gothic (更纱黑体)](https://github.com/be5invis/Sarasa-Gothic) | 将思源黑体与 Iosevka 合并，使中日韩文字在代码与终端中等宽对齐。 | SIL Open Font License 1.1 | — | 💚 可商用 | — |
+| [Smiley Sans (得意黑)](https://atelier-anchor.com/typefaces/smiley-sans) | atelier Anchor 开源的中文窄斜标题黑体，适用于大标题与海报。 | SIL Open Font License 1.1 | — | 💚 可商用 | — |
+| [LXGW WenKai (霞鹜文楷)](https://github.com/lxgw/LxgwWenKai) | 基于 Klee One 的开源中文楷体家族，适合阅读、字幕与引文排版。 | SIL Open Font License 1.1 | — | 💚 可商用 | — |
+| [Alibaba PuHuiTi (阿里巴巴普惠体)](https://www.alibabafonts.com/) | 阿里巴巴开放商业授权给个人与商家的中文字体家族。 _官网声明向所有个人和商家开放商用；完整协议本次未能抓取，再分发前请自行核对。_ | Alibaba PuHuiTi License (free commercial use) | — | 💚 可商用 | ❓ |
 
 ## 图形与图标
 
@@ -211,6 +217,12 @@
 | [Vecteezy](https://www.vecteezy.com/free-vector) | 免费矢量图与照片，免费档需署名。 | Vecteezy Free License | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
 | [3dicons](https://3dicons.co/) | 开源 3D 图标库，含 5,000+ 渲染图标。 | CC0 | — | 💚 可商用 | — |
 | [Openclipart](https://openclipart.org/) | 老牌社区剪贴画库，全部 CC0。 | CC0 | — | 💚 可商用 | — |
+| [Simple Icons](https://simpleicons.org/) | 知名品牌与服务的 SVG 图标，统一 24px 网格，以开放数据集维护。 | CC0 | — | 💚 可商用 | — |
+| [Octicons](https://primer.style/octicons/) | GitHub 自用的界面图标，以 SVG 形式发布于 Primer 设计系统中。 | MIT | — | 💚 可商用 | — |
+| [Devicon](https://devicon.dev/) | 编程语言、框架与开发工具图标，含纯图形与带字标两种版本。 | MIT | — | 💚 可商用 | — |
+| [Boxicons](https://boxicons.com/) | 开源网页图标集，含线性、实心与品牌三种风格，提供 SVG 与图标字体。 _图标为 CC BY 4.0，但作者明确免署名：「Attribution is not required but is appreciated」。字体文件为 OFL 1.1，代码 MIT。_ | Icons CC BY 4.0 (attribution waived); fonts OFL 1.1; code MIT | — | 💚 可商用 | — |
+| [Material Design Icons (Pictogrammers)](https://pictogrammers.com/library/mdi/) | 社区维护的 Google Material 图标扩展集，提供 SVG 与图标字体。 | Pictogrammers Free License (icons Apache 2.0) | — | 💚 可商用 | — |
+| [Font Awesome Free](https://fontawesome.com/icons/free) | 老牌图标集；免费档提供实心、线性与品牌三种风格的 SVG 与网页字体。 _免费档图标为 CC BY 4.0，需以链接形式署名 Font Awesome；代码与字体为 MIT/OFL。_ | Icons CC BY 4.0, code MIT | ✅ 需署名 | 💚 可商用 | — |
 
 ## 视频制作
 

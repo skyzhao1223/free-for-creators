@@ -12,14 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-156-blue" alt="156 resources">
+  <img src="https://img.shields.io/badge/resources-168-blue" alt="168 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **156 resources across 10 categories**.
+> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **168 resources across 10 categories**.
 
-**At a glance:** 104 entries are 💚 safe for monetized content · 93 need ➖ no attribution · 120 need 🔓 no account · 25 are entirely CC0 / public domain · 12 more mix in CC0 items (filter per asset).
+**At a glance:** 116 entries are 💚 safe for monetized content · 104 need ➖ no attribution · 131 need 🔓 no account · 26 are entirely CC0 / public domain · 12 more mix in CC0 items (filter per asset).
 
 Every entry answers the three questions that decide whether a “free” asset is actually free for *you*:
 
@@ -50,8 +50,8 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 - [Sound Effects](#sound-effects) — 12 resources · Free SFX libraries, packs and ambience for video, games, podcasts and streams.
 - [Stock Footage](#stock-footage) — 17 resources · Free video clips and B-roll, including 4K, archival and public domain footage.
 - [Stock Photos](#stock-photos) — 23 resources · Free photography, from modern stock to museum-grade public domain archives.
-- [Fonts](#fonts) — 12 resources · Typefaces free for commercial use — for thumbnails, branding, subtitles and print.
-- [Graphics & Icons](#graphics--icons) — 29 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
+- [Fonts](#fonts) — 18 resources · Typefaces free for commercial use, including CJK families — for thumbnails, branding, subtitles and print.
+- [Graphics & Icons](#graphics--icons) — 35 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
 - [Video Production](#video-production) — 9 resources · LUTs, color grading assets, transitions and editor templates.
 - [Mockups & Design Templates](#mockups--design-templates) — 11 resources · PSD/device mockups, thumbnail and social media templates.
 - [3D & Game Assets](#3d--game-assets) — 19 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
@@ -159,7 +159,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 
 ## Fonts
 
-*Typefaces free for commercial use — for thumbnails, branding, subtitles and print.*
+*Typefaces free for commercial use, including CJK families — for thumbnails, branding, subtitles and print.*
 
 | Resource | About | License | Attribution | Monetization | Sign-up |
 | --- | --- | --- | --- | --- | --- |
@@ -175,6 +175,12 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [free-font (CJK)](https://github.com/jaywcjlove/free-font) | Curated Chinese and English fonts free for commercial use. _Chinese-language list; mostly OFL, but a few fonts are personal-use-only, CC BY-NC or need authorization — check each font's license tag._ | Various (per font) | ❓ Varies | ❓ Varies | — |
 | [Use & Modify](https://usemodify.com/) | Curated catalog of free fonts by a Swiss designer, with filters. | OFL / open licenses (per family) | — | 💚 Allowed | — |
 | [Open Foundry](https://open-foundry.com/) | Platform for open-licensed typefaces with showcase projects. _Site FAQ: commercial use depends on each font's own licence and some have restrictions — read it before client work._ | Various open licenses (per font) | ❓ Varies | ❓ Varies | — |
+| [Source Han Sans (思源黑体)](https://github.com/adobe-fonts/source-han-sans) | Adobe and Google's open-source CJK sans family, with seven weights per language region. | SIL Open Font License 1.1 | — | 💚 Allowed | — |
+| [Source Han Serif (思源宋体)](https://github.com/adobe-fonts/source-han-serif) | The serif companion to Source Han Sans for CJK body text, editorial and print work. | SIL Open Font License 1.1 | — | 💚 Allowed | — |
+| [Sarasa Gothic (更纱黑体)](https://github.com/be5invis/Sarasa-Gothic) | Source Han Sans merged with Iosevka to give CJK text fixed-width alignment in code and terminals. | SIL Open Font License 1.1 | — | 💚 Allowed | — |
+| [Smiley Sans (得意黑)](https://atelier-anchor.com/typefaces/smiley-sans) | Open-source condensed Chinese display face from atelier Anchor, made for headlines and posters. | SIL Open Font License 1.1 | — | 💚 Allowed | — |
+| [LXGW WenKai (霞鹜文楷)](https://github.com/lxgw/LxgwWenKai) | Open-source Chinese kai family derived from Klee One, suited to reading, subtitles and quotes. | SIL Open Font License 1.1 | — | 💚 Allowed | — |
+| [Alibaba PuHuiTi (阿里巴巴普惠体)](https://www.alibabafonts.com/) | Alibaba's Chinese text family with commercial rights opened to individuals and businesses. _Vendor opens commercial use to all individuals and merchants; the full agreement was unreachable, so verify before redistributing._ | Alibaba PuHuiTi License (free commercial use) | — | 💚 Allowed | ❓ |
 
 ## Graphics & Icons
 
@@ -211,6 +217,12 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Vecteezy](https://www.vecteezy.com/free-vector) | Free vectors and photos with attribution on the free plan. | Vecteezy Free License | ✅ Required | ⚠️ Conditional | 🔑 Yes |
 | [3dicons](https://3dicons.co/) | Open-source 3D icon library with 5,000+ rendered icons. | CC0 | — | 💚 Allowed | — |
 | [Openclipart](https://openclipart.org/) | Long-running community clipart library, everything CC0. | CC0 | — | 💚 Allowed | — |
+| [Simple Icons](https://simpleicons.org/) | SVG icons for well-known brands and services, kept on a consistent 24px grid as an open dataset. | CC0 | — | 💚 Allowed | — |
+| [Octicons](https://primer.style/octicons/) | GitHub's own interface icons, published as SVGs within the Primer design system. | MIT | — | 💚 Allowed | — |
+| [Devicon](https://devicon.dev/) | Icons for programming languages, frameworks and developer tools, in plain and wordmark variants. | MIT | — | 💚 Allowed | — |
+| [Boxicons](https://boxicons.com/) | Open-source web icon set with regular, solid and logo styles, shipped as SVG and icon fonts. _The icons are CC BY 4.0 but the author waives credit: "Attribution is not required but is appreciated." Font files are OFL 1.1, code MIT._ | Icons CC BY 4.0 (attribution waived); fonts OFL 1.1; code MIT | — | 💚 Allowed | — |
+| [Material Design Icons (Pictogrammers)](https://pictogrammers.com/library/mdi/) | Community-maintained extension of Google's Material icons, distributed as SVG and icon fonts. | Pictogrammers Free License (icons Apache 2.0) | — | 💚 Allowed | — |
+| [Font Awesome Free](https://fontawesome.com/icons/free) | Long-running icon set; the Free tier ships solid, regular and brand styles as SVG and webfonts. _Free-tier icons are CC BY 4.0, so credit Font Awesome with a link; the code and fonts are MIT/OFL._ | Icons CC BY 4.0, code MIT | ✅ Required | 💚 Allowed | — |
 
 ## Video Production
 

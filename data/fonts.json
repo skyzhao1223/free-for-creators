@@ -2,8 +2,8 @@
   "category": "Fonts",
   "category_zh": "字体",
   "slug": "fonts",
-  "description": "Typefaces free for commercial use — for thumbnails, branding, subtitles and print.",
-  "description_zh": "可免费商用的字体——用于封面图、品牌、字幕与印刷。",
+  "description": "Typefaces free for commercial use, including CJK families — for thumbnails, branding, subtitles and print.",
+  "description_zh": "可免费商用的字体，含中日韩字体家族——用于封面图、品牌、字幕与印刷。",
   "entries": [
     {
       "name": "Google Fonts",
@@ -144,6 +144,74 @@
       "signup": "not-required",
       "notes": "Site FAQ: commercial use depends on each font's own licence and some have restrictions — read it before client work.",
       "notes_zh": "官网 FAQ：能否商用取决于每个字体自身的许可，部分许可存在限制——用于客户项目前请先阅读该字体许可。"
+    },
+    {
+      "name": "Source Han Sans (思源黑体)",
+      "url": "https://github.com/adobe-fonts/source-han-sans",
+      "description": "Adobe and Google's open-source CJK sans family, with seven weights per language region.",
+      "description_zh": "Adobe 与 Google 联合开源的中日韩黑体家族，每个语言区域七个字重。",
+      "license": "SIL Open Font License 1.1",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Source Han Serif (思源宋体)",
+      "url": "https://github.com/adobe-fonts/source-han-serif",
+      "description": "The serif companion to Source Han Sans for CJK body text, editorial and print work.",
+      "description_zh": "思源黑体的宋体姊妹作，适用于中日韩正文、刊物与印刷排版。",
+      "license": "SIL Open Font License 1.1",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Sarasa Gothic (更纱黑体)",
+      "url": "https://github.com/be5invis/Sarasa-Gothic",
+      "description": "Source Han Sans merged with Iosevka to give CJK text fixed-width alignment in code and terminals.",
+      "description_zh": "将思源黑体与 Iosevka 合并，使中日韩文字在代码与终端中等宽对齐。",
+      "license": "SIL Open Font License 1.1",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Smiley Sans (得意黑)",
+      "url": "https://atelier-anchor.com/typefaces/smiley-sans",
+      "description": "Open-source condensed Chinese display face from atelier Anchor, made for headlines and posters.",
+      "description_zh": "atelier Anchor 开源的中文窄斜标题黑体，适用于大标题与海报。",
+      "license": "SIL Open Font License 1.1",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "LXGW WenKai (霞鹜文楷)",
+      "url": "https://github.com/lxgw/LxgwWenKai",
+      "description": "Open-source Chinese kai family derived from Klee One, suited to reading, subtitles and quotes.",
+      "description_zh": "基于 Klee One 的开源中文楷体家族，适合阅读、字幕与引文排版。",
+      "license": "SIL Open Font License 1.1",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Alibaba PuHuiTi (阿里巴巴普惠体)",
+      "url": "https://www.alibabafonts.com/",
+      "description": "Alibaba's Chinese text family with commercial rights opened to individuals and businesses.",
+      "description_zh": "阿里巴巴开放商业授权给个人与商家的中文字体家族。",
+      "license": "Alibaba PuHuiTi License (free commercial use)",
+      "license_family": "site-free",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "unknown",
+      "notes": "Vendor opens commercial use to all individuals and merchants; the full agreement was unreachable, so verify before redistributing.",
+      "notes_zh": "官网声明向所有个人和商家开放商用；完整协议本次未能抓取，再分发前请自行核对。"
     }
   ]
 }

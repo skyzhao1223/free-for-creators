@@ -342,6 +342,76 @@
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
+    },
+    {
+      "name": "Simple Icons",
+      "url": "https://simpleicons.org/",
+      "description": "SVG icons for well-known brands and services, kept on a consistent 24px grid as an open dataset.",
+      "description_zh": "知名品牌与服务的 SVG 图标，统一 24px 网格，以开放数据集维护。",
+      "license": "CC0",
+      "license_family": "cc0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Octicons",
+      "url": "https://primer.style/octicons/",
+      "description": "GitHub's own interface icons, published as SVGs within the Primer design system.",
+      "description_zh": "GitHub 自用的界面图标，以 SVG 形式发布于 Primer 设计系统中。",
+      "license": "MIT",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Devicon",
+      "url": "https://devicon.dev/",
+      "description": "Icons for programming languages, frameworks and developer tools, in plain and wordmark variants.",
+      "description_zh": "编程语言、框架与开发工具图标，含纯图形与带字标两种版本。",
+      "license": "MIT",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Boxicons",
+      "url": "https://boxicons.com/",
+      "description": "Open-source web icon set with regular, solid and logo styles, shipped as SVG and icon fonts.",
+      "description_zh": "开源网页图标集，含线性、实心与品牌三种风格，提供 SVG 与图标字体。",
+      "license": "Icons CC BY 4.0 (attribution waived); fonts OFL 1.1; code MIT",
+      "license_family": "cc-by",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "The icons are CC BY 4.0 but the author waives credit: \"Attribution is not required but is appreciated.\" Font files are OFL 1.1, code MIT.",
+      "notes_zh": "图标为 CC BY 4.0，但作者明确免署名：「Attribution is not required but is appreciated」。字体文件为 OFL 1.1，代码 MIT。"
+    },
+    {
+      "name": "Material Design Icons (Pictogrammers)",
+      "url": "https://pictogrammers.com/library/mdi/",
+      "description": "Community-maintained extension of Google's Material icons, distributed as SVG and icon fonts.",
+      "description_zh": "社区维护的 Google Material 图标扩展集，提供 SVG 与图标字体。",
+      "license": "Pictogrammers Free License (icons Apache 2.0)",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Font Awesome Free",
+      "url": "https://fontawesome.com/icons/free",
+      "description": "Long-running icon set; the Free tier ships solid, regular and brand styles as SVG and webfonts.",
+      "description_zh": "老牌图标集；免费档提供实心、线性与品牌三种风格的 SVG 与网页字体。",
+      "license": "Icons CC BY 4.0, code MIT",
+      "license_family": "cc-by",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Free-tier icons are CC BY 4.0, so credit Font Awesome with a link; the code and fonts are MIT/OFL.",
+      "notes_zh": "免费档图标为 CC BY 4.0，需以链接形式署名 Font Awesome；代码与字体为 MIT/OFL。"
     }
   ]
 }
