@@ -6,17 +6,6 @@
   "description_zh": "LUT、调色资产、转场与剪辑软件模板。",
   "entries": [
     {
-      "name": "RocketStock Free LUTs",
-      "url": "https://www.rocketstock.com/free-luts/",
-      "description": "Free cinematic LUT pack from a premium VFX vendor.",
-      "description_zh": "高端 VFX 厂商赠送的免费电影感 LUT 包。",
-      "license": "Royalty-free (RocketStock)",
-      "license_family": "site-free",
-      "attribution": "not-required",
-      "monetization": "allowed",
-      "signup": "unknown"
-    },
-    {
       "name": "IWLTBAP Free LUTs",
       "url": "https://iwltbap.com/free-luts/",
       "description": "Free filmic LUTs from a well-known color grading shop.",

@@ -12,14 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-157-blue" alt="157 resources">
+  <img src="https://img.shields.io/badge/resources-156-blue" alt="156 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **157 resources across 10 categories**.
+> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **156 resources across 10 categories**.
 
-**At a glance:** 105 entries are 💚 safe for monetized content · 94 need ➖ no attribution · 120 need 🔓 no account · 25 are entirely CC0 / public domain · 12 more mix in CC0 items (filter per asset).
+**At a glance:** 104 entries are 💚 safe for monetized content · 93 need ➖ no attribution · 120 need 🔓 no account · 25 are entirely CC0 / public domain · 12 more mix in CC0 items (filter per asset).
 
 Every entry answers the three questions that decide whether a “free” asset is actually free for *you*:
 
@@ -52,7 +52,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 - [Stock Photos](#stock-photos) — 23 resources · Free photography, from modern stock to museum-grade public domain archives.
 - [Fonts](#fonts) — 12 resources · Typefaces free for commercial use — for thumbnails, branding, subtitles and print.
 - [Graphics & Icons](#graphics--icons) — 29 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
-- [Video Production](#video-production) — 10 resources · LUTs, color grading assets, transitions and editor templates.
+- [Video Production](#video-production) — 9 resources · LUTs, color grading assets, transitions and editor templates.
 - [Mockups & Design Templates](#mockups--design-templates) — 11 resources · PSD/device mockups, thumbnail and social media templates.
 - [3D & Game Assets](#3d--game-assets) — 19 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
 - [Search Engines](#search-engines) — 6 resources · Meta-search across millions of openly licensed images, audio and media.
@@ -218,7 +218,6 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 
 | Resource | About | License | Attribution | Monetization | Sign-up |
 | --- | --- | --- | --- | --- | --- |
-| [RocketStock Free LUTs](https://www.rocketstock.com/free-luts/) | Free cinematic LUT pack from a premium VFX vendor. | Royalty-free (RocketStock) | — | 💚 Allowed | ❓ |
 | [IWLTBAP Free LUTs](https://iwltbap.com/free-luts/) | Free filmic LUTs from a well-known color grading shop. | Free (IWLTBAP) | — | 💚 Allowed | ❓ |
 | [FreshLuts](https://freshluts.com/) | Community site for sharing and downloading free LUTs. _Community uploads: check the usage rights of each LUT._ | Various (community uploads) | ❓ Varies | 💚 Allowed | — |
 | [Fujifilm Camera Profiles](https://github.com/abpy/FujifilmCameraProfiles) | Open DNG/DCP profiles and LUTs matching Fujifilm film simulations. | Open (see repository) | — | 💚 Allowed | — |

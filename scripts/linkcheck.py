@@ -7,8 +7,9 @@ Classification:
                OR a 200 that needs a human: a JS shell with no <title>/<h1> in the HTML,
                or a redirect onto a different domain (rebrand?).
                Needs a human, does NOT fail CI.
-    broken     HTTP 404/410, other persistent 4xx/5xx, DNS failure, refused,
-               OR a 200 whose own <title>/<h1> says "not found" (soft 404).
+    broken     HTTP 404/410, other persistent 4xx/5xx, DNS failure, a connection that
+               is still refused after retries on BOTH methods, OR a 200 whose own
+               <title>/<h1> says "not found" (soft 404).
                Fails CI with exit code 1.
 
 A status code alone is not enough: some SPAs answer 200 for any path and render
@@ -146,8 +147,10 @@ def check_one(url, expect_js=False):
     """
     orig = urlsplit(url)
     last = None
+    pending = None  # a network-level `broken` waiting for confirmation on the other method
     for method in ("GET", "HEAD"):
         verdict = None
+        network_broken = False
         for attempt in range(RETRIES + 1):
             try:
                 code, final, body = probe(url, method)
@@ -173,13 +176,18 @@ def check_one(url, expect_js=False):
                 msg = str(e)
                 last = "%s: %s" % (type(e).__name__, msg)
                 if "nodename nor servname" in msg or "Name or service not known" in msg:
-                    return ("broken", "DNS failure")
-                if "Connection refused" in msg:
-                    return ("broken", "connection refused")
+                    return ("broken", "DNS failure")  # definitive, and cheap to re-resolve
                 if attempt < RETRIES:
                     time.sleep(2 * (attempt + 1))
                     continue
-                verdict = ("blocked", last)
+                # Retries exhausted. A refusal normally means nothing is listening, but it can
+                # also be one bad CDN edge: rocketstock.com refused urllib while `nc` reached
+                # port 443 three times and curl got a clean 302 seconds earlier. So a refusal
+                # is confirmed on the second method before it is allowed to fail CI.
+                refused = "refused" in msg.lower()
+                network_broken = refused
+                verdict = (("broken", "connection refused after %d attempts" % (RETRIES + 1))
+                           if refused else ("blocked", last))
                 break
 
             # --- 2xx/3xx: look past the status code -----------------------------
@@ -195,10 +203,14 @@ def check_one(url, expect_js=False):
             moved = "" if (final or url).rstrip("/") == url.rstrip("/") else " -> %s" % final
             return ("ok", "%d%s" % (code, moved))
         if verdict:
+            if network_broken:
+                # Do not fail CI on one method's network error; let the other method confirm.
+                pending = verdict
+                continue
             if method == "GET":
                 return verdict
             continue  # HEAD was the fallback and it is blocked too
-    return ("blocked", last or "unknown")
+    return pending or ("blocked", last or "unknown")
 
 
 def main():
