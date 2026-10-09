@@ -145,6 +145,8 @@ cp social-preview@2x.png banner.png
 cwebp -q 90 -sharp_yuv banner.png -o banner.webp   # README hero: 646 KB PNG -> 148 KB, same 2560x1280
 ```
 
+**Order matters: re-run `python3 scripts/build_site.py` *after* rendering.** `build_site.py` byte-copies `assets/social-preview.png` into `site/`, because the deployed `og:image` has to be served from Pages rather than from `raw.githubusercontent.com` (which GitHub proxies and re-encodes). Running it before the render therefore leaves `site/social-preview.png` holding the *previous* count. Deployments are unaffected — `pages.yml` builds after checkout — so this only makes the local preview disagree with what Pages serves. `python3 scripts/build_site.py --check` compares the two byte-for-byte and reports `stale: social-preview.png (missing or differs from assets/)`, so run it after re-rendering to confirm.
+
 `social-preview@2x.png` is a local intermediate and is gitignored — `banner.png` *is* that 2× render, so committing both used to store the same 646 KB twice.
 
 `banner.webp` is what both READMEs actually display (see the `<img src>` in `scripts/build_readme.py`). Keep both flags: `-sharp_yuv` matters more than the quality number here, because the hero is full of saturated colour (emoji, category dots) and WebP's 4:2:0 chroma subsampling is what eats those edges — not quantisation. Raising `-q` does not fix it (`-q 98` still peaks at a per-channel delta of ~87), while `-sharp_yuv` cuts it roughly in half for ~6% more bytes.
