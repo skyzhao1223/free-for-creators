@@ -12,14 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-172-blue" alt="172 resources">
+  <img src="https://img.shields.io/badge/resources-181-blue" alt="181 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、172 个资源**。
+> 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、181 个资源**。
 
-**一眼看数据**：118 条 💚 可直接用于货币化内容 · 107 条 ➖ 无需署名 · 132 条 🔓 无需注册 · 28 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
+**一眼看数据**：127 条 💚 可直接用于货币化内容 · 113 条 ➖ 无需署名 · 139 条 🔓 无需注册 · 29 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -49,12 +49,12 @@
 - [音乐](#音乐) — 18 个资源 · 适合视频、直播、播客与游戏的免版税、无版权风险音乐。
 - [音效](#音效) — 12 个资源 · 面向视频、游戏、播客与直播的免费音效库、音效包与氛围音。
 - [视频素材](#视频素材) — 17 个资源 · 免费视频片段与 B-roll，含 4K、历史档案与公有领域素材。
-- [图片素材](#图片素材) — 26 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
+- [图片素材](#图片素材) — 27 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
 - [字体](#字体) — 18 个资源 · 可免费商用的字体，含中日韩字体家族——用于封面图、品牌、字幕与印刷。
-- [图形与图标](#图形与图标) — 35 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
+- [图形与图标](#图形与图标) — 40 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
 - [视频制作](#视频制作) — 9 个资源 · LUT、调色资产、转场与剪辑软件模板。
 - [样机与设计模板](#样机与设计模板) — 11 个资源 · PSD/设备样机、封面图与社交媒体模板。
-- [3D 与游戏素材](#3d-与游戏素材) — 20 个资源 · 模型、HDRI、PBR 材质、角色与游戏即用素材包。
+- [3D 与游戏素材](#3d-与游戏素材) — 23 个资源 · 模型、HDRI、PBR 材质、角色与游戏即用素材包。
 - [聚合搜索](#聚合搜索) — 6 个资源 · 跨数百万开放许可图片、音频与媒体的聚合搜索。
 - [相关清单](#相关清单)
 - [参与贡献](#参与贡献)
@@ -159,6 +159,7 @@
 | [Cleveland Museum of Art Open Access](https://www.clevelandart.org/open-access) | 克利夫兰艺术博物馆的馆藏图像与元数据，以 CC0 发布并提供公开 API。 _高分辨率图像与 JSON API 均无需账号即可访问。_ | CC0 | — | 💚 可商用 | — |
 | [Rijksmuseum (Amsterdam)](https://www.rijksmuseum.nl/en/collection) | 荷兰国家博物馆的数字化馆藏；多数作品属公有领域，部分为 CC-BY。 _每个作品单独标注权利；博物馆对公有领域作品的翻拍也一并放弃权利。_ | Public domain (majority) / CC-BY | ❓ 逐项而定 | ❓ 逐项而定 | ❓ |
 | [SMK Open (National Gallery of Denmark)](https://www.smk.dk/article/smk-open/) | 丹麦国立美术馆的开放存取项目；约三分之二馆藏属公有领域。 _仅公有领域作品可自由使用；SMK 放弃自身翻拍权利，这些图像不受任何限制。_ | Public domain (~2/3 of the collection) | — | ❓ 逐项而定 | ❓ |
+| [Neurascapes](https://neurascapes.com/) | 自然、太空与抽象题材的免费图库，无需许可即可商用。 _可免费商用且无需署名；但不得原样转售照片，也不得汇编成竞争性服务。_ | Neurascapes License (free, no attribution) | — | 💚 可商用 | ❓ |
 
 ## 字体
 
@@ -226,6 +227,11 @@
 | [Boxicons](https://boxicons.com/) | 开源网页图标集，含线性、实心与品牌三种风格，提供 SVG 与图标字体。 _图标为 CC BY 4.0，但作者明确免署名：「Attribution is not required but is appreciated」。字体文件为 OFL 1.1，代码 MIT。_ | Icons CC BY 4.0 (attribution waived); fonts OFL 1.1; code MIT | — | 💚 可商用 | — |
 | [Material Design Icons (Pictogrammers)](https://pictogrammers.com/library/mdi/) | 社区维护的 Google Material 图标扩展集，提供 SVG 与图标字体。 | Pictogrammers Free License (icons Apache 2.0) | — | 💚 可商用 | — |
 | [Font Awesome Free](https://fontawesome.com/icons/free) | 老牌图标集；免费档提供实心、线性与品牌三种风格的 SVG 与网页字体。 _免费档图标为 CC BY 4.0，需以链接形式署名 Font Awesome；代码与字体为 MIT/OFL。_ | Icons CC BY 4.0, code MIT | ✅ 需署名 | 💚 可商用 | — |
+| [Lucide Animated](https://lucide-animated.com/) | Lucide 图标集的动效版本，以可直接使用的 React 组件与 CSS 形式提供。 | MIT | — | 💚 可商用 | — |
+| [SVGL](https://svgl.app/) | 社区维护的品牌与技术类 logo 库，提供可直接复制的 SVG。 | MIT | — | 💚 可商用 | — |
+| [Use Animations](https://useanimations.com/) | 面向网页与移动端的免费动效图标，提供 Lottie JSON 与 React 组件。 _免费文件除另行说明外均为 CC BY；明确允许在网页与移动应用中商用。_ | CC BY (free files) | ✅ 需署名 | 💚 可商用 | — |
+| [typicons.font](https://www.s-ings.com/typicons/) | 开源界面图标集，以网页字体与 SVG 分发，采用双重许可。 _双重许可：字体文件为 SIL OFL 1.1，图形为 CC BY-SA，因此需要署名。_ | Fonts SIL OFL 1.1; artwork CC BY-SA | ✅ 需署名 | 💚 可商用 | — |
+| [illlustrations](https://illlustrations.co/) | 开源插画集，描绘日常人物场景，提供 PNG 与 Figma 两种格式。 | MIT | — | 💚 可商用 | — |
 
 ## 视频制作
 
@@ -287,6 +293,9 @@
 | [Quaternius](https://quaternius.com/) | 风格化 CC0 低多边形素材包：动物、地牢、科幻等。 | CC0 | — | 💚 可商用 | — |
 | [CraftPix Freebies](https://craftpix.net/freebies/) | 免费 2D 游戏素材：精灵图、tileset、GUI 套件等。 _可免费用于商业游戏项目；不得转售原始素材。_ | CraftPix Free License | — | 💚 可商用 | 可选 |
 | [3D Textures.me](https://3dtextures.me/) | 适用于 Blender、Unity、Unreal 与 Godot 的无缝 PBR 材质扫描，全部以 CC0 发布。 _纹理需在各自页面逐个下载；打包全部纹理的文件夹向赞助者提供。_ | CC0 | — | 💚 可商用 | ❓ |
+| [Open HDRI](https://openhdri.org/) | 实景拍摄的 HDRI，以 CC0 发布，提供未裁切的线性高分辨率文件。 _官网声明整站为 CC0，无 AI 生成内容、无需登录、无广告。_ | CC0 | — | 💚 可商用 | — |
+| [No Emotion HDRs](https://noemotionhdrs.net/) | 用于打光与天空替换的免费 HDRI 天空，实地拍摄而非生成。 _CC BY-ND：署名后可商用，但不得修改或作为演绎作品再分发这些 HDRI。_ | CC BY-ND 4.0 | ✅ 需署名 | 💚 可商用 | ❓ |
+| [Share Textures](https://www.sharetextures.com/) | 采用自定义 CC0 类许可的 PBR 材质与 3D 模型，最高 4K 分辨率。 _自定义 CC0 条款：禁止再分发与热链，且许可只覆盖从其官网直接下载的文件。_ | Custom CC0-based license | — | 💚 可商用 | — |
 
 ## 聚合搜索
 

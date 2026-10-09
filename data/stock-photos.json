@@ -312,6 +312,19 @@
       "signup": "unknown",
       "notes": "Only the public-domain works are free; SMK waives its own photographic rights, so those images carry no restrictions.",
       "notes_zh": "仅公有领域作品可自由使用；SMK 放弃自身翻拍权利，这些图像不受任何限制。"
+    },
+    {
+      "name": "Neurascapes",
+      "url": "https://neurascapes.com/",
+      "description": "Free stock photos of nature, space and abstract subjects, usable commercially without permission.",
+      "description_zh": "自然、太空与抽象题材的免费图库，无需许可即可商用。",
+      "license": "Neurascapes License (free, no attribution)",
+      "license_family": "site-free",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "unknown",
+      "notes": "Free for commercial use without attribution; you may not resell photos unmodified or compile them into a competing service.",
+      "notes_zh": "可免费商用且无需署名；但不得原样转售照片，也不得汇编成竞争性服务。"
     }
   ]
 }

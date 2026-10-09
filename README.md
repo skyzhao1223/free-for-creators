@@ -12,14 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-172-blue" alt="172 resources">
+  <img src="https://img.shields.io/badge/resources-181-blue" alt="181 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **172 resources across 10 categories**.
+> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **181 resources across 10 categories**.
 
-**At a glance:** 118 entries are 💚 safe for monetized content · 107 need ➖ no attribution · 132 need 🔓 no account · 28 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
+**At a glance:** 127 entries are 💚 safe for monetized content · 113 need ➖ no attribution · 139 need 🔓 no account · 29 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
 
 Every entry answers the three questions that decide whether a “free” asset is actually free for *you*:
 
@@ -49,12 +49,12 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 - [Music](#music) — 18 resources · Royalty-free and copyright-safe music for videos, streams, podcasts and games.
 - [Sound Effects](#sound-effects) — 12 resources · Free SFX libraries, packs and ambience for video, games, podcasts and streams.
 - [Stock Footage](#stock-footage) — 17 resources · Free video clips and B-roll, including 4K, archival and public domain footage.
-- [Stock Photos](#stock-photos) — 26 resources · Free photography, from modern stock to museum-grade public domain archives.
+- [Stock Photos](#stock-photos) — 27 resources · Free photography, from modern stock to museum-grade public domain archives.
 - [Fonts](#fonts) — 18 resources · Typefaces free for commercial use, including CJK families — for thumbnails, branding, subtitles and print.
-- [Graphics & Icons](#graphics--icons) — 35 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
+- [Graphics & Icons](#graphics--icons) — 40 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
 - [Video Production](#video-production) — 9 resources · LUTs, color grading assets, transitions and editor templates.
 - [Mockups & Design Templates](#mockups--design-templates) — 11 resources · PSD/device mockups, thumbnail and social media templates.
-- [3D & Game Assets](#3d--game-assets) — 20 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
+- [3D & Game Assets](#3d--game-assets) — 23 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
 - [Search Engines](#search-engines) — 6 resources · Meta-search across millions of openly licensed images, audio and media.
 - [Related Lists](#related-lists)
 - [Contributing](#contributing)
@@ -159,6 +159,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Cleveland Museum of Art Open Access](https://www.clevelandart.org/open-access) | The Cleveland Museum of Art's collection images and metadata, released under CC0 with a public API. _High-resolution images and the JSON API are both reachable with no account._ | CC0 | — | 💚 Allowed | — |
 | [Rijksmuseum (Amsterdam)](https://www.rijksmuseum.nl/en/collection) | The Dutch national gallery's digitised collection; most objects are public domain, some CC-BY. _Rights are stated per object; the museum also waives its own photographic rights over public-domain works._ | Public domain (majority) / CC-BY | ❓ Varies | ❓ Varies | ❓ |
 | [SMK Open (National Gallery of Denmark)](https://www.smk.dk/article/smk-open/) | Danish national gallery's open-access programme; about two-thirds of the collection is public domain. _Only the public-domain works are free; SMK waives its own photographic rights, so those images carry no restrictions._ | Public domain (~2/3 of the collection) | — | ❓ Varies | ❓ |
+| [Neurascapes](https://neurascapes.com/) | Free stock photos of nature, space and abstract subjects, usable commercially without permission. _Free for commercial use without attribution; you may not resell photos unmodified or compile them into a competing service._ | Neurascapes License (free, no attribution) | — | 💚 Allowed | ❓ |
 
 ## Fonts
 
@@ -226,6 +227,11 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Boxicons](https://boxicons.com/) | Open-source web icon set with regular, solid and logo styles, shipped as SVG and icon fonts. _The icons are CC BY 4.0 but the author waives credit: "Attribution is not required but is appreciated." Font files are OFL 1.1, code MIT._ | Icons CC BY 4.0 (attribution waived); fonts OFL 1.1; code MIT | — | 💚 Allowed | — |
 | [Material Design Icons (Pictogrammers)](https://pictogrammers.com/library/mdi/) | Community-maintained extension of Google's Material icons, distributed as SVG and icon fonts. | Pictogrammers Free License (icons Apache 2.0) | — | 💚 Allowed | — |
 | [Font Awesome Free](https://fontawesome.com/icons/free) | Long-running icon set; the Free tier ships solid, regular and brand styles as SVG and webfonts. _Free-tier icons are CC BY 4.0, so credit Font Awesome with a link; the code and fonts are MIT/OFL._ | Icons CC BY 4.0, code MIT | ✅ Required | 💚 Allowed | — |
+| [Lucide Animated](https://lucide-animated.com/) | Animated variants of the Lucide icon set, shipped as drop-in React components and CSS. | MIT | — | 💚 Allowed | — |
+| [SVGL](https://svgl.app/) | Community-maintained library of brand and technology logos as clean, copy-pasteable SVG. | MIT | — | 💚 Allowed | — |
+| [Use Animations](https://useanimations.com/) | Free animated icons for web and mobile, delivered as Lottie JSON plus React components. _Free files are CC BY unless stated otherwise; commercial use in web and mobile apps is explicitly permitted._ | CC BY (free files) | ✅ Required | 💚 Allowed | — |
+| [typicons.font](https://www.s-ings.com/typicons/) | Open-source interface icon set distributed as a webfont and SVG under a split licence. _Split licence: font files are SIL OFL 1.1 while the artwork is CC BY-SA, so credit is required._ | Fonts SIL OFL 1.1; artwork CC BY-SA | ✅ Required | 💚 Allowed | — |
+| [illlustrations](https://illlustrations.co/) | Open-source illustration set of everyday human situations, in PNG and Figma formats. | MIT | — | 💚 Allowed | — |
 
 ## Video Production
 
@@ -287,6 +293,9 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Quaternius](https://quaternius.com/) | Stylish CC0 low-poly packs: animals, dungeons, sci-fi and more. | CC0 | — | 💚 Allowed | — |
 | [CraftPix Freebies](https://craftpix.net/freebies/) | Free 2D game assets: sprites, tilesets, GUI kits and more. _Free for commercial game projects; no reselling raw assets._ | CraftPix Free License | — | 💚 Allowed | Optional |
 | [3D Textures.me](https://3dtextures.me/) | Seamless PBR material scans for Blender, Unity, Unreal and Godot, all released as CC0. _Textures are downloaded one at a time from each post; a bulk folder is offered to supporters._ | CC0 | — | 💚 Allowed | ❓ |
+| [Open HDRI](https://openhdri.org/) | Real-world captured HDRIs released as CC0, in unclipped linear high-resolution form. _The site states the library is CC0 with no AI-generated content, no login and no ads._ | CC0 | — | 💚 Allowed | — |
+| [No Emotion HDRs](https://noemotionhdrs.net/) | Free HDR skies for lighting and sky replacement, shot on location rather than generated. _CC BY-ND: commercial use with credit is fine, but the HDRIs must not be modified or redistributed as derivatives._ | CC BY-ND 4.0 | ✅ Required | 💚 Allowed | ❓ |
+| [Share Textures](https://www.sharetextures.com/) | PBR materials and 3D models under a custom CC0-based licence, up to 4K resolution. _Custom CC0-based terms: no redistribution or hotlinking, and the licence covers only files downloaded from their own site._ | Custom CC0-based license | — | 💚 Allowed | — |
 
 ## Search Engines
 

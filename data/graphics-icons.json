@@ -412,6 +412,65 @@
       "signup": "not-required",
       "notes": "Free-tier icons are CC BY 4.0, so credit Font Awesome with a link; the code and fonts are MIT/OFL.",
       "notes_zh": "免费档图标为 CC BY 4.0，需以链接形式署名 Font Awesome；代码与字体为 MIT/OFL。"
+    },
+    {
+      "name": "Lucide Animated",
+      "url": "https://lucide-animated.com/",
+      "description": "Animated variants of the Lucide icon set, shipped as drop-in React components and CSS.",
+      "description_zh": "Lucide 图标集的动效版本，以可直接使用的 React 组件与 CSS 形式提供。",
+      "license": "MIT",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "SVGL",
+      "url": "https://svgl.app/",
+      "description": "Community-maintained library of brand and technology logos as clean, copy-pasteable SVG.",
+      "description_zh": "社区维护的品牌与技术类 logo 库，提供可直接复制的 SVG。",
+      "license": "MIT",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Use Animations",
+      "url": "https://useanimations.com/",
+      "description": "Free animated icons for web and mobile, delivered as Lottie JSON plus React components.",
+      "description_zh": "面向网页与移动端的免费动效图标，提供 Lottie JSON 与 React 组件。",
+      "license": "CC BY (free files)",
+      "license_family": "cc-by",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Free files are CC BY unless stated otherwise; commercial use in web and mobile apps is explicitly permitted.",
+      "notes_zh": "免费文件除另行说明外均为 CC BY；明确允许在网页与移动应用中商用。"
+    },
+    {
+      "name": "typicons.font",
+      "url": "https://www.s-ings.com/typicons/",
+      "description": "Open-source interface icon set distributed as a webfont and SVG under a split licence.",
+      "description_zh": "开源界面图标集，以网页字体与 SVG 分发，采用双重许可。",
+      "license": "Fonts SIL OFL 1.1; artwork CC BY-SA",
+      "license_family": "cc-by",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Split licence: font files are SIL OFL 1.1 while the artwork is CC BY-SA, so credit is required.",
+      "notes_zh": "双重许可：字体文件为 SIL OFL 1.1，图形为 CC BY-SA，因此需要署名。"
+    },
+    {
+      "name": "illlustrations",
+      "url": "https://illlustrations.co/",
+      "description": "Open-source illustration set of everyday human situations, in PNG and Figma formats.",
+      "description_zh": "开源插画集，描绘日常人物场景，提供 PNG 与 Figma 两种格式。",
+      "license": "MIT",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
     }
   ]
 }

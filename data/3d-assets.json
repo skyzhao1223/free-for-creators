@@ -241,6 +241,45 @@
       "signup": "unknown",
       "notes": "Textures are downloaded one at a time from each post; a bulk folder is offered to supporters.",
       "notes_zh": "纹理需在各自页面逐个下载；打包全部纹理的文件夹向赞助者提供。"
+    },
+    {
+      "name": "Open HDRI",
+      "url": "https://openhdri.org/",
+      "description": "Real-world captured HDRIs released as CC0, in unclipped linear high-resolution form.",
+      "description_zh": "实景拍摄的 HDRI，以 CC0 发布，提供未裁切的线性高分辨率文件。",
+      "license": "CC0",
+      "license_family": "cc0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "The site states the library is CC0 with no AI-generated content, no login and no ads.",
+      "notes_zh": "官网声明整站为 CC0，无 AI 生成内容、无需登录、无广告。"
+    },
+    {
+      "name": "No Emotion HDRs",
+      "url": "https://noemotionhdrs.net/",
+      "description": "Free HDR skies for lighting and sky replacement, shot on location rather than generated.",
+      "description_zh": "用于打光与天空替换的免费 HDRI 天空，实地拍摄而非生成。",
+      "license": "CC BY-ND 4.0",
+      "license_family": "cc-by",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "unknown",
+      "notes": "CC BY-ND: commercial use with credit is fine, but the HDRIs must not be modified or redistributed as derivatives.",
+      "notes_zh": "CC BY-ND：署名后可商用，但不得修改或作为演绎作品再分发这些 HDRI。"
+    },
+    {
+      "name": "Share Textures",
+      "url": "https://www.sharetextures.com/",
+      "description": "PBR materials and 3D models under a custom CC0-based licence, up to 4K resolution.",
+      "description_zh": "采用自定义 CC0 类许可的 PBR 材质与 3D 模型，最高 4K 分辨率。",
+      "license": "Custom CC0-based license",
+      "license_family": "site-free",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Custom CC0-based terms: no redistribution or hotlinking, and the licence covers only files downloaded from their own site.",
+      "notes_zh": "自定义 CC0 条款：禁止再分发与热链，且许可只覆盖从其官网直接下载的文件。"
     }
   ]
 }
