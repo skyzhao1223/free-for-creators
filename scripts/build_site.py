@@ -6,6 +6,9 @@ Outputs — ALL generated at deploy time and gitignored, like site/data/:
     site/data/*.json   per-category copies + manifest.json + all.json (one merged file)
     site/all.html      a fully static, crawlable mirror of every entry — no JavaScript
     site/sitemap.xml   both URLs, with <lastmod> from the last commit that touched data/
+    site/social-preview.png   byte-copy of assets/social-preview.png — og:image must be
+                       served from the Pages domain; some crawlers (Twitter/X) fetch
+                       raw.githubusercontent.com unreliably
 
 Why all.html exists: site/index.html renders client-side, so a crawler that does not
 execute JavaScript sees an empty directory — the site's whole value was invisible to
@@ -35,6 +38,8 @@ Stdlib only (Python >= 3.9). License: CC0.
 import argparse
 import json
 import re
+import shutil
+import struct
 import subprocess
 import sys
 from datetime import date
@@ -52,6 +57,8 @@ from build_readme import (  # noqa: E402
 
 ALL_HTML = SITE_DIR / "all.html"
 SITEMAP = SITE_DIR / "sitemap.xml"
+SOCIAL_PNG_SRC = ROOT / "assets" / "social-preview.png"
+SOCIAL_PNG = SITE_DIR / "social-preview.png"
 
 # Labels for the static page. Kept here (not in build_readme.T) because they are
 # page furniture, not README prose.
@@ -125,6 +132,15 @@ footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #e4e6ef;
 def esc(s):
     return (str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
             .replace('"', "&quot;"))
+
+
+def png_size(path):
+    """(width, height) straight from the IHDR chunk — og:image dimensions stay derived."""
+    with open(path, "rb") as f:
+        head = f.read(24)
+    if head[:8] != b"\x89PNG\r\n\x1a\n":
+        raise SystemExit("%s is not a PNG" % path)
+    return struct.unpack(">II", head[16:24])
 
 
 def git(*args):
@@ -224,6 +240,12 @@ def render_all_html(categories, total, lastmod):
     a('<meta property="og:title" content="%s">' % esc(LABELS["title"]))
     a('<meta property="og:type" content="website">')
     a('<meta property="og:url" content="%sall.html">' % PAGES_URL)
+    img_w, img_h = png_size(SOCIAL_PNG_SRC)
+    a('<meta property="og:image" content="%ssocial-preview.png">' % PAGES_URL)
+    a('<meta property="og:image:width" content="%d">' % img_w)
+    a('<meta property="og:image:height" content="%d">' % img_h)
+    a('<meta property="og:image:alt" content="Free for Creators — license-verified free '
+      'assets for video creators, streamers, podcasters, game devs and designers">')
     # `<` is escaped as \u003c so a name/url containing "</script>" cannot terminate the
     # block early. Inside <script> HTML entities are NOT decoded, so & stays literal.
     ld = json.dumps(jsonld(categories, total, lastmod), ensure_ascii=False,
@@ -344,6 +366,9 @@ def main():
                 stale.append("%s (missing)" % name)
             elif path.read_text(encoding="utf-8") != content:
                 stale.append("%s (differs)" % name)
+        img_current = SOCIAL_PNG.read_bytes() if SOCIAL_PNG.exists() else None
+        if img_current != SOCIAL_PNG_SRC.read_bytes():
+            stale.append("%s (missing or differs from assets/)" % SOCIAL_PNG.name)
         if out_dir.is_dir():
             stale += ["%s (unexpected)" % p.name for p in sorted(out_dir.glob("*.json")) if p.name not in payload]
         if stale:
@@ -356,6 +381,8 @@ def main():
     for path, content in pages.items():
         path.write_text(content, encoding="utf-8")
         print("Wrote %s" % path)
+    shutil.copyfile(SOCIAL_PNG_SRC, SOCIAL_PNG)
+    print("Copied %s -> %s (og:image payload)" % (SOCIAL_PNG_SRC.name, SOCIAL_PNG.name))
     out_dir.mkdir(parents=True, exist_ok=True)
     for name, content in sorted(payload.items()):
         (out_dir / name).write_text(content, encoding="utf-8")

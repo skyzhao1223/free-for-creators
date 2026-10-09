@@ -10,5 +10,7 @@ __pycache__/
 site/data/
 site/all.html
 site/sitemap.xml
+# og:image must be served from the Pages domain — copied from assets/ at deploy time.
+site/social-preview.png
 # local render intermediate — assets/banner.png IS this file (see CONTRIBUTING.md)
 assets/social-preview@2x.png

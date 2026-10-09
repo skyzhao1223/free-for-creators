@@ -19,10 +19,19 @@
 </script>
 <meta property="og:title" content="Free for Creators — license-verified free assets">
 <meta property="og:description" content="Interactive directory of free resources for creators — filter every entry by license, attribution and monetization. 许可透明的创作者免费素材清单。">
-<meta property="og:image" content="https://raw.githubusercontent.com/skyzhao1223/free-for-creators/main/assets/social-preview.png">
+<!-- og:image is served from the Pages domain, not raw.githubusercontent.com: some
+     social crawlers (Twitter/X in particular) fetch raw URLs unreliably. The file is
+     copied here from assets/ by scripts/build_site.py at deploy time (gitignored).
+     Keep the width/height in sync with assets/social-preview.png (1280x640). -->
+<meta property="og:image" content="https://skyzhao1223.github.io/free-for-creators/social-preview.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Free for Creators — license-verified free assets for video creators, streamers, podcasters, game devs and designers">
 <meta property="og:url" content="https://skyzhao1223.github.io/free-for-creators/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://skyzhao1223.github.io/free-for-creators/social-preview.png">
+<meta name="twitter:image:alt" content="Free for Creators — license-verified free assets for video creators, streamers, podcasters, game devs and designers">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="0.9em" font-size="90">🎁</text></svg>'>
 <script>
   // Dark is the signature look; explicit user choice (toggle) is persisted.
@@ -425,6 +434,20 @@ footer a:hover { text-decoration: underline; }
   #to-top { right: 14px; bottom: 14px; }
 }
 </style>
+<!-- Privacy-friendly analytics: GoatCounter — no cookies, no consent banner, no PII.
+     Loads on the canonical host only, so local previews and forks never pollute the
+     stats. Counts flow once free-for-creators.goatcounter.com is registered (free).
+     UTM params on inbound links (?utm_source=…) show up as campaigns automatically.
+     If a custom domain is ever added, extend the hostname check below. -->
+<script>
+  if (location.hostname === "skyzhao1223.github.io") {
+    var gc = document.createElement("script");
+    gc.async = true;
+    gc.src = "https://gc.zgo.at/count.js";
+    gc.setAttribute("data-goatcounter", "https://free-for-creators.goatcounter.com/count");
+    document.head.appendChild(gc);
+  }
+</script>
 </head>
 <body>
 <a class="skip" href="#results" data-i18n="skip_link">Skip to results</a>
