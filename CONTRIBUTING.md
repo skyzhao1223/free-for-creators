@@ -89,10 +89,17 @@ Semantics we use consistently:
 
 - Descriptions in English, imperative-free, no marketing fluff ("amazing", "best").
 - Adding `description_zh` (and `notes_zh` when you add `notes`) is very welcome — native wording beats machine translation. The build warns when a translation is missing but never fails on it.
-- One fact per entry; if a site has a separate free section, link **to the free section** when a stable URL for it exists — e.g. `https://www.motionelements.com/free/stock-footage`, `https://www.vecteezy.com/free-vector`. Two traps, both learned the hard way:
-  - **A `200` is not proof the page exists.** SPAs serve an empty shell for any path: `pretzel.rocks/library` returns `200` to every client *and* passes `scripts/linkcheck.py`, but renders `h1 "Page not found"` in a browser. Open the URL in a real browser once and check what actually renders, not just the status code.
-  - **Bot walls make the checker blind, and near-miss paths fail silently.** Some sites (Flaticon, Freepik, ZapSplat, Motion Array) return `403` to non-browser clients for *every* page including the homepage — `linkcheck.py` reports those as *blocked*, which does not fail CI but also proves nothing. Others 404 on a plausible-looking path: Vecteezy's `/free-vectors` (plural) is dead while `/free-vector` (singular) is the live page. If you cannot confirm a free-section URL both ways, keep the homepage and say in `notes` how to reach the free assets. Never paper over it with `skip_linkcheck` — that field is for login walls only.
-  - Motion Array specifically has **no** combined free-browse URL any more (`/browse/free/` is its own 404, `/free/` 301s to the homepage); only per-category pages such as `/after-effects-templates/free/` exist, and they are bot-walled. Its entry therefore stays on the homepage.
+- One fact per entry; if a site has a separate free section, link **to the free section** when a stable URL for it exists — e.g. `https://www.motionelements.com/free/stock-footage`, `https://www.vecteezy.com/free-vector`. A green `linkcheck.py` is necessary but nowhere near sufficient: three kinds of page pass it and are still useless.
+
+  | Trap | Real example from this repo | Does `linkcheck.py` catch it? |
+  | --- | --- | --- |
+  | Server-rendered soft 404 — HTTP 200, but the `<title>`/`<h1>` says "not found" | `pretzel.rocks/library`, `own3d.pro/en/free` | **yes** — reported as `broken` |
+  | Client-side soft 404 — 200 with a normal marketing `<title>`, then the JS router renders the error page | `placeit.net/c/free` | no — open it in a browser |
+  | A perfectly valid page whose listing is **empty** | `itch.io/game-assets/free/tag-twitch-overlay` (0 results, while `/tag-twitch` has 69) | no — count the results yourself |
+
+  Also bot walls: some sites (Flaticon, Magnific/Freepik, ZapSplat, Motion Array, Nerd Or Die) return `403` to non-browser clients for *every* page including the homepage. `linkcheck.py` reports those as *blocked*, which does not fail CI but proves nothing either — read the licence with a real browser or skip the entry. And near-miss paths fail silently: Vecteezy's `/free-vectors` (plural) is dead while `/free-vector` (singular) is live.
+
+  Because of the empty-listing trap, **prefer a section root over a filtered/tag URL**: tag listings empty out as sites change and nothing in CI will notice. If you cannot confirm a free-section URL, keep the homepage and say in `notes` how to reach the free assets. Never paper over it with `skip_linkcheck` — that field is for login walls only. Motion Array is the standing example: it has **no** combined free-browse URL any more (`/browse/free/` is its own 404, `/free/` 301s to the homepage), only bot-walled per-category pages such as `/after-effects-templates/free/`, so its entry stays on the homepage.
 - Prefer the resource's own domain over aggregators, except for aggregator-type entries (search engines).
 
 ## Website
