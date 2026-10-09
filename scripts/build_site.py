@@ -1,28 +1,34 @@
 #!/usr/bin/env python3
 """Build everything the website needs from data/*.json.
 
-Two kinds of output:
+Outputs — ALL generated at deploy time and gitignored, like site/data/:
 
-  1. the deploy payload   site/data/*.json      (gitignored, rebuilt on every deploy)
-  2. committed artifacts  site/all.html         (a fully static, crawlable mirror of
-                          site/sitemap.xml       all 158 entries — no JavaScript)
+    site/data/*.json   per-category copies + manifest.json + all.json (one merged file)
+    site/all.html      a fully static, crawlable mirror of every entry — no JavaScript
+    site/sitemap.xml   both URLs, with <lastmod> from the last commit that touched data/
 
-Why (2) exists: site/index.html renders everything client-side, so a crawler that does
-not execute JavaScript sees an empty directory. all.html gives search engines the real
-content, plus ItemList/Dataset structured data with live counts.
+Why all.html exists: site/index.html renders client-side, so a crawler that does not
+execute JavaScript sees an empty directory — the site's whole value was invisible to
+search. all.html gives crawlers the real content plus ItemList/Dataset JSON-LD.
+
+Why these are NOT committed (they were, briefly): sitemap's <lastmod> and the JSON-LD
+`dateModified` come from the last commit that touched data/. The commit that
+regenerates them *is* a commit that touches data/, so a committed copy can never agree
+with what CI computes — every data change failed its own sync check. A derived file
+whose inputs include its own commit belongs in the build, not in git.
 
 This file is the single implementation of the site build. It replaces the inline python
 that used to be duplicated in .github/workflows/pages.yml and in CONTRIBUTING.md's
 local-preview one-liner — three copies that could (and did) drift.
 
 Usage:
-    python3 scripts/build_site.py            # build the payload + committed artifacts
+    python3 scripts/build_site.py            # build everything into site/
     python3 scripts/build_site.py --out DIR  # put the payload somewhere else
-    python3 scripts/build_site.py --check    # CI: fail if a committed artifact is stale
-    python3 scripts/build_site.py --check-data DIR   # local: is my preview stale?
+    python3 scripts/build_site.py --check    # local: is my site/ preview stale?
 
-Also verifies that site/index.html's CAT_COLORS covers every slug in CATEGORY_ORDER —
-that map is the one site-side constant that has to track CATEGORY_ORDER by hand.
+Also fails when site/index.html's CAT_COLORS does not cover every CATEGORY_ORDER slug —
+that map is the one site-side constant you must update by hand for a new category, and
+this is the check CI does run.
 
 Stdlib only (Python >= 3.9). License: CC0.
 """
@@ -129,26 +135,21 @@ def data_lastmod():
     """Date of the last commit that touched data/.
 
     A shallow clone grafts HEAD into a root commit, so `git log -- data/` reports HEAD
-    even when HEAD never touched data/ — the sitemap's lastmod would then be the deploy
-    date and `--check` would fail spuriously in CI. Detect that instead of guessing.
+    even when HEAD never touched data/. Both CI workflows check out with
+    `fetch-depth: 0`; anywhere else we warn and fall back to today rather than fail,
+    because this value only ever reaches a deploy-time artifact.
     """
     try:
         if git("rev-parse", "--is-shallow-repository").stdout.strip() == "true":
-            print("ERROR: this is a shallow clone, so the last commit that touched data/ "
-                  "cannot be determined and site/sitemap.xml's <lastmod> would be wrong.\n"
-                  "       Fetch full history first:  git fetch --unshallow\n"
-                  "       (CI does this via `fetch-depth: 0`.)", file=sys.stderr)
-            sys.exit(2)
+            print("WARNING: shallow clone — sitemap <lastmod> falls back to today's date. "
+                  "Run `git fetch --unshallow` for the real one.", file=sys.stderr)
+            return date.today().isoformat()
         out = git("log", "-1", "--format=%cs", "--", "data/")
         stamp = out.stdout.strip()
         if out.returncode == 0 and re.match(r"^\d{4}-\d{2}-\d{2}$", stamp):
             return stamp
-    except SystemExit:
-        raise
     except Exception:
         pass
-    # No usable git history at all (e.g. an exported tarball): today is the honest
-    # answer, and --check will simply report drift.
     return date.today().isoformat()
 
 
@@ -307,16 +308,18 @@ def check_cat_colors(index_html, slugs):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--out", default=str(DEFAULT_OUT), help="payload output directory (default: site/data)")
-    ap.add_argument("--check", action="store_true", help="fail if a committed artifact (all.html, sitemap.xml) is stale")
-    ap.add_argument("--check-data", metavar="DIR", help="fail if an existing payload directory is stale")
+    ap.add_argument("--check", action="store_true",
+                    help="local convenience: fail if the site/ preview is stale. Not a CI gate.")
     ap.add_argument("--skip-color-check", action="store_true", help="do not verify CAT_COLORS coverage")
     args = ap.parse_args()
 
     categories = load_categories()
     total = sum(len(c["entries"]) for c in categories)
     lastmod = data_lastmod()
-    wanted = {ALL_HTML: render_all_html(categories, total, lastmod), SITEMAP: render_sitemap(lastmod)}
+    pages = {ALL_HTML: render_all_html(categories, total, lastmod), SITEMAP: render_sitemap(lastmod)}
+    payload = payloads(categories)
 
+    # The one gate that can fail CI: a hand-maintained map drifting from CATEGORY_ORDER.
     problems = []
     if not args.skip_color_check:
         problems += check_cat_colors((SITE_DIR / "index.html").read_text(encoding="utf-8"), CATEGORY_ORDER)
@@ -324,56 +327,43 @@ def main():
         for p in problems:
             print("ERROR: %s" % p, file=sys.stderr)
         sys.exit(1)
+    print("CAT_COLORS covers all %d category slugs." % len(CATEGORY_ORDER))
 
+    out_dir = Path(args.out)
     if args.check:
         stale = []
-        for path, content in wanted.items():
+        for path, content in pages.items():
             current = path.read_text(encoding="utf-8") if path.exists() else None
-            if current != content:
-                stale.append(path.name)
-        if stale:
-            print("ERROR: %s out of sync with data/. Run: python3 scripts/build_site.py"
-                  % ", ".join(sorted(stale)), file=sys.stderr)
-            sys.exit(1)
-        print("site/all.html and site/sitemap.xml are in sync (%d entries, lastmod %s)." % (total, lastmod))
-    elif not args.check_data:
-        # --check-data is a read-only query about a preview directory; it must not
-        # rewrite the committed artifacts as a side effect.
-        for path, content in wanted.items():
-            path.write_text(content, encoding="utf-8")
-            print("Wrote %s" % path)
-
-    if args.check_data:
-        out_dir = Path(args.check_data)
-        payload = payloads(categories)
-        if not out_dir.is_dir():
-            print("ERROR: %s does not exist. Run: python3 scripts/build_site.py" % out_dir, file=sys.stderr)
-            sys.exit(1)
-        stale = []
+            if current is None:
+                stale.append("%s (missing)" % path.name)
+            elif current != content:
+                stale.append("%s (differs)" % path.name)
         for name, content in sorted(payload.items()):
             path = out_dir / name
             if not path.exists():
                 stale.append("%s (missing)" % name)
             elif path.read_text(encoding="utf-8") != content:
                 stale.append("%s (differs)" % name)
-        stale += ["%s (unexpected)" % p.name for p in sorted(out_dir.glob("*.json")) if p.name not in payload]
+        if out_dir.is_dir():
+            stale += ["%s (unexpected)" % p.name for p in sorted(out_dir.glob("*.json")) if p.name not in payload]
         if stale:
-            print("ERROR: %s is out of sync with data/: %s" % (out_dir, ", ".join(stale)), file=sys.stderr)
+            print("Local site/ preview is stale: %s\n       Run: python3 scripts/build_site.py"
+                  % ", ".join(stale), file=sys.stderr)
             sys.exit(1)
-        print("Payload in %s is in sync." % out_dir)
-    elif not args.check:
-        out_dir = Path(args.out)
-        payload = payloads(categories)
-        out_dir.mkdir(parents=True, exist_ok=True)
-        for name, content in sorted(payload.items()):
-            (out_dir / name).write_text(content, encoding="utf-8")
-        # Drop leftovers from removed categories. Match on the full file name — `p.stem`
-        # never equals a payload key (which carries ".json") and would delete everything.
-        for extra in sorted(p for p in out_dir.glob("*.json") if p.name not in payload):
-            extra.unlink()
-        print("Wrote %d payload files to %s (%d entries)" % (len(payload), out_dir, total))
+        print("Local site/ preview is up to date (%d entries, lastmod %s)." % (total, lastmod))
+        return
 
-    print("CAT_COLORS covers all %d category slugs." % len(CATEGORY_ORDER))
+    for path, content in pages.items():
+        path.write_text(content, encoding="utf-8")
+        print("Wrote %s" % path)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    for name, content in sorted(payload.items()):
+        (out_dir / name).write_text(content, encoding="utf-8")
+    # Drop leftovers from removed categories. Match on the full file name — `p.stem`
+    # never equals a payload key (which carries ".json") and would delete everything.
+    for extra in sorted(p for p in out_dir.glob("*.json") if p.name not in payload):
+        extra.unlink()
+    print("Wrote %d payload files to %s (%d entries)" % (len(payload), out_dir, total))
 
 
 if __name__ == "__main__":

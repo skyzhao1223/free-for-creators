@@ -15,7 +15,7 @@ jobs:
     steps:
       # fetch-depth: 0 — build_site.py derives sitemap.xml's <lastmod> from the last
       # commit that touched data/. A shallow clone grafts HEAD as a root commit and
-      # would report HEAD's date instead, making --check fail on unrelated commits.
+      # reports HEAD's date instead; full history keeps that value honest and quiet.
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
@@ -26,11 +26,9 @@ jobs:
         run: python scripts/build_readme.py --validate-only
       - name: Check README is in sync with data/
         run: python scripts/build_readme.py --check
-      # site/data/ is gitignored and rebuilt on deploy, so build it into a throwaway
-      # directory here: this proves the Pages payload still assembles. site/all.html and
-      # site/sitemap.xml ARE committed, so --check fails if they drifted from data/.
-      # Both steps also verify site/index.html's CAT_COLORS covers every CATEGORY_ORDER slug.
-      - name: Check generated site files are in sync
-        run: python scripts/build_site.py --check
+      # site/all.html, site/sitemap.xml and site/data/ are all deploy-time artifacts
+      # (gitignored), so there is nothing to sync-check here. Building them into a
+      # throwaway directory proves the Pages payload still assembles, and fails if
+      # site/index.html's CAT_COLORS drifts from CATEGORY_ORDER.
       - name: Build site payload
         run: python scripts/build_site.py --out "${{ runner.temp }}/site-data"
