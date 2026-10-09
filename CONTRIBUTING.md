@@ -135,12 +135,23 @@ cd assets
   --screenshot=social-preview@2x.png "file://$PWD/social-preview.html"
 sips -z 640 1280 social-preview@2x.png --out social-preview.png
 cp social-preview@2x.png banner.png
-cwebp -q 92 banner.png -o banner.webp   # the README hero: 646 KB PNG -> 156 KB at the same 2560x1280
+cwebp -q 90 -sharp_yuv banner.png -o banner.webp   # README hero: 646 KB PNG -> 148 KB, same 2560x1280
 ```
 
 `social-preview@2x.png` is a local intermediate and is gitignored — `banner.png` *is* that 2× render, so committing both used to store the same 646 KB twice.
 
-`banner.webp` is what both READMEs actually display (see the `<img src>` in `scripts/build_readme.py`). Quality is `-q 92` at the full 2560×1280, measured PSNR 53.9 dB / SSIM 24.9 dB — visually transparent, and 4.1× smaller than the PNG. `banner.png` is kept as the WebP's source and as a one-line fallback: if a GitHub image proxy ever stops serving WebP, point `build_readme.py` back at it and regenerate. Do **not** downscale below 1720×860; the README renders the hero at `width="860"`, so that is the 2× retina floor.
+`banner.webp` is what both READMEs actually display (see the `<img src>` in `scripts/build_readme.py`). Keep both flags: `-sharp_yuv` matters more than the quality number here, because the hero is full of saturated colour (emoji, category dots) and WebP's 4:2:0 chroma subsampling is what eats those edges — not quantisation. Raising `-q` does not fix it (`-q 98` still peaks at a per-channel delta of ~87), while `-sharp_yuv` cuts it roughly in half for ~6% more bytes.
+
+Measured against the PNG **at the 860×430 size the README actually renders** (per-channel delta, which is what an eye would see):
+
+| cwebp flags | size | max delta | pixels >8 |
+| --- | --- | --- | --- |
+| `-q 92` | 156 KB | 33 | 0.29% |
+| **`-q 90 -sharp_yuv`** | **148 KB** | **19** | **0.05%** |
+| `-q 95 -sharp_yuv` | 203 KB | 18 | 0.04% |
+| `-near_lossless 60` | 383 KB | 3 | 0.00% |
+
+`banner.png` is kept as the WebP's source and as a one-line fallback: if a GitHub image proxy ever stops serving WebP, point `build_readme.py` back at it and regenerate. Do **not** downscale below 1720×860; the README renders the hero at `width="860"`, so that is the 2× retina floor.
 
 Then re-upload `social-preview.png` under repo **Settings → General → Social preview** (GitHub accepts PNG/JPG/GIF only, max 1 MB — WebP is *not* accepted there, which is why the PNG stays).
 
