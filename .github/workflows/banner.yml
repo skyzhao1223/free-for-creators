@@ -1,16 +1,18 @@
 name: Render banner
 
 # Re-renders assets/social-preview.png, banner.png and banner.webp from
-# assets/social-preview.html, whose entry counts are stamped by build_readme.py.
-# Until now the three images were rebuilt by hand after every data change (issue #10).
+# assets/social-preview.html, whose entry counts are stamped by build_readme.py. The three
+# images used to be rebuilt by hand after every data change (issue #10), and forgetting it
+# left the README hero and og:image showing a stale count.
 #
-# Artifact-only, no auto-commit: the HTML asks for macOS-only faces (-apple-system,
-# "SF Pro Display", "PingFang SC"), so a Linux runner substitutes. Noto colour emoji and
-# Noto CJK are installed to keep the 7 emoji and 4 Han characters from turning into tofu,
-# but the Latin text still differs from the approved macOS render. Swapping the typeface
-# on the README hero is a decision, not a side effect of a data commit.
+# CI is now the only renderer: do not re-render locally and commit, or the byte comparison
+# below will see drift and re-commit over it. The CSS names Noto Sans / Noto Sans CJK SC /
+# Noto Color Emoji explicitly after the Apple faces, so a Linux runner resolves the same
+# fonts every time instead of whatever fontconfig defaults to; the install step logs
+# fc-match output so a runner-image change that alters the render is traceable.
 #
-# To switch on auto-commit, run this workflow with the `commit` input set to true.
+# The commit-back step carries [skip ci] because neither ci.yml nor pages.yml filters on
+# paths, and no-ops when a fresh render byte-matches what is already committed.
 
 on:
   workflow_dispatch:
@@ -55,9 +57,16 @@ jobs:
           # fonts-noto-color-emoji: the banner contains 7 emoji (🎁✅⭐🌐💚📖🚫).
           # fonts-noto-cjk: it contains 4 Han characters (中体文简).
           # Without these the Linux render shows tofu boxes for both.
-          sudo apt-get install -y -qq webp fonts-noto-color-emoji fonts-noto-cjk >/dev/null
+          sudo apt-get install -y -qq webp fonts-noto-core fonts-noto-color-emoji fonts-noto-cjk >/dev/null
           python3 -m pip install --quiet pillow numpy
           echo "cwebp: $(cwebp -version 2>&1 | head -1)"
+          # Recorded so a future runner-image change that alters the render is traceable:
+          # the CSS names these faces explicitly, and whichever of them is missing here
+          # silently changes the banner.
+          for f in "Noto Sans" "Noto Sans CJK SC" "Noto Color Emoji"; do
+            printf 'font "%s": %s face(s)\n' "$f" "$(fc-match -a "$f" 2>/dev/null | wc -l)"
+            fc-match "$f" 2>/dev/null | sed 's/^/    resolves to: /'
+          done
           fc-list | grep -ci "noto color emoji" | xargs echo "Noto Color Emoji faces:"
           fc-list | grep -ci "noto sans cjk" | xargs echo "Noto Sans CJK faces:"
 
@@ -197,7 +206,7 @@ jobs:
       # every banner commit re-runs both. This step also no-ops when a fresh render
       # byte-matches what is already committed.
       - name: Commit the rendered images back to main
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.commit && env.stale == 'true' }}
+        if: ${{ env.stale == 'true' && (github.event_name == 'push' || inputs.commit) }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
@@ -209,4 +218,6 @@ jobs:
           fi
           want="$(python3 scripts/build_readme.py --description | grep -oE '[0-9]+ resources' || true)"
           git commit -m "assets: re-render banner and social preview for ${want:-the current} entry count [skip ci]"
+          # Someone may have pushed while this ran; rebase rather than fail the job.
+          git pull --rebase origin main
           git push origin HEAD:main
