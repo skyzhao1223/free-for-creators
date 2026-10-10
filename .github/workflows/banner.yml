@@ -66,7 +66,7 @@ jobs:
           # fonts-noto-cjk: it contains 4 Han characters (中体文简).
           # Without these the Linux render shows tofu boxes for both.
           sudo apt-get install -y -qq webp fonts-noto-color-emoji fonts-noto-cjk >/dev/null
-          python3 -m pip install --quiet pillow
+          python3 -m pip install --quiet pillow numpy
           echo "cwebp: $(cwebp -version 2>&1 | head -1)"
           fc-list | grep -ci "noto color emoji" | xargs echo "Noto Color Emoji faces:"
           fc-list | grep -ci "noto sans cjk" | xargs echo "Noto Sans CJK faces:"
@@ -153,6 +153,26 @@ jobs:
               print(f"  {'ok  ' if cols > 200 else 'FAIL'} {name}: {cols} distinct colours")
               if cols <= 200:
                   bad = True
+
+          # Colour count alone does not catch tofu: a hollow glyph box still has an
+          # outline, so the histogram barely moves. Ink coverage and colour saturation
+          # do. Thresholds are calibrated against the approved macOS render, which
+          # measures 16.48% ink and 27.19% saturated; a Linux/Noto render of the same
+          # artwork measures 16.49% and 27.69%, so these bounds have real margin while
+          # a missing-font render (near-zero saturation) or a blank one (near-zero ink)
+          # fails loudly.
+          import numpy as np
+          g = np.asarray(Image.open("assets/banner.png").convert("L"), dtype=np.int16)
+          bg = int(np.median(g))
+          ink = float((np.abs(g - bg) > 28).mean() * 100)
+          rgb = np.asarray(Image.open("assets/banner.png").convert("RGB"), dtype=np.int16)
+          sat = float(((rgb.max(axis=2) - rgb.min(axis=2)) > 40).mean() * 100)
+          print(f"  {'ok  ' if 10.0 <= ink <= 25.0 else 'FAIL'} ink coverage: {ink:.2f}% (want 10-25%)")
+          print(f"  {'ok  ' if sat >= 15.0 else 'FAIL'} saturated pixels: {sat:.2f}% (want >=15%, emoji+category dots)")
+          if not (10.0 <= ink <= 25.0):
+              bad = True
+          if sat < 15.0:
+              bad = True
           sys.exit(1 if bad else 0)
           PY
 
