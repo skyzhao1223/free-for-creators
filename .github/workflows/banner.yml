@@ -57,13 +57,17 @@ jobs:
           # fonts-noto-color-emoji: the banner contains 7 emoji (🎁✅⭐🌐💚📖🚫).
           # fonts-noto-cjk: it contains 4 Han characters (中体文简).
           # Without these the Linux render shows tofu boxes for both.
-          sudo apt-get install -y -qq webp fonts-dejavu-core fonts-noto-color-emoji fonts-noto-cjk >/dev/null
+          sudo apt-get install -y -qq webp fonts-noto-color-emoji fonts-noto-cjk >/dev/null
           python3 -m pip install --quiet pillow numpy
           echo "cwebp: $(cwebp -version 2>&1 | head -1)"
           # Recorded so a future runner-image change that alters the render is traceable:
           # the CSS names these faces explicitly, and whichever of them is missing here
           # silently changes the banner.
-          for f in "DejaVu Sans" "Noto Sans CJK SC" "Noto Color Emoji"; do
+          # Which face does the generic sans-serif actually resolve to? This is the question the
+          # banner's appearance depends on, and it was never logged before.
+          echo "fc-match sans-serif -> $(fc-match sans-serif)"
+          echo "fc-match 'Helvetica Neue' -> $(fc-match 'Helvetica Neue')"
+          for f in "DejaVu Sans" "Noto Sans" "Noto Sans CJK SC" "Liberation Sans" "Noto Color Emoji"; do
             printf 'font "%s": %s face(s)\n' "$f" "$(fc-match -a "$f" 2>/dev/null | wc -l)"
             fc-match "$f" 2>/dev/null | sed 's/^/    resolves to: /'
           done
