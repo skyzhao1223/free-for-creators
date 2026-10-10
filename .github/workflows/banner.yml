@@ -1,0 +1,206 @@
+name: Render banner
+
+# Re-renders assets/social-preview.png, banner.png and banner.webp from
+# assets/social-preview.html, whose entry counts are stamped by build_readme.py.
+#
+# WHY THIS EXISTS
+# The counts inside the HTML are generated, but the three images are binary and
+# had to be re-rendered by hand with headless Chrome + cwebp after every data
+# change (issue #10). Forgetting it leaves the README hero and the og:image
+# showing yesterday's number while every generated text file shows today's.
+#
+# WHY IT DOES NOT AUTO-COMMIT YET
+# mode: artifact-only. The banner's font stack is macOS-only
+# (-apple-system, "SF Pro Display", "PingFang SC"), so a Linux runner renders it
+# with substitute faces. This workflow installs Noto (colour emoji + CJK) so
+# nothing turns into tofu, but the Latin text will not be metrically identical to
+# the macOS render. Until the substitute render has been eyeballed and accepted,
+# the images are published as a downloadable artifact and the repo copy is left
+# alone — committing an unreviewed font change to the README hero would be worse
+# than the manual step it replaces.
+#
+# To flip it to auto-commit: set COMMIT: "true" below and read the note on the
+# commit step about the regenerate-loop.
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: "Commit the rendered images back to main (otherwise artifact only)"
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths:
+      - "data/**"
+      - "assets/social-preview.html"
+      - "scripts/build_readme.py"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: banner-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # git history is needed only for the sitemap lastmod, not here, but a
+          # full clone keeps the branch usable for the commit-back step.
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Install render dependencies (Chrome, cwebp, Pillow, Noto fonts)
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          # fonts-noto-color-emoji: the banner contains 7 emoji (🎁✅⭐🌐💚📖🚫).
+          # fonts-noto-cjk: it contains 4 Han characters (中体文简).
+          # Without these the Linux render shows tofu boxes for both.
+          sudo apt-get install -y -qq webp fonts-noto-color-emoji fonts-noto-cjk >/dev/null
+          python3 -m pip install --quiet pillow
+          echo "cwebp: $(cwebp -version 2>&1 | head -1)"
+          fc-list | grep -ci "noto color emoji" | xargs echo "Noto Color Emoji faces:"
+          fc-list | grep -ci "noto sans cjk" | xargs echo "Noto Sans CJK faces:"
+
+      - name: Locate a Chrome binary
+        id: chrome
+        run: |
+          set -euo pipefail
+          # ubuntu-latest ships Google Chrome preinstalled; probe rather than pin a
+          # path so a runner-image rename does not silently break this job. No
+          # third-party setup action is added on purpose — this repo keeps its
+          # dependency surface at zero wherever it can.
+          found=""
+          for c in google-chrome google-chrome-stable chromium-browser chromium chrome; do
+            if command -v "$c" >/dev/null 2>&1; then found="$(command -v "$c")"; break; fi
+          done
+          if [ -z "$found" ]; then
+            echo "::error::No Chrome/Chromium binary found on this runner."
+            exit 1
+          fi
+          echo "path=$found" >> "$GITHUB_OUTPUT"
+          echo "Chrome: $found"
+          "$found" --version
+
+      - name: Stamp the current counts into the HTML
+        run: |
+          set -euo pipefail
+          python3 scripts/build_readme.py
+          git diff --stat -- assets/social-preview.html || true
+          grep -oE '[0-9]+ license-verified|\+ <b>[0-9]+ more' assets/social-preview.html
+
+      - name: Render at 2x, downscale, encode WebP
+        run: |
+          set -euo pipefail
+          cd assets
+          # Same flags as the documented local recipe in CONTRIBUTING.md, so the
+          # only intended difference between CI and local output is the font
+          # substitution described in the header comment.
+          "${{ steps.chrome.outputs.path }}" --headless=new --disable-gpu --hide-scrollbars \
+            --force-device-scale-factor=2 --window-size=1280,640 \
+            --virtual-time-budget=8000 \
+            --screenshot=social-preview@2x.png "file://$PWD/social-preview.html"
+          test -s social-preview@2x.png || { echo "::error::render produced an empty file"; exit 1; }
+          python3 - <<'PY'
+          from PIL import Image
+          im = Image.open("social-preview@2x.png")
+          print("2x render:", im.size, im.mode)
+          assert im.size == (2560, 1280), f"unexpected 2x size {im.size}"
+          im.resize((1280, 640), Image.LANCZOS).save("social-preview.png", optimize=True)
+          PY
+          cp social-preview@2x.png banner.png
+          # -sharp_yuv matters more than -q here: the hero is full of saturated
+          # colour and WebP's 4:2:0 chroma subsampling is what eats those edges.
+          cwebp -quiet -q 90 -sharp_yuv banner.png -o banner.webp
+          ls -l social-preview.png banner.png banner.webp | awk '{print "  ", $5, $9}'
+
+      - name: Sanity-check the render (reject blank or tofu output)
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from PIL import Image
+          import sys
+          bad = False
+          for p, want in (("assets/banner.png", (2560, 1280)),
+                          ("assets/banner.webp", (2560, 1280)),
+                          ("assets/social-preview.png", (1280, 640))):
+              im = Image.open(p).convert("RGB")
+              if im.size != want:
+                  print(f"  FAIL {p}: size {im.size}, want {want}"); bad = True; continue
+              small = im.resize((160, 80))
+              cols = len(set(small.getdata()))
+              # A blank or all-tofu render collapses to very few distinct colours.
+              # The macOS render of this artwork samples ~3000-3500 colours.
+              print(f"  {'ok  ' if cols > 800 else 'FAIL'} {p}: {cols} distinct colours (160x80 sample)")
+              if cols <= 800:
+                  bad = True
+          # Emoji/CJK glyph boxes would not reduce colour count much, so check the
+          # two text regions are not uniform either.
+          im = Image.open("assets/banner.png").convert("RGB")
+          for name, box in (("title band", (120, 300, 2000, 520)),
+                            ("count pill", (120, 700, 1600, 900))):
+              region = im.crop(box).resize((120, 40))
+              cols = len(set(region.getdata()))
+              print(f"  {'ok  ' if cols > 200 else 'FAIL'} {name}: {cols} distinct colours")
+              if cols <= 200:
+                  bad = True
+          sys.exit(1 if bad else 0)
+          PY
+
+      - name: Report drift against the committed images
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- assets/social-preview.png assets/banner.png assets/banner.webp; then
+            echo "Committed images already match a fresh render."
+            echo "stale=false" >> "$GITHUB_ENV"
+          else
+            echo "Committed images differ from a fresh render:"
+            git diff --stat -- assets/ | sed 's/^/  /'
+            echo "stale=true" >> "$GITHUB_ENV"
+          fi
+
+      - name: Upload rendered images
+        uses: actions/upload-artifact@v4
+        with:
+          name: banner-render-${{ github.sha }}
+          path: |
+            assets/social-preview.png
+            assets/banner.png
+            assets/banner.webp
+            assets/social-preview.html
+          retention-days: 14
+
+      # Auto-commit is opt-in (workflow_dispatch input) and skipped when the
+      # render matches what is already committed, so a data change that does not
+      # move the counts cannot create an empty commit loop.
+      #
+      # LOOP HAZARD, and why the guard above is not sufficient on its own: the
+      # commit this step creates touches assets/, not data/, so it will not
+      # re-trigger this workflow via the `paths:` filter. But it *would* re-run
+      # the `ci` workflow if that one watches assets/. Keep the [skip ci] marker
+      # until that is checked. See the sitemap lastmod incident in the git log:
+      # a generated file whose regeneration is itself a triggering commit turns
+      # every data PR red, and that is exactly the shape of bug to avoid here.
+      - name: Commit the rendered images back to main
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.commit && env.stale == 'true' }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/social-preview.png assets/banner.png assets/banner.webp assets/social-preview.html
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+            exit 0
+          fi
+          want="$(python3 scripts/build_readme.py --description | grep -oE '[0-9]+ resources' || true)"
+          git commit -m "assets: re-render banner and social preview for ${want:-the current} entry count [skip ci]"
+          git push origin HEAD:main
