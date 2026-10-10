@@ -147,7 +147,7 @@ cd assets
   --screenshot=social-preview@2x.png "file://$PWD/social-preview.html"
 sips -z 640 1280 social-preview@2x.png --out social-preview.png
 cp social-preview@2x.png banner.png
-cwebp -q 90 -sharp_yuv banner.png -o banner.webp   # README hero: 646 KB PNG -> ~150 KB, same 2560x1280
+cwebp -q 90 -sharp_yuv banner.png -o banner.webp   # README hero: 646 KB PNG -> 158 KB, same 2560x1280
 ```
 
 Note that `sips` is macOS-only; on Linux use Pillow (`im.resize((1280, 640), Image.LANCZOS)`), which is what the workflow does.
@@ -171,7 +171,7 @@ Measured against the PNG **at the 860×430 size the README actually renders** (p
 | `-q 95 -sharp_yuv` | 203 KB | 18 | 0.04% |
 | `-near_lossless 60` | 383 KB | 3 | 0.00% |
 
-The sizes above were measured with a local `cwebp` and are a *relative* comparison between flag settings, which is the point of the table. Absolute output varies by encoder version: CI's `cwebp` 1.3.2 produces 154 KB for the chosen `-q 90 -sharp_yuv` where a local build produced 148 KB. Since CI is now the only renderer, the committed file is whatever the runner's encoder produces — do not treat a few KB of difference as drift.
+The table is a *relative* comparison between flag settings, which is its point; the absolute sizes were measured on the macOS/SF Pro render that was current at the time. The committed artwork is now the CI render, whose Latin text is DejaVu Sans, and its WebP is 158 KB rather than 148 KB. That is the glyphs carrying more ink, not the encoder differing: encoding the CI PNG with a local `cwebp` reproduces the runner's 158,468-byte output exactly. Sizes here are decimal kilobytes, as elsewhere in this file.
 
 `banner.png` is kept as the WebP's source and as a one-line fallback: if a GitHub image proxy ever stops serving WebP, point `build_readme.py` back at it and regenerate. Do not downscale below 1720×860; the README renders the hero at `width="860"`, so that is the 2× retina floor.
 
