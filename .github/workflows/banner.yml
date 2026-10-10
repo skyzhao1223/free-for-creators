@@ -63,10 +63,18 @@ jobs:
           # Recorded so a future runner-image change that alters the render is traceable:
           # the CSS names these faces explicitly, and whichever of them is missing here
           # silently changes the banner.
-          # Which face does the generic sans-serif actually resolve to? This is the question the
-          # banner's appearance depends on, and it was never logged before.
-          echo "fc-match sans-serif -> $(fc-match sans-serif)"
-          echo "fc-match 'Helvetica Neue' -> $(fc-match 'Helvetica Neue')"
+          # The banner's Latin text comes from the generic sans-serif (the CSS names only
+          # Apple faces, which do not exist here), so the render depends on what fontconfig
+          # picks. Naming a family explicitly is NOT equivalent: pinning "DejaVu Sans"
+          # produced a render 8.75% of pixels away from the unpinned one that had been
+          # reviewed, because Chrome resolves a named family and a generic one differently.
+          # So the family stays unpinned and the assumption is asserted instead.
+          resolved="$(fc-match -f '%{family[0]}' sans-serif)"
+          echo "fc-match sans-serif -> $resolved"
+          if [ "$resolved" != "DejaVu Sans" ]; then
+            echo "::error::sans-serif resolves to '$resolved', expected 'DejaVu Sans'. The banner would silently change appearance. Either install the expected font or re-review the render and update this check."
+            exit 1
+          fi
           for f in "DejaVu Sans" "Noto Sans" "Noto Sans CJK SC" "Liberation Sans" "Noto Color Emoji"; do
             printf 'font "%s": %s face(s)\n' "$f" "$(fc-match -a "$f" 2>/dev/null | wc -l)"
             fc-match "$f" 2>/dev/null | sed 's/^/    resolves to: /'

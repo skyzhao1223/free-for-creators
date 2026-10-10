@@ -132,7 +132,12 @@ Run `python3 scripts/build_site.py --check` any time to find out whether your lo
 
 The hero image (`assets/banner.png`, used in both READMEs) and the GitHub social preview (`assets/social-preview.png`, 1280×640) are rendered from [`assets/social-preview.html`](assets/social-preview.html).
 
-The two counts inside that HTML (`158 license-verified free assets` and `+ 154 more`) are **stamped by the build**, not edited by hand: `python3 scripts/build_readme.py` rewrites them from `data/`, and `--check` (which CI runs) fails if they drift. So after adding or removing entries, run the build, then re-render:
+**You normally do not render them yourself.** The counts inside that HTML are stamped from `data/` by `python3 scripts/build_readme.py`, and the [`Render banner`](.github/workflows/banner.yml) workflow re-renders all three images on any push that touches `data/`, `assets/social-preview.html` or the generator, then commits them back with `[skip ci]`. Add an entry, merge, and the images follow on their own.
+
+Rendering locally and committing is now the *wrong* direction: the workflow compares bytes, so a local render reads as drift and gets committed over. The recipe below is a fallback for working without Actions.
+
+<details>
+<summary>Manual render (fallback only)</summary>
 
 ```bash
 python3 scripts/build_readme.py   # stamps the counts into assets/social-preview.html
@@ -142,10 +147,16 @@ cd assets
   --screenshot=social-preview@2x.png "file://$PWD/social-preview.html"
 sips -z 640 1280 social-preview@2x.png --out social-preview.png
 cp social-preview@2x.png banner.png
-cwebp -q 90 -sharp_yuv banner.png -o banner.webp   # README hero: 646 KB PNG -> 148 KB, same 2560x1280
+cwebp -q 90 -sharp_yuv banner.png -o banner.webp   # README hero: 646 KB PNG -> 158 KB, same 2560x1280
 ```
 
-**Order matters: re-run `python3 scripts/build_site.py` *after* rendering.** `build_site.py` byte-copies `assets/social-preview.png` into `site/`, because the deployed `og:image` has to be served from Pages rather than from `raw.githubusercontent.com` (which GitHub proxies and re-encodes). Running it before the render therefore leaves `site/social-preview.png` holding the *previous* count. Deployments are unaffected — `pages.yml` builds after checkout — so this only makes the local preview disagree with what Pages serves. `python3 scripts/build_site.py --check` compares the two byte-for-byte and reports `stale: social-preview.png (missing or differs from assets/)`, so run it after re-rendering to confirm.
+Note that `sips` is macOS-only; on Linux use Pillow (`im.resize((1280, 640), Image.LANCZOS)`), which is what the workflow does.
+
+</details>
+
+**The fonts are an implicit dependency, so they are asserted rather than pinned.** The HTML's font stack names only Apple faces, so on a Linux runner the Latin text falls through to the generic `sans-serif`, which fontconfig resolves to DejaVu Sans. Noto Sans CJK SC covers the four Han characters and Noto Color Emoji the seven emoji; the workflow installs both. Naming `DejaVu Sans` in the stack is *not* equivalent to inheriting it — Chrome resolves a named family differently from a generic one, and pinning it moved the render 8.75% of pixels away from the artwork that had been reviewed. So the stack stays generic and the workflow fails loudly if `fc-match sans-serif` ever resolves to anything else.
+
+**Order matters if you do render manually: re-run `python3 scripts/build_site.py` *after* rendering.** `build_site.py` byte-copies `assets/social-preview.png` into `site/`, because the deployed `og:image` has to be served from Pages rather than from `raw.githubusercontent.com` (which GitHub proxies and re-encodes). Running it before the render therefore leaves `site/social-preview.png` holding the *previous* count. Deployments are unaffected — `pages.yml` builds after checkout — so this only makes the local preview disagree with what Pages serves. `python3 scripts/build_site.py --check` compares the two byte-for-byte and reports `stale: social-preview.png (missing or differs from assets/)`, so run it after re-rendering to confirm.
 
 `social-preview@2x.png` is a local intermediate and is gitignored — `banner.png` *is* that 2× render, so committing both used to store the same 646 KB twice.
 
