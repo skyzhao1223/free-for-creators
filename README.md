@@ -17,19 +17,19 @@
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> A directory of free assets for creators, where every entry records its license, its attribution rule and whether it is usable in monetized work. 181 resources in 10 categories.
+> "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 181 resources in 10 categories.
 
 **At a glance:** 127 entries are 💚 safe for monetized content · 113 need ➖ no attribution · 139 need 🔓 no account · 29 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
 
 Every entry answers three questions that decide whether a free asset is actually usable:
 
-1. **What is the license?**
+1. **What is the license?** → the *License* column
 2. **Do I have to credit anyone?** → the *Attribution* column
 3. **Can I use it in monetized content?** → the *Monetization* column
 
-Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action link-checks every URL, and all entries live as structured, machine-readable JSON in [`data/`](data) — free to reuse (CC0).
+A weekly GitHub Action link-checks every URL and files an issue on a dead one. The entries live as JSON in [`data/`](data), released under CC0.
 
-🌐 Prefer clicking? **[Browse the interactive directory](https://skyzhao1223.github.io/free-for-creators/)** — search and filter every entry by license, attribution and monetization.
+🌐 **[Browse the interactive directory](https://skyzhao1223.github.io/free-for-creators/)**: search and filter by license, attribution and monetization.
 
 > ⚠️ **Disclaimer** — Licenses change and this list is maintained by volunteers. It is not legal advice. Always verify the current license on the source website before publishing, especially for monetized or client work.
 
@@ -42,7 +42,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | ❓ Varies | License differs per item — check each asset |
 | 🚫 Not allowed | Not free for commercial/monetized use |
 | ✅ Required | You must credit the author/source |
-| 🔑 Yes | An (free) account is needed to download |
+| 🔑 Yes | A (free) account is needed to download |
 
 ## Table of Contents
 
