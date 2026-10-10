@@ -8,7 +8,7 @@
     {
       "name": "Freesound",
       "url": "https://freesound.org/",
-      "description": "Massive collaborative database of sounds under CC0 and CC-BY licenses.",
+      "description": "Collaborative database of sounds under CC0 and CC-BY licenses.",
       "description_zh": "以 CC0 与 CC-BY 许可为主的大型协作声音数据库。",
       "license": "Various CC licenses (per sound)",
       "license_family": "mixed",

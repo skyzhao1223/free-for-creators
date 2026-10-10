@@ -33,28 +33,16 @@ jobs:
       - name: Build site payload
         run: python scripts/build_site.py --out "${{ runner.temp }}/site-data"
 
-  # The repo description shows up in GitHub search, topic pages and link previews, and it
-  # carries the entry count — so it drifts every time data/ grows (it once advertised 158
-  # while the READMEs said 172). Regenerate it from the same source of truth as the
-  # READMEs and PATCH it back when it differs. Push-to-main only: fork PRs get a read-only
-  # token by design, and a PR should not be able to rewrite repo metadata.
+  # The description carries the entry count, so it drifts every time data/ grows (it once
+  # advertised 158 while the READMEs said 172). Regenerate it from the same source of truth
+  # and PATCH it back. Push-to-main only: fork PRs get a read-only token, and a PR should not
+  # be able to rewrite repo metadata.
   #
-  # PATCHing repo metadata is NOT something GITHUB_TOKEN can do (workflow permissions
-  # have no 'administration' key). Add a secret REPO_ADMIN_PAT — a fine-grained PAT with
-  # Administration: read and write on this repo only — to automate the update.
-  #
-  # Without that secret the drift is *detected but not fatal*: it is reported as a
-  # warning and the job exits 0. That is deliberate, and it differs from the README sync
-  # check on purpose. A contributor can always satisfy the README check by running the
-  # generator and committing, but nobody can satisfy a metadata PATCH from inside a
-  # workflow — so failing there would red every data push with no in-repo fix available.
-  # A configured-but-failing PAT *is* fatal, because that one is actionable.
-  #
-  # Annotation text below is kept free of $(...) and variable interpolation on purpose:
-  # an earlier version nested a quoted command substitution inside the message, the
-  # inner quote closed the string early, and bash died with "syntax error near
-  # unexpected token `('" — so the job reported a syntax error instead of the drift it
-  # had just correctly detected.
+  # GITHUB_TOKEN cannot PATCH metadata (workflow permissions have no 'administration' key),
+  # so this needs a REPO_ADMIN_PAT secret: fine-grained, Administration read+write, this repo
+  # only. Without one the drift is a warning rather than a failure, because no contributor can
+  # fix it from inside the repo — unlike the README sync check. A PAT that is present but
+  # rejected is fatal, since that one is actionable.
   sync-description:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest

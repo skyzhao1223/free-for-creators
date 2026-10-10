@@ -2,25 +2,15 @@ name: Render banner
 
 # Re-renders assets/social-preview.png, banner.png and banner.webp from
 # assets/social-preview.html, whose entry counts are stamped by build_readme.py.
+# Until now the three images were rebuilt by hand after every data change (issue #10).
 #
-# WHY THIS EXISTS
-# The counts inside the HTML are generated, but the three images are binary and
-# had to be re-rendered by hand with headless Chrome + cwebp after every data
-# change (issue #10). Forgetting it leaves the README hero and the og:image
-# showing yesterday's number while every generated text file shows today's.
+# Artifact-only, no auto-commit: the HTML asks for macOS-only faces (-apple-system,
+# "SF Pro Display", "PingFang SC"), so a Linux runner substitutes. Noto colour emoji and
+# Noto CJK are installed to keep the 7 emoji and 4 Han characters from turning into tofu,
+# but the Latin text still differs from the approved macOS render. Swapping the typeface
+# on the README hero is a decision, not a side effect of a data commit.
 #
-# WHY IT DOES NOT AUTO-COMMIT YET
-# mode: artifact-only. The banner's font stack is macOS-only
-# (-apple-system, "SF Pro Display", "PingFang SC"), so a Linux runner renders it
-# with substitute faces. This workflow installs Noto (colour emoji + CJK) so
-# nothing turns into tofu, but the Latin text will not be metrically identical to
-# the macOS render. Until the substitute render has been eyeballed and accepted,
-# the images are published as a downloadable artifact and the repo copy is left
-# alone — committing an unreviewed font change to the README hero would be worse
-# than the manual step it replaces.
-#
-# To flip it to auto-commit: set COMMIT: "true" below and read the note on the
-# commit step about the regenerate-loop.
+# To switch on auto-commit, run this workflow with the `commit` input set to true.
 
 on:
   workflow_dispatch:
@@ -203,13 +193,9 @@ jobs:
       # render matches what is already committed, so a data change that does not
       # move the counts cannot create an empty commit loop.
       #
-      # LOOP HAZARD, and why the guard above is not sufficient on its own: the
-      # commit this step creates touches assets/, not data/, so it will not
-      # re-trigger this workflow via the `paths:` filter. But it *would* re-run
-      # the `ci` workflow if that one watches assets/. Keep the [skip ci] marker
-      # until that is checked. See the sitemap lastmod incident in the git log:
-      # a generated file whose regeneration is itself a triggering commit turns
-      # every data PR red, and that is exactly the shape of bug to avoid here.
+      # [skip ci] is required: neither ci.yml nor pages.yml filters on paths, so without it
+      # every banner commit re-runs both. This step also no-ops when a fresh render
+      # byte-matches what is already committed.
       - name: Commit the rendered images back to main
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.commit && env.stale == 'true' }}
         run: |

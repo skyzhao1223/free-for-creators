@@ -151,9 +151,9 @@ T = {
     "en": {
         "lang_switch": "<strong>English</strong> | <a href=\"README.zh-CN.md\">\u7b80\u4f53\u4e2d\u6587</a>",
         "title": "# \U0001f381 Free for Creators",
-        "tagline": "> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **{total} resources across {ncat} categories**.",
+        "tagline": "> A directory of free assets for creators, where every entry records its license, its attribution rule and whether it is usable in monetized work. {total} resources in {ncat} categories.",
         "glance": "**At a glance:** {monetizable} entries are 💚 safe for monetized content · {no_attribution} need ➖ no attribution · {no_signup} need 🔓 no account · {open} are entirely CC0 / public domain · {open_mixed} more mix in CC0 items (filter per asset).",
-        "questions_intro": "Every entry answers the three questions that decide whether a \u201cfree\u201d asset is actually free for *you*:",
+        "questions_intro": "Every entry answers three questions that decide whether a free asset is actually usable:",
         "q1": "1. **What is the license?**",
         "q2": "2. **Do I have to credit anyone?** \u2192 the *Attribution* column",
         "q3": "3. **Can I use it in monetized content?** \u2192 the *Monetization* column",
@@ -193,7 +193,7 @@ T = {
     "zh": {
         "lang_switch": "<a href=\"README.md\">English</a> | <strong>\u7b80\u4f53\u4e2d\u6587</strong>",
         "title": "# \U0001f381 Free for Creators \u00b7 \u521b\u4f5c\u8005\u514d\u8d39\u7d20\u6750\u6e05\u5355",
-        "tagline": "> \u4e00\u4efd**\u8bb8\u53ef\u900f\u660e**\u7684\u514d\u8d39\u7d20\u6750\u76ee\u5f55\uff0c\u4e13\u4e3a\u89c6\u9891\u521b\u4f5c\u8005\u3001\u4e3b\u64ad\u3001\u64ad\u5ba2\u3001\u6e38\u620f\u5f00\u53d1\u8005\u3001\u97f3\u4e50\u4eba\u4e0e\u8bbe\u8ba1\u5e08\u6253\u9020\uff1a**{ncat} \u5927\u5206\u7c7b\u3001{total} \u4e2a\u8d44\u6e90**\u3002",
+        "tagline": "> 创作者免费素材目录，每条都记录许可、署名要求与商用条件。{ncat} 个分类、{total} 个资源。",
         "glance": "**一眼看数据**：{monetizable} 条 💚 可直接用于货币化内容 · {no_attribution} 条 ➖ 无需署名 · {no_signup} 条 🔓 无需注册 · {open} 条整站属 CC0 / 公有领域 · 另有 {open_mixed} 条含 CC0 素材（需逐项筛选）。",
         "questions_intro": "\u6bcf\u6761\u8d44\u6e90\u90fd\u56de\u7b54\u4e86\u51b3\u5b9a\u300c\u514d\u8d39\u300d\u7d20\u6750\u80fd\u5426\u653e\u5fc3\u7528\u7684\u4e09\u4e2a\u95ee\u9898\uff1a",
         "q1": "1. **\u8bb8\u53ef\u534f\u8bae\u662f\u4ec0\u4e48\uff1f**",

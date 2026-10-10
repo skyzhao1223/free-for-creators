@@ -8,8 +8,8 @@
     {
       "name": "Unsplash",
       "url": "https://unsplash.com/",
-      "description": "Huge library of free-to-use high-resolution photos.",
-      "description_zh": "海量免费高分辨率照片。",
+      "description": "Library of free-to-use high-resolution photos under the Unsplash License.",
+      "description_zh": "可免费使用的高分辨率照片库，采用 Unsplash License。",
       "license": "Unsplash License",
       "license_family": "site-free",
       "attribution": "not-required",
@@ -156,8 +156,8 @@
     {
       "name": "Library of Congress: Free to Use",
       "url": "https://www.loc.gov/free-to-use/",
-      "description": "Curated public domain photo sets from US history and culture.",
-      "description_zh": "美国历史与文化主题的公有领域照片精选集。",
+      "description": "Public domain photo sets from US history and culture.",
+      "description_zh": "美国历史与文化主题的公有领域照片集。",
       "license": "Public Domain (curated sets)",
       "license_family": "cc0",
       "attribution": "not-required",

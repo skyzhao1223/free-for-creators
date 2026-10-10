@@ -18,11 +18,11 @@ You can either open an issue with the [Suggest a resource](../../issues/new/choo
    python3 scripts/build_site.py     # site/all.html, site/sitemap.xml, site/data/
    ```
 
-4. Commit the JSON **and** the regenerated files, then open a PR. CI validates the data against `schema/entry.schema.json`, checks that the READMEs / `site/all.html` / banner counts are all in sync, and a bot link-checks the URLs your PR adds and comments the results on the PR (❌ broken links block the merge; ⚠️ *blocked* means the site refused our bot or needs a human in a browser — verify those once).
+4. Commit the JSON and the regenerated files, then open a PR. CI validates the data against `schema/entry.schema.json`, checks that the READMEs / `site/all.html` / banner counts are all in sync, and a bot link-checks the URLs your PR adds and comments the results on the PR (❌ broken links block the merge; ⚠️ *blocked* means the site refused our bot or needs a human in a browser — verify those once).
 
 ## Inclusion criteria
 
-A resource belongs here when **all** of these hold:
+A resource belongs here when all of these hold:
 
 - **Legally free** for at least some real creator use (commercial or clearly-marked non-commercial) — no pirated packs, no "free download" mirrors of paid products, no cracked assets.
 - **The license is discoverable** on the site. If you cannot find terms, it does not go in the list.
@@ -34,7 +34,7 @@ Borderline AI-generated asset sites: include only when the site states an explic
 
 ## Entry schema
 
-Single source of truth: `schema/entry.schema.json`. `scripts/build_readme.py` **reads** the required-field list, every enum and the description length limits out of that file, so editing the schema changes what CI enforces — there is no second copy to keep in sync.
+Single source of truth: `schema/entry.schema.json`. `scripts/build_readme.py` reads the required-field list, every enum and the description length limits out of that file, so editing the schema changes what CI enforces — there is no second copy to keep in sync.
 
 | Field | Required | Values | Meaning |
 | --- | --- | --- | --- |
@@ -58,10 +58,10 @@ Single source of truth: `schema/entry.schema.json`. `scripts/build_readme.py` **
 Semantics we use consistently:
 
 - `monetization: conditional` — free commercial use **only under conditions** (credit link, free-tier caps, specific platforms like YouTube/Twitch). Put the condition in `notes`.
-- `monetization: varies` — the site hosts mixed per-item licenses (marketplaces, CC aggregators), **or** you could not confirm that every license in the mix allows commercial use. When in doubt, use `varies`: over-claiming `allowed` is the one error this repo must not make.
+- `monetization: varies` — the site hosts mixed per-item licenses (marketplaces, CC aggregators), or you could not confirm that every license in the mix allows commercial use. When in doubt, use `varies`: over-claiming `allowed` is the one error this repo must not make.
 - `attribution: varies` — some items need credit, some don't.
 - `license_family` — classify the *license*, not the site's marketing: `cc0` = everything is CC0/public domain with no conditions; `permissive` = OSS licenses (MIT/Apache/OFL/ISC/UFL); `cc-by` = Creative Commons attribution/share-alike; `site-free` = the site's own free license (the `attribution` column says whether credit is needed); `mixed` = terms differ per item, or are not uniformly known; `noncommercial` = not free for commercial use (must pair with `monetization: not-allowed`).
-- A `mixed` entry must **not** claim a blanket `monetization: allowed` unless every license in the mix permits commercial use (e.g. Google Fonts: OFL/Apache/UFL only). If some items are NC or unknown, use `varies`.
+- A `mixed` entry must not claim a blanket `monetization: allowed` unless every license in the mix permits commercial use (e.g. Google Fonts: OFL/Apache/UFL only). If some items are NC or unknown, use `varies`.
 
 ## Fixing problems
 
@@ -160,12 +160,12 @@ Measured against the PNG **at the 860×430 size the README actually renders** (p
 | `-q 95 -sharp_yuv` | 203 KB | 18 | 0.04% |
 | `-near_lossless 60` | 383 KB | 3 | 0.00% |
 
-`banner.png` is kept as the WebP's source and as a one-line fallback: if a GitHub image proxy ever stops serving WebP, point `build_readme.py` back at it and regenerate. Do **not** downscale below 1720×860; the README renders the hero at `width="860"`, so that is the 2× retina floor.
+`banner.png` is kept as the WebP's source and as a one-line fallback: if a GitHub image proxy ever stops serving WebP, point `build_readme.py` back at it and regenerate. Do not downscale below 1720×860; the README renders the hero at `width="860"`, so that is the 2× retina floor.
 
 Then re-upload `social-preview.png` under repo **Settings → General → Social preview** (GitHub accepts PNG/JPG/GIF only, max 1 MB — WebP is *not* accepted there, which is why the PNG stays).
 
 ## Repository slug
 
-Badges and the Star History chart use the `REPO` constant in `scripts/build_readme.py` (currently `skyzhao1223/free-for-creators`). If the repo is renamed or moved, update `REPO` and `PAGES_URL` in `scripts/build_readme.py`, the `REPO` constant in `site/index.html`, **and** `.github/ISSUE_TEMPLATE/config.yml`, then regenerate the READMEs.
+Badges and the Star History chart use the `REPO` constant in `scripts/build_readme.py` (currently `skyzhao1223/free-for-creators`). If the repo is renamed or moved, update `REPO` and `PAGES_URL` in `scripts/build_readme.py`, the `REPO` constant in `site/index.html`, and `.github/ISSUE_TEMPLATE/config.yml`, then regenerate the READMEs.
 
 That's it — thanks for making creators' lives safer, one license column at a time. 🎨

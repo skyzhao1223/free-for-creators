@@ -17,11 +17,11 @@
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> A curated, license-transparent directory of **truly free** assets for video creators, streamers, podcasters, game devs, musicians and designers: **181 resources across 10 categories**.
+> A directory of free assets for creators, where every entry records its license, its attribution rule and whether it is usable in monetized work. 181 resources in 10 categories.
 
 **At a glance:** 127 entries are 💚 safe for monetized content · 113 need ➖ no attribution · 139 need 🔓 no account · 29 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
 
-Every entry answers the three questions that decide whether a “free” asset is actually free for *you*:
+Every entry answers three questions that decide whether a free asset is actually usable:
 
 1. **What is the license?**
 2. **Do I have to credit anyone?** → the *Attribution* column
@@ -50,12 +50,12 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 - [Sound Effects](#sound-effects) — 12 resources · Free SFX libraries, packs and ambience for video, games, podcasts and streams.
 - [Stock Footage](#stock-footage) — 17 resources · Free video clips and B-roll, including 4K, archival and public domain footage.
 - [Stock Photos](#stock-photos) — 27 resources · Free photography, from modern stock to museum-grade public domain archives.
-- [Fonts](#fonts) — 18 resources · Typefaces free for commercial use, including CJK families — for thumbnails, branding, subtitles and print.
+- [Fonts](#fonts) — 18 resources · Typefaces free for commercial use, including CJK families.
 - [Graphics & Icons](#graphics--icons) — 40 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
 - [Video Production](#video-production) — 9 resources · LUTs, color grading assets, transitions and editor templates.
 - [Mockups & Design Templates](#mockups--design-templates) — 11 resources · PSD/device mockups, thumbnail and social media templates.
 - [3D & Game Assets](#3d--game-assets) — 23 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
-- [Search Engines](#search-engines) — 6 resources · Meta-search across millions of openly licensed images, audio and media.
+- [Search Engines](#search-engines) — 6 resources · Meta-search across openly licensed images, audio and media.
 - [Related Lists](#related-lists)
 - [Contributing](#contributing)
 
@@ -67,7 +67,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | --- | --- | --- | --- | --- | --- |
 | [YouTube Audio Library](https://www.youtube.com/audiolibrary) | Free music and sound effects provided by YouTube for use in your videos. _Some tracks require attribution exactly as shown in the library._ | YouTube Audio Library License (some tracks CC-BY) | ❓ Varies | 💚 Allowed | 🔑 Yes |
 | [Pixabay Music](https://pixabay.com/music/) | Large and growing library of royalty-free tracks and loops. | Pixabay Content License | — | 💚 Allowed | — |
-| [Free Music Archive](https://freemusicarchive.org/) | Huge archive of Creative Commons music curated since the WFMU radio days. _Filter by license; some tracks are NonCommercial or NoDerivatives._ | Various CC licenses | ❓ Varies | ❓ Varies | — |
+| [Free Music Archive](https://freemusicarchive.org/) | Archive of Creative Commons music, running since the WFMU radio days. _Filter by license; some tracks are NonCommercial or NoDerivatives._ | Various CC licenses | ❓ Varies | ❓ Varies | — |
 | [Incompetech](https://incompetech.com/music/royalty-free/) | Kevin MacLeod's legendary library of film-score style music. _Credit must be visible: "Track Title" — Kevin MacLeod (incompetech.com), CC BY 4.0. Monetized videos are explicitly allowed._ | CC BY 4.0 (paid no-attribution license available) | ✅ Required | 💚 Allowed | — |
 | [Bensound](https://www.bensound.com/) | Catchy corporate, acoustic and cinematic tracks by composer Benjamin Tissot. _Free license covers online videos with credit; some tracks are Pro-only._ | Bensound Free License | ✅ Required | ⚠️ Conditional | — |
 | [Mixkit Music](https://mixkit.co/free-stock-music/) | Envato's free music for videos, streams and podcasts. | Mixkit Stock License (Free) | — | 💚 Allowed | — |
@@ -90,7 +90,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 
 | Resource | About | License | Attribution | Monetization | Sign-up |
 | --- | --- | --- | --- | --- | --- |
-| [Freesound](https://freesound.org/) | Massive collaborative database of sounds under CC0 and CC-BY licenses. _Filter by license; CC-BY sounds need credit in your description._ | Various CC licenses (per sound) | ❓ Varies | ❓ Varies | 🔑 Yes |
+| [Freesound](https://freesound.org/) | Collaborative database of sounds under CC0 and CC-BY licenses. _Filter by license; CC-BY sounds need credit in your description._ | Various CC licenses (per sound) | ❓ Varies | ❓ Varies | 🔑 Yes |
 | [ZapSplat](https://www.zapsplat.com/) | 100,000+ free sound effects; free tier works with attribution. _Gold membership removes attribution and raises quality limits._ | ZapSplat Free License | ✅ Required | ⚠️ Conditional | 🔑 Yes |
 | [Pixabay Sound Effects](https://pixabay.com/sound-effects/) | Royalty-free sound effects library from Pixabay. | Pixabay Content License | — | 💚 Allowed | — |
 | [Mixkit Sound Effects](https://mixkit.co/free-sound-effects/) | Free SFX for videos, games and streams from Envato's Mixkit. | Mixkit Sound Effects Free License | — | 💚 Allowed | — |
@@ -116,9 +116,9 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Videvo](https://www.videvo.net/) | Free footage and motion graphics with per-asset licenses. _Watch the per-asset license label; CC-BY items require attribution._ | Videvo License / CC BY 3.0 (per asset) | ❓ Varies | ❓ Varies | Optional |
 | [Videezy](https://www.videezy.com/) | Free HD and 4K clips, most requiring an attribution link. _Standard clips are free for commercial use with attribution, but each download costs a credit, so an account is required._ | Videezy License | ❓ Varies | ⚠️ Conditional | 🔑 Yes |
 | [Vidsplay](https://www.vidsplay.com/) | New free clips added weekly. _Cannot be redistributed as stock footage elsewhere._ | Vidsplay License | — | 💚 Allowed | — |
-| [Dareful](https://www.dareful.com/) | Hand-picked free 4K stock video clips. _Credit by linking back, e.g. "Video courtesy of Dareful" plus a link to the clip page._ | CC BY 4.0 | ✅ Required | 💚 Allowed | — |
+| [Dareful](https://www.dareful.com/) | Free 4K stock video clips. _Credit by linking back, e.g. "Video courtesy of Dareful" plus a link to the clip page._ | CC BY 4.0 | ✅ Required | 💚 Allowed | — |
 | [Life of Vids](https://www.lifeofvids.com/) | Free artistic clips released by an advertising agency. | Life of Vids License (free) | — | 💚 Allowed | — |
-| [Mazwai](https://mazwai.com/) | Curated cinematic footage, hand-picked from videographers. | CC BY 3.0 / Mazwai License (per clip) | ❓ Varies | 💚 Allowed | — |
+| [Mazwai](https://mazwai.com/) | Cinematic footage contributed by videographers. | CC BY 3.0 / Mazwai License (per clip) | ❓ Varies | 💚 Allowed | — |
 | [SplitShire](https://www.splitshire.com/) | Free photos and videos by photographer Daniel Nanescu. _No redistribution as stock._ | SplitShire License (free) | — | 💚 Allowed | — |
 | [NASA Image and Video Library](https://images.nasa.gov/) | Public domain space footage, launch videos and Earth imagery. _NASA media is generally not copyrightable; identifiable people need care._ | Public Domain (with minor exceptions) | — | 💚 Allowed | — |
 | [Prelinger Archives](https://archive.org/details/prelinger) | Historic advertising, educational and amateur films, mostly public domain. | Public Domain (mostly) | — | 💚 Allowed | — |
@@ -133,7 +133,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 
 | Resource | About | License | Attribution | Monetization | Sign-up |
 | --- | --- | --- | --- | --- | --- |
-| [Unsplash](https://unsplash.com/) | Huge library of free-to-use high-resolution photos. _Cannot sell unaltered copies or compile a competing stock service._ | Unsplash License | — | 💚 Allowed | — |
+| [Unsplash](https://unsplash.com/) | Library of free-to-use high-resolution photos under the Unsplash License. _Cannot sell unaltered copies or compile a competing stock service._ | Unsplash License | — | 💚 Allowed | — |
 | [Pexels](https://www.pexels.com/) | Free stock photos, very permissive license. | Pexels License | — | 💚 Allowed | — |
 | [Pixabay](https://pixabay.com/) | Photos, illustrations and vectors under one simple content license. | Pixabay Content License | — | 💚 Allowed | — |
 | [Burst by Shopify](https://burst.shopify.com/) | Business and ecommerce-oriented free photography. | Free (CC0 where noted) | — | 💚 Allowed | — |
@@ -146,7 +146,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Smithsonian Open Access](https://www.si.edu/openaccess) | Millions of CC0 images from Smithsonian museums and archives. | CC0 | — | 💚 Allowed | — |
 | [The Met Open Access](https://www.metmuseum.org/art/collection/open-access) | Public domain artworks from the Metropolitan Museum of Art. | CC0 (Open Access works) | — | 💚 Allowed | — |
 | [Art Institute of Chicago](https://www.artic.edu/open-access/open-access-images) | Public domain artworks including famous Impressionist pieces. | CC0 (public domain works) | — | 💚 Allowed | — |
-| [Library of Congress: Free to Use](https://www.loc.gov/free-to-use/) | Curated public domain photo sets from US history and culture. | Public Domain (curated sets) | — | 💚 Allowed | — |
+| [Library of Congress: Free to Use](https://www.loc.gov/free-to-use/) | Public domain photo sets from US history and culture. | Public Domain (curated sets) | — | 💚 Allowed | — |
 | [British Library on Flickr](https://www.flickr.com/photos/britishlibrary) | Millions of public domain book illustrations, maps and photos. | Public Domain | — | 💚 Allowed | — |
 | [rawpixel Public Domain](https://www.rawpixel.com/public-domain) | Digitized vintage art, posters and book illustrations. _Free account has a monthly download limit._ | Public Domain / rawpixel free tier | ❓ Varies | 💚 Allowed | Optional |
 | [Old Book Illustrations](https://www.oldbookillustrations.com/) | Public domain scans of illustrations from old books. | Public Domain | — | 💚 Allowed | — |
@@ -163,7 +163,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 
 ## Fonts
 
-*Typefaces free for commercial use, including CJK families — for thumbnails, branding, subtitles and print.*
+*Typefaces free for commercial use, including CJK families.*
 
 | Resource | About | License | Attribution | Monetization | Sign-up |
 | --- | --- | --- | --- | --- | --- |
@@ -174,10 +174,10 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [The League of Moveable Type](https://www.theleagueofmoveabletype.com/) | The original open-source type foundry. | OFL | — | 💚 Allowed | — |
 | [Velvetyne](https://velvetyne.fr/) | Experimental and quirky free open-source typefaces. | OFL / custom open licenses | — | 💚 Allowed | — |
 | [Font Library](https://fontlibrary.org/) | Community catalog of libre typefaces. | OFL / CC (per family) | ❓ Varies | 💚 Allowed | — |
-| [DaFont](https://www.dafont.com/) | Huge catalog; many fonts are demo or personal-use only. _Always check the per-font license file before commercial use._ | Various (per font) | ❓ Varies | ❓ Varies | — |
+| [DaFont](https://www.dafont.com/) | Catalog of user-submitted fonts; many are demo or personal-use only. _Always check the per-font license file before commercial use._ | Various (per font) | ❓ Varies | ❓ Varies | — |
 | [1001 Fonts](https://www.1001fonts.com/) | 10,000+ fonts with license filtering. | Various (per font) | ❓ Varies | ❓ Varies | — |
-| [free-font (CJK)](https://github.com/jaywcjlove/free-font) | Curated Chinese and English fonts free for commercial use. _Chinese-language list; mostly OFL, but a few fonts are personal-use-only, CC BY-NC or need authorization — check each font's license tag._ | Various (per font) | ❓ Varies | ❓ Varies | — |
-| [Use & Modify](https://usemodify.com/) | Curated catalog of free fonts by a Swiss designer, with filters. | OFL / open licenses (per family) | — | 💚 Allowed | — |
+| [free-font (CJK)](https://github.com/jaywcjlove/free-font) | Chinese-language list of fonts free for commercial use. _Chinese-language list; mostly OFL, but a few fonts are personal-use-only, CC BY-NC or need authorization — check each font's license tag._ | Various (per font) | ❓ Varies | ❓ Varies | — |
+| [Use & Modify](https://usemodify.com/) | Catalog of free fonts by a Swiss designer, with filters. | OFL / open licenses (per family) | — | 💚 Allowed | — |
 | [Open Foundry](https://open-foundry.com/) | Platform for open-licensed typefaces with showcase projects. _Site FAQ: commercial use depends on each font's own licence and some have restrictions — read it before client work._ | Various open licenses (per font) | ❓ Varies | ❓ Varies | — |
 | [Source Han Sans (思源黑体)](https://github.com/adobe-fonts/source-han-sans) | Adobe and Google's open-source CJK sans family, with seven weights per language region. | SIL Open Font License 1.1 | — | 💚 Allowed | — |
 | [Source Han Serif (思源宋体)](https://github.com/adobe-fonts/source-han-serif) | The serif companion to Source Han Sans for CJK body text, editorial and print work. | SIL Open Font License 1.1 | — | 💚 Allowed | — |
@@ -278,7 +278,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [FreePBR](https://www.freepbr.com/) | Free PBR textures and 3D models. _Redistribution of the raw files is not allowed._ | FreePBR License | — | 💚 Allowed | — |
 | [Textures.com](https://www.textures.com/) | Enormous material library with a free daily-credit tier. _Free credits cap resolution; some commercial uses need a paid license._ | Free account license | — | ⚠️ Conditional | 🔑 Yes |
 | [Quixel Megascans](https://quixel.com/megascans) | Photorealistic scanned assets; free for Unreal Engine projects. _Free usage is tied to Unreal Engine under current terms; verify before other engines._ | Epic/Quixel License | — | ⚠️ Conditional | 🔑 Yes |
-| [Mixamo](https://www.mixamo.com/) | Auto-rigged characters and a huge animation library from Adobe. | Mixamo License | — | 💚 Allowed | 🔑 Yes |
+| [Mixamo](https://www.mixamo.com/) | Auto-rigged characters and ready-made animations from Adobe. | Mixamo License | — | 💚 Allowed | 🔑 Yes |
 | [Kenney](https://kenney.nl/assets) | Thousands of CC0 2D/3D game assets, UI packs and audio. | CC0 | — | 💚 Allowed | — |
 | [OpenGameArt](https://opengameart.org/) | Long-running community archive of openly licensed game art. | Various (CC0/CC-BY/GPL...) | ❓ Varies | ❓ Varies | — |
 | [itch.io Free Game Assets](https://itch.io/game-assets/free) | Free section of the itch.io asset marketplace. _No account needed: click Download Now, then "No thanks, just take me to the downloads" to skip the name-your-price step._ | Per-item licenses | ❓ Varies | ❓ Varies | — |
@@ -299,14 +299,14 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 
 ## Search Engines
 
-*Meta-search across millions of openly licensed images, audio and media.*
+*Meta-search across openly licensed images, audio and media.*
 
 | Resource | About | License | Attribution | Monetization | Sign-up |
 | --- | --- | --- | --- | --- | --- |
 | [Openverse](https://openverse.org/) | Search 800M+ Creative Commons images and audio from across the web. _Always check the license shown for each individual result._ | Aggregator (per-source licenses) | ❓ Varies | ❓ Varies | — |
 | [Every Stock Photo](https://everystockphoto.com/) | Search free photos from many public domain and CC sources. | Aggregator (per-source licenses) | ❓ Varies | ❓ Varies | — |
 | [Wikimedia Commons](https://commons.wikimedia.org/) | 100M+ freely licensed media files, strong for editorial and historical content. | Various (per file) | ❓ Varies | ❓ Varies | — |
-| [The Public Domain Review](https://publicdomainreview.org/) | Curated essays and collections rediscovering public-domain treasures. _A discovery/curation site, not a stock host; check each work._ | Public Domain works | — | 💚 Allowed | — |
+| [The Public Domain Review](https://publicdomainreview.org/) | Essays and collections about rediscovered public-domain works. _A discovery/curation site, not a stock host; check each work._ | Public Domain works | — | 💚 Allowed | — |
 | [DPLA](https://dp.la/) | Digital Public Library of America: millions of items from US libraries and museums. | Various (per item) | ❓ Varies | ❓ Varies | — |
 | [Europeana](https://www.europeana.eu/) | European cultural heritage: artworks, photos and sounds from 3,000+ institutions. | Various (per item) | ❓ Varies | ❓ Varies | — |
 

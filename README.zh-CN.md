@@ -17,7 +17,7 @@
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> 一份**许可透明**的免费素材目录，专为视频创作者、主播、播客、游戏开发者、音乐人与设计师打造：**10 大分类、181 个资源**。
+> 创作者免费素材目录，每条都记录许可、署名要求与商用条件。10 个分类、181 个资源。
 
 **一眼看数据**：127 条 💚 可直接用于货币化内容 · 113 条 ➖ 无需署名 · 139 条 🔓 无需注册 · 29 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
 
@@ -50,12 +50,12 @@
 - [音效](#音效) — 12 个资源 · 面向视频、游戏、播客与直播的免费音效库、音效包与氛围音。
 - [视频素材](#视频素材) — 17 个资源 · 免费视频片段与 B-roll，含 4K、历史档案与公有领域素材。
 - [图片素材](#图片素材) — 27 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
-- [字体](#字体) — 18 个资源 · 可免费商用的字体，含中日韩字体家族——用于封面图、品牌、字幕与印刷。
+- [字体](#字体) — 18 个资源 · 可免费商用的字体，含中日韩字体家族。
 - [图形与图标](#图形与图标) — 40 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
 - [视频制作](#视频制作) — 9 个资源 · LUT、调色资产、转场与剪辑软件模板。
 - [样机与设计模板](#样机与设计模板) — 11 个资源 · PSD/设备样机、封面图与社交媒体模板。
 - [3D 与游戏素材](#3d-与游戏素材) — 23 个资源 · 模型、HDRI、PBR 材质、角色与游戏即用素材包。
-- [聚合搜索](#聚合搜索) — 6 个资源 · 跨数百万开放许可图片、音频与媒体的聚合搜索。
+- [聚合搜索](#聚合搜索) — 6 个资源 · 跨开放许可图片、音频与媒体的聚合搜索。
 - [相关清单](#相关清单)
 - [参与贡献](#参与贡献)
 
@@ -116,9 +116,9 @@
 | [Videvo](https://www.videvo.net/) | 免费视频素材与动态图形，逐项标注许可。 _注意逐条许可标签；CC-BY 条目需署名。_ | Videvo License / CC BY 3.0 (per asset) | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
 | [Videezy](https://www.videezy.com/) | 免费高清/4K 片段，多数要求署名链接。 _标准素材可免费商用但需署名；每次下载消耗 1 个 credit，因此必须注册账号。_ | Videezy License | ❓ 逐项而定 | ⚠️ 有条件 | 🔑 需注册 |
 | [Vidsplay](https://www.vidsplay.com/) | 每周更新免费片段。 _不得在其他平台作为图库素材二次分发。_ | Vidsplay License | — | 💚 可商用 | — |
-| [Dareful](https://www.dareful.com/) | 人工精选的免费 4K 视频片段。 _需回链署名，例如「Video courtesy of Dareful」并链接到该素材页。_ | CC BY 4.0 | ✅ 需署名 | 💚 可商用 | — |
+| [Dareful](https://www.dareful.com/) | 免费 4K 视频片段。 _需回链署名，例如「Video courtesy of Dareful」并链接到该素材页。_ | CC BY 4.0 | ✅ 需署名 | 💚 可商用 | — |
 | [Life of Vids](https://www.lifeofvids.com/) | 广告工作室发布的免费艺术感片段。 | Life of Vids License (free) | — | 💚 可商用 | — |
-| [Mazwai](https://mazwai.com/) | 从摄影师处精选的电影感素材。 | CC BY 3.0 / Mazwai License (per clip) | ❓ 逐项而定 | 💚 可商用 | — |
+| [Mazwai](https://mazwai.com/) | 摄影师提供的电影感素材。 | CC BY 3.0 / Mazwai License (per clip) | ❓ 逐项而定 | 💚 可商用 | — |
 | [SplitShire](https://www.splitshire.com/) | 摄影师 Daniel Nanescu 的免费照片与视频。 _不得作为图库二次分发。_ | SplitShire License (free) | — | 💚 可商用 | — |
 | [NASA Image and Video Library](https://images.nasa.gov/) | 公有领域的太空影像、发射视频与地球画面。 _NASA 素材一般不受版权保护；含可识别人物时需谨慎。_ | Public Domain (with minor exceptions) | — | 💚 可商用 | — |
 | [Prelinger Archives](https://archive.org/details/prelinger) | 历史广告、教育与业余影片，多为公有领域。 | Public Domain (mostly) | — | 💚 可商用 | — |
@@ -133,7 +133,7 @@
 
 | 资源 | 简介 | 许可 | 署名 | 商用 | 注册 |
 | --- | --- | --- | --- | --- | --- |
-| [Unsplash](https://unsplash.com/) | 海量免费高分辨率照片。 _不得出售未经修改的副本，或搭建竞争性图库服务。_ | Unsplash License | — | 💚 可商用 | — |
+| [Unsplash](https://unsplash.com/) | 可免费使用的高分辨率照片库，采用 Unsplash License。 _不得出售未经修改的副本，或搭建竞争性图库服务。_ | Unsplash License | — | 💚 可商用 | — |
 | [Pexels](https://www.pexels.com/) | 免费图库照片，许可宽松。 | Pexels License | — | 💚 可商用 | — |
 | [Pixabay](https://pixabay.com/) | 统一内容许可下的照片、插画与矢量图。 | Pixabay Content License | — | 💚 可商用 | — |
 | [Burst by Shopify](https://burst.shopify.com/) | 面向商业与电商场景的免费摄影。 | Free (CC0 where noted) | — | 💚 可商用 | — |
@@ -146,7 +146,7 @@
 | [Smithsonian Open Access](https://www.si.edu/openaccess) | 史密森尼博物馆与档案馆的数百万 CC0 图像。 | CC0 | — | 💚 可商用 | — |
 | [The Met Open Access](https://www.metmuseum.org/art/collection/open-access) | 大都会艺术博物馆的公有领域藏品图像。 | CC0 (Open Access works) | — | 💚 可商用 | — |
 | [Art Institute of Chicago](https://www.artic.edu/open-access/open-access-images) | 公有领域艺术藏品，含印象派名作。 | CC0 (public domain works) | — | 💚 可商用 | — |
-| [Library of Congress: Free to Use](https://www.loc.gov/free-to-use/) | 美国历史与文化主题的公有领域照片精选集。 | Public Domain (curated sets) | — | 💚 可商用 | — |
+| [Library of Congress: Free to Use](https://www.loc.gov/free-to-use/) | 美国历史与文化主题的公有领域照片集。 | Public Domain (curated sets) | — | 💚 可商用 | — |
 | [British Library on Flickr](https://www.flickr.com/photos/britishlibrary) | 数百万张公有领域书籍插画、地图与照片。 | Public Domain | — | 💚 可商用 | — |
 | [rawpixel Public Domain](https://www.rawpixel.com/public-domain) | 数字化的复古艺术、海报与书籍插画。 _免费账户每月下载有限额。_ | Public Domain / rawpixel free tier | ❓ 逐项而定 | 💚 可商用 | 可选 |
 | [Old Book Illustrations](https://www.oldbookillustrations.com/) | 古籍插画公有领域扫描件。 | Public Domain | — | 💚 可商用 | — |
@@ -163,7 +163,7 @@
 
 ## 字体
 
-*可免费商用的字体，含中日韩字体家族——用于封面图、品牌、字幕与印刷。*
+*可免费商用的字体，含中日韩字体家族。*
 
 | 资源 | 简介 | 许可 | 署名 | 商用 | 注册 |
 | --- | --- | --- | --- | --- | --- |
@@ -176,8 +176,8 @@
 | [Font Library](https://fontlibrary.org/) | 社区维护的自由字体目录。 | OFL / CC (per family) | ❓ 逐项而定 | 💚 可商用 | — |
 | [DaFont](https://www.dafont.com/) | 超大字体目录；许多字体仅限演示或个人使用。 _商用前务必逐字核对许可文件。_ | Various (per font) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [1001 Fonts](https://www.1001fonts.com/) | 10,000+ 字体，支持按许可筛选。 | Various (per font) | ❓ 逐项而定 | ❓ 逐项而定 | — |
-| [free-font (CJK)](https://github.com/jaywcjlove/free-font) | 中英文可商用免费字体精选。 _绝大多数为 OFL 等开源许可，但少数字体标记为「个人免费」「个人非商业」「CC BY-NC」或「需要授权」——商用前请逐个核对许可标签。_ | Various (per font) | ❓ 逐项而定 | ❓ 逐项而定 | — |
-| [Use & Modify](https://usemodify.com/) | 瑞士设计师精选的可商用免费字体目录，支持筛选。 | OFL / open licenses (per family) | — | 💚 可商用 | — |
+| [free-font (CJK)](https://github.com/jaywcjlove/free-font) | 中英文可商用免费字体清单。 _绝大多数为 OFL 等开源许可，但少数字体标记为「个人免费」「个人非商业」「CC BY-NC」或「需要授权」——商用前请逐个核对许可标签。_ | Various (per font) | ❓ 逐项而定 | ❓ 逐项而定 | — |
+| [Use & Modify](https://usemodify.com/) | 瑞士设计师整理的可商用免费字体目录，支持筛选。 | OFL / open licenses (per family) | — | 💚 可商用 | — |
 | [Open Foundry](https://open-foundry.com/) | 开放许可字体平台，附展示项目。 _官网 FAQ：能否商用取决于每个字体自身的许可，部分许可存在限制——用于客户项目前请先阅读该字体许可。_ | Various open licenses (per font) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [Source Han Sans (思源黑体)](https://github.com/adobe-fonts/source-han-sans) | Adobe 与 Google 联合开源的中日韩黑体家族，每个语言区域七个字重。 | SIL Open Font License 1.1 | — | 💚 可商用 | — |
 | [Source Han Serif (思源宋体)](https://github.com/adobe-fonts/source-han-serif) | 思源黑体的宋体姊妹作，适用于中日韩正文、刊物与印刷排版。 | SIL Open Font License 1.1 | — | 💚 可商用 | — |
@@ -276,9 +276,9 @@
 | [Poly Haven](https://polyhaven.com/) | 100% CC0 的 HDRI、PBR 材质与 3D 模型，业界标杆。 | CC0 | — | 💚 可商用 | — |
 | [ambientCG](https://ambientcg.com/) | 2,000+ CC0 PBR 材质，任何引擎与渲染器可用。 | CC0 | — | 💚 可商用 | — |
 | [FreePBR](https://www.freepbr.com/) | 免费 PBR 材质与 3D 模型。 _不得二次分发原始文件。_ | FreePBR License | — | 💚 可商用 | — |
-| [Textures.com](https://www.textures.com/) | 海量材质库，免费账户每日有下载额度。 _免费额度限制分辨率；部分商业用途需付费许可。_ | Free account license | — | ⚠️ 有条件 | 🔑 需注册 |
+| [Textures.com](https://www.textures.com/) | 材质库，免费账户每日有下载额度。 _免费额度限制分辨率；部分商业用途需付费许可。_ | Free account license | — | ⚠️ 有条件 | 🔑 需注册 |
 | [Quixel Megascans](https://quixel.com/megascans) | 照片级扫描资产；用于 Unreal Engine 项目免费。 _按现行条款免费使用与 UE 绑定；其他引擎请先确认。_ | Epic/Quixel License | — | ⚠️ 有条件 | 🔑 需注册 |
-| [Mixamo](https://www.mixamo.com/) | Adobe 的自动绑定角色与海量动画库。 | Mixamo License | — | 💚 可商用 | 🔑 需注册 |
+| [Mixamo](https://www.mixamo.com/) | Adobe 的自动绑定角色与现成动画库。 | Mixamo License | — | 💚 可商用 | 🔑 需注册 |
 | [Kenney](https://kenney.nl/assets) | 数千个 CC0 的 2D/3D 游戏素材、UI 包与音频。 | CC0 | — | 💚 可商用 | — |
 | [OpenGameArt](https://opengameart.org/) | 老牌社区开放许可游戏美术档案库。 | Various (CC0/CC-BY/GPL...) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [itch.io Free Game Assets](https://itch.io/game-assets/free) | itch.io 素材市场的免费专区。 _无需注册：点 Download Now 后选「No thanks, just take me to the downloads」，即可跳过随意付费步骤直接下载。_ | Per-item licenses | ❓ 逐项而定 | ❓ 逐项而定 | — |
@@ -299,14 +299,14 @@
 
 ## 聚合搜索
 
-*跨数百万开放许可图片、音频与媒体的聚合搜索。*
+*跨开放许可图片、音频与媒体的聚合搜索。*
 
 | 资源 | 简介 | 许可 | 署名 | 商用 | 注册 |
 | --- | --- | --- | --- | --- | --- |
 | [Openverse](https://openverse.org/) | 检索全网 8 亿+ 知识共享图片与音频。 _以每条结果展示的许可为准。_ | Aggregator (per-source licenses) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [Every Stock Photo](https://everystockphoto.com/) | 跨多个公有领域与 CC 图源搜索免费照片。 | Aggregator (per-source licenses) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [Wikimedia Commons](https://commons.wikimedia.org/) | 1 亿+ 自由许可媒体文件，编辑与历史类内容尤其丰富。 | Various (per file) | ❓ 逐项而定 | ❓ 逐项而定 | — |
-| [The Public Domain Review](https://publicdomainreview.org/) | 精选公有领域珍品的策展站点，附背景文章。 _属发现/策展站点而非素材托管；请逐件核对作品状态。_ | Public Domain works | — | 💚 可商用 | — |
+| [The Public Domain Review](https://publicdomainreview.org/) | 公有领域作品的策展站点，附背景文章。 _属发现/策展站点而非素材托管；请逐件核对作品状态。_ | Public Domain works | — | 💚 可商用 | — |
 | [DPLA](https://dp.la/) | 美国数字公共图书馆：聚合全美图书馆与博物馆的数百万条目。 | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [Europeana](https://www.europeana.eu/) | 欧洲文化遗产：3,000+ 机构的艺术品、照片与声音。 | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 

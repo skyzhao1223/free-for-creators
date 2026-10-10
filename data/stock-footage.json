@@ -92,8 +92,8 @@
     {
       "name": "Dareful",
       "url": "https://www.dareful.com/",
-      "description": "Hand-picked free 4K stock video clips.",
-      "description_zh": "人工精选的免费 4K 视频片段。",
+      "description": "Free 4K stock video clips.",
+      "description_zh": "免费 4K 视频片段。",
       "license": "CC BY 4.0",
       "license_family": "cc-by",
       "attribution": "required",
@@ -116,8 +116,8 @@
     {
       "name": "Mazwai",
       "url": "https://mazwai.com/",
-      "description": "Curated cinematic footage, hand-picked from videographers.",
-      "description_zh": "从摄影师处精选的电影感素材。",
+      "description": "Cinematic footage contributed by videographers.",
+      "description_zh": "摄影师提供的电影感素材。",
       "license": "CC BY 3.0 / Mazwai License (per clip)",
       "license_family": "mixed",
       "attribution": "varies",

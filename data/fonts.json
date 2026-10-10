@@ -2,8 +2,8 @@
   "category": "Fonts",
   "category_zh": "字体",
   "slug": "fonts",
-  "description": "Typefaces free for commercial use, including CJK families — for thumbnails, branding, subtitles and print.",
-  "description_zh": "可免费商用的字体，含中日韩字体家族——用于封面图、品牌、字幕与印刷。",
+  "description": "Typefaces free for commercial use, including CJK families.",
+  "description_zh": "可免费商用的字体，含中日韩字体家族。",
   "entries": [
     {
       "name": "Google Fonts",
@@ -87,7 +87,7 @@
     {
       "name": "DaFont",
       "url": "https://www.dafont.com/",
-      "description": "Huge catalog; many fonts are demo or personal-use only.",
+      "description": "Catalog of user-submitted fonts; many are demo or personal-use only.",
       "description_zh": "超大字体目录；许多字体仅限演示或个人使用。",
       "license": "Various (per font)",
       "license_family": "mixed",
@@ -111,8 +111,8 @@
     {
       "name": "free-font (CJK)",
       "url": "https://github.com/jaywcjlove/free-font",
-      "description": "Curated Chinese and English fonts free for commercial use.",
-      "description_zh": "中英文可商用免费字体精选。",
+      "description": "Chinese-language list of fonts free for commercial use.",
+      "description_zh": "中英文可商用免费字体清单。",
       "license": "Various (per font)",
       "license_family": "mixed",
       "attribution": "varies",
@@ -124,8 +124,8 @@
     {
       "name": "Use & Modify",
       "url": "https://usemodify.com/",
-      "description": "Curated catalog of free fonts by a Swiss designer, with filters.",
-      "description_zh": "瑞士设计师精选的可商用免费字体目录，支持筛选。",
+      "description": "Catalog of free fonts by a Swiss designer, with filters.",
+      "description_zh": "瑞士设计师整理的可商用免费字体目录，支持筛选。",
       "license": "OFL / open licenses (per family)",
       "license_family": "mixed",
       "attribution": "not-required",
