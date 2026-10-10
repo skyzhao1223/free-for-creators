@@ -58,8 +58,8 @@
     {
       "name": "DPLA",
       "url": "https://dp.la/",
-      "description": "Digital Public Library of America: millions of items from US libraries and museums.",
-      "description_zh": "美国数字公共图书馆：聚合全美图书馆与博物馆的数百万条目。",
+      "description": "Digital Public Library of America: aggregated items from US libraries and museums.",
+      "description_zh": "美国数字公共图书馆：聚合全美图书馆与博物馆的藏品。",
       "license": "Various (per item)",
       "license_family": "mixed",
       "attribution": "varies",

@@ -266,8 +266,8 @@
     {
       "name": "Iconoir",
       "url": "https://iconoir.com/",
-      "description": "1,600+ hand-crafted open-source icons, free forever.",
-      "description_zh": "1,600+ 手绘风格开源图标，永久免费。",
+      "description": "1,600+ open-source icons.",
+      "description_zh": "1,600+ 开源图标。",
       "license": "MIT",
       "license_family": "permissive",
       "attribution": "not-required",

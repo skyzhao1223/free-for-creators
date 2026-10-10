@@ -76,7 +76,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Audionautix](https://audionautix.com/) | Jason Shaw's free rock, acoustic and electronic tracks. _Commercial use is allowed as long as credit is given to Jason Shaw (audionautix.com)._ | CC BY 4.0 | ✅ Required | 💚 Allowed | — |
 | [FreePD](https://freepd.com/) | Public domain music across many genres, zero restrictions. | Public Domain | — | 💚 Allowed | — |
 | [Musopen](https://musopen.org/) | Public domain classical recordings, sheet music and music textbooks. _Most recordings are public domain; verify the license on each item._ | Public Domain / various | — | 💚 Allowed | — |
-| [ccMixter](https://ccmixter.org/) | Community remix site with thousands of Creative Commons licensed tracks. | Various CC licenses | ❓ Varies | ❓ Varies | — |
+| [ccMixter](https://ccmixter.org/) | Community remix site with Creative Commons licensed tracks. | Various CC licenses | ❓ Varies | ❓ Varies | — |
 | [NoCopyrightSounds (NCS)](https://ncs.io/) | Iconic electronic music label, free for creators who follow its usage policy. _Credit the track title, artist and NCS link; policy covers monetized YouTube and Twitch._ | NCS Usage Policy | ✅ Required | 💚 Allowed | — |
 | [StreamBeats](https://www.streambeats.com/) | Harris Heller's copyright-safe music library built specifically for streamers. _Available on major streaming platforms; designed to be DMCA-safe._ | Free (custom StreamBeats license) | — | 💚 Allowed | — |
 | [Pretzel Rocks](https://www.pretzel.rocks/) | DMCA-safe music player for streamers with a free tier. _Free tier requires on-stream attribution; paid tier removes it._ | Pretzel Free License | ✅ Required | 💚 Allowed | 🔑 Yes |
@@ -98,7 +98,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Sonniss GDC Audio Bundles](https://sonniss.com/gameaudiogdc) | Multi-gigabyte professional game audio packs released free every year. | Royalty-free (Sonniss GDC license) | — | 💚 Allowed | — |
 | [Orange Free Sounds](https://orangefreesounds.com/) | Large mixed library of free sounds, loops and ringtones. | Various CC licenses | ❓ Varies | ❓ Varies | — |
 | [SoundBible](https://soundbible.com/) | Simple, no-frills free sound effect downloads. | CC0 / CC-BY (per sound) | ❓ Varies | ❓ Varies | — |
-| [Freesfx.co.uk](https://www.freesfx.co.uk/) | Thousands of free sound effects usable with a credit. _Free for commercial and broadcast use, but the credit must include the freesfx.co.uk URL._ | freesfx.co.uk License | ✅ Required | ⚠️ Conditional | — |
+| [Freesfx.co.uk](https://www.freesfx.co.uk/) | Free sound effects usable with a credit. _Free for commercial and broadcast use, but the credit must include the freesfx.co.uk URL._ | freesfx.co.uk License | ✅ Required | ⚠️ Conditional | — |
 | [Kenney Audio](https://kenney.nl/assets?type=audio) | CC0 audio packs (UI, sci-fi, RPG) from the prolific Kenney library. | CC0 | — | 💚 Allowed | — |
 | [Tabletop Audio](https://tabletopaudio.com/) | Ambience loops for tabletop RPG sessions, streams and podcasts. _NonCommercial only: fine for personal and non-monetized use._ | CC BY-NC-ND 4.0 | ✅ Required | 🚫 Not allowed | — |
 | [SFXMint](https://sfxmint.com/) | Free CC0 game and UI sound effects in WAV/MP3; AI-generated or procedurally synthesized. _Library sounds are CC0; the separate AI generation feature has its own pricing — preview sounds before shipping._ | CC0 | — | 💚 Allowed | — |
@@ -137,17 +137,17 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Pexels](https://www.pexels.com/) | Free stock photos, very permissive license. | Pexels License | — | 💚 Allowed | — |
 | [Pixabay](https://pixabay.com/) | Photos, illustrations and vectors under one simple content license. | Pixabay Content License | — | 💚 Allowed | — |
 | [Burst by Shopify](https://burst.shopify.com/) | Business and ecommerce-oriented free photography. | Free (CC0 where noted) | — | 💚 Allowed | — |
-| [StockSnap.io](https://stocksnap.io/) | Hundreds of new CC0 photos added weekly, with search. | CC0 | — | 💚 Allowed | — |
+| [StockSnap.io](https://stocksnap.io/) | New CC0 photos added weekly, with search. | CC0 | — | 💚 Allowed | — |
 | [Gratisography](https://gratisography.com/) | Quirky, whimsical free photos by Ryan McGuire. _No redistribution as stock._ | Gratisography License | — | 💚 Allowed | — |
 | [Kaboompics](https://kaboompics.com/) | Lifestyle and interior photography with matching color palettes. | Kaboompics License | — | 💚 Allowed | — |
 | [Reshot](https://www.reshot.com/) | Free photos, icons and illustrations, no attribution required. | Reshot License | — | 💚 Allowed | — |
 | [ISO Republic](https://isorepublic.com/) | Free photos and videos under a simple custom license. | ISO Republic License | — | 💚 Allowed | — |
-| [FoodiesFeed](https://www.foodiesfeed.com/) | Thousands of free high-res food photos. | FoodiesFeed License (free) | — | 💚 Allowed | — |
-| [Smithsonian Open Access](https://www.si.edu/openaccess) | Millions of CC0 images from Smithsonian museums and archives. | CC0 | — | 💚 Allowed | — |
+| [FoodiesFeed](https://www.foodiesfeed.com/) | Free high-res food photos. | FoodiesFeed License (free) | — | 💚 Allowed | — |
+| [Smithsonian Open Access](https://www.si.edu/openaccess) | CC0 images from Smithsonian museums and archives. | CC0 | — | 💚 Allowed | — |
 | [The Met Open Access](https://www.metmuseum.org/art/collection/open-access) | Public domain artworks from the Metropolitan Museum of Art. | CC0 (Open Access works) | — | 💚 Allowed | — |
 | [Art Institute of Chicago](https://www.artic.edu/open-access/open-access-images) | Public domain artworks including famous Impressionist pieces. | CC0 (public domain works) | — | 💚 Allowed | — |
 | [Library of Congress: Free to Use](https://www.loc.gov/free-to-use/) | Public domain photo sets from US history and culture. | Public Domain (curated sets) | — | 💚 Allowed | — |
-| [British Library on Flickr](https://www.flickr.com/photos/britishlibrary) | Millions of public domain book illustrations, maps and photos. | Public Domain | — | 💚 Allowed | — |
+| [British Library on Flickr](https://www.flickr.com/photos/britishlibrary) | Public domain book illustrations, maps and photos. | Public Domain | — | 💚 Allowed | — |
 | [rawpixel Public Domain](https://www.rawpixel.com/public-domain) | Digitized vintage art, posters and book illustrations. _Free account has a monthly download limit._ | Public Domain / rawpixel free tier | ❓ Varies | 💚 Allowed | Optional |
 | [Old Book Illustrations](https://www.oldbookillustrations.com/) | Public domain scans of illustrations from old books. | Public Domain | — | 💚 Allowed | — |
 | [NYPL Digital Collections](https://digitalcollections.nypl.org/) | New York Public Library archive; filter for public domain items. | Various (filter: public domain) | ❓ Varies | ❓ Varies | — |
@@ -214,7 +214,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Icons8](https://icons8.com/icons) | Consistent icon, illustration and music families; free tier needs a link. _Free tier needs a visible link to icons8.com wherever the asset appears — footer, app About/Settings, game credits or the listing._ | Icons8 Free License | ✅ Required | ⚠️ Conditional | — |
 | [Heroicons](https://heroicons.com/) | Beautiful hand-crafted SVG icons by the makers of Tailwind CSS. | MIT | — | 💚 Allowed | — |
 | [Phosphor Icons](https://phosphoricons.com/) | Flexible open-source icon family with six weights. | MIT | — | 💚 Allowed | — |
-| [Iconoir](https://iconoir.com/) | 1,600+ hand-crafted open-source icons, free forever. | MIT | — | 💚 Allowed | — |
+| [Iconoir](https://iconoir.com/) | 1,600+ open-source icons. | MIT | — | 💚 Allowed | — |
 | [Remix Icon](https://remixicon.com/) | Neutral-style open-source system symbol icons. | Apache 2.0 | — | 💚 Allowed | — |
 | [Material Symbols](https://fonts.google.com/icons) | Google's variable icon family, successor to Material Icons. | Apache 2.0 | — | 💚 Allowed | — |
 | [Magnific (formerly Freepik)](https://www.magnific.com/) | Catalog of free vectors, PSDs and photos; the free plan needs attribution. _Renamed from Freepik (2026). Free tier needs a visible 'Designed by Freepik' credit link, 10 stock downloads/day; the pricing page also calls the free plan personal-use-only._ | Magnific License (free tier) | ✅ Required | ⚠️ Conditional | 🔑 Yes |
@@ -259,7 +259,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [GraphicsFuel](https://www.graphicsfuel.com/) | Free high-resolution PSD mockups and design templates. _Check the license note on each download page._ | Various (per item) | ❓ Varies | ❓ Varies | — |
 | [ls.graphics Free Mockups](https://www.ls.graphics/free-mockups) | High-quality free device and scene mockups from a premium shop. | ls.graphics Free License | — | 💚 Allowed | — |
 | [Pixelbuddha Free](https://pixelbuddha.net/free) | Free design resources: mockups, icons, UI kits. _Free downloads need a free account; the $10/mo Plus tier is the unlimited option, not a gate on the free files._ | Various (per item) | ❓ Varies | ❓ Varies | 🔑 Yes |
-| [Canva Templates](https://www.canva.com/templates/) | Thousands of free templates for thumbnails, posts, decks and shorts. _Canva content has resale and redistribution restrictions; read the Content License._ | Canva Content License | — | ⚠️ Conditional | 🔑 Yes |
+| [Canva Templates](https://www.canva.com/templates/) | Free templates for thumbnails, posts, decks and shorts. _Canva content has resale and redistribution restrictions; read the Content License._ | Canva Content License | — | ⚠️ Conditional | 🔑 Yes |
 | [Adobe Express Templates](https://www.adobe.com/express/templates) | Free templates for social media graphics and branding. | Adobe Stock/Express License | — | ⚠️ Conditional | 🔑 Yes |
 | [Smartmockups](https://www.canva.com/mockups/) | Browser-based mockup generator with free templates, now under Canva. _Free tier limits resolution and template count._ | Smartmockups Free License | — | ⚠️ Conditional | 🔑 Yes |
 | [Pixeden](https://www.pixeden.com/) | Free PSD mockups, graphics and web design resources. _Check the license note on each free item page._ | Pixeden License (per item) | ❓ Varies | ❓ Varies | Optional |
@@ -273,22 +273,22 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 
 | Resource | About | License | Attribution | Monetization | Sign-up |
 | --- | --- | --- | --- | --- | --- |
-| [Poly Haven](https://polyhaven.com/) | 100% CC0 HDRIs, PBR textures and 3D models. The gold standard. | CC0 | — | 💚 Allowed | — |
+| [Poly Haven](https://polyhaven.com/) | 100% CC0 HDRIs, PBR textures and 3D models. | CC0 | — | 💚 Allowed | — |
 | [ambientCG](https://ambientcg.com/) | 2,000+ CC0 PBR materials for any engine or renderer. | CC0 | — | 💚 Allowed | — |
 | [FreePBR](https://www.freepbr.com/) | Free PBR textures and 3D models. _Redistribution of the raw files is not allowed._ | FreePBR License | — | 💚 Allowed | — |
 | [Textures.com](https://www.textures.com/) | Enormous material library with a free daily-credit tier. _Free credits cap resolution; some commercial uses need a paid license._ | Free account license | — | ⚠️ Conditional | 🔑 Yes |
 | [Quixel Megascans](https://quixel.com/megascans) | Photorealistic scanned assets; free for Unreal Engine projects. _Free usage is tied to Unreal Engine under current terms; verify before other engines._ | Epic/Quixel License | — | ⚠️ Conditional | 🔑 Yes |
 | [Mixamo](https://www.mixamo.com/) | Auto-rigged characters and ready-made animations from Adobe. | Mixamo License | — | 💚 Allowed | 🔑 Yes |
-| [Kenney](https://kenney.nl/assets) | Thousands of CC0 2D/3D game assets, UI packs and audio. | CC0 | — | 💚 Allowed | — |
+| [Kenney](https://kenney.nl/assets) | CC0 2D/3D game assets, UI packs and audio. | CC0 | — | 💚 Allowed | — |
 | [OpenGameArt](https://opengameart.org/) | Long-running community archive of openly licensed game art. | Various (CC0/CC-BY/GPL...) | ❓ Varies | ❓ Varies | — |
 | [itch.io Free Game Assets](https://itch.io/game-assets/free) | Free section of the itch.io asset marketplace. _No account needed: click Download Now, then "No thanks, just take me to the downloads" to skip the name-your-price step._ | Per-item licenses | ❓ Varies | ❓ Varies | — |
-| [Poly Pizza](https://poly.pizza/) | Thousands of free low-poly models, mostly CC0. | CC0 / CC-BY (per model) | ❓ Varies | 💚 Allowed | — |
+| [Poly Pizza](https://poly.pizza/) | Free low-poly models, mostly CC0. | CC0 / CC-BY (per model) | ❓ Varies | 💚 Allowed | — |
 | [KayKit](https://kaylousberg.itch.io/) | Themed CC0 asset packs (dungeon, city, nature) for games. | CC0 | — | 💚 Allowed | — |
 | [Sketchfab Free Models](https://sketchfab.com/features/free-3d-models) | Downloadable free models filterable by CC license. | Per-model licenses | ❓ Varies | ❓ Varies | 🔑 Yes |
 | [NASA 3D Resources](https://nasa3d.arc.nasa.gov/) | Public domain 3D models, textures and images from NASA. | Public Domain (mostly) | — | 💚 Allowed | — |
 | [CGTrader Free Models](https://www.cgtrader.com/free-3d-models) | Free-model section of a major 3D marketplace. _Clicking Free Download opens a login panel — an account is needed even for the free models._ | Per-model licenses | ❓ Varies | ❓ Varies | 🔑 Yes |
 | [TurboSquid Free Models](https://www.turbosquid.com/Search/3D-Models/free) | Free-model section of TurboSquid. | Per-model licenses | ❓ Varies | ❓ Varies | Optional |
-| [SketchUp 3D Warehouse](https://3dwarehouse.sketchup.com/) | Millions of free 3D models from the SketchUp community. | Per-model licenses | ❓ Varies | ❓ Varies | Optional |
+| [SketchUp 3D Warehouse](https://3dwarehouse.sketchup.com/) | Free 3D models contributed by the SketchUp community. | Per-model licenses | ❓ Varies | ❓ Varies | Optional |
 | [Free3D](https://free3d.com/) | Free-model section of a large 3D marketplace. | Per-model licenses | ❓ Varies | ❓ Varies | Optional |
 | [Quaternius](https://quaternius.com/) | Stylish CC0 low-poly packs: animals, dungeons, sci-fi and more. | CC0 | — | 💚 Allowed | — |
 | [CraftPix Freebies](https://craftpix.net/freebies/) | Free 2D game assets: sprites, tilesets, GUI kits and more. _Free for commercial game projects; no reselling raw assets._ | CraftPix Free License | — | 💚 Allowed | Optional |
@@ -307,7 +307,7 @@ Unlike plain link lists, this repo is **verified by CI**: a weekly GitHub Action
 | [Every Stock Photo](https://everystockphoto.com/) | Search free photos from many public domain and CC sources. | Aggregator (per-source licenses) | ❓ Varies | ❓ Varies | — |
 | [Wikimedia Commons](https://commons.wikimedia.org/) | 100M+ freely licensed media files, strong for editorial and historical content. | Various (per file) | ❓ Varies | ❓ Varies | — |
 | [The Public Domain Review](https://publicdomainreview.org/) | Essays and collections about rediscovered public-domain works. _A discovery/curation site, not a stock host; check each work._ | Public Domain works | — | 💚 Allowed | — |
-| [DPLA](https://dp.la/) | Digital Public Library of America: millions of items from US libraries and museums. | Various (per item) | ❓ Varies | ❓ Varies | — |
+| [DPLA](https://dp.la/) | Digital Public Library of America: aggregated items from US libraries and museums. | Various (per item) | ❓ Varies | ❓ Varies | — |
 | [Europeana](https://www.europeana.eu/) | European cultural heritage: artworks, photos and sounds from 3,000+ institutions. | Various (per item) | ❓ Varies | ❓ Varies | — |
 
 ## Related Lists

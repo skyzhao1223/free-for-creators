@@ -8,8 +8,8 @@
     {
       "name": "Poly Haven",
       "url": "https://polyhaven.com/",
-      "description": "100% CC0 HDRIs, PBR textures and 3D models. The gold standard.",
-      "description_zh": "100% CC0 的 HDRI、PBR 材质与 3D 模型，业界标杆。",
+      "description": "100% CC0 HDRIs, PBR textures and 3D models.",
+      "description_zh": "100% CC0 的 HDRI、PBR 材质与 3D 模型。",
       "license": "CC0",
       "license_family": "cc0",
       "attribution": "not-required",
@@ -80,8 +80,8 @@
     {
       "name": "Kenney",
       "url": "https://kenney.nl/assets",
-      "description": "Thousands of CC0 2D/3D game assets, UI packs and audio.",
-      "description_zh": "数千个 CC0 的 2D/3D 游戏素材、UI 包与音频。",
+      "description": "CC0 2D/3D game assets, UI packs and audio.",
+      "description_zh": "CC0 的 2D/3D 游戏素材、UI 包与音频。",
       "license": "CC0",
       "license_family": "cc0",
       "attribution": "not-required",
@@ -116,8 +116,8 @@
     {
       "name": "Poly Pizza",
       "url": "https://poly.pizza/",
-      "description": "Thousands of free low-poly models, mostly CC0.",
-      "description_zh": "数千个免费低多边形模型，多为 CC0。",
+      "description": "Free low-poly models, mostly CC0.",
+      "description_zh": "免费低多边形模型，多为 CC0。",
       "license": "CC0 / CC-BY (per model)",
       "license_family": "mixed",
       "contains_cc0": true,
@@ -186,8 +186,8 @@
     {
       "name": "SketchUp 3D Warehouse",
       "url": "https://3dwarehouse.sketchup.com/",
-      "description": "Millions of free 3D models from the SketchUp community.",
-      "description_zh": "SketchUp 社区的数百万免费 3D 模型。",
+      "description": "Free 3D models contributed by the SketchUp community.",
+      "description_zh": "SketchUp 社区贡献的免费 3D 模型。",
       "license": "Per-model licenses",
       "license_family": "mixed",
       "attribution": "varies",

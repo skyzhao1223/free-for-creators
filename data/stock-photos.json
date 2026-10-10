@@ -55,8 +55,8 @@
     {
       "name": "StockSnap.io",
       "url": "https://stocksnap.io/",
-      "description": "Hundreds of new CC0 photos added weekly, with search.",
-      "description_zh": "每周新增数百张 CC0 照片，支持搜索。",
+      "description": "New CC0 photos added weekly, with search.",
+      "description_zh": "每周新增 CC0 照片，支持搜索。",
       "license": "CC0",
       "license_family": "cc0",
       "attribution": "not-required",
@@ -112,8 +112,8 @@
     {
       "name": "FoodiesFeed",
       "url": "https://www.foodiesfeed.com/",
-      "description": "Thousands of free high-res food photos.",
-      "description_zh": "数千张免费高分辨率美食照片。",
+      "description": "Free high-res food photos.",
+      "description_zh": "免费高分辨率美食照片。",
       "license": "FoodiesFeed License (free)",
       "license_family": "site-free",
       "attribution": "not-required",
@@ -123,8 +123,8 @@
     {
       "name": "Smithsonian Open Access",
       "url": "https://www.si.edu/openaccess",
-      "description": "Millions of CC0 images from Smithsonian museums and archives.",
-      "description_zh": "史密森尼博物馆与档案馆的数百万 CC0 图像。",
+      "description": "CC0 images from Smithsonian museums and archives.",
+      "description_zh": "史密森尼博物馆与档案馆的 CC0 图像。",
       "license": "CC0",
       "license_family": "cc0",
       "attribution": "not-required",
@@ -167,8 +167,8 @@
     {
       "name": "British Library on Flickr",
       "url": "https://www.flickr.com/photos/britishlibrary",
-      "description": "Millions of public domain book illustrations, maps and photos.",
-      "description_zh": "数百万张公有领域书籍插画、地图与照片。",
+      "description": "Public domain book illustrations, maps and photos.",
+      "description_zh": "公有领域的书籍插画、地图与照片。",
       "license": "Public Domain",
       "license_family": "cc0",
       "attribution": "not-required",

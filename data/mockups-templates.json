@@ -57,8 +57,8 @@
     {
       "name": "Canva Templates",
       "url": "https://www.canva.com/templates/",
-      "description": "Thousands of free templates for thumbnails, posts, decks and shorts.",
-      "description_zh": "数千个免费模板：封面图、帖子、演示文稿与短视频。",
+      "description": "Free templates for thumbnails, posts, decks and shorts.",
+      "description_zh": "免费模板：封面图、帖子、演示文稿与短视频。",
       "license": "Canva Content License",
       "license_family": "site-free",
       "attribution": "not-required",

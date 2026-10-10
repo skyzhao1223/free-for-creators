@@ -104,8 +104,8 @@
     {
       "name": "Freesfx.co.uk",
       "url": "https://www.freesfx.co.uk/",
-      "description": "Thousands of free sound effects usable with a credit.",
-      "description_zh": "数千个免费音效，使用时需署名。",
+      "description": "Free sound effects usable with a credit.",
+      "description_zh": "免费音效，使用时需署名。",
       "license": "freesfx.co.uk License",
       "license_family": "site-free",
       "attribution": "required",

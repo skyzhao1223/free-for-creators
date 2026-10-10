@@ -76,7 +76,7 @@
 | [Audionautix](https://audionautix.com/) | Jason Shaw 的免费摇滚、原声与电子音乐。 _允许商用，但必须署名 Jason Shaw（audionautix.com）。_ | CC BY 4.0 | ✅ 需署名 | 💚 可商用 | — |
 | [FreePD](https://freepd.com/) | 覆盖多种流派的公有领域音乐，零限制。 | Public Domain | — | 💚 可商用 | — |
 | [Musopen](https://musopen.org/) | 公有领域古典音乐录音、乐谱与教材。 _多数录音为公有领域；请逐项核对许可。_ | Public Domain / various | — | 💚 可商用 | — |
-| [ccMixter](https://ccmixter.org/) | 社区混音站点，数千首 CC 许可曲目。 | Various CC licenses | ❓ 逐项而定 | ❓ 逐项而定 | — |
+| [ccMixter](https://ccmixter.org/) | 社区混音站点，曲目采用 Creative Commons 许可。 | Various CC licenses | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [NoCopyrightSounds (NCS)](https://ncs.io/) | 知名电子音乐厂牌，遵守其使用政策即可免费使用。 _需注明曲名、作者与 NCS 链接；政策覆盖已开通收益的 YouTube 与 Twitch。_ | NCS Usage Policy | ✅ 需署名 | 💚 可商用 | — |
 | [StreamBeats](https://www.streambeats.com/) | Harris Heller 为直播主打造的无版权风险音乐库。 _各大音乐平台可听；专为规避 DMCA 设计。_ | Free (custom StreamBeats license) | — | 💚 可商用 | — |
 | [Pretzel Rocks](https://www.pretzel.rocks/) | 面向直播主的无版权风险音乐播放器，含免费档。 _免费档要求在直播画面署名；付费档可去除。_ | Pretzel Free License | ✅ 需署名 | 💚 可商用 | 🔑 需注册 |
@@ -98,7 +98,7 @@
 | [Sonniss GDC Audio Bundles](https://sonniss.com/gameaudiogdc) | 每年免费发放的数 GB 专业游戏音频包。 | Royalty-free (Sonniss GDC license) | — | 💚 可商用 | — |
 | [Orange Free Sounds](https://orangefreesounds.com/) | 大型混合免费声音、循环与铃声库。 | Various CC licenses | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [SoundBible](https://soundbible.com/) | 简单直接的免费音效下载站。 | CC0 / CC-BY (per sound) | ❓ 逐项而定 | ❓ 逐项而定 | — |
-| [Freesfx.co.uk](https://www.freesfx.co.uk/) | 数千个免费音效，使用时需署名。 _可用于商业与广播制作，但署名中必须包含 freesfx.co.uk 网址。_ | freesfx.co.uk License | ✅ 需署名 | ⚠️ 有条件 | — |
+| [Freesfx.co.uk](https://www.freesfx.co.uk/) | 免费音效，使用时需署名。 _可用于商业与广播制作，但署名中必须包含 freesfx.co.uk 网址。_ | freesfx.co.uk License | ✅ 需署名 | ⚠️ 有条件 | — |
 | [Kenney Audio](https://kenney.nl/assets?type=audio) | 高产素材库 Kenney 的 CC0 音频包（UI、科幻、RPG）。 | CC0 | — | 💚 可商用 | — |
 | [Tabletop Audio](https://tabletopaudio.com/) | 适合跑团、直播与播客的氛围循环音。 _仅限非商业：可用于个人及未货币化内容。_ | CC BY-NC-ND 4.0 | ✅ 需署名 | 🚫 禁止商用 | — |
 | [SFXMint](https://sfxmint.com/) | 免费 CC0 游戏与 UI 音效库，提供 WAV/MP3 下载；素材由 AI 生成或程序合成。 _站内音效素材均为 CC0；独立的 AI 生成功能另行计费——发布前请先试听确认。_ | CC0 | — | 💚 可商用 | — |
@@ -137,17 +137,17 @@
 | [Pexels](https://www.pexels.com/) | 免费图库照片，许可宽松。 | Pexels License | — | 💚 可商用 | — |
 | [Pixabay](https://pixabay.com/) | 统一内容许可下的照片、插画与矢量图。 | Pixabay Content License | — | 💚 可商用 | — |
 | [Burst by Shopify](https://burst.shopify.com/) | 面向商业与电商场景的免费摄影。 | Free (CC0 where noted) | — | 💚 可商用 | — |
-| [StockSnap.io](https://stocksnap.io/) | 每周新增数百张 CC0 照片，支持搜索。 | CC0 | — | 💚 可商用 | — |
+| [StockSnap.io](https://stocksnap.io/) | 每周新增 CC0 照片，支持搜索。 | CC0 | — | 💚 可商用 | — |
 | [Gratisography](https://gratisography.com/) | Ryan McGuire 的古怪趣味免费照片。 _不得作为图库二次分发。_ | Gratisography License | — | 💚 可商用 | — |
 | [Kaboompics](https://kaboompics.com/) | 生活方式与室内摄影，附配色方案。 | Kaboompics License | — | 💚 可商用 | — |
 | [Reshot](https://www.reshot.com/) | 免费照片、图标与插画，无需署名。 | Reshot License | — | 💚 可商用 | — |
 | [ISO Republic](https://isorepublic.com/) | 采用简单自定义许可的免费照片与视频。 | ISO Republic License | — | 💚 可商用 | — |
-| [FoodiesFeed](https://www.foodiesfeed.com/) | 数千张免费高分辨率美食照片。 | FoodiesFeed License (free) | — | 💚 可商用 | — |
-| [Smithsonian Open Access](https://www.si.edu/openaccess) | 史密森尼博物馆与档案馆的数百万 CC0 图像。 | CC0 | — | 💚 可商用 | — |
+| [FoodiesFeed](https://www.foodiesfeed.com/) | 免费高分辨率美食照片。 | FoodiesFeed License (free) | — | 💚 可商用 | — |
+| [Smithsonian Open Access](https://www.si.edu/openaccess) | 史密森尼博物馆与档案馆的 CC0 图像。 | CC0 | — | 💚 可商用 | — |
 | [The Met Open Access](https://www.metmuseum.org/art/collection/open-access) | 大都会艺术博物馆的公有领域藏品图像。 | CC0 (Open Access works) | — | 💚 可商用 | — |
 | [Art Institute of Chicago](https://www.artic.edu/open-access/open-access-images) | 公有领域艺术藏品，含印象派名作。 | CC0 (public domain works) | — | 💚 可商用 | — |
 | [Library of Congress: Free to Use](https://www.loc.gov/free-to-use/) | 美国历史与文化主题的公有领域照片集。 | Public Domain (curated sets) | — | 💚 可商用 | — |
-| [British Library on Flickr](https://www.flickr.com/photos/britishlibrary) | 数百万张公有领域书籍插画、地图与照片。 | Public Domain | — | 💚 可商用 | — |
+| [British Library on Flickr](https://www.flickr.com/photos/britishlibrary) | 公有领域的书籍插画、地图与照片。 | Public Domain | — | 💚 可商用 | — |
 | [rawpixel Public Domain](https://www.rawpixel.com/public-domain) | 数字化的复古艺术、海报与书籍插画。 _免费账户每月下载有限额。_ | Public Domain / rawpixel free tier | ❓ 逐项而定 | 💚 可商用 | 可选 |
 | [Old Book Illustrations](https://www.oldbookillustrations.com/) | 古籍插画公有领域扫描件。 | Public Domain | — | 💚 可商用 | — |
 | [NYPL Digital Collections](https://digitalcollections.nypl.org/) | 纽约公共图书馆档案；可按公有领域筛选。 | Various (filter: public domain) | ❓ 逐项而定 | ❓ 逐项而定 | — |
@@ -214,7 +214,7 @@
 | [Icons8](https://icons8.com/icons) | 风格一致的图标、插画与音乐；免费档需挂链接。 _免费档需在使用处放置可见的 icons8.com 链接——页脚、App 的关于/设置、游戏 Credits 或商品详情页均可。_ | Icons8 Free License | ✅ 需署名 | ⚠️ 有条件 | — |
 | [Heroicons](https://heroicons.com/) | Tailwind 团队手工打造的 SVG 图标。 | MIT | — | 💚 可商用 | — |
 | [Phosphor Icons](https://phosphoricons.com/) | 灵活的开源图标家族，含 6 种字重。 | MIT | — | 💚 可商用 | — |
-| [Iconoir](https://iconoir.com/) | 1,600+ 手绘风格开源图标，永久免费。 | MIT | — | 💚 可商用 | — |
+| [Iconoir](https://iconoir.com/) | 1,600+ 开源图标。 | MIT | — | 💚 可商用 | — |
 | [Remix Icon](https://remixicon.com/) | 中性风格的开源系统图标库。 | Apache 2.0 | — | 💚 可商用 | — |
 | [Material Symbols](https://fonts.google.com/icons) | Google 可变图标家族（Material Icons 的继任者）。 | Apache 2.0 | — | 💚 可商用 | — |
 | [Magnific (formerly Freepik)](https://www.magnific.com/) | 免费矢量图、PSD 与图片目录；免费方案需要署名。 _2026 年由 Freepik 更名而来。免费版需保留可见的「Designed by Freepik」署名链接、每日 10 次素材下载；定价页另称免费版仅限个人使用（与条款口径不一致，商用前请自行核对）。_ | Magnific License (free tier) | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
@@ -259,7 +259,7 @@
 | [GraphicsFuel](https://www.graphicsfuel.com/) | 免费高分辨率 PSD 样机与设计模板。 _以下载页标注的许可为准。_ | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [ls.graphics Free Mockups](https://www.ls.graphics/free-mockups) | 高端商店的免费高质量设备与场景样机。 | ls.graphics Free License | — | 💚 可商用 | — |
 | [Pixelbuddha Free](https://pixelbuddha.net/free) | 免费设计资源：样机、图标、UI 套件。 _下载免费素材需先注册免费账号；$10/月的 Plus 是无限下载档，并非免费文件的门槛。_ | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | 🔑 需注册 |
-| [Canva Templates](https://www.canva.com/templates/) | 数千个免费模板：封面图、帖子、演示文稿与短视频。 _Canva 素材有转售与再分发限制；请阅读内容许可。_ | Canva Content License | — | ⚠️ 有条件 | 🔑 需注册 |
+| [Canva Templates](https://www.canva.com/templates/) | 免费模板：封面图、帖子、演示文稿与短视频。 _Canva 素材有转售与再分发限制；请阅读内容许可。_ | Canva Content License | — | ⚠️ 有条件 | 🔑 需注册 |
 | [Adobe Express Templates](https://www.adobe.com/express/templates) | 免费的社媒图形与品牌模板。 | Adobe Stock/Express License | — | ⚠️ 有条件 | 🔑 需注册 |
 | [Smartmockups](https://www.canva.com/mockups/) | 浏览器样机生成器，含免费模板（Canva 旗下）。 _免费档限制分辨率与模板数量。_ | Smartmockups Free License | — | ⚠️ 有条件 | 🔑 需注册 |
 | [Pixeden](https://www.pixeden.com/) | 免费 PSD 样机、图形与网页设计资源。 _免费条目以下载页许可说明为准。_ | Pixeden License (per item) | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
@@ -273,22 +273,22 @@
 
 | 资源 | 简介 | 许可 | 署名 | 商用 | 注册 |
 | --- | --- | --- | --- | --- | --- |
-| [Poly Haven](https://polyhaven.com/) | 100% CC0 的 HDRI、PBR 材质与 3D 模型，业界标杆。 | CC0 | — | 💚 可商用 | — |
+| [Poly Haven](https://polyhaven.com/) | 100% CC0 的 HDRI、PBR 材质与 3D 模型。 | CC0 | — | 💚 可商用 | — |
 | [ambientCG](https://ambientcg.com/) | 2,000+ CC0 PBR 材质，任何引擎与渲染器可用。 | CC0 | — | 💚 可商用 | — |
 | [FreePBR](https://www.freepbr.com/) | 免费 PBR 材质与 3D 模型。 _不得二次分发原始文件。_ | FreePBR License | — | 💚 可商用 | — |
 | [Textures.com](https://www.textures.com/) | 材质库，免费账户每日有下载额度。 _免费额度限制分辨率；部分商业用途需付费许可。_ | Free account license | — | ⚠️ 有条件 | 🔑 需注册 |
 | [Quixel Megascans](https://quixel.com/megascans) | 照片级扫描资产；用于 Unreal Engine 项目免费。 _按现行条款免费使用与 UE 绑定；其他引擎请先确认。_ | Epic/Quixel License | — | ⚠️ 有条件 | 🔑 需注册 |
 | [Mixamo](https://www.mixamo.com/) | Adobe 的自动绑定角色与现成动画库。 | Mixamo License | — | 💚 可商用 | 🔑 需注册 |
-| [Kenney](https://kenney.nl/assets) | 数千个 CC0 的 2D/3D 游戏素材、UI 包与音频。 | CC0 | — | 💚 可商用 | — |
+| [Kenney](https://kenney.nl/assets) | CC0 的 2D/3D 游戏素材、UI 包与音频。 | CC0 | — | 💚 可商用 | — |
 | [OpenGameArt](https://opengameart.org/) | 老牌社区开放许可游戏美术档案库。 | Various (CC0/CC-BY/GPL...) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [itch.io Free Game Assets](https://itch.io/game-assets/free) | itch.io 素材市场的免费专区。 _无需注册：点 Download Now 后选「No thanks, just take me to the downloads」，即可跳过随意付费步骤直接下载。_ | Per-item licenses | ❓ 逐项而定 | ❓ 逐项而定 | — |
-| [Poly Pizza](https://poly.pizza/) | 数千个免费低多边形模型，多为 CC0。 | CC0 / CC-BY (per model) | ❓ 逐项而定 | 💚 可商用 | — |
+| [Poly Pizza](https://poly.pizza/) | 免费低多边形模型，多为 CC0。 | CC0 / CC-BY (per model) | ❓ 逐项而定 | 💚 可商用 | — |
 | [KayKit](https://kaylousberg.itch.io/) | 游戏用主题 CC0 素材包（地牢、城市、自然）。 | CC0 | — | 💚 可商用 | — |
 | [Sketchfab Free Models](https://sketchfab.com/features/free-3d-models) | 可按 CC 许可筛选的免费可下载模型。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 🔑 需注册 |
 | [NASA 3D Resources](https://nasa3d.arc.nasa.gov/) | NASA 的公有领域 3D 模型、材质与图像。 | Public Domain (mostly) | — | 💚 可商用 | — |
 | [CGTrader Free Models](https://www.cgtrader.com/free-3d-models) | 大型 3D 市场的免费模型专区。 _点击 Free Download 会弹出登录面板——即便是免费模型也需要注册账号。_ | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 🔑 需注册 |
 | [TurboSquid Free Models](https://www.turbosquid.com/Search/3D-Models/free) | TurboSquid 的免费模型专区。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
-| [SketchUp 3D Warehouse](https://3dwarehouse.sketchup.com/) | SketchUp 社区的数百万免费 3D 模型。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
+| [SketchUp 3D Warehouse](https://3dwarehouse.sketchup.com/) | SketchUp 社区贡献的免费 3D 模型。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
 | [Free3D](https://free3d.com/) | 大型 3D 市场的免费模型专区。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
 | [Quaternius](https://quaternius.com/) | 风格化 CC0 低多边形素材包：动物、地牢、科幻等。 | CC0 | — | 💚 可商用 | — |
 | [CraftPix Freebies](https://craftpix.net/freebies/) | 免费 2D 游戏素材：精灵图、tileset、GUI 套件等。 _可免费用于商业游戏项目；不得转售原始素材。_ | CraftPix Free License | — | 💚 可商用 | 可选 |
@@ -307,7 +307,7 @@
 | [Every Stock Photo](https://everystockphoto.com/) | 跨多个公有领域与 CC 图源搜索免费照片。 | Aggregator (per-source licenses) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [Wikimedia Commons](https://commons.wikimedia.org/) | 1 亿+ 自由许可媒体文件，编辑与历史类内容尤其丰富。 | Various (per file) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [The Public Domain Review](https://publicdomainreview.org/) | 公有领域作品的策展站点，附背景文章。 _属发现/策展站点而非素材托管；请逐件核对作品状态。_ | Public Domain works | — | 💚 可商用 | — |
-| [DPLA](https://dp.la/) | 美国数字公共图书馆：聚合全美图书馆与博物馆的数百万条目。 | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | — |
+| [DPLA](https://dp.la/) | 美国数字公共图书馆：聚合全美图书馆与博物馆的藏品。 | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [Europeana](https://www.europeana.eu/) | 欧洲文化遗产：3,000+ 机构的艺术品、照片与声音。 | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 
 ## 相关清单

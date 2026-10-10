@@ -147,8 +147,8 @@
     {
       "name": "ccMixter",
       "url": "https://ccmixter.org/",
-      "description": "Community remix site with thousands of Creative Commons licensed tracks.",
-      "description_zh": "社区混音站点，数千首 CC 许可曲目。",
+      "description": "Community remix site with Creative Commons licensed tracks.",
+      "description_zh": "社区混音站点，曲目采用 Creative Commons 许可。",
       "license": "Various CC licenses",
       "license_family": "mixed",
       "attribution": "varies",
