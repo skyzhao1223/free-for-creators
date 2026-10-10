@@ -57,13 +57,13 @@ jobs:
           # fonts-noto-color-emoji: the banner contains 7 emoji (🎁✅⭐🌐💚📖🚫).
           # fonts-noto-cjk: it contains 4 Han characters (中体文简).
           # Without these the Linux render shows tofu boxes for both.
-          sudo apt-get install -y -qq webp fonts-noto-core fonts-noto-color-emoji fonts-noto-cjk >/dev/null
+          sudo apt-get install -y -qq webp fonts-dejavu-core fonts-noto-color-emoji fonts-noto-cjk >/dev/null
           python3 -m pip install --quiet pillow numpy
           echo "cwebp: $(cwebp -version 2>&1 | head -1)"
           # Recorded so a future runner-image change that alters the render is traceable:
           # the CSS names these faces explicitly, and whichever of them is missing here
           # silently changes the banner.
-          for f in "Noto Sans" "Noto Sans CJK SC" "Noto Color Emoji"; do
+          for f in "DejaVu Sans" "Noto Sans CJK SC" "Noto Color Emoji"; do
             printf 'font "%s": %s face(s)\n' "$f" "$(fc-match -a "$f" 2>/dev/null | wc -l)"
             fc-match "$f" 2>/dev/null | sed 's/^/    resolves to: /'
           done
@@ -216,8 +216,8 @@ jobs:
             echo "Nothing to commit."
             exit 0
           fi
-          want="$(python3 scripts/build_readme.py --description | grep -oE '[0-9]+ resources' || true)"
-          git commit -m "assets: re-render banner and social preview for ${want:-the current} entry count [skip ci]"
+          count="$(python3 -c 'import json,glob;print(sum(len(json.load(open(p,encoding="utf-8"))["entries"]) for p in glob.glob("data/*.json")))')"
+          git commit -m "assets: re-render banner and social preview (${count} entries) [skip ci]"
           # Someone may have pushed while this ran; rebase rather than fail the job.
           git pull --rebase origin main
           git push origin HEAD:main
