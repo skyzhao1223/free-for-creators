@@ -604,6 +604,22 @@
       "notes_zh": "不允许转售图标；品牌 logo 与图标名称适用许可中的单独条款。",
       "license_checked": "2026-10-18",
       "license_source": "https://uxwing.com/license/"
+    },
+    {
+      "name": "Oreo Doodle Icons",
+      "url": "https://doodle.oreoui.com/",
+      "description": "197 free hand-drawn SVG icons that draw themselves and wiggle, as plain SVG files or React components.",
+      "description_zh": "197 个免费手绘 SVG 图标，会自己画出来并持续轻微抖动，提供 SVG 文件与 React 组件。",
+      "license": "MIT",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "The 197 free icons are MIT on GitHub and npm (@oreo-design/doodle-icons); the separate paid Pro set is not part of this entry.",
+      "notes_zh": "197 个免费图标在 GitHub 与 npm（@oreo-design/doodle-icons）上以 MIT 发布；另售的 Pro 付费图标不在此条目范围内。",
+      "submitted_by": "nicoletangnan",
+      "license_checked": "2026-10-25",
+      "license_source": "https://raw.githubusercontent.com/oreo-design/doodle-icons/main/LICENSE"
     }
   ]
 }

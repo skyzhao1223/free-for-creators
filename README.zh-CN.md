@@ -12,16 +12,16 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-219-blue" alt="219 resources">
+  <img src="https://img.shields.io/badge/resources-220-blue" alt="220 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
 *链接最近校验于 2026-10-26：159 正常 · 59 需人工确认 · 0 死链。*
 
-> 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。11 个分类、219 个资源。
+> 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。11 个分类、220 个资源。
 
-**一眼看数据**：160 条 💚 可直接用于货币化内容 · 136 条 ➖ 无需署名 · 175 条 🔓 无需注册 · 36 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
+**一眼看数据**：161 条 💚 可直接用于货币化内容 · 137 条 ➖ 无需署名 · 176 条 🔓 无需注册 · 36 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -53,7 +53,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 - [视频素材](#视频素材) — 17 个资源 · 免费视频片段与 B-roll，含 4K、历史档案与公有领域素材。
 - [图片素材](#图片素材) — 33 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
 - [字体](#字体) — 21 个资源 · 可免费商用的字体，含中日韩字体家族。
-- [图形与图标](#图形与图标) — 49 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
+- [图形与图标](#图形与图标) — 50 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
 - [配色与渐变](#配色与渐变) — 6 个资源 · 可复制到设计中的配色与渐变，每项都注明许可证。
 - [视频制作](#视频制作) — 10 个资源 · LUT、调色资产、转场与剪辑软件模板。
 - [样机与设计模板](#样机与设计模板) — 12 个资源 · PSD/设备样机、封面图与社交媒体模板。
@@ -259,6 +259,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Radix Icons](https://www.radix-ui.com/icons) | 统一的 15x15 图标集，提供 React 组件与 SVG。 | MIT | — | 💚 可商用 | — |
 | [System UIcons](https://systemuicons.com/) | 面向系统与产品的图标集，提供 SVG 与 Webfont。 _站点未指名许可证，而是声明自己的条款：「随意使用，无需署名」。_ | Free use, no attribution (the site's own terms) | — | 💚 可商用 | — |
 | [UXWing](https://uxwing.com/) | 提供多种风格 SVG/PNG 下载的图标库，内置 SVG 编辑器。 _不允许转售图标；品牌 logo 与图标名称适用许可中的单独条款。_ | Site licence (commercial use, no attribution) | — | 💚 可商用 | — |
+| [Oreo Doodle Icons](https://doodle.oreoui.com/) <sup>[@nicoletangnan](https://github.com/nicoletangnan)</sup> | 197 个免费手绘 SVG 图标，会自己画出来并持续轻微抖动，提供 SVG 文件与 React 组件。 _197 个免费图标在 GitHub 与 npm（@oreo-design/doodle-icons）上以 MIT 发布；另售的 Pro 付费图标不在此条目范围内。_ | MIT | — | 💚 可商用 | — |
 
 ## 配色与渐变
 
@@ -373,6 +374,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 
 - [@flreey](https://github.com/flreey)
 - [@vfseanm](https://github.com/vfseanm)
+- [@nicoletangnan](https://github.com/nicoletangnan)
 - [@omrishragaxyz](https://github.com/omrishragaxyz)
 
 投稿者的名字会出现在对应条目旁；纠正与死链修复则以对应 issue / PR 为凭。想加入这份名单，请看 [CONTRIBUTING.md](CONTRIBUTING.md)。
