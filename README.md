@@ -365,6 +365,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 - [free-for-dev](https://github.com/ripienaar/free-for-dev) — free SaaS/PaaS/IaaS tiers for developers
 - [awesome-stock-resources](https://github.com/neutraltone/awesome-stock-resources) — classic stock photo/video collection
 - [GameDev-Resources](https://github.com/Kavex/GameDev-Resources) — game development resources
+- [RespawnStack](https://respawnstack.com) — curated AI tools for game developers
 - [design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) — design resources for developers
 
 ## Contributors
