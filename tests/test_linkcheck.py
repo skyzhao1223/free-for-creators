@@ -159,6 +159,70 @@ class TitleFingerprintTests(unittest.TestCase):
         self.assertEqual(linkcheck.title_similarity("", "Nord"), 0.0)
         self.assertEqual(linkcheck.title_similarity("Nord", ""), 0.0)
 
+    # -- CJK (#16) --------------------------------------------------------------------
+    # A title made only of Chinese characters used to tokenise to nothing, so it scored
+    # 0.0 against itself and every Chinese entry was reported as changed on every run.
+    CJK_TITLE = "阿里巴巴普惠体"
+
+    def test_cjk_titles_tokenise_as_two_character_grams(self):
+        self.assertEqual(linkcheck.title_tokens(self.CJK_TITLE),
+                         {"阿里", "里巴", "巴巴", "巴普", "普惠", "惠体"})
+
+    def test_a_one_character_cjk_title_keeps_its_character(self):
+        # Bigrams need two characters; a one-character title must not vanish again.
+        self.assertEqual(linkcheck.title_tokens("云"), {"云"})
+        self.assertEqual(linkcheck.title_similarity("云", "云"), 1.0)
+
+    def test_identical_cjk_titles_are_identical(self):
+        self.assertEqual(linkcheck.title_similarity(self.CJK_TITLE, self.CJK_TITLE), 1.0)
+
+    def test_mixed_cjk_and_latin_titles_are_unchanged_by_case(self):
+        mixed = "Alibaba PuHuiTi (阿里巴巴普惠体)"
+        self.assertEqual(linkcheck.title_similarity(mixed, mixed), 1.0)
+        self.assertEqual(linkcheck.title_similarity(mixed, mixed.upper()), 1.0)
+
+    def test_another_page_on_the_same_cjk_site_stays_above_the_threshold(self):
+        # 阿/里/巴 巴巴 vs 图标库: three shared grams out of nine, 1/3.
+        similarity = linkcheck.title_similarity(self.CJK_TITLE, "阿里巴巴图标库")
+        self.assertAlmostEqual(similarity, 1 / 3.0)
+        self.assertGreaterEqual(similarity, linkcheck.TITLE_CHANGE_THRESHOLD)
+
+    def test_a_cjk_rename_or_suffix_keeps_overlap(self):
+        for old, new in (("得意黑", "得意黑 - Smiley Sans"),
+                         ("霞鹜文楷", "霞鹜文楷 GB"),
+                         ("思源黑体", "思源宋体")):
+            self.assertGreaterEqual(linkcheck.title_similarity(old, new),
+                                    linkcheck.TITLE_CHANGE_THRESHOLD, (old, new))
+
+    def test_a_shared_common_word_is_not_enough_to_pass_as_unchanged(self):
+        # 「免费」 appears on half the freebie sites in China. Matching single characters
+        # scored this pair 0.25 — above the threshold, so the takeover passed as unchanged;
+        # grams score it 0.14 and it is flagged.
+        self.assertLess(linkcheck.title_similarity("免费素材", "免费在线赌场"),
+                        linkcheck.TITLE_CHANGE_THRESHOLD)
+
+    def test_a_cjk_title_replaced_by_an_unrelated_one_is_still_zero(self):
+        for hijack in (GAMBLING_TITLE, "页面不存在", "澳门新葡京威尼斯人娱乐城"):
+            self.assertEqual(linkcheck.title_similarity(self.CJK_TITLE, hijack), 0.0, hijack)
+
+    def test_the_ascii_path_is_untouched_by_the_cjk_rule(self):
+        self.assertEqual(linkcheck.title_tokens("Pixabay - Free Images (2024)!"),
+                         {"pixabay", "free", "images"})
+        self.assertEqual(linkcheck.title_tokens("Nord"), {"nord"})
+        self.assertEqual(linkcheck.title_similarity("Nord", "Nord | Guitars"), 0.5)
+
+    def test_two_titles_that_both_tokenise_to_nothing_compare_by_string(self):
+        # Nothing to tokenise on either side is not evidence of anything: compare the text.
+        self.assertEqual(linkcheck.title_similarity("---", "---"), 1.0)
+        self.assertEqual(linkcheck.title_similarity("404", " 404 "), 1.0)
+        self.assertEqual(linkcheck.title_similarity("---", "404"), 0.0)
+        self.assertEqual(linkcheck.title_similarity("", ""), 1.0)
+
+    def test_one_side_tokenising_to_nothing_is_still_zero(self):
+        self.assertEqual(linkcheck.title_similarity("---", "Nord"), 0.0)
+        self.assertEqual(linkcheck.title_similarity(self.CJK_TITLE, ""), 0.0)
+        self.assertEqual(linkcheck.title_similarity("", self.CJK_TITLE), 0.0)
+
 
 class ReviewTitlesTests(unittest.TestCase):
     def test_a_first_sighting_is_recorded_without_alarm(self):
@@ -170,6 +234,26 @@ class ReviewTitlesTests(unittest.TestCase):
         changes, updated = linkcheck.review_titles({"https://a/": "Nord"}, {"https://a/": "Nord"})
         self.assertEqual(changes, [])
         self.assertEqual(updated["https://a/"], "Nord")
+
+    def test_an_unchanged_cjk_title_is_not_reported(self):
+        # The regression behind #16: 阿里巴巴普惠体 scored 0.0 against itself, so every
+        # Chinese entry came out of review_titles as a suspected takeover.
+        old = "阿里巴巴普惠体"
+        changes, updated = linkcheck.review_titles({"https://a/": old}, {"https://a/": old})
+        self.assertEqual(changes, [])
+        self.assertEqual(updated["https://a/"], old)
+
+    def test_a_cjk_takeover_is_flagged_and_the_old_title_is_kept(self):
+        old = "阿里巴巴普惠体"
+        changes, updated = linkcheck.review_titles(
+            {"https://a/": old}, {"https://a/": GAMBLING_TITLE})
+        self.assertEqual(len(changes), 1)
+        self.assertLess(changes[0][3], linkcheck.TITLE_CHANGE_THRESHOLD)
+        self.assertEqual(updated["https://a/"], old)
+
+    def test_an_unchanged_title_of_pure_punctuation_is_not_reported(self):
+        changes, _ = linkcheck.review_titles({"https://a/": "---"}, {"https://a/": "---"})
+        self.assertEqual(changes, [])
 
     def test_a_takeover_is_flagged_and_the_old_title_is_kept(self):
         old = "TeenyIcons - 1px icon set"

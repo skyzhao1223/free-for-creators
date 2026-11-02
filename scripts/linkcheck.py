@@ -182,17 +182,46 @@ def probe(url, method):
         return r.status, r.geturl(), body
 
 
+#: Scripts written without spaces (CJK) cannot be split on whitespace or punctuation: the
+#: old rule cut on [^0-9a-z]+ and turned 「阿里巴巴普惠体」 into the empty set. They are
+#: indexed as overlapping two-character grams instead — the usual CJK approach, and what
+#: CJK search indexes do — rather than one character at a time, because single characters
+#: carry almost no identity: 「免费素材」 -> 「免费在线赌场」 shares 2 of 6 characters
+#: (0.25, above TITLE_CHANGE_THRESHOLD, so the takeover would pass as unchanged), while as
+#: grams it shares 1 of 7 (0.14, correctly flagged). A one-character run keeps that
+#: character, so a short title is not silently reduced to nothing.
+#: Ranges: kana, CJK ext. A, unified ideographs, compatibility ideographs, hangul.
+CJK = "\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uac00-\ud7af"
+CJK_RUN = re.compile("[%s]+" % CJK)
+
+
 def title_tokens(text):
     """Words worth comparing: lowercased, punctuation stripped, 1-2 char and numeric tokens
-    dropped."""
-    tokens = {t for t in re.split(r"[^0-9a-z]+", (text or "").lower())
+    dropped — except CJK, which yields two-character grams (a lone character stands for
+    itself)."""
+    text = (text or "").lower()
+    tokens = {t for t in re.split(r"[^0-9a-z]+", text)
               if len(t) >= 3 and not t.isdigit()}
+    for run in CJK_RUN.findall(text):
+        if len(run) == 1:
+            tokens.add(run)
+        else:
+            tokens.update(run[i:i + 2] for i in range(len(run) - 1))
     return tokens
 
 
 def title_similarity(previous, current):
-    """Jaccard overlap of the two titles' words. 1.0 identical, 0.0 nothing in common."""
+    """Jaccard overlap of the two titles' words. 1.0 identical, 0.0 nothing in common.
+
+    A title can tokenise to nothing — 「---」, 「404」, or any script the tokeniser does not
+    know. That is not evidence of a takeover, and returning 0.0 for it made an unchanged
+    title score 0 against itself, so such a pair falls back to comparing the raw strings
+    (whitespace and case aside). When only one side tokenises, the pair is still
+    incomparable and stays at 0.0.
+    """
     a, b = title_tokens(previous), title_tokens(current)
+    if not a and not b:
+        return 1.0 if (previous or "").strip().lower() == (current or "").strip().lower() else 0.0
     if not a or not b:
         return 0.0
     return len(a & b) / float(len(a | b))
