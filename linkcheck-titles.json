@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "date": "2026-10-26",
+  "date": "2026-11-02",
   "titles": {
     "https://polyhaven.com/": "Poly Haven",
     "https://ambientcg.com/": "ambientCG - Free Textures, HDRIs and Models PBR Surfaces",
@@ -57,7 +57,7 @@
     "https://blush.design/": "Blush: Illustrations for everyone Tell your story with illustrations",
     "https://icon-sets.iconify.design/": "Iconify - home of open source icons Material (6 icon sets)",
     "https://feathericons.com/": "Feather – Simply beautiful open source icons Simply beautiful open source icons",
-    "https://tabler.io/icons": "Tabler Icons: 6200+ free vector icons for web design One Icon Set for Every Project",
+    "https://tabler.io/icons": "Tabler Icons: 6250+ free vector icons for web design One Icon Set for Every Project",
     "https://lucide.dev/": "Lucide Beautiful & consistent icons",
     "https://icons.getbootstrap.com/": "Bootstrap Icons Bootstrap Icons",
     "https://bioicons.com/": "Bioicons - high quality science illustrations",
@@ -86,7 +86,7 @@
     "https://ionic.io/ionicons": "Ionicons: Premium Open Source Icon Pack for Ionic Framework",
     "https://www.radix-ui.com/icons": "Radix Icons A crisp set of 15×15 icons",
     "https://systemuicons.com/": "System UIcons",
-    "https://uxwing.com/": "Free Icons Download | High-Quality SVG Icons for Commercial Use Exclusive collection of Fr",
+    "https://uxwing.com/": "Free SVG Icons | High-Quality Free SVG, PNG Icons for Commercial Use Exclusive collection ",
     "https://pixelbuddha.net/free": "Free Design Resources — Fonts, Mockups &amp; Effects | Pixelbuddha",
     "https://www.pixeden.com/": "Inspired Design Resources for Creatives | Pixeden Club Inspired Design Resources for Creat",
     "https://html5up.net/": "HTML5 UP! Responsive HTML5 and CSS3 Site Templates HTML5 UP",
@@ -122,7 +122,7 @@
     "https://www.freesfx.co.uk/": "Free SFX",
     "https://kenney.nl/assets?type=audio": "Assets &middot; Kenney Coming to Steam!",
     "https://tabletopaudio.com/": "Tabletop Audio - Ambiences and Music for Tabletop Role Playing Games",
-    "https://sfxmint.com/": "Free sound effects for games — CC0, no signup Free sound effects for your game",
+    "https://sfxmint.com/": "Free Sound Effects — CC0 WAV &amp; MP3, No Signup Free Sound Effects",
     "https://soundza.com/": "Soundza — Free Royalty-Free Sounds &amp; Sample Packs World-class sounds. Royalty-free.",
     "https://99sounds.org/": "99Sounds - We make FREE sounds and sound effects.",
     "https://mixkit.co/free-stock-video/": "Download Free Stock Video &amp; Footage | No Watermark Download free stock video in 4K and",
@@ -144,7 +144,6 @@
     "https://www.rijksmuseum.nl/en/collection": "Collection - Rijksmuseum Collection",
     "https://www.smk.dk/article/smk-open/": "SMK Open | SMK &#8211; Statens Museum for Kunst",
     "https://neurascapes.com/": "Neurascapes • Images for Creators Free AI images for creatives &amp; professionals",
-    "https://www.parismuseescollections.paris.fr/": "Les collections en ligne des musées de la Ville de Paris Les musées de la ville de paris",
     "https://www.getty.edu/projects/open-content-program/": "Open Content Program | Getty Projects",
     "https://pixnio.com/": "Public Domain Images - Pixnio Public Domain Images &amp; Free Stock Photos",
     "https://magdeleine.co/": "Free high resolution stock images CC0 and Public Domain - Magdeleine Magdeleine",
@@ -154,6 +153,7 @@
     "https://mixkit.co/free-after-effects-templates/": "Download Free After Effects Templates | Mixkit",
     "https://footagecrate.com/": "FootageCrate | 10,000 VFX Assets | Explosions, Fire, Lightning, Magic, Smoke",
     "https://www.motionelements.com/free/stock-footage": "8,000 free stock footage, free stock video",
-    "https://lutify.me/free-luts/": "Lutify.me | Free cinematic color grading LUTs"
+    "https://lutify.me/free-luts/": "Lutify.me | Free cinematic color grading LUTs",
+    "https://www.parismuseescollections.paris.fr/": "Les collections en ligne des musées de la Ville de Paris Les musées de la ville de paris"
   }
 }

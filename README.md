@@ -17,7 +17,7 @@
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-*Links last verified 2026-10-26: 159 ok · 59 need a browser · 0 broken.*
+*Links last verified 2026-11-02: 158 ok · 60 need a browser · 0 broken.*
 
 > "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 219 resources in 11 categories.
 
