@@ -12,16 +12,16 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-219-blue" alt="219 resources">
+  <img src="https://img.shields.io/badge/resources-220-blue" alt="220 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
 *Links last verified 2026-10-17: 147 ok · 52 need a browser · 0 broken.*
 
-> "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 219 resources in 11 categories.
+> "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 220 resources in 11 categories.
 
-**At a glance:** 160 entries are 💚 safe for monetized content · 136 need ➖ no attribution · 175 need 🔓 no account · 36 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
+**At a glance:** 161 entries are 💚 safe for monetized content · 137 need ➖ no attribution · 175 need 🔓 no account · 36 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
 
 Every entry answers three questions that decide whether a free asset is actually usable:
 
@@ -49,7 +49,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 ## Table of Contents
 
 - [Music](#music) — 21 resources · Royalty-free and copyright-safe music for videos, streams, podcasts and games.
-- [Sound Effects](#sound-effects) — 14 resources · Free SFX libraries, packs and ambience for video, games, podcasts and streams.
+- [Sound Effects](#sound-effects) — 15 resources · Free SFX libraries, packs and ambience for video, games, podcasts and streams.
 - [Stock Footage](#stock-footage) — 17 resources · Free video clips and B-roll, including 4K, archival and public domain footage.
 - [Stock Photos](#stock-photos) — 33 resources · Free photography, from modern stock to museum-grade public domain archives.
 - [Fonts](#fonts) — 21 resources · Typefaces free for commercial use, including CJK families.
@@ -111,6 +111,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [SFXMint](https://sfxmint.com/) <sup>[@flreey](https://github.com/flreey)</sup> | Free CC0 game and UI sound effects in WAV/MP3; AI-generated or procedurally synthesized. _Library sounds are CC0; the separate AI generation feature has its own pricing — preview sounds before shipping._ | CC0 | — | 💚 Allowed | — |
 | [Soundza](https://soundza.com/) <sup>[@vfseanm](https://github.com/vfseanm)</sup> | Free royalty-free sound effects, music loops and ambience in WAV/MP3; no attribution, commercial use allowed. _Downloads need a free account after the first three. May not redistribute sounds as standalone files, resell them, or use them to train AI models._ | Soundza Standard License | — | 💚 Allowed | 🔑 Yes |
 | [99Sounds](https://99sounds.org/) | Free royalty-free sound packs and plugins; personal and commercial use, credit not required. _License page allows unlimited commercial use without credit, but the files may not be resold or redistributed on their own, nor used to build white-noise or sleep-sound apps._ | 99Sounds license (royalty-free) | — | 💚 Allowed | — |
+| [DailySounds](https://dailysounds.org/) <sup>[@jaydenhertz](https://github.com/jaydenhertz)</sup> | Free sound effects (UI, hits, explosions, sci-fi, footsteps, ambience, meme clips); preview in browser, download MP3/WAV/OGG. Commercial use, no credit. _Sign-up unknown: downloads unverified from a clean environment. Clips naming a film, brand or celebrity are fan-made/meme-style; judge commercial use yourself. No resale, redistribution or Content ID._ | DailySounds Sound License | — | 💚 Allowed | ❓ |
 
 ## Stock Footage
 
@@ -373,6 +374,7 @@ Thanks to everyone who suggested a resource:
 
 - [@flreey](https://github.com/flreey)
 - [@vfseanm](https://github.com/vfseanm)
+- [@jaydenhertz](https://github.com/jaydenhertz)
 - [@omrishragaxyz](https://github.com/omrishragaxyz)
 
 Suggestions are credited next to the entry they added; corrections and link fixes are credited in the issue or PR that landed them. See [CONTRIBUTING.md](CONTRIBUTING.md) to join the list.
