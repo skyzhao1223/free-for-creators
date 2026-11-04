@@ -190,6 +190,22 @@
       "notes_zh": "许可页允许不限量商用且免署名；但不得单独转售或再分发这些音频文件，也不得用其素材制作白噪音或助眠类 App。",
       "license_checked": "2026-10-18",
       "license_source": "https://99sounds.org/license/"
+    },
+    {
+      "name": "DailySounds",
+      "url": "https://dailysounds.org/",
+      "description": "Free sound effects (UI, hits, explosions, sci-fi, footsteps, ambience, meme clips); preview in browser, download MP3/WAV/OGG. Commercial use, no credit.",
+      "description_zh": "免费音效库，涵盖 UI、打击、爆炸、科幻、脚步、氛围与梗类片段；可在线试听并下载 MP3/WAV/OGG，可商用、免署名。",
+      "license": "DailySounds Sound License",
+      "license_family": "site-free",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "unknown",
+      "notes": "Sign-up unknown: downloads unverified from a clean environment. Clips naming a film, brand or celebrity are fan-made/meme-style; judge commercial use yourself. No resale, redistribution or Content ID.",
+      "notes_zh": "站点称无需注册，但本次未能从干净环境确认下载流程，故记为未知（unknown）。部分音效标题涉及影视、品牌或名人，许可称其为粉丝/梗类创作，商用是否合适需自行判断。禁止转售、再分发原始文件及注册 Content ID。",
+      "submitted_by": "jaydenhertz",
+      "license_checked": "2026-11-02",
+      "license_source": "https://dailysounds.org/license"
     }
   ]
 }

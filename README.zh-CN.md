@@ -12,16 +12,16 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-219-blue" alt="219 resources">
+  <img src="https://img.shields.io/badge/resources-220-blue" alt="220 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
 *链接最近校验于 2026-11-02：158 正常 · 60 需人工确认 · 0 死链。*
 
-> 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。11 个分类、219 个资源。
+> 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。11 个分类、220 个资源。
 
-**一眼看数据**：160 条 💚 可直接用于货币化内容 · 136 条 ➖ 无需署名 · 175 条 🔓 无需注册 · 36 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
+**一眼看数据**：161 条 💚 可直接用于货币化内容 · 137 条 ➖ 无需署名 · 175 条 🔓 无需注册 · 36 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -49,7 +49,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 ## 目录
 
 - [音乐](#音乐) — 21 个资源 · 适合视频、直播、播客与游戏的免版税、无版权风险音乐。
-- [音效](#音效) — 14 个资源 · 面向视频、游戏、播客与直播的免费音效库、音效包与氛围音。
+- [音效](#音效) — 15 个资源 · 面向视频、游戏、播客与直播的免费音效库、音效包与氛围音。
 - [视频素材](#视频素材) — 17 个资源 · 免费视频片段与 B-roll，含 4K、历史档案与公有领域素材。
 - [图片素材](#图片素材) — 33 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
 - [字体](#字体) — 21 个资源 · 可免费商用的字体，含中日韩字体家族。
@@ -111,6 +111,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [SFXMint](https://sfxmint.com/) <sup>[@flreey](https://github.com/flreey)</sup> | 免费 CC0 游戏与 UI 音效库，提供 WAV/MP3 下载；素材由 AI 生成或程序合成。 _站内音效素材均为 CC0；独立的 AI 生成功能另行计费——发布前请先试听确认。_ | CC0 | — | 💚 可商用 | — |
 | [Soundza](https://soundza.com/) <sup>[@vfseanm](https://github.com/vfseanm)</sup> | 免费音效、音乐循环与环境音库（WAV/MP3）；免署名、可商用。 _前 3 个下载免注册，之后需免费账号；不得把音效作为独立文件再分发、转售，或用于训练 AI 模型。_ | Soundza Standard License | — | 💚 可商用 | 🔑 需注册 |
 | [99Sounds](https://99sounds.org/) | 免费免版税音效包与插件；个人与商业项目可用，无需署名。 _许可页允许不限量商用且免署名；但不得单独转售或再分发这些音频文件，也不得用其素材制作白噪音或助眠类 App。_ | 99Sounds license (royalty-free) | — | 💚 可商用 | — |
+| [DailySounds](https://dailysounds.org/) <sup>[@jaydenhertz](https://github.com/jaydenhertz)</sup> | 免费音效库，涵盖 UI、打击、爆炸、科幻、脚步、氛围与梗类片段；可在线试听并下载 MP3/WAV/OGG，可商用、免署名。 _站点称无需注册，但本次未能从干净环境确认下载流程，故记为未知（unknown）。部分音效标题涉及影视、品牌或名人，许可称其为粉丝/梗类创作，商用是否合适需自行判断。禁止转售、再分发原始文件及注册 Content ID。_ | DailySounds Sound License | — | 💚 可商用 | ❓ |
 
 ## 视频素材
 
@@ -373,6 +374,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 
 - [@flreey](https://github.com/flreey)
 - [@vfseanm](https://github.com/vfseanm)
+- [@jaydenhertz](https://github.com/jaydenhertz)
 - [@omrishragaxyz](https://github.com/omrishragaxyz)
 
 投稿者的名字会出现在对应条目旁；纠正与死链修复则以对应 issue / PR 为凭。想加入这份名单，请看 [CONTRIBUTING.md](CONTRIBUTING.md)。
