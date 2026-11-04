@@ -207,6 +207,8 @@ Semantics we use consistently:
 
   **The title fingerprint covers that last row.** Every run records the `<title>` it saw for each URL in `linkcheck-titles.json`, and a later run compares. When a title loses nearly every shared word — overlap below `TITLE_CHANGE_THRESHOLD`, 0.2 — the entry is reported as **blocked**, not broken: a rebrand looks exactly like a takeover from here, so this asks for eyes rather than failing a build. A flagged entry deliberately keeps its **old** fingerprint, so the next run flags it again instead of quietly re-baselining onto whatever took the domain over.
 
+  Titles are compared as words; a script written without spaces (Chinese, Japanese, Korean) has no words to split on, so it is compared as overlapping **two-character grams** instead. That keeps `阿里巴巴普惠体` from scoring 0 against itself — which it did, and every Chinese entry was reported as changed on every run — while still separating `阿里巴巴普惠体` from `阿里巴巴图标库` (1/3 shared) and an unrelated title (0).
+
   The weekly job lists anything flagged in its step summary and opens (or comments on) an issue labelled `needs-review`. **After you have looked at one**, either fix the entry — a new URL, or remove it — or accept the new title:
 
   ```bash
