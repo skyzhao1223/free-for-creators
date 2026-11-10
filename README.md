@@ -12,16 +12,16 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-220-blue" alt="220 resources">
+  <img src="https://img.shields.io/badge/resources-221-blue" alt="221 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
 *Links last verified 2026-11-02: 158 ok · 60 need a browser · 0 broken.*
 
-> "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 220 resources in 11 categories.
+> "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 221 resources in 11 categories.
 
-**At a glance:** 161 entries are 💚 safe for monetized content · 137 need ➖ no attribution · 175 need 🔓 no account · 36 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
+**At a glance:** 162 entries are 💚 safe for monetized content · 137 need ➖ no attribution · 176 need 🔓 no account · 36 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
 
 Every entry answers three questions that decide whether a free asset is actually usable:
 
@@ -48,7 +48,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 
 ## Table of Contents
 
-- [Music](#music) — 21 resources · Royalty-free and copyright-safe music for videos, streams, podcasts and games.
+- [Music](#music) — 22 resources · Royalty-free and copyright-safe music for videos, streams, podcasts and games.
 - [Sound Effects](#sound-effects) — 15 resources · Free SFX libraries, packs and ambience for video, games, podcasts and streams.
 - [Stock Footage](#stock-footage) — 17 resources · Free video clips and B-roll, including 4K, archival and public domain footage.
 - [Stock Photos](#stock-photos) — 33 resources · Free photography, from modern stock to museum-grade public domain archives.
@@ -78,6 +78,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Uppbeat](https://uppbeat.io/) | Modern royalty-free music made for creators, with a free monthly tier. _Free account has a monthly download cap and requires pasting the credit link._ | Uppbeat Free License | ✅ Required | 💚 Allowed | 🔑 Yes |
 | [Scott Buckley](https://www.scottbuckley.com.au/library/) | Film-quality orchestral and ambient library released under CC-BY. _Credit Scott Buckley in your video description; missing credits have triggered YouTube copyright claims._ | CC BY 4.0 | ✅ Required | 💚 Allowed | — |
 | [Audionautix](https://audionautix.com/) | Jason Shaw's free rock, acoustic and electronic tracks. _Commercial use is allowed as long as credit is given to Jason Shaw (audionautix.com)._ | CC BY 4.0 | ✅ Required | 💚 Allowed | — |
+| [Mikael Hellman](https://mikaelhellman.com/) <sup>[@muzicaed](https://github.com/muzicaed)</sup> | Cinematic and orchestral instrumentals from a single composer, free under CC BY. _Every track is checked by hand against YouTube Content ID, with the date shown on its page; anything registered is removed rather than flagged. Some tracks are AI-assisted, and each page says which._ | CC BY 4.0 | ✅ Required | 💚 Allowed | — |
 | [FreePD](https://freepd.com/) | Public domain music across many genres, zero restrictions. | Public Domain | — | 💚 Allowed | — |
 | [Musopen](https://musopen.org/) | Public domain classical recordings, sheet music and music textbooks. _Most recordings are public domain; verify the license on each item._ | Public Domain / various | — | 💚 Allowed | — |
 | [ccMixter](https://ccmixter.org/) | Community remix site with Creative Commons licensed tracks. | Various CC licenses | ❓ Varies | ❓ Varies | — |
@@ -372,6 +373,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 
 Thanks to everyone who suggested a resource:
 
+- [@muzicaed](https://github.com/muzicaed)
 - [@flreey](https://github.com/flreey)
 - [@vfseanm](https://github.com/vfseanm)
 - [@jaydenhertz](https://github.com/jaydenhertz)
