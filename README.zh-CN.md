@@ -12,16 +12,16 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-220-blue" alt="220 resources">
+  <img src="https://img.shields.io/badge/resources-221-blue" alt="221 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
 *链接最近校验于 2026-11-02：158 正常 · 60 需人工确认 · 0 死链。*
 
-> 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。11 个分类、220 个资源。
+> 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。11 个分类、221 个资源。
 
-**一眼看数据**：161 条 💚 可直接用于货币化内容 · 137 条 ➖ 无需署名 · 175 条 🔓 无需注册 · 36 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
+**一眼看数据**：162 条 💚 可直接用于货币化内容 · 137 条 ➖ 无需署名 · 176 条 🔓 无需注册 · 36 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -48,7 +48,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 
 ## 目录
 
-- [音乐](#音乐) — 21 个资源 · 适合视频、直播、播客与游戏的免版税、无版权风险音乐。
+- [音乐](#音乐) — 22 个资源 · 适合视频、直播、播客与游戏的免版税、无版权风险音乐。
 - [音效](#音效) — 15 个资源 · 面向视频、游戏、播客与直播的免费音效库、音效包与氛围音。
 - [视频素材](#视频素材) — 17 个资源 · 免费视频片段与 B-roll，含 4K、历史档案与公有领域素材。
 - [图片素材](#图片素材) — 33 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
@@ -78,6 +78,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Uppbeat](https://uppbeat.io/) | 面向创作者的现代免版税音乐，含每月免费额度。 _免费账户每月下载有上限，且必须粘贴署名链接。_ | Uppbeat Free License | ✅ 需署名 | 💚 可商用 | 🔑 需注册 |
 | [Scott Buckley](https://www.scottbuckley.com.au/library/) | 以 CC-BY 发布的电影级管弦与氛围音乐库。 _需在视频简介中署名 Scott Buckley；漏署名可能收到 YouTube 版权申诉。_ | CC BY 4.0 | ✅ 需署名 | 💚 可商用 | — |
 | [Audionautix](https://audionautix.com/) | Jason Shaw 的免费摇滚、原声与电子音乐。 _允许商用，但必须署名 Jason Shaw（audionautix.com）。_ | CC BY 4.0 | ✅ 需署名 | 💚 可商用 | — |
+| [Mikael Hellman](https://mikaelhellman.com/) <sup>[@muzicaed](https://github.com/muzicaed)</sup> | 单人作曲家的电影感与管弦乐器乐曲库，以 CC BY 协议免费提供。 _每首曲目都经人工核对 YouTube Content ID，页面标明核对日期；一旦发现已被登记即下架，而非仅作标注。部分曲目由 AI 辅助制作，页面均有注明。_ | CC BY 4.0 | ✅ 需署名 | 💚 可商用 | — |
 | [FreePD](https://freepd.com/) | 覆盖多种流派的公有领域音乐，零限制。 | Public Domain | — | 💚 可商用 | — |
 | [Musopen](https://musopen.org/) | 公有领域古典音乐录音、乐谱与教材。 _多数录音为公有领域；请逐项核对许可。_ | Public Domain / various | — | 💚 可商用 | — |
 | [ccMixter](https://ccmixter.org/) | 社区混音站点，曲目采用 Creative Commons 许可。 | Various CC licenses | ❓ 逐项而定 | ❓ 逐项而定 | — |
@@ -372,6 +373,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 
 感谢提供资源的人：
 
+- [@muzicaed](https://github.com/muzicaed)
 - [@flreey](https://github.com/flreey)
 - [@vfseanm](https://github.com/vfseanm)
 - [@jaydenhertz](https://github.com/jaydenhertz)

@@ -120,6 +120,22 @@
       "notes_zh": "允许商用，但必须署名 Jason Shaw（audionautix.com）。"
     },
     {
+      "name": "Mikael Hellman",
+      "url": "https://mikaelhellman.com/",
+      "description": "Cinematic and orchestral instrumentals from a single composer, free under CC BY.",
+      "description_zh": "单人作曲家的电影感与管弦乐器乐曲库，以 CC BY 协议免费提供。",
+      "license": "CC BY 4.0",
+      "license_family": "cc-by",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Every track is checked by hand against YouTube Content ID, with the date shown on its page; anything registered is removed rather than flagged. Some tracks are AI-assisted, and each page says which.",
+      "notes_zh": "每首曲目都经人工核对 YouTube Content ID，页面标明核对日期；一旦发现已被登记即下架，而非仅作标注。部分曲目由 AI 辅助制作，页面均有注明。",
+      "submitted_by": "muzicaed",
+      "license_checked": "2026-11-10",
+      "license_source": "https://mikaelhellman.com/license/"
+    },
+    {
       "name": "FreePD",
       "url": "https://freepd.com/",
       "description": "Public domain music across many genres, zero restrictions.",
