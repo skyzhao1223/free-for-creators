@@ -54,6 +54,9 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from build_readme import (  # noqa: E402
     ATTR_DISPLAY, CATEGORY_ORDER, MON_DISPLAY, PAGES_URL, REPO, SIGNUP_DISPLAY, load_categories,
 )
+# Field notes are a second store (see scripts/experiences.py) with the same review flow:
+# load_notes() re-validates every note against the directory that is being rendered.
+from experiences import DISCUSSIONS, ISSUE_FORM, load_notes  # noqa: E402
 # The entry-level diff of data/ between two refs is shared with the PR contract check on
 # purpose: "what changed" must mean the same thing to the changelog and to the gate that
 # allows one entry per pull request, or the changelog would announce edits the gate never saw.
@@ -87,6 +90,16 @@ LABELS = {
                      "advice — verify the current license on the source website before publishing, "
                      "especially for monetized or client work."),
     "generated": "Generated from data/*.json — do not edit by hand.",
+    "notes_h2": "Creator field notes",
+    "notes_lede": ("Write-ups from creators who used these sites: what they made, whether the licence "
+                   "held up in practice, what they wish they had known. Every note links to the public "
+                   "thread behind it."),
+    "notes_empty": ("No field notes yet — yours could be the first. A note is a few sentences about one "
+                    "resource: what you made, what the licence looked like in practice, what you would "
+                    "tell the next creator."),
+    "notes_source": "source thread",
+    "notes_share": "Share your experience",
+    "notes_discuss": "talk it through in Discussions",
 }
 
 CSS = """
@@ -129,6 +142,17 @@ footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #e4e6ef;
 .skip { position: absolute; left: -9999px; }
 .skip:focus { left: 8px; top: 8px; background: #5b21b6; color: #fff; padding: 8px 12px;
   border-radius: 6px; z-index: 9; }
+/* The only prose section on this page: notes are read, not scanned, so they get cards
+   instead of a table. minmax(260px) still fits a 320px phone inside the 20px page padding. */
+.notes { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px;
+  margin: 12px 0 6px; }
+.note { border: 1px solid #e4e6ef; background: #fff; border-radius: 10px; padding: 12px 14px;
+  overflow-wrap: anywhere; }
+.note .entry { margin: 0 0 4px; font-size: 12.5px; }
+.note h3 { font-size: 15px; margin: 2px 0 6px; letter-spacing: -.01em; }
+.note p { margin: 0 0 8px; font-size: 13.5px; color: #3d4152; }
+.note p.meta { margin: 0 0 4px; font-size: 12px; color: #6b7080; }
+.notes-cta { margin: 10px 0 0; font-size: 13.5px; }
 @media (prefers-color-scheme: dark) {
   body { color: #e8eaf6; background: #0a0a12; }
   p.lede, p.cat, td.about { color: #a7adca; }
@@ -140,6 +164,9 @@ footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #e4e6ef;
   nav.toc a { background: #12121c; border-color: #262636; color: #cfd3ea; }
   a { color: #c4b5fd; }
   footer { border-color: #262636; color: #8b93b5; }
+  .note { background: #12121c; border-color: #262636; }
+  .note p { color: #a7adca; }
+  .note p.meta { color: #8b93b5; }
 }
 /* Six columns want ~900px. A 768px iPad in portrait is below that, so drop License
    and Sign-up there (the four that remain still fit) rather than scrolling them off. */
@@ -192,7 +219,7 @@ def data_lastmod():
     return date.today().isoformat()
 
 
-def payloads(categories):
+def payloads(categories, notes=()):
     """{filename: content} for the deploy payload. Byte-identical to what pages.yml's
     inline python used to produce, so the deployed artifact does not change shape."""
     by_slug = {c["slug"]: c for c in categories}
@@ -205,6 +232,9 @@ def payloads(categories):
          "categories": [by_slug[s] for s in CATEGORY_ORDER]},
         ensure_ascii=False,
     )
+    # The client resolves each note's entry from all.json by url, so the store ships as
+    # written — one shape, validated once, by scripts/experiences.py.
+    out["experiences.json"] = json.dumps({"version": 1, "notes": list(notes)}, ensure_ascii=False)
     return out
 
 
@@ -246,7 +276,48 @@ def jsonld(categories, total, lastmod):
     }
 
 
-def render_all_html(categories, total, lastmod):
+def render_notes_section(categories, notes):
+    """The field-notes block for all.html — prose, so it sits outside the tables.
+
+    Rendered even when the store is empty: the empty state is the invitation, and a
+    crawler that reaches this page should find the same call to contribute that a
+    reader does.
+    """
+    index = {}
+    for c in categories:
+        for e in c["entries"]:
+            index.setdefault(e["url"], e)
+    out = []
+    a = out.append
+    a('<section aria-labelledby="h-notes">')
+    a('<h2 id="h-notes">%s%s</h2>' % (esc(LABELS["notes_h2"]),
+                                      " <span aria-hidden=\"true\">·</span> %d" % len(notes) if notes else ""))
+    a('<p class="cat">%s</p>' % esc(LABELS["notes_lede"] if notes else LABELS["notes_empty"]))
+    if notes:
+        a('<div class="notes">')
+        for note in sorted(notes, key=lambda n: (n["date"], n["id"]), reverse=True):
+            entry = index.get(note.get("entry_url"))
+            a('<article class="note" id="note-%s">' % esc(note["id"]))
+            if entry:
+                a('<p class="entry"><a href="%s" rel="noopener">%s</a></p>'
+                  % (esc(entry["url"]), esc(entry["name"])))
+            a("<h3>%s</h3>" % esc(note["title"]))
+            a("<p>%s</p>" % esc(note["body"]))
+            if note.get("tags"):
+                a('<p class="meta">%s</p>' % esc(" · ".join("#" + t for t in note["tags"])))
+            a('<p class="meta">@<a href="https://github.com/%s" rel="noopener">%s</a> · %s · '
+              '<a href="%s" rel="noopener">%s</a></p>'
+              % (esc(note["author"]), esc(note["author"]), esc(note["date"]),
+                 esc(note["evidence"]), esc(LABELS["notes_source"])))
+            a("</article>")
+        a("</div>")
+    a('<p class="notes-cta"><a href="%s">%s</a> · <a href="%s">%s</a></p>'
+      % (esc(ISSUE_FORM), esc(LABELS["notes_share"]), esc(DISCUSSIONS), esc(LABELS["notes_discuss"])))
+    a("</section>")
+    return out
+
+
+def render_all_html(categories, total, lastmod, notes=()):
     attr, mon, sig = ATTR_DISPLAY["en"], MON_DISPLAY["en"], SIGNUP_DISPLAY["en"]
     out = []
     a = out.append
@@ -287,6 +358,7 @@ def render_all_html(categories, total, lastmod):
     a('<nav class="toc" aria-label="%s">' % esc(LABELS["toc"]))
     for c in categories:
         a('<a href="#%s">%s (%d)</a>' % (esc(c["slug"]), esc(c["category"]), len(c["entries"])))
+    a('<a href="#notes">%s</a>' % esc(LABELS["notes_h2"]))
     a("</nav>")
     for c in categories:
         a('<section aria-labelledby="h-%s">' % esc(c["slug"]))
@@ -315,6 +387,7 @@ def render_all_html(categories, total, lastmod):
         a("</tbody></table>")
         a("</div>")
         a("</section>")
+    out.extend(render_notes_section(categories, notes))
     a("</main>")
     a("<footer>")
     a("<p>%s</p>" % esc(LABELS["license_note"]))
@@ -519,15 +592,16 @@ def main():
 
     categories = load_categories()
     total = sum(len(c["entries"]) for c in categories)
+    notes = load_notes(categories)
     lastmod = data_lastmod()
     commits = data_history()
     pages = {
-        ALL_HTML: render_all_html(categories, total, lastmod),
+        ALL_HTML: render_all_html(categories, total, lastmod, notes),
         SITEMAP: render_sitemap(lastmod),
         CHANGELOG: render_changelog(commits, total, lastmod),
         FEED: render_feed(commits, lastmod),
     }
-    payload = payloads(categories)
+    payload = payloads(categories, notes)
 
     # The one gate that can fail CI: a hand-maintained map drifting from CATEGORY_ORDER.
     problems = []

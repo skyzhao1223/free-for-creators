@@ -142,6 +142,14 @@ class ValidationTests(unittest.TestCase):
     def test_rejects_an_over_long_description(self):
         self.assert_rejected({"description": "x" * (build_readme.MAX_DESCRIPTION + 1)})
 
+    def test_a_null_chinese_description_does_not_crash_the_validator(self):
+        # description_zh is optional, but a JSON null is still not a string: the length
+        # check must not reach len(None) and turn a clear message into a TypeError.
+        with mock.patch("sys.stderr"):
+            cats = self.run_with({"example.json": category(
+                entries=[dict(GOOD_ENTRY, description_zh=None)])})
+        self.assertEqual(len(cats[0]["entries"]), 1)
+
     def test_rejects_a_pipe_in_any_field(self):
         self.assert_rejected({"notes": "free | paid"})
 

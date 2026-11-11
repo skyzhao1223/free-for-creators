@@ -1,5 +1,8 @@
 blank_issues_enabled: true
 contact_links:
+  - name: Share how a resource worked out
+    url: https://github.com/skyzhao1223/free-for-creators/issues/new?template=share-experience.yml
+    about: Field notes — what you made with a listed resource, and what the licence looked like in practice
   - name: Ask a question in Discussions
     url: https://github.com/skyzhao1223/free-for-creators/discussions
     about: License questions, use-case checks — anything that is not a resource suggestion or a dead link

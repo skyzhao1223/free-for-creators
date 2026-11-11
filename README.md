@@ -59,6 +59,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 - [Mockups & Design Templates](#mockups--design-templates) — 12 resources · PSD/device mockups, thumbnail and social media templates.
 - [3D & Game Assets](#3d--game-assets) — 27 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
 - [Search Engines](#search-engines) — 9 resources · Meta-search across openly licensed images, audio and media.
+- [Creator field notes](#creator-field-notes)
 - [Related Lists](#related-lists)
 - [Contributors](#contributors)
 - [Contributing](#contributing)
@@ -368,16 +369,20 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 - [GameDev-Resources](https://github.com/Kavex/GameDev-Resources) — game development resources
 - [design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) — design resources for developers
 
+## Creator field notes
+
+*No field notes yet — yours could be the first. Used something on this list? [Share your experience](https://github.com/skyzhao1223/free-for-creators/issues/new?template=share-experience.yml): what you made, whether the licence held up in practice, what you would tell the next creator. A maintainer reads the thread and publishes it here, credited to you.*
+
 ## Contributors
 
-Thanks to everyone who suggested a resource:
+Thanks to everyone whose suggestion or pull request landed here:
 
 - [@flreey](https://github.com/flreey)
 - [@vfseanm](https://github.com/vfseanm)
 - [@jaydenhertz](https://github.com/jaydenhertz)
 - [@omrishragaxyz](https://github.com/omrishragaxyz)
 
-Suggestions are credited next to the entry they added; corrections and link fixes are credited in the issue or PR that landed them. See [CONTRIBUTING.md](CONTRIBUTING.md) to join the list.
+A suggestion is credited next to the entry it added. The author of a merged pull request is credited automatically — from [`contributors.json`](contributors.json) and beside the entry the pull request added — and corrections are credited in the issue or PR that landed them. See [CONTRIBUTING.md](CONTRIBUTING.md) to join the list.
 
 ## Contributing
 

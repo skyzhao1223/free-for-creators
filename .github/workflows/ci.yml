@@ -4,6 +4,9 @@ on:
   pull_request:
   push:
     branches: [main]
+  # Dispatchable so experiences.yml can put a CI run on the pull request it opens: events
+  # caused by GITHUB_TOKEN do not start workflows, but an explicit dispatch is allowed.
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -31,6 +34,18 @@ jobs:
         run: python3 -m unittest discover -s tests -t .
       - name: Validate data files
         run: python scripts/build_readme.py --validate-only
+      # Field notes are a second store, deliberately outside data/*.json, so the category
+      # validation above never sees them. This proves every published note still anchors to
+      # an entry that exists, carries a thread in this repo, and reads like a story — and
+      # that the collector's ignore list is still a list of github threads with reasons.
+      - name: Validate field notes
+        run: |
+          python scripts/experiences.py --check
+          python scripts/sync_experiences.py --check
+      # contributors.json is written by the Credit contributors workflow, but it is committed
+      # and the READMEs quote it, so a hand edit has to be as valid as a generated one.
+      - name: Validate the credits file
+        run: python scripts/sync_contributors.py --check
       # The schema proves an entry is well-formed; this proves it is well-written and
       # internally coherent — no unverifiable quantity claims, no empty superlatives, no
       # "conditional" monetization with nothing recording the condition, no duplicate or

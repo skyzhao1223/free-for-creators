@@ -377,6 +377,38 @@ mark { background: color-mix(in srgb, var(--accent) 26%, transparent); color: in
 .pal-empty { padding: 24px; text-align: center; color: var(--muted); font-size: 13px; }
 .pal-hint { padding: 8px 14px; border-top: 1px solid var(--border); font-size: 10px; color: var(--muted); letter-spacing: .04em; }
 
+/* ---------- creator field notes ---------- */
+#notes { margin-top: 42px; border-top: 1px solid var(--border); padding-top: 22px; }
+.notes-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px; }
+#notes h2 { font-size: 17px; letter-spacing: -.01em; display: flex; align-items: center; gap: 8px; }
+#notes h2 .n { font: 600 11px var(--mono); color: var(--muted); border: 1px solid var(--border-strong); border-radius: 999px; padding: 1px 7px; }
+.notes-sub { flex: 1 1 300px; font-size: 12.5px; color: var(--muted); max-width: 640px; }
+.notes-cta { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 14px; }
+.nbtn { display: inline-block; font-size: 12.5px; font-weight: 600; text-decoration: none; padding: 7px 12px; border-radius: 8px; border: 1px solid var(--border-strong); color: var(--fg); background: var(--card); }
+.nbtn:hover { border-color: var(--accent); color: var(--accent); }
+.nbtn-primary { border-color: transparent; background: var(--accent); color: var(--accent-fg); }
+.nbtn-primary:hover { color: var(--accent-fg); opacity: .9; }
+.notes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(248px, 1fr)); gap: 10px; }
+.note-card { border: 1px solid var(--border); background: var(--card); border-radius: 11px; padding: 12px 14px; overflow-wrap: anywhere; }
+.note-card .nc-top { display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--muted); }
+.note-card .nc-top i { width: 7px; height: 7px; border-radius: 2px; flex: none; }
+.note-card .nc-title { font-size: 13.5px; font-weight: 650; margin: 5px 0 6px; }
+.note-card .nc-body { font-size: 12.5px; color: var(--muted); }
+.note-card .nc-meta { margin-top: 8px; font-size: 11.5px; color: var(--muted); }
+.ntags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+.ntag { font: 600 9.5px var(--mono); border: 1px solid var(--border); border-radius: 5px; padding: 1.5px 6px; color: var(--muted); }
+.note-card.flash { animation: nflash 1.6s ease-out; }
+@keyframes nflash { from { box-shadow: 0 0 0 3px var(--accent-soft); border-color: var(--accent); } to { box-shadow: none; } }
+.notes-empty { border: 1px dashed var(--border-strong); border-radius: 11px; padding: 16px 14px; text-align: center; color: var(--muted); font-size: 13px; }
+.notes-empty .ne-big { font-size: 26px; display: block; margin-bottom: 6px; }
+.notes-empty .np { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 10px; }
+.notes-empty .np li { font-size: 11.5px; border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; }
+.c-notes { cursor: pointer; color: var(--muted); font-size: 10px; margin-left: 6px; border: 1px solid var(--border); border-radius: 5px; padding: 0 4px; background: none; vertical-align: middle; font-family: inherit; }
+.c-notes:hover { border-color: var(--accent); color: var(--accent); }
+a.act, .b-share { text-decoration: none; }
+a.act:hover, .b-share:hover { color: var(--accent); border-color: var(--accent); }
+@media (prefers-reduced-motion: reduce) { .note-card.flash { animation: none; } }
+
 /* ---------- misc ---------- */
 .empty { text-align: center; color: var(--muted); padding: 60px 0 70px; font-size: 14px; }
 .empty .big { font-size: 40px; display: block; margin-bottom: 8px; }
@@ -550,6 +582,18 @@ footer a:hover { text-decoration: underline; }
     </noscript>
     <div class="loading"><span class="spin">🎁</span><span id="loading-text"></span></div>
   </div>
+
+  <section id="notes" aria-labelledby="notes-h">
+    <div class="notes-head">
+      <h2 id="notes-h"><span data-i18n="notes_title"></span><span class="n" id="notes-count"></span></h2>
+      <p class="notes-sub" data-i18n="notes_sub"></p>
+    </div>
+    <div class="notes-cta">
+      <a class="nbtn nbtn-primary" href="https://github.com/skyzhao1223/free-for-creators/issues/new?template=share-experience.yml" target="_blank" rel="noopener"><span data-i18n="notes_cta_share"></span></a>
+      <a class="nbtn" href="https://github.com/skyzhao1223/free-for-creators/discussions" target="_blank" rel="noopener"><span data-i18n="notes_cta_talk"></span></a>
+    </div>
+    <div id="notes-list" class="notes-grid"></div>
+  </section>
 </main>
 
 <div class="palette" id="palette" hidden>
@@ -641,7 +685,22 @@ const I18N = {
     credit_btn: "📋 credit",
     credit_done: "✓",
     credit_title: "Copy an editable credit line for this source",
-    credit_tpl: (name, url, license) => '"ASSET NAME" by AUTHOR — via ' + name + " (" + url + ") — License: " + license
+    credit_tpl: (name, url, license) => '"ASSET NAME" by AUTHOR — via ' + name + " (" + url + ") — License: " + license,
+    notes_title: "Creator field notes",
+    notes_sub: "Write-ups from creators who used these sites — what they made, whether the licence held up in practice, what they wish they had known. Every note links to the public thread behind it.",
+    notes_cta_share: "✍️ Share your experience",
+    notes_cta_talk: "💬 Talk it through in Discussions",
+    notes_empty: "No field notes yet — yours could be the first. A note is a few sentences about one resource: what you made, what the licence looked like in practice, what you would tell the next creator.",
+    notes_prompts: [
+      "Which site did you use, and for what project?",
+      "Did the licence match what the site advertised?",
+      "What surprised you — good or bad?",
+      "What would you tell the next creator?"
+    ],
+    notes_source: "source thread",
+    notes_badge_tip: "A creator wrote about this resource — jump to the note",
+    notes_share_btn: "share your experience",
+    notes_share_tip: "Share how this one worked out — the form opens with this resource already filled in"
   },
   zh: {
     tagline: "许可透明的创作者免费素材目录——音乐、视频、图片、字体、图标、LUT、样机、3D。",
@@ -696,7 +755,22 @@ const I18N = {
     credit_btn: "📋 署名",
     credit_done: "✓",
     credit_title: "复制可编辑的署名行（补上作品名与作者）",
-    credit_tpl: (name, url, license) => "「作品名」作者：「作者名」— 来自 " + name + "（" + url + "）— 许可：" + license
+    credit_tpl: (name, url, license) => "「作品名」作者：「作者名」— 来自 " + name + "（" + url + "）— 许可：" + license,
+    notes_title: "创作者使用经历",
+    notes_sub: "来自真正用过这些站的人：做了什么、许可在实操里靠不靠得住、有什么希望早点知道。每条都附上它来自的公开讨论。",
+    notes_cta_share: "✍️ 分享你的使用经历",
+    notes_cta_talk: "💬 去 Discussions 聊聊",
+    notes_empty: "还没有人分享——第一条可以是你。一条经历只要几句话：用了哪个站、做了什么、许可在实操里什么情况、你会提醒下一个创作者什么。",
+    notes_prompts: [
+      "用了哪个站，做的是什么项目？",
+      "许可和站点宣称的一致吗？",
+      "有什么出乎意料的地方，好的坏的都算？",
+      "你会提醒下一个创作者什么？"
+    ],
+    notes_source: "原始讨论",
+    notes_badge_tip: "有创作者分享过这个资源——跳到那条经历",
+    notes_share_btn: "分享使用经历",
+    notes_share_tip: "分享你用它的经历——表单会预填这个资源"
   }
 };
 
@@ -707,6 +781,10 @@ try {
 } catch (e) {}
 
 let CATS = [];
+/* Field notes: published creator write-ups, loaded from data/experiences.json. */
+let NOTES = [];
+let NOTE_COUNT = {};
+let notesKey = null;
 let activeSlug = null;
 let q = "";
 let favOnly = false;
@@ -881,6 +959,7 @@ function actionBtns(e) {
   if (e.attribution === "required") {
     h += '<button class="act b-credit" data-credit="' + esc(t("credit_tpl")(e.name, e.url, e.license)) + '" type="button" title="' + t("credit_title") + '">📋</button>';
   }
+  h += shareBtn(e.url, "act");
   return h;
 }
 
@@ -897,7 +976,7 @@ function renderTable(groups, firstTime) {
       html += '<tr class="erow">' +
         '<td class="c-dot">' + logoHtml(e, g.c.slug, "logo-sm") + "</td>" +
         '<td class="c-name"><a href="' + esc(e.url) + '" target="_blank" rel="noopener">' + hl(e.name) + "</a>" +
-        (note ? '<span class="c-note" title="' + esc(note) + '">note</span>' : "") + "</td>" +
+        (note ? '<span class="c-note" title="' + esc(note) + '">note</span>' : "") + noteBadge(e.url, "c-notes") + "</td>" +
         '<td class="c-cat">' + esc(catName(g.c)) + "</td>" +
         '<td class="c-lic" title="' + esc(e.license) + '">' + esc(e.license) + "</td>" +
         '<td class="c-st ' + attrT(e.attribution) + '" title="' + t("attr_s")[e.attribution] + '">' + (MOBILE ? ATTR_ICON[e.attribution] : t("attr_s")[e.attribution]) + "</td>" +
@@ -923,7 +1002,7 @@ function renderGrid(groups, firstTime) {
         '<button class="fav' + (isFav ? " on" : "") + '" data-url="' + esc(e.url) + '" type="button" aria-pressed="' + isFav + '" title="' + t(isFav ? "fav_on" : "fav_off") + '">' + (isFav ? "★" : "☆") + "</button></div>" +
         '<div class="desc">' + hl(entryDesc(e)) + "</div>" +
         (note ? '<div class="note">' + esc(note) + "</div>" : "") +
-        '<div class="badges"><span class="b ' + monClass(e.monetization) + '">' + t("mon")[e.monetization] + "</span>" +
+        '<div class="badges">' + noteBadge(e.url, "c-notes") + shareChip(e.url) + '<span class="b ' + monClass(e.monetization) + '">' + t("mon")[e.monetization] + "</span>" +
         '<span class="b ' + attrClass(e.attribution) + '">' + t("attr")[e.attribution] + "</span>" +
         (signupOf(e) !== "not-required" ? '<span class="b b-mut">' + t("signup")[signupOf(e)] + "</span>" : "") +
         (e.attribution === "required" ? '<button type="button" class="b b-mut b-credit" data-credit="' + esc(t("credit_tpl")(e.name, e.url, e.license)) + '" title="' + t("credit_title") + '">' + t("credit_btn") + "</button>" : "") +
@@ -933,6 +1012,79 @@ function renderGrid(groups, firstTime) {
   }
   return html;
 }
+
+/* ---------- creator field notes ---------- */
+/* The published write-ups. They load from their own file: an older deploy without
+   data/experiences.json must still render the directory, so a failed fetch leaves the
+   section's invitation standing rather than blanking anything. */
+function noteEntry(n) {
+  for (const c of CATS) {
+    const e = c.entries.filter((x) => x.url === n.entry_url)[0];
+    if (e) return { c: c, e: e };
+  }
+  return null;
+}
+function noteCard(n) {
+  const hit = noteEntry(n);
+  const entryName = hit
+    ? '<a href="' + esc(hit.e.url) + '" target="_blank" rel="noopener">' + esc(hit.e.name) + "</a>"
+    : esc(n.entry_url);
+  const tags = (n.tags || []).map((tag) => '<span class="ntag">' + esc(tag) + "</span>").join("");
+  return '<article class="note-card spot" id="note-' + esc(n.id) + '">' +
+    '<div class="nc-top">' + (hit ? '<i style="background:' + catColor(hit.c.slug) + '"></i>' : "") + entryName + "</div>" +
+    '<div class="nc-title">' + esc(n.title) + "</div>" +
+    '<p class="nc-body">' + esc(n.body) + "</p>" +
+    (tags ? '<div class="ntags">' + tags + "</div>" : "") +
+    '<div class="nc-meta">@<a href="https://github.com/' + esc(n.author) + '" target="_blank" rel="noopener">' + esc(n.author) + "</a> · " + esc(n.date) +
+    ' · <a href="' + esc(n.evidence) + '" target="_blank" rel="noopener">' + t("notes_source") + "</a></div>" +
+    "</article>";
+}
+function renderNotes() {
+  const box = $("notes-list");
+  if (!box) return;
+  /* render() runs on every keystroke and filter change; the notes only change when the
+     store arrives or the language does, so there is nothing here worth rebuilding twice. */
+  const key = LANG + "|" + NOTES.length;
+  if (key === notesKey) return;
+  notesKey = key;
+  const count = $("notes-count");
+  if (count) count.textContent = NOTES.length ? String(NOTES.length) : "";
+  if (!NOTES.length) {
+    box.innerHTML = '<div class="notes-empty"><span class="ne-big">✍️</span><p>' + esc(t("notes_empty")) + "</p>" +
+      '<ul class="np">' + t("notes_prompts").map((p) => "<li>" + esc(p) + "</li>").join("") + "</ul></div>";
+    return;
+  }
+  box.innerHTML = NOTES.map(noteCard).join("");
+}
+/* The field-notes issue form has an input with id "entry_url", so a per-resource link can
+   prefill it — sharing from the row you are looking at is one click, no blank form. */
+function noteFormUrl(url) {
+  return "https://github.com/" + REPO + "/issues/new?template=share-experience.yml&entry_url=" + encodeURIComponent(url);
+}
+function shareBtn(url, cls) {
+  return '<a class="' + cls + '" href="' + noteFormUrl(url) + '" target="_blank" rel="noopener" title="' + esc(t("notes_share_tip")) + '">✍️</a>';
+}
+function shareChip(url) {
+  return '<a class="b b-mut b-share" href="' + noteFormUrl(url) + '" target="_blank" rel="noopener" title="' + esc(t("notes_share_tip")) + '">✍️ ' + t("notes_share_btn") + "</a>";
+}
+function noteBadge(url, cls) {
+  const n = NOTE_COUNT[url] || 0;
+  if (!n) return "";
+  return '<button class="' + cls + '" data-notes-url="' + esc(url) + '" type="button" title="' + esc(t("notes_badge_tip")) + '">📝 ' + n + "</button>";
+}
+/* A note badge on a row scrolls to the note it belongs to and flashes it, so the
+   connection runs both ways without the table growing a whole column. */
+document.addEventListener("click", (ev) => {
+  const btn = ev.target.closest("[data-notes-url]");
+  if (!btn) return;
+  const note = NOTES.filter((n) => n.entry_url === btn.dataset.notesUrl)[0];
+  const card = note && document.getElementById("note-" + note.id);
+  if (!card) return;
+  card.scrollIntoView({ behavior: reduceMotionMQ.matches ? "auto" : "smooth", block: "center" });
+  card.classList.remove("flash");
+  void card.offsetWidth;
+  card.classList.add("flash");
+});
 
 function render() {
   const keepFocus = focusKeyOf(document.activeElement);
@@ -950,6 +1102,7 @@ function render() {
   document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
   document.querySelectorAll("[data-i18n-title]").forEach((el) => { el.title = t(el.dataset.i18nTitle); });
   $("footer-text").innerHTML = t("footer");
+  renderNotes();
   $("theme-btn").textContent = document.documentElement.dataset.theme === "dark" ? "🌙" : "☀️";
   $("view-table").classList.toggle("active", viewMode === "table");
   $("view-grid").classList.toggle("active", viewMode === "grid");
@@ -1279,6 +1432,16 @@ const loadFail = (err) => {
   $("results").innerHTML = '<div class="empty"><span class="big">⚠️</span>' + t("loaderr") + esc(err) + "</div>";
   $("status").textContent = "";
 };
+fetch("data/experiences.json")
+  .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then((d) => {
+    NOTES = (d.notes || []).slice().sort((a, b) => String(b.date).localeCompare(String(a.date)));
+    NOTE_COUNT = {};
+    NOTES.forEach((n) => { NOTE_COUNT[n.entry_url] = (NOTE_COUNT[n.entry_url] || 0) + 1; });
+    renderNotes();
+    if (CATS.length) render();
+  })
+  .catch(() => renderNotes());
 fetch("data/all.json")
   .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
   .then((d) => { CATS = d.categories; render(); })
