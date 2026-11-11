@@ -53,7 +53,7 @@
         "description_zh": {
           "type": "string",
           "maxLength": 160,
-          "description": "Chinese description. Optional — the zh README falls back to English."
+          "description": "Chinese description. Optional, and deliberately not in the required list above: an entry without one renders in English on the Chinese page, and check_entry.py prints a warning rather than failing the build. Native wording still beats machine translation, so contributors are encouraged to supply it."
         },
         "license": {
           "type": "string",

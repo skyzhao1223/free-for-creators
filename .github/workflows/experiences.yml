@@ -1,0 +1,80 @@
+name: Collect field notes
+
+# Turns issue-form submissions into a reviewed pull request.
+#
+# The bot never publishes anything: it appends records to data/experiences/notes.json on a
+# branch, regenerates the READMEs, and opens a pull request whose body lists every note it
+# carries and what each one will be published as. Merging that PR is the review — which is
+# what the records claim, since each one carries reviewed_by the maintainer who merged it.
+#
+# Why the job validates before it pushes: events caused by GITHUB_TOKEN do not start new
+# workflow runs, so the pull request it opens does not get CI on its own. The steps below
+# run the same gates ci.yml runs (scripts/experiences.py --check, the README sync, the unit
+# tests) and then dispatch ci.yml on the branch explicitly, which is the one event a
+# GITHUB_TOKEN is still allowed to trigger.
+#
+# Scheduled 45 minutes after linkcheck.yml: both workflows regenerate the READMEs, and two
+# weekly jobs pushing the same files at the same minute is a race, not a coincidence.
+
+on:
+  schedule:
+    - cron: "45 6 * * 1" # Mondays 06:45 UTC, after the 06:00 link check
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: read
+  pull-requests: write
+  actions: write # dispatching ci.yml on the branch, see the comment above
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Collect new notes from issue submissions
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 scripts/sync_experiences.py --fetch --report "${{ runner.temp }}/field-notes.md"
+      - name: Validate before proposing anything
+        run: |
+          set -euo pipefail
+          python3 scripts/experiences.py --check
+          python3 -m unittest discover -s tests -t .
+          python3 scripts/build_readme.py
+      - name: Open or update the review pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPORT: ${{ runner.temp }}/field-notes.md
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "No new field notes this week."
+            exit 0
+          fi
+          branch="field-notes/$(date -u +%Y-%m-%d)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$branch"
+          git add data/experiences/notes.json README.md README.zh-CN.md
+          git commit -m "notes: collect field-note submissions for review"
+          # A same-day re-run replaces the branch: it is a bot branch carrying a proposal,
+          # never something a human commits to.
+          git push --force -u origin "$branch"
+          if [ -n "$(gh pr list --head "$branch" --state open --json number --jq '.[0].number')" ]; then
+            echo "Updated the open pull request for $branch."
+          else
+            gh pr create --base main --head "$branch" \
+              --title "notes: field notes from issues ($(date -u +%Y-%m-%d))" \
+              --body-file "$REPORT"
+          fi
+          # GITHUB_TOKEN cannot start workflows from its own push, but it can dispatch one.
+          # Non-fatal on purpose: without it the PR is still valid, just unverified by CI.
+          gh workflow run ci.yml --ref "$branch" \
+            || echo "::warning::Could not dispatch ci.yml on $branch — start it from the Actions tab if you want CI on this pull request."

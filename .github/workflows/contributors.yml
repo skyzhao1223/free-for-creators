@@ -1,0 +1,68 @@
+name: Credit contributors
+
+# Nobody should have to remember to write their own name down. A merged pull request is the
+# evidence, so this job reads the repository's merged pull requests, records each non-bot
+# author once in contributors.json, regenerates the two READMEs and commits the result to
+# main. It is a no-op whenever the credits already cover everyone.
+#
+# It runs on every push to main, not on a schedule, so a contributor sees their name within
+# a minute of the merge rather than at the next weekly run. submitted_by is untouched by
+# this: a suggestion that arrived as an issue and was landed by somebody else has no pull
+# request of its own to be credited from, and that field remains the credit beside the entry.
+#
+# The unit tests and the entry gates are ci.yml's job on the pull request. All this job has
+# to guarantee is that contributors.json and the READMEs agree, which regenerating the
+# READMEs immediately before committing gives by construction.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  credit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # fetch-depth: 0 — the entry credit diffs each merge commit against its first parent,
+      # and a shallow clone has neither the parents nor the older merges. Same reason ci.yml
+      # checks out in full.
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Collect the authors of merged pull requests
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        # --stamp also writes submitted_by beside the entry each pull request added, so the
+        # credit is not only a line at the bottom of the README.
+        run: python3 scripts/sync_contributors.py --fetch --stamp
+      - name: Validate the result and regenerate the READMEs
+        run: |
+          set -euo pipefail
+          python3 scripts/sync_contributors.py --check
+          # The stamp edits data/*.json, so run the same schema check CI runs before the
+          # READMEs are regenerated from it.
+          python3 scripts/build_readme.py --validate-only
+          python3 scripts/build_readme.py
+      - name: Commit the new credits
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "Credits already cover everyone who has landed a pull request."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add contributors.json data README.md README.zh-CN.md
+          git commit -m "docs(credits): credit the pull requests that landed [skip ci]"
+          # The weekly link check also regenerates the READMEs; rebase so the two writers
+          # never race each other to the same lines.
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push

@@ -163,9 +163,14 @@ def check_coherence(entry, where, errors, warnings):
     if fam == "cc0" and mon not in ("allowed", None):
         warnings.append("%s: license_family is 'cc0' but monetization is %r — worth a second "
                         "look" % (where, mon))
+    # Translation gaps are warnings, not errors: the source of every Chinese string here is
+    # a human writing it, and failing the build over one would trade a slightly weaker
+    # Chinese page for a contributor who cannot merge at all. The cost is real but bounded —
+    # the row renders in English, and site/index.html's search index stops matching Chinese
+    # keywords for that entry.
     if not entry.get("description_zh"):
-        errors.append("%s: description_zh is missing; every entry in the data has one, and "
-                      "the zh README falls back to English otherwise" % where)
+        warnings.append("%s: no description_zh — that row renders in English on the Chinese "
+                        "page and cannot be found by a Chinese search" % where)
     if entry.get("notes") and not entry.get("notes_zh"):
         warnings.append("%s: has English notes but no notes_zh" % where)
     check_provenance(entry, where, errors)
