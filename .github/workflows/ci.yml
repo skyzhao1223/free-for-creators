@@ -2,8 +2,20 @@ name: CI
 
 on:
   pull_request:
+    # Deliberately do not ignore README*: they are generated, and hand edits must
+    # still reach the sync check. The PR template also remains part of the gate.
+    paths-ignore:
+      - 'docs/**'
+      - 'CONTRIBUTING.md'
+      - 'CODE_OF_CONDUCT.md'
+      - 'PROMO-*.md'
   push:
     branches: [main]
+    paths-ignore:
+      - 'docs/**'
+      - 'CONTRIBUTING.md'
+      - 'CODE_OF_CONDUCT.md'
+      - 'PROMO-*.md'
   # Dispatchable so experiences.yml can put a CI run on the pull request it opens: events
   # caused by GITHUB_TOKEN do not start workflows, but an explicit dispatch is allowed.
   workflow_dispatch:
@@ -11,10 +23,19 @@ on:
 permissions:
   contents: read
 
+# New commits supersede old runs of the same PR. Other events use a unique group:
+# even cancel-in-progress:false replaces pending jobs, which could drop a main diff.
+# Fork branch names are not unique; the PR number is.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    outputs:
+      responsive_needed: ${{ steps.changes.outputs.responsive_needed }}
     steps:
       # fetch-depth: 0 — build_site.py derives sitemap.xml's <lastmod> from the last
       # commit that touched data/. A shallow clone grafts HEAD as a root commit and
@@ -25,6 +46,12 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
+      # Classify inside the mandatory build job, not a separate runner. The event's
+      # base/head SHAs work with checkout's default PR merge ref. Missing history,
+      # initial pushes, dispatches and unknown paths keep the browser gate enabled.
+      - name: Classify changed paths
+        id: changes
+        run: python3 scripts/ci_changes.py
       # First, and separately from the checks below: the rules those checks enforce are
       # regex and cross-field logic, and a widened pattern or a dropped coherence rule
       # changes what CI accepts without changing any output a reviewer would look at.
@@ -42,7 +69,7 @@ jobs:
         run: |
           python scripts/experiences.py --check
           python scripts/sync_experiences.py --check
-      # contributors.json is written by the Credit contributors workflow, but it is committed
+      # contributors.json is written by publication, but it is committed
       # and the READMEs quote it, so a hand edit has to be as valid as a generated one.
       - name: Validate the credits file
         run: python scripts/sync_contributors.py --check
@@ -72,6 +99,10 @@ jobs:
   # to at that width. So drive the real pages in headless Chrome and fail on any width
   # where the document itself can scroll sideways.
   responsive:
+    needs: build
+    # Only a proven 'false' skips Chrome. A missing/unfamiliar output fails closed;
+    # a failed build still blocks the PR instead of spending a second runner.
+    if: needs.build.outputs.responsive_needed != 'false'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -106,50 +137,3 @@ jobs:
           "$found" --version
       - name: Check no page scrolls sideways at any supported width
         run: python3 scripts/check_responsive.py --chrome "${{ steps.chrome.outputs.path }}"
-
-  # The description carries the entry count, so it drifts every time data/ grows (it once
-  # advertised 158 while the READMEs said 172). Regenerate it from the same source of truth
-  # and PATCH it back. Push-to-main only: fork PRs get a read-only token, and a PR should not
-  # be able to rewrite repo metadata.
-  #
-  # GITHUB_TOKEN cannot PATCH metadata (workflow permissions have no 'administration' key),
-  # so this needs a REPO_ADMIN_PAT secret: fine-grained, Administration read+write, this repo
-  # only. Without one the drift is a warning rather than a failure, because no contributor can
-  # fix it from inside the repo — unlike the README sync check. A PAT that is present but
-  # rejected is fatal, since that one is actionable.
-  sync-description:
-    if: github.event_name == 'push'
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
-        with:
-          python-version: "3.12"
-      - name: Sync repo description with data/
-        env:
-          GH_TOKEN: ${{ secrets.REPO_ADMIN_PAT || github.token }}
-          HAS_PAT: ${{ secrets.REPO_ADMIN_PAT && 'yes' || '' }}
-        run: |
-          set -euo pipefail
-          want="$(python3 scripts/build_readme.py --description)"
-          have="$(gh repo view "$GITHUB_REPOSITORY" --json description --jq .description)"
-          if [ "$want" = "$have" ]; then
-            echo "Description already in sync."
-            exit 0
-          fi
-          echo "Description drifted:"
-          echo "  live:   $have"
-          echo "  data/:  $want"
-          if [ -z "$HAS_PAT" ]; then
-            echo "::warning title=Repo description is stale::No REPO_ADMIN_PAT secret is configured and GITHUB_TOKEN cannot PATCH repo metadata. Fix it once locally: run python3 scripts/build_readme.py --description, then gh repo edit --description with that text. Or add a fine-grained PAT secret (Administration read+write, this repo only) to automate it."
-            exit 0
-          fi
-          if gh api -X PATCH "repos/$GITHUB_REPOSITORY" -f description="$want" >/dev/null 2>&1; then
-            echo "Description updated via REPO_ADMIN_PAT."
-          else
-            echo "::error title=Repo description PATCH failed::REPO_ADMIN_PAT is set but the metadata PATCH was rejected. Check that it is a fine-grained PAT with Administration read and write on this repo and that it has not expired. Manual fix: run python3 scripts/build_readme.py --description, then gh repo edit --description with that text."
-            exit 1
-          fi
