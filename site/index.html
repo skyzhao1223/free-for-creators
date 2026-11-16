@@ -1042,9 +1042,9 @@ function noteCard(n) {
 function renderNotes() {
   const box = $("notes-list");
   if (!box) return;
-  /* render() runs on every keystroke and filter change; the notes only change when the
-     store arrives or the language does, so there is nothing here worth rebuilding twice. */
-  const key = LANG + "|" + NOTES.length;
+  /* render() runs on every keystroke and filter change. Both stores load independently:
+     when categories arrive after notes, rebuild resource names, links and colours too. */
+  const key = LANG + "|" + NOTES.length + "|" + CATS.length;
   if (key === notesKey) return;
   notesKey = key;
   const count = $("notes-count");
