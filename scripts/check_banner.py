@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Check the banner's layout, not just its pixels. Stdlib only. License: CC0.
 
-banner.yml already rejects a blank or tofu render by colour count, ink coverage and
+render_banner.py rejects a blank or tofu render by colour count, ink coverage and
 saturation. None of that can see the failure mode this file exists for: the banner draws
 one chip per category, and the chips are a flex row with a fixed max-width. Adding a
 category wraps the row onto another line — the pixels stay colourful, the ink coverage

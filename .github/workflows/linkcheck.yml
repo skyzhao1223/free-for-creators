@@ -8,17 +8,27 @@ on:
 permissions:
   contents: write # the weekly run commits linkcheck-status.json, which READMEs render
   issues: write
+  actions: write # GITHUB_TOKEN pushes do not trigger Pages; dispatch publication explicitly.
+
+concurrency:
+  group: linkcheck-main
+  cancel-in-progress: false
 
 jobs:
   linkcheck:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - name: Check all resource links
+        id: links
         env:
           LINKCHECK_REPORT: ${{ runner.temp }}/linkcheck-report.md
           LINKCHECK_REVIEW: ${{ runner.temp }}/linkcheck-review.md
@@ -27,20 +37,20 @@ jobs:
       # previous week's "0 broken" on display. Regenerating the READMEs here is what keeps
       # `build_readme.py --check` in CI happy after the status file moves.
       - name: Record the result for the README badge
+        id: record
         if: always()
         run: |
           set -euo pipefail
-          test -f linkcheck-status.json || { echo "no status file written"; exit 0; }
+          # The checked-in status file exists even if the checker crashed. Require this run's report.
+          test -f "$RUNNER_TEMP/linkcheck-report.md" || { echo "No new result written"; exit 0; }
           python3 scripts/build_readme.py
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # linkcheck-titles.json is the domain-takeover baseline: the <title> each URL
-          # served last time, so a 200 that now belongs to somebody else can be spotted.
-          git add linkcheck-status.json linkcheck-titles.json README.md README.zh-CN.md
-          if git diff --cached --quiet; then echo "nothing to record"; exit 0; fi
-          git commit -m "chore: record link check ($(python3 -c "import json;print(json.load(open('linkcheck-status.json'))['broken'])") broken) [skip ci]"
-          git pull --rebase origin "${GITHUB_REF_NAME}"
-          git push
+          python3 scripts/commit_generated.py --kind linkcheck --message "chore: record link check [skip ci]"
+          echo "recorded=true" >> "$GITHUB_OUTPUT"
+      - name: Publish the fresh check status even when broken links were found
+        if: always() && steps.record.outcome == 'success' && steps.record.outputs.recorded == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --ref main
       - name: Hint on failure
         if: failure()
         run: |
@@ -88,7 +98,7 @@ jobs:
             }
 
       - name: Open or update tracking issue
-        if: failure()
+        if: failure() && steps.links.outcome == 'failure'
         uses: actions/github-script@v9
         env:
           LINKCHECK_REPORT: ${{ runner.temp }}/linkcheck-report.md

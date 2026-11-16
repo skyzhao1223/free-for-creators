@@ -29,7 +29,7 @@ Two bots judge a submission, and they judge different things:
 | Submission contract | [`pr-contract.yml`](.github/workflows/pr-contract.yml) | **One** entry per PR; a title of the form `[Resource name] -> [Category]` that matches that entry; a body carrying `Link: <the entry's URL>`, an answer to `Is this your product? Yes / No`, and — for an addition or a change to a licence claim — the **verbatim licence wording** and the **page it was read at**, which must match the entry's `license_source`; every checklist box ticked; and a file list limited to `data/**`, the two generated READMEs and `assets/social-preview.html` |
 | New-link check | [`pr-linkcheck.yml`](.github/workflows/pr-linkcheck.yml) | Every URL the PR adds resolves. ❌ broken blocks the merge; ⚠️ *blocked* is a bot wall (403/429/timeout) and needs one human look in a browser |
 
-Then [`ci.yml`](.github/workflows/ci.yml) re-validates the data against the schema, re-audits entry quality, checks the READMEs are in sync, rebuilds the site payload and re-renders every page in headless Chrome at each breakpoint.
+Then [`ci.yml`](.github/workflows/ci.yml) re-validates the data, re-audits entry quality, checks the READMEs are in sync and rebuilds the site payload. Changes that can affect pages also run the complete headless Chrome breakpoint check. README hand edits still reach the sync gate; only known unrelated documentation is filtered out. Unknown changes, failed diffs and manual dispatches retain full browser coverage.
 
 **Maintainers and bot accounts are exempt from the contract check**, because a category addition, a `CONTRIBUTING.md` edit and the weekly link-check commit are all legitimate PRs that are not resource submissions. If the file you need to change is outside that list, say so in the PR and a maintainer can merge it.
 
@@ -177,7 +177,7 @@ Semantics we use consistently:
 The READMEs' [Contributors](#contributors) section is the only thanks list. It is written for you — nobody has to add their own name — and it has two parts:
 
 - `submitted_by`, a line beside the entry, which a maintainer sets when a suggestion arrived as an issue and somebody else landed it;
-- [`contributors.json`](contributors.json) — every author of a merged pull request, collected by [`scripts/sync_contributors.py`](scripts/sync_contributors.py) and committed by the [Credit contributors workflow](.github/workflows/contributors.yml) on each push to `main`.
+- [`contributors.json`](contributors.json) — every author of a merged pull request, collected by [`scripts/sync_contributors.py`](scripts/sync_contributors.py) during [publication](.github/workflows/pages.yml), before the website is assembled. Publication scans all merged pull requests, so documentation-only contributions are picked up on the next publication (at latest after the next successful weekly link check), or by manually dispatching `pages.yml`.
 
 The same run also writes `submitted_by` beside the entries a pull request *added*, so the credit sits with the resource rather than only in the list at the bottom. "Added" means the resource was not in the merge commit's first parent at all — an edited entry is not a suggestion, decided by the same name-or-url rule [`check_pr.py`](scripts/check_pr.py) calls `same_resource()`. A rebase-merged pull request exposes only its last commit to that diff, so an entry added in an earlier commit of such a pull request stays uncredited until a human fills the field in.
 
@@ -376,13 +376,23 @@ If a note should have been collected but was not, the PR body says why under "Le
 3. Add a colour for it in `CAT_COLORS` in `site/index.html` (CI enforces this).
 4. Run `python3 scripts/build_readme.py` and commit the regenerated READMEs. (`scripts/build_site.py` needs no commit — its output is deploy-time only — but CI does check `CAT_COLORS`, so run it once locally to be sure.)
 
+## Automation and publication
+
+There are seven workflows: CI, publication, PR contract, PR new-link check, weekly link check, licence audit and field-note proposals. Credits and banner rendering are publication steps, not independent push workflows.
+
+- CI cancels superseded runs of the same pull request. The build gate includes all unit tests and data checks; its change classifier decides whether Chrome is also needed, without starting a separate classification runner. Data, page, schema and rendering-generator changes still receive the full browser check.
+- Publication runs for website inputs, not ordinary documentation or test-only edits. It checks out **latest main**, collects all merged PR authors, regenerates and validates the data/READMEs, renders the banner only when its input/output hashes require it, commits owned generated files, and only then builds and deploys the site. Repository-description synchronization shares that runner instead of using another CI job. It still needs the optional `REPO_ADMIN_PAT` secret; absence or a rejected metadata update warns rather than blocks website deployment.
+- The weekly link check explicitly dispatches publication after successfully recording its result, even when broken links were found. This keeps the public check status fresh despite the `GITHUB_TOKEN` recursion rule. It requires `actions: write` in addition to its existing write permissions.
+- Generated files are **not rebased** onto a newer main. `scripts/commit_generated.py` fetches main and refuses stale output; a normal fast-forward push also protects a race after the fetch. Publication detects a real main race and explicitly queues a latest-main retry, even if the competing push only changed documentation and would not itself trigger publication. Retries are capped at three; permission/network failures do not auto-retry. After the cap, dispatch `pages.yml` on main to retry. Link-check recording also refuses a stale checkout rather than overwrite current data; if it races, rerun that check. No force push is used.
+- Publication is serialized rather than cancelled mid-write/deploy. Actions billing locks still prevent hosted execution; local checks cannot turn a failed hosted run green.
+
 ## Social preview & banner
 
 The hero image (`assets/banner.png`, used in both READMEs) and the GitHub social preview (`assets/social-preview.png`, 1280×640) are rendered from [`assets/social-preview.html`](assets/social-preview.html).
 
-**You normally do not render them yourself.** The counts inside that HTML are stamped from `data/` by `python3 scripts/build_readme.py`, and the [`Render banner`](.github/workflows/banner.yml) workflow re-renders all three images on any push that touches `data/`, `assets/social-preview.html` or the generator, then commits them back with `[skip ci]`. Add an entry, merge, and the images follow on their own.
+**You normally do not render them yourself.** [Publication](.github/workflows/pages.yml) first collects credits and stamps the counts with `python3 scripts/build_readme.py`. It renders all three images only when the HTML, renderer, checker, render configuration or recorded image hashes change. A licence correction that leaves the banner unchanged no longer installs fonts or starts Chrome. Missing images or the initial absence of `assets/banner-inputs.json` trigger a render; the manifest is written only after pixel and geometry checks succeed.
 
-Rendering locally and committing is now the *wrong* direction: the workflow compares bytes, so a local render reads as drift and gets committed over. The recipe below is a fallback for working without Actions.
+Credits and rendered images are committed once, then the site is built from that same checkout and deployed. A `GITHUB_TOKEN` commit does not start another workflow, so publication must not rely on its own push to deploy. To force a re-render after a runner/font change, dispatch `pages.yml` on `main` with `force_banner: true`. The recipe below is a fallback for working without Actions; do not stamp the Linux input manifest after a manual macOS render.
 
 <details>
 <summary>Manual render (fallback only)</summary>
@@ -425,7 +435,7 @@ The table is a *relative* comparison between flag settings, which is its point; 
 
 Then re-upload `social-preview.png` under repo **Settings → General → Social preview** (GitHub accepts PNG/JPG/GIF only, max 1 MB — WebP is *not* accepted there, which is why the PNG stays).
 
-**The artwork's geometry is checked, not just its pixels.** [`banner.yml`](.github/workflows/banner.yml) already rejects a blank or tofu render by colour count, ink coverage and saturation — none of which can see the failure mode that a growing directory creates: the artboard draws **one chip per category** in a flex row with a fixed `max-width`, so adding a category wraps the row onto another line. The pixels stay colourful and every colour check still passes; only the boxes move. [`scripts/check_banner.py`](scripts/check_banner.py) drives the same headless Chrome, reads the laid-out boxes back out of the DOM, and fails when the row overflows, leaves the artboard, collides with the table card, or exceeds `MAX_CHIP_ROWS` (3 today, with 11 categories). That constant is meant to be raised deliberately — it is the point at which somebody has looked at the picture after adding a category.
+**The artwork's geometry is checked, not just its pixels.** [`scripts/render_banner.py`](scripts/render_banner.py) rejects a blank or tofu render by colour count, ink coverage and saturation — none of which can see the failure mode that a growing directory creates: the artboard draws **one chip per category** in a flex row with a fixed `max-width`, so adding a category wraps the row onto another line. The pixels stay colourful and every colour check still passes; only the boxes move. [`scripts/check_banner.py`](scripts/check_banner.py) drives the same headless Chrome, reads the laid-out boxes back out of the DOM, and fails when the row overflows, leaves the artboard, collides with the table card, or exceeds `MAX_CHIP_ROWS` (3 today, with 11 categories). That constant is meant to be raised deliberately — it is the point at which somebody has looked at the picture after adding a category.
 
 ## Repository slug
 

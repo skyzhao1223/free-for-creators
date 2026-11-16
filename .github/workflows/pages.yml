@@ -1,38 +1,155 @@
 name: Deploy site to GitHub Pages
 
+# One publication owns credits, banner generation and deployment. Bot commits made
+# with GITHUB_TOKEN do not trigger another run: their files are built in THIS run.
 on:
   push:
     branches: [main]
+    paths:
+      - "data/**"
+      - "site/**"
+      - "assets/**"
+      - "schema/**"
+      - "contributors.json"
+      - "linkcheck-status.json"
+      - "scripts/build_*.py"
+      - "scripts/experiences.py"
+      - "scripts/sync_contributors.py"
+      - "scripts/banner_inputs.py"
+      - "scripts/render_banner.py"
+      - "scripts/check_banner.py"
+      - "scripts/check_pr.py" # changelog/feed generation and its transitive imports
+      - "scripts/pr_linkcheck.py"
+      - "scripts/linkcheck.py"
+      - "scripts/commit_generated.py"
+      - ".github/workflows/pages.yml"
   workflow_dispatch:
+    inputs:
+      force_banner:
+        description: "Re-render the banner even if its inputs have not changed"
+        type: boolean
+        default: false
+      race_retry:
+        description: "Internal bounded retry counter for a main that advanced during publication"
+        type: number
+        default: 0
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
+  # Do not interrupt a write or an active deployment. Queued runs check out latest main.
   cancel-in-progress: false
 
 jobs:
   build:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: read
+      pages: read
+      actions: write # bounded self-dispatch only when latest-main generation raced a push
     steps:
-      # fetch-depth: 0 — build_site.py derives sitemap.xml's <lastmod> from the last
-      # commit that touched data/, which a shallow clone cannot answer correctly.
       - uses: actions/checkout@v7
         with:
+          ref: main
           fetch-depth: 0
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - name: Validate data
-        run: python3 scripts/build_readme.py --validate-only
-      - name: Assemble site artifact
-        run: python3 scripts/build_site.py
-      - name: Generate llms.txt for model crawlers
-        run: python3 scripts/build_llms.py
+      - name: Collect credits and regenerate publication inputs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python3 scripts/sync_contributors.py --fetch --stamp
+          python3 scripts/build_readme.py
+      - name: Validate publication data
+        run: |
+          set -euo pipefail
+          python3 scripts/build_readme.py --validate-only
+          python3 scripts/check_entry.py --all --offline
+          python3 scripts/experiences.py --check
+          python3 scripts/sync_experiences.py --check
+          python3 scripts/sync_contributors.py --check
+          python3 scripts/build_readme.py --check
+      - name: Decide whether the banner needs rendering
+        id: banner
+        env:
+          FORCE_BANNER: ${{ inputs.force_banner || false }}
+        run: |
+          set -euo pipefail
+          args=()
+          if [ "$FORCE_BANNER" = "true" ]; then args+=(--force); fi
+          python3 scripts/banner_inputs.py --check --github-output "$GITHUB_OUTPUT" "${args[@]}"
+      - name: Install banner dependencies only when inputs changed
+        if: steps.banner.outputs.needs_render == 'true'
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq webp fonts-noto-color-emoji fonts-noto-cjk >/dev/null
+          python3 -m pip install --quiet pillow numpy
+      - name: Render and validate the banner
+        if: steps.banner.outputs.needs_render == 'true'
+        run: |
+          set -euo pipefail
+          chrome=""
+          for c in google-chrome google-chrome-stable chromium-browser chromium chrome; do
+            if command -v "$c" >/dev/null 2>&1; then chrome="$(command -v "$c")"; break; fi
+          done
+          test -n "$chrome" || { echo "::error::No Chrome binary found"; exit 1; }
+          python3 scripts/render_banner.py --chrome "$chrome"
+          python3 scripts/banner_inputs.py --stamp
+      - name: Commit owned generated files without rebasing stale outputs
+        id: generated
+        continue-on-error: true
+        run: python3 scripts/commit_generated.py --kind publish
+      - name: Queue a bounded latest-main retry after a concurrent push
+        if: steps.generated.outcome == 'failure' && steps.generated.outputs.main_advanced == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RACE_RETRY: ${{ inputs.race_retry || 0 }}
+          FORCE_BANNER: ${{ inputs.force_banner || false }}
+        run: |
+          set -euo pipefail
+          retry="$(python3 -c 'import os; n=int(os.environ["RACE_RETRY"]); assert n >= 0; print(n)')"
+          if [ "$retry" -ge 3 ]; then
+            echo "::error::main kept advancing; retry limit reached. Dispatch pages.yml on main manually."
+            exit 1
+          fi
+          gh workflow run pages.yml --ref main -f race_retry="$((retry + 1))" -f force_banner="$FORCE_BANNER"
+          echo "Queued latest-main publication retry $((retry + 1))/3." >> "$GITHUB_STEP_SUMMARY"
+      - name: Stop rather than deploy stale or uncommitted outputs
+        if: steps.generated.outcome == 'failure'
+        run: exit 1
+      - name: Sync repository description
+        # Optional metadata must not prevent an otherwise valid site deployment.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.REPO_ADMIN_PAT || github.token }}
+          HAS_PAT: ${{ secrets.REPO_ADMIN_PAT && 'yes' || '' }}
+        run: |
+          set -euo pipefail
+          want="$(python3 scripts/build_readme.py --description)"
+          have="$(gh repo view "$GITHUB_REPOSITORY" --json description --jq .description)"
+          if [ "$want" = "$have" ]; then exit 0; fi
+          if [ -z "$HAS_PAT" ]; then
+            echo "::warning::Repository description is stale; REPO_ADMIN_PAT is not configured."
+          else
+            if ! gh api -X PATCH "repos/$GITHUB_REPOSITORY" -f description="$want" >/dev/null; then
+              echo "::warning::Repository metadata update failed; check REPO_ADMIN_PAT. Site publication will continue."
+              exit 1
+            fi
+          fi
+      - name: Assemble the site AFTER credits and banner updates
+        run: |
+          set -euo pipefail
+          python3 scripts/build_site.py
+          python3 scripts/build_llms.py
+          echo "Publication built from $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
         with:
@@ -40,6 +157,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
