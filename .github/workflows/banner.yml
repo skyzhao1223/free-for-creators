@@ -207,7 +207,7 @@ jobs:
           fi
 
       - name: Upload rendered images
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: banner-render-${{ github.sha }}
           path: |
