@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "free-for-creators field notes",
+  "description": "Schema for data/experiences/notes.json — first-hand write-ups by creators about using a listed resource. Editor aid; authoritative validation lives in scripts/experiences.py.",
+  "type": "object",
+  "required": [
+    "version",
+    "notes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/note"
+      }
+    }
+  },
+  "definitions": {
+    "note": {
+      "type": "object",
+      "required": [
+        "id",
+        "entry_url",
+        "author",
+        "lang",
+        "date",
+        "title",
+        "body",
+        "evidence",
+        "reviewed_by",
+        "reviewed_on"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "Stable slug, unique across the store; the site uses it as the card anchor (#note-<id>)."
+        },
+        "entry_url": {
+          "type": "string",
+          "pattern": "^https://",
+          "description": "The verbatim url of the entry this note is about — must equal an entry's url in data/*.json, exactly as written."
+        },
+        "author": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9-]*$",
+          "description": "GitHub handle of the creator who wrote it."
+        },
+        "lang": {
+          "enum": [
+            "en",
+            "zh"
+          ],
+          "description": "Language the note is written in. The other language is not translated — the card is shown as written."
+        },
+        "date": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+          "description": "The day the experience happened; not in the future."
+        },
+        "title": {
+          "type": "string",
+          "minLength": 6,
+          "maxLength": 90,
+          "description": "One line, no pipe characters."
+        },
+        "body": {
+          "type": "string",
+          "minLength": 80,
+          "maxLength": 800,
+          "description": "A single paragraph: what you made, what the license turned out to be in practice, what went wrong. No line breaks."
+        },
+        "tags": {
+          "type": "array",
+          "maxItems": 3,
+          "items": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 16
+          }
+        },
+        "evidence": {
+          "type": "string",
+          "pattern": "^https://github\\.com/skyzhao1223/free-for-creators/(issues|pull|discussions)/[0-9]+$",
+          "description": "The public thread this note came from. Required so every published note is reviewable and revertible."
+        },
+        "reviewed_by": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9-]*$",
+          "description": "Maintainer who read the thread and let the note onto the site."
+        },
+        "reviewed_on": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        }
+      }
+    }
+  }
+}

@@ -21,6 +21,14 @@ from urllib.parse import parse_qsl, urlsplit, urlunsplit
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
+
+# scripts/ on the path so `import experiences` works whether this file is executed or
+# imported. The field-notes store lives outside data/*.json deliberately: load_categories()
+# below reads every data/*.json as a category file. See scripts/experiences.py.
+sys.path.insert(0, str(ROOT / "scripts"))
+from experiences import DISCUSSIONS, ISSUE_FORM, load_notes  # noqa: E402
+from sync_contributors import handles as contributor_handles, load_contributors  # noqa: E402
+
 OUTPUTS = {
     "en": ROOT / "README.md",
     "zh": ROOT / "README.zh-CN.md",
@@ -184,11 +192,16 @@ T = {
             "- [GameDev-Resources](https://github.com/Kavex/GameDev-Resources) \u2014 game development resources",
             "- [design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) \u2014 design resources for developers",
         ],
+        "notes_title": "## Creator field notes",
+        "notes_anchor": "Creator field notes",
+        "notes_intro": "*First-hand write-ups from people who actually used these sites: what they made, what the licence looked like in practice, what went wrong. Every note links to the thread it came from.*",
+        "notes_empty": "*No field notes yet — yours could be the first. Used something on this list? [Share your experience](%s): what you made, whether the licence held up in practice, what you would tell the next creator. A maintainer reads the thread and publishes it here, credited to you.*",
+        "notes_cta": "*Used something on this list? [Share your experience](%s) — a maintainer reads the thread and publishes it here, credited to you. Prefer to talk it through first? [Discussions](%s).*",
         "contributors_title": "## Contributors",
         "contributors_anchor": "Contributors",
         "links_line": "*Links last verified {date}: {ok} ok \u00b7 {blocked} need a browser \u00b7 {broken} broken.*",
-        "contributors_intro": "Thanks to everyone who suggested a resource:",
-        "contributors_outro": "Suggestions are credited next to the entry they added; corrections and link fixes are credited in the issue or PR that landed them. See [CONTRIBUTING.md](CONTRIBUTING.md) to join the list.",
+        "contributors_intro": "Thanks to everyone whose suggestion or pull request landed here:",
+        "contributors_outro": "A suggestion is credited next to the entry it added. The author of a merged pull request is credited automatically — from [`contributors.json`](contributors.json) and beside the entry the pull request added — and corrections are credited in the issue or PR that landed them. See [CONTRIBUTING.md](CONTRIBUTING.md) to join the list.",
         "contributing_title": "## Contributing",
         "contributing": "Found a great free resource? Spot a dead link or an outdated license? Please open a PR or use the issue templates \u2014 see [CONTRIBUTING.md](CONTRIBUTING.md). Entries are added to the JSON files in [`data/`](data); both READMEs are generated automatically. Not sure whether a resource fits your use case? Ask in [Discussions](https://github.com/skyzhao1223/free-for-creators/discussions).",
         "star_title": "## Star History",
@@ -231,11 +244,16 @@ T = {
             "- [GameDev-Resources](https://github.com/Kavex/GameDev-Resources) \u2014 \u6e38\u620f\u5f00\u53d1\u8d44\u6e90",
             "- [design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) \u2014 \u9762\u5411\u5f00\u53d1\u8005\u7684\u8bbe\u8ba1\u8d44\u6e90",
         ],
+        "notes_title": "## 创作者使用经历",
+        "notes_anchor": "创作者使用经历",
+        "notes_intro": "*来自真正用过这些站的人：做了什么、许可在实操里到底是什么情况、踩了哪些坑。每条都附上它来自的讨论链接。*",
+        "notes_empty": "*还没有人分享——第一条可以是你。用过清单里的资源？[写下你的使用经历](%s)：做了什么、许可靠不靠得住、有什么想提醒下一个创作者的。维护者读过之后再收录到这里，并署上你的 GitHub 用户名。*",
+        "notes_cta": "*用过清单里的资源？[写下你的使用经历](%s) —— 维护者读过之后再收录，并署上你的 GitHub 用户名。想先聊聊？去 [Discussions](%s)。*",
         "contributors_title": "## \u8d21\u732e\u8005",
         "contributors_anchor": "\u8d21\u732e\u8005",
         "links_line": "*\u94fe\u63a5\u6700\u8fd1\u6821\u9a8c\u4e8e {date}\uff1a{ok} \u6b63\u5e38 \u00b7 {blocked} \u9700\u4eba\u5de5\u786e\u8ba4 \u00b7 {broken} \u6b7b\u94fe\u3002*",
-        "contributors_intro": "\u611f\u8c22\u63d0\u4f9b\u8d44\u6e90\u7684\u4eba\uff1a",
-        "contributors_outro": "\u6295\u7a3f\u8005\u7684\u540d\u5b57\u4f1a\u51fa\u73b0\u5728\u5bf9\u5e94\u6761\u76ee\u65c1\uff1b\u7ea0\u6b63\u4e0e\u6b7b\u94fe\u4fee\u590d\u5219\u4ee5\u5bf9\u5e94 issue / PR \u4e3a\u51ed\u3002\u60f3\u52a0\u5165\u8fd9\u4efd\u540d\u5355\uff0c\u8bf7\u770b [CONTRIBUTING.md](CONTRIBUTING.md)\u3002",
+        "contributors_intro": "感谢提供资源、提交 PR 的人：",
+        "contributors_outro": "投稿者的名字会出现在对应条目旁；合并过 PR 的人会自动记录在 [`contributors.json`](contributors.json) 里，并署在它新增的条目旁；纠正与死链修复则以对应 issue / PR 为凭。想加入这份名单，请看 [CONTRIBUTING.md](CONTRIBUTING.md)。",
         "contributing_title": "## \u53c2\u4e0e\u8d21\u732e",
         "contributing": "\u53d1\u73b0\u597d\u8d44\u6e90\uff1f\u9047\u5230\u6b7b\u94fe\u6216\u8bb8\u53ef\u8fc7\u671f\uff1f\u6b22\u8fce\u63d0 PR \u6216\u4f7f\u7528 Issue \u6a21\u677f\uff0c\u8be6\u89c1 [CONTRIBUTING.md](CONTRIBUTING.md)\u3002\u6761\u76ee\u6dfb\u52a0\u5728 [`data/`](data) \u7684 JSON \u4e2d\uff0c\u4e24\u4efd README \u5747\u81ea\u52a8\u751f\u6210\u3002想确认某个资源是否适合你的使用场景？欢迎到 [Discussions](https://github.com/skyzhao1223/free-for-creators/discussions) 提问。",
         "star_title": "## Star \u5386\u53f2",
@@ -295,6 +313,9 @@ def load_categories():
         for field in SCHEMA["required"]:
             if field not in data:
                 errors.append("%s: missing field '%s'" % (path.name, field))
+        # Category-document fields, not entry fields: a top-level `description_zh` here is the
+        # category's own line. The entry-level one of the same name is optional and warned
+        # about by check_entry.py instead, which owns the entry-quality warnings.
         for field in ("category_zh", "description_zh"):
             if field not in data:
                 warnings.append("%s: missing '%s' (zh README falls back to English)" % (path.name, field))
@@ -351,15 +372,20 @@ def load_categories():
                     errors.append("%s: duplicate url — also used by %s" % (where, seen_urls[key]))
                 else:
                     seen_urls[key] = "'%s' (%s)" % (e.get("name", "?"), url)
-            desc = e.get("description", "")
+            # `or ""` rather than a default argument: a JSON null is not a string, and the
+            # required-field loop has already reported it — crashing in len() would replace a
+            # clear "missing required field" with a TypeError.
+            desc = e.get("description") or ""
             if len(desc) > MAX_DESCRIPTION:
                 # schema declares maxLength, so this is a hard error, not a warning
                 errors.append("%s: description longer than %d chars (%d)" % (where, MAX_DESCRIPTION, len(desc)))
-            desc_zh = e.get("description_zh", "")
+            desc_zh = e.get("description_zh") or ""
             if len(desc_zh) > MAX_DESCRIPTION_ZH:
                 errors.append("%s: description_zh longer than %d chars (%d)" % (where, MAX_DESCRIPTION_ZH, len(desc_zh)))
-            if "description_zh" not in e:
-                warnings.append("%s: missing description_zh" % where)
+            # No missing-description_zh warning here on purpose: this file's job is to make
+            # the build fail on things that break it, and an English-only row does not break
+            # the zh README — it falls back. check_entry.py warns about it, in one place, so
+            # running both gates does not print the same warning twice.
             for field in REQUIRED_ENTRY_FIELDS + OPTIONAL_ENTRY_FIELDS:
                 v = e.get(field)
                 if isinstance(v, str) and "|" in v:
@@ -457,6 +483,22 @@ def entry_row(e, lang):
     )
 
 
+def notes_for(categories):
+    """Published field notes as (note, entry) pairs, newest first.
+
+    A note whose entry_url is not in the directory is dropped here rather than rendered;
+    check_store() already fails CI on one, so this only guards a hand-edited checkout and
+    the synthetic categories the tests render with.
+    """
+    index = {}
+    for c in categories:
+        for e in c["entries"]:
+            index.setdefault(e["url"], e)
+    pairs = [(n, index[n["entry_url"]]) for n in load_notes(categories) if n.get("entry_url") in index]
+    pairs.sort(key=lambda p: (p[0]["date"], p[0]["id"]), reverse=True)
+    return pairs
+
+
 def render(categories, lang):
     t = T[lang]
     total = sum(len(c["entries"]) for c in categories)
@@ -468,6 +510,13 @@ def render(categories, lang):
             if handle and handle.lower() not in seen_contributors:
                 seen_contributors.add(handle.lower())
                 contributors.append(handle)
+    # Authors of merged pull requests, collected by scripts/sync_contributors.py. The field
+    # above still matters: a suggestion that arrived as an issue and was landed by somebody
+    # else never has a pull request authored by the suggester to be credited from.
+    for handle in contributor_handles(load_contributors()):
+        if handle.lower() not in seen_contributors:
+            seen_contributors.add(handle.lower())
+            contributors.append(handle)
     lines = []
     a = lines.append
 
@@ -524,6 +573,7 @@ def render(categories, lang):
     for c in categories:
         name = cat_name(c, lang)
         a("- [%s](#%s) \u2014 %s \u00b7 %s" % (name, slugify(name), t["toc_suffix"].format(n=len(c["entries"])), cat_desc(c, lang)))
+    a("- [%s](#%s)" % (t["notes_anchor"], slugify(t["notes_anchor"])))
     a("- [%s](#%s)" % (t["related_anchor"], slugify(t["related_anchor"])))
     if contributors:
         a("- [%s](#%s)" % (t["contributors_anchor"], slugify(t["contributors_anchor"])))
@@ -543,6 +593,23 @@ def render(categories, lang):
     a("")
     for row in t["related"]:
         a(row)
+    a("")
+    notes = notes_for(categories)
+    a(t["notes_title"])
+    a("")
+    if notes:
+        a(t["notes_intro"])
+        a("")
+        for note, entry in notes:
+            tags = "".join(" · `%s`" % tag for tag in note.get("tags", []))
+            a("- **[%s](%s)** — [%s](%s) · [@%s](https://github.com/%s) · %s%s"
+              % (note["title"], note["evidence"], entry["name"], entry["url"],
+                 note["author"], note["author"], note["date"], tags))
+            a("  > %s" % note["body"])
+        a("")
+        a(t["notes_cta"] % (ISSUE_FORM, DISCUSSIONS))
+    else:
+        a(t["notes_empty"] % (ISSUE_FORM,))
     a("")
     if contributors:
         a(t["contributors_title"])

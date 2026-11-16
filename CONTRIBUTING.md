@@ -41,7 +41,7 @@ When something arrives through the issue template, run the *whole* loop — ship
 
 1. **Verify against the source, not the submission text.** Fetch the homepage and the license page named in the issue. For open-source projects the repo's own `LICENSE` is authoritative: `gh api repos/OWNER/REPO/license --jq .license.spdx_id`.
 2. **Add the entry** with the `license`, `license_family`, `attribution`, `monetization` and `signup` values verification actually supports, and put the limits (no resale, no AI training, credit required, account needed after N downloads) in `notes` / `notes_zh`.
-3. **Run the gate:** `python3 scripts/check_entry.py --all --offline`. It enforces the parts of the criteria a schema cannot: no unverifiable quantity claims ("thousands of") or empty superlatives, `conditional` monetization must have its condition recorded somewhere, `contains_cc0` implies `license_family: mixed`, `noncommercial` implies `not-allowed`, URLs canonical and untracked and unique, and every entry has a `description_zh`. CI runs the same command, so a violation cannot reach `main` — but catching it here saves a red build. To check a candidate *before* it is written into `data/`, use `--candidates` with a JSON file of `{file, entry, evidence}` objects; that mode additionally requires `evidence.quote` (the licence wording you read), `evidence.source` (where you read it) and, whenever `signup` is not `"unknown"`, `evidence.signup_how`.
+3. **Run the gate:** `python3 scripts/check_entry.py --all --offline`. It enforces the parts of the criteria a schema cannot: no unverifiable quantity claims ("thousands of") or empty superlatives, `conditional` monetization must have its condition recorded somewhere, `contains_cc0` implies `license_family: mixed`, `noncommercial` implies `not-allowed`, URLs canonical and untracked and unique, and missing `description_zh` / `notes_zh` translations are surfaced as warnings. CI runs the same command, so a violation cannot reach `main` — but catching it here saves a red build. To check a candidate *before* it is written into `data/`, use `--candidates` with a JSON file of `{file, entry, evidence}` objects; that mode additionally requires `evidence.quote` (the licence wording you read), `evidence.source` (where you read it) and, whenever `signup` is not `"unknown"`, `evidence.signup_how`.
 4. **Regenerate** both derived sets: `python3 scripts/build_readme.py && python3 scripts/build_site.py`.
 5. **Commit with `Closes #N`** in the message and push. Without that keyword GitHub will not close the issue for you.
 6. **Comment on the issue** with what you verified, where the entry now lives, and the limits you recorded — then close it by hand if step 5 did not catch it.
@@ -130,9 +130,9 @@ Single source of truth: `schema/entry.schema.json`. `scripts/build_readme.py` re
 | `monetization` | ✅ | `allowed` / `conditional` / `varies` / `not-allowed` | Safe in monetized content? |
 | `signup` | optional¹ | `required` / `not-required` / `optional` / `unknown` | Account needed to download? |
 | `notes` | optional | string | Caveats: free-tier caps, platform restrictions, … |
-| `description_zh` | optional | ≤160 chars | Chinese description; `README.zh-CN.md` falls back to English without it |
+| `description_zh` | optional | ≤160 chars | Chinese description of the entry; without it that row renders in English and `check_entry.py` prints a warning — it never fails the build |
 | `notes_zh` | optional | string | Chinese caveats (fallback: `notes`) |
-| `submitted_by` | optional | GitHub username | Credits whoever suggested the entry: it appears under [Contributors](#contributors) and beside the entry in both READMEs. Use it for community submissions — omit it when the maintainer adds an entry themselves |
+| `submitted_by` | optional | GitHub username | Credits whoever suggested the entry: it appears under [Contributors](#contributors) and beside the entry in both READMEs. Needed when the suggestion arrived as an issue and a maintainer landed it — an entry added by a contributor's own pull request is credited automatically (see [Credits](#credits)). Omit it when the maintainer adds an entry themselves |
 | `contains_cc0` | optional | boolean | With `license_family: mixed` only: the site *does* host CC0/public-domain items, but they must be filtered per asset |
 | `skip_linkcheck` | optional | boolean | Only for login-walled URLs; justify in the PR |
 | `linkcheck_js` | optional | boolean | The page is a JavaScript app whose HTML contains no `<title>`/`<h1>`, so the checker cannot confirm content from a plain fetch. Status, redirects and soft-404s are still checked |
@@ -162,7 +162,7 @@ project's argument is that the licence column is worth more than the entry count
 entry does not get is a check date it has not earned. If somebody does eventually read the terms
 and they say something else, the entry is corrected or removed like any other wrong claim.
 
-Deliberately **one** credits list: the README's [Contributors](#contributors) section is derived from `submitted_by` alone. Corrections and dead-link fixes that add no entry are credited in the issue or PR that landed them, so there is never a second list to keep in sync with the first.
+Deliberately **one** credits list: the README's [Contributors](#contributors) section, which is the union of each entry's `submitted_by` and [`contributors.json`](contributors.json) — every author of a merged pull request, collected by a bot. There is never a second list to keep in sync, and nobody has to write their own name down. See [Credits](#credits).
 
 Semantics we use consistently:
 
@@ -171,6 +171,39 @@ Semantics we use consistently:
 - `attribution: varies` — some items need credit, some don't.
 - `license_family` — classify the *license*, not the site's marketing: `cc0` = everything is CC0/public domain with no conditions; `permissive` = OSS licenses (MIT/Apache/OFL/ISC/UFL); `cc-by` = Creative Commons attribution/share-alike; `site-free` = the site's own free license (the `attribution` column says whether credit is needed); `mixed` = terms differ per item, or are not uniformly known; `noncommercial` = not free for commercial use (must pair with `monetization: not-allowed`).
 - A `mixed` entry must not claim a blanket `monetization: allowed` unless every license in the mix permits commercial use (e.g. Google Fonts: OFL/Apache/UFL only). If some items are NC or unknown, use `varies`.
+
+## Credits
+
+The READMEs' [Contributors](#contributors) section is the only thanks list. It is written for you — nobody has to add their own name — and it has two parts:
+
+- `submitted_by`, a line beside the entry, which a maintainer sets when a suggestion arrived as an issue and somebody else landed it;
+- [`contributors.json`](contributors.json) — every author of a merged pull request, collected by [`scripts/sync_contributors.py`](scripts/sync_contributors.py) and committed by the [Credit contributors workflow](.github/workflows/contributors.yml) on each push to `main`.
+
+The same run also writes `submitted_by` beside the entries a pull request *added*, so the credit sits with the resource rather than only in the list at the bottom. "Added" means the resource was not in the merge commit's first parent at all — an edited entry is not a suggestion, decided by the same name-or-url rule [`check_pr.py`](scripts/check_pr.py) calls `same_resource()`. A rebase-merged pull request exposes only its last commit to that diff, so an entry added in an earlier commit of such a pull request stays uncredited until a human fills the field in.
+
+Each record in `contributors.json` keeps the pull request that first earned the credit and its merge date, so a credit can be checked and a mistake traced back:
+
+```json
+{
+  "version": 1,
+  "contributors": [
+    {
+      "handle": "octocat",
+      "first": "2026-05-04",
+      "url": "https://github.com/skyzhao1223/free-for-creators/pull/42"
+    }
+  ]
+}
+```
+
+What the sync refuses to do, because a wrong credit is worse than a missing one:
+
+- app accounts (`dependabot[bot]`, `github-actions[bot]`) and the repository owner are never credited;
+- a handle is credited once, from its **earliest** merged pull request, and an unmerged pull request earns nothing;
+- existing records are never rewritten — the workflow only appends handles it has not seen — and an entry that already names a `submitted_by` is left exactly as it is, so a hand correction survives every later run;
+- an entry that a pull request only edited earns no entry credit, however many entries the commit touched.
+
+To correct a credit by hand, edit `contributors.json` (or the entry's `submitted_by`) and run `python3 scripts/build_readme.py`; `python3 scripts/sync_contributors.py --check` (run by CI) validates the file, and `python3 scripts/sync_contributors.py --fetch --stamp --dry-run` lists both the authors and the entries the next run would credit, writing nothing.
 
 ## Fixing problems
 
@@ -220,7 +253,7 @@ Semantics we use consistently:
 ## Style
 
 - Descriptions in English, imperative-free, no marketing fluff ("amazing", "best").
-- Adding `description_zh` (and `notes_zh` when you add `notes`) is very welcome — native wording beats machine translation. The build warns when a translation is missing but never fails on it.
+- Adding `description_zh` (and `notes_zh` when you add `notes`) is very welcome — native wording beats machine translation. Neither is required: the build warns when a translation is missing but never fails on it. A row with no Chinese renders in English on `README.zh-CN.md` and on the site, and Chinese search will not match that entry.
 - One fact per entry; if a site has a separate free section, link **to the free section** when a stable URL for it exists — e.g. `https://www.motionelements.com/free/stock-footage`, `https://www.vecteezy.com/free-vector`. A green `linkcheck.py` is necessary but nowhere near sufficient: three kinds of page pass it and are still useless.
 
   | Trap | Real example from this repo | Does `linkcheck.py` catch it? |
@@ -273,16 +306,9 @@ The website's "Creator field notes" section is the one place the directory carri
 How a note gets published:
 
 1. Someone opens the issue form — the "✍️ Share your experience" button on the site, or the "Share how a resource worked out" link on the new-issue page. The form asks which resource (its URL, copied verbatim), the project, the experience, and when it happened.
-2. A maintainer reads the thread. A note is published as one person's experience, so it never overrides an entry's licence columns; if it contradicts one, fix the entry first.
-3. The maintainer adds a record to [`data/experiences/notes.json`](data/experiences/notes.json) and runs:
-
-   ```bash
-   python3 scripts/experiences.py --check   # id, anchor, evidence, lengths, dates
-   python3 scripts/build_readme.py          # regenerate both READMEs
-   python3 scripts/build_site.py            # local preview (deploy-time output)
-   ```
-
-4. The note then appears in both READMEs, in `site/all.html` for crawlers, and on the site itself.
+2. Every Monday, [`.github/workflows/experiences.yml`](.github/workflows/experiences.yml) runs [`scripts/sync_experiences.py`](scripts/sync_experiences.py), which turns each new submission into a record and opens **one pull request** carrying all of them. A submission that cannot be published — an unticked confirmation box, a date that is not a date, a URL that is not in the directory — is listed in the PR body under "Left out" with its reason, never quietly dropped.
+3. A maintainer reads that PR, which lists what each note will say. Merging it publishes them; deleting a record before merging rejects that one. The record claims `reviewed_by` the maintainer who merged, so merging after reading is exactly what makes that claim true.
+4. The note then appears in both READMEs, in `site/all.html` for crawlers, and on the site itself. Writing a record by hand is still allowed — the collector is a convenience, not the only door — and it must follow the same shape and rules below.
 
 `data/experiences/notes.json` is deliberately a second store: `build_readme.load_categories()` reads every `data/*.json` as a category file, and `check_pr.py` reads the same directory as the entry diff — a subdirectory is invisible to both, which is what a differently-shaped store needs. A record looks like this:
 
@@ -311,6 +337,37 @@ Rules `scripts/experiences.py` enforces in CI:
 - Notes are rendered in the language they were written in; the other language is not machine-translated.
 
 Rejected in review even when CI would pass: press releases, affiliate or referral links, "commercially fine" claims the entry's licence columns do not support, and notes about a site that is not in this directory.
+
+### Rejecting a submission for good
+
+Deleting a record from the PR rejects it once, but the next run would propose the same issue again, because the collector is idempotent by `evidence` url. So a rejection also adds the thread to [`data/experiences/skipped.json`](data/experiences/skipped.json):
+
+```json
+{
+  "version": 1,
+  "skipped": [
+    {
+      "url": "https://github.com/skyzhao1223/free-for-creators/issues/12",
+      "reason": "the write-up is an ad for the submitter's own course"
+    }
+  ]
+}
+```
+
+The reason is required and is repeated in the next PR body, so a rejection explains itself to whoever reads the queue later. A malformed ignore list fails the job instead of being ignored: the file only exists to keep a rejected submission rejected.
+
+### Running the collector by hand
+
+```bash
+python3 scripts/sync_experiences.py --fetch --dry-run                        # what would the next PR carry?
+python3 scripts/sync_experiences.py --from-json issues.json --dry-run        # offline, from a saved API page
+python3 scripts/sync_experiences.py --from-json issues.json --today 2026-06-01
+python3 scripts/sync_experiences.py --check                                  # the CI gate: store + ignore list
+```
+
+`--fetch` needs `GITHUB_TOKEN` (or `GH_TOKEN`) with read access to issues; `--dry-run` prints the PR body and writes nothing; `--from-json` takes a saved `/repos/{owner}/{repo}/issues` response so the whole path can be exercised offline. The workflow itself validates with `scripts/experiences.py --check`, the unit tests and `build_readme.py` before it pushes, because a pull request opened by `GITHUB_TOKEN` does not start a CI run of its own; it dispatches `ci.yml` on the branch explicitly afterwards.
+
+If a note should have been collected but was not, the PR body says why under "Left out" — a rejected submission always names its rule.
 
 ## Adding a category
 

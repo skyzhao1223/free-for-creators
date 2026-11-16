@@ -1,0 +1,79 @@
+name: Share your experience
+description: Tell other creators how one of the listed resources actually worked out — what you made, what the license looked like in practice, what went wrong.
+title: "[Experience] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for writing this up. A maintainer reads every thread and then publishes the
+        note on the site, next to the resource it is about — credited to you, linked back
+        to this issue. Nothing is published automatically.
+
+        Good notes are specific: the project, the licence you actually relied on, the one
+        thing you wish you had known. Please keep it to one resource.
+  - type: input
+    id: entry_url
+    attributes:
+      label: Which resource is this about?
+      description: Paste the entry's URL exactly as the list writes it — it is the anchor your note is filed under.
+      placeholder: https://fonts.google.com/
+    validations:
+      required: true
+  - type: dropdown
+    id: lang
+    attributes:
+      label: Language of your write-up
+      options:
+        - 中文
+        - English
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: When did you use it?
+      description: The month or day the work happened, as YYYY-MM-DD or YYYY-MM.
+      placeholder: "2026-03-11"
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: One line that says what you made (6-90 characters)
+      placeholder: 用它的中文字体做了整套视频字幕
+    validations:
+      required: true
+  - type: textarea
+    id: body
+    attributes:
+      label: What did you make, and what did you learn? (80-800 characters)
+      description: One paragraph, no line breaks. What was the project? Did the licence hold up? What surprised you, good or bad? What would you tell the next creator?
+      placeholder: 我给一支 12 分钟的纪录短片做了全套字幕……
+    validations:
+      required: true
+  - type: input
+    id: tags
+    attributes:
+      label: Tags (optional, up to 3, comma separated)
+      description: Short labels that help people find this note.
+      placeholder: 视频字幕, 商用
+    validations:
+      required: false
+  - type: input
+    id: credit_as
+    attributes:
+      label: Credit as (optional)
+      description: GitHub handle to credit. Leave empty to use your own username.
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Before you post
+      options:
+        - label: This is my own first-hand experience with the resource, not a press release or an ad.
+          required: true
+        - label: I checked the current licence on the source site myself, and I am not telling anyone this note is legal advice.
+          required: true
+        - label: This thread may be published on the site under CC0, credited to my GitHub handle, with a link back here.
+          required: true

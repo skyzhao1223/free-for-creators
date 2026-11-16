@@ -124,12 +124,16 @@ class CoherenceTests(unittest.TestCase):
         check_entry.check_coherence(entry(license_family="cc0", attribution="required"), "w", errors, warnings)
         self.assertTrue(any("attribution" in e for e in errors), errors)
 
-    def test_missing_description_zh_is_an_error(self):
+    def test_missing_description_zh_is_a_warning_not_an_error(self):
+        # Deliberately not a required field: somebody who cannot write Chinese can still
+        # land an entry, and that row renders in English on the Chinese page instead.
+        self.assertNotIn("description_zh", check_entry.REQUIRED_ENTRY_FIELDS)
         errors, warnings = [], []
         e = entry()
         del e["description_zh"]
         check_entry.check_coherence(e, "w", errors, warnings)
-        self.assertTrue(any("description_zh" in x for x in errors), errors)
+        self.assertEqual(errors, [])
+        self.assertTrue(any("description_zh" in w for w in warnings), warnings)
 
     def test_notes_without_notes_zh_is_only_a_warning(self):
         errors, warnings = [], []

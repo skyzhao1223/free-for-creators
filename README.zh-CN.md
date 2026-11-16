@@ -59,6 +59,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 - [样机与设计模板](#样机与设计模板) — 12 个资源 · PSD/设备样机、封面图与社交媒体模板。
 - [3D 与游戏素材](#3d-与游戏素材) — 27 个资源 · 模型、HDRI、PBR 材质、角色与游戏即用素材包。
 - [聚合搜索](#聚合搜索) — 9 个资源 · 跨开放许可图片、音频与媒体的聚合搜索。
+- [创作者使用经历](#创作者使用经历)
 - [相关清单](#相关清单)
 - [贡献者](#贡献者)
 - [参与贡献](#参与贡献)
@@ -368,16 +369,20 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 - [GameDev-Resources](https://github.com/Kavex/GameDev-Resources) — 游戏开发资源
 - [design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) — 面向开发者的设计资源
 
+## 创作者使用经历
+
+*还没有人分享——第一条可以是你。用过清单里的资源？[写下你的使用经历](https://github.com/skyzhao1223/free-for-creators/issues/new?template=share-experience.yml)：做了什么、许可靠不靠得住、有什么想提醒下一个创作者的。维护者读过之后再收录到这里，并署上你的 GitHub 用户名。*
+
 ## 贡献者
 
-感谢提供资源的人：
+感谢提供资源、提交 PR 的人：
 
 - [@flreey](https://github.com/flreey)
 - [@vfseanm](https://github.com/vfseanm)
 - [@jaydenhertz](https://github.com/jaydenhertz)
 - [@omrishragaxyz](https://github.com/omrishragaxyz)
 
-投稿者的名字会出现在对应条目旁；纠正与死链修复则以对应 issue / PR 为凭。想加入这份名单，请看 [CONTRIBUTING.md](CONTRIBUTING.md)。
+投稿者的名字会出现在对应条目旁；合并过 PR 的人会自动记录在 [`contributors.json`](contributors.json) 里，并署在它新增的条目旁；纠正与死链修复则以对应 issue / PR 为凭。想加入这份名单，请看 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## 参与贡献
 
