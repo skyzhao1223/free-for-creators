@@ -1,0 +1,16 @@
+{
+  "fingerprint": "b13c74fd6afbdfb494359438f2f2f756f8fd12bdd00a6d0c6c38a052a9176f6b",
+  "images": {
+    "assets/banner.png": "f39cd012b84ef7904c97f15b18c816cd482b65e644ea58845ca2cfcf28905669",
+    "assets/banner.webp": "486eb19d468f0a8d8ca0293fa9d6f881ec400f93ab73dca1f71ed6bd1f8f2af7",
+    "assets/social-preview.png": "d140d6793303eb8f23ce339875817814817cd20240569a485eca945d9c4343c0"
+  },
+  "inputs": {
+    ".github/workflows/pages.yml": "110a2cf00313e81fb8b55253f6d4b6f62be4963f76b4803746e73518560a7ca5",
+    "assets/social-preview.html": "b3af2d7992203a8d784e3b71c11e1f70a60c0e7c24fbe83007bfd0e0aa387c10",
+    "scripts/check_banner.py": "a4ee5d76ed349c977fb41898796bbdda0d33bd812c3416ff4a066deef778a860",
+    "scripts/render_banner.py": "d5f9ddbe444e4c77607f85a1b9e9b5d1fb4fc990a24bac09594ab9dc67f84235"
+  },
+  "render_config_version": "chrome-2x-1280x640-v1-pillow-lanczos-webp-q90-sharp-yuv-linux-fonts",
+  "schema_version": 1
+}
