@@ -206,6 +206,22 @@
       "submitted_by": "jaydenhertz",
       "license_checked": "2026-11-02",
       "license_source": "https://dailysounds.org/license"
+    },
+    {
+      "name": "Hearthlight 00: Free Cozy Sound Effects Sampler",
+      "url": "https://csaf.itch.io/hearthlight-00-free-cozy-sound-effects-sampler",
+      "description": "27 cozy sound effects (WAV and OGG) for farming, cooking and pet games, including 5 loops; a free sampler with a commercial-use licence.",
+      "description_zh": "27 个温馨音效（WAV 与 OGG），适用于种田、烹饪与宠物游戏，含 5 个循环音；免费样包，可用于商业项目。",
+      "license": "Hearthlight sampler licence (custom royalty-free)",
+      "license_family": "site-free",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Commercial games, video, streams and client work allowed without credit; audio files may not be resold as sounds. Licence verified in the maintainer's public repo (itch.io unreachable here).",
+      "notes_zh": "可用于商业游戏、视频、直播与客户项目，无需署名；音频文件不得转售。因 itch.io 无法访问，许可证已在其维护者的公开仓库核验。",
+      "submitted_by": "onefreeman1337",
+      "license_checked": "2026-11-24",
+      "license_source": "https://raw.githubusercontent.com/onefreeman1337/csaf-releases/main/samplers/hearthlight-00-free-sampler/LICENSE.txt"
     }
   ]
 }
