@@ -1,13 +1,13 @@
 {
-  "fingerprint": "b13c74fd6afbdfb494359438f2f2f756f8fd12bdd00a6d0c6c38a052a9176f6b",
+  "fingerprint": "aa8ab3360d93e0dbe4cea5f7b364f599e78b4e0274f7dc3ff904b7707809b3de",
   "images": {
-    "assets/banner.png": "f39cd012b84ef7904c97f15b18c816cd482b65e644ea58845ca2cfcf28905669",
-    "assets/banner.webp": "486eb19d468f0a8d8ca0293fa9d6f881ec400f93ab73dca1f71ed6bd1f8f2af7",
-    "assets/social-preview.png": "d140d6793303eb8f23ce339875817814817cd20240569a485eca945d9c4343c0"
+    "assets/banner.png": "0e344defa1e60502f766c83eeacdc757f8ca3728832606215ceea2467da69e89",
+    "assets/banner.webp": "8ef09fd25f8d080106728b48fcfa09ef3f93f0c7614fe3255f4edf67854482e0",
+    "assets/social-preview.png": "2bb0e5967f34f217c05c77c0168b82b6eea3b0610b07abfea6717ae09d831d2e"
   },
   "inputs": {
     ".github/workflows/pages.yml": "110a2cf00313e81fb8b55253f6d4b6f62be4963f76b4803746e73518560a7ca5",
-    "assets/social-preview.html": "b3af2d7992203a8d784e3b71c11e1f70a60c0e7c24fbe83007bfd0e0aa387c10",
+    "assets/social-preview.html": "f5af6aaf89a6ca042c51d106c98440d246741055d5e4809ec4ffd5b23e72181f",
     "scripts/check_banner.py": "a4ee5d76ed349c977fb41898796bbdda0d33bd812c3416ff4a066deef778a860",
     "scripts/render_banner.py": "d5f9ddbe444e4c77607f85a1b9e9b5d1fb4fc990a24bac09594ab9dc67f84235"
   },
